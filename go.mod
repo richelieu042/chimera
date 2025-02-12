@@ -54,7 +54,7 @@ require (
 	github.com/hibiken/asynq v0.25.1
 	github.com/imroc/req/v3 v3.49.1
 	github.com/itchyny/gojq v0.12.17
-	github.com/jedib0t/go-pretty/v6 v6.6.5
+	github.com/jedib0t/go-pretty/v6 v6.6.6
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
@@ -122,18 +122,18 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.14.0
 	golang.org/x/crypto v0.33.0
-	golang.org/x/exp v0.0.0-20250207012021-f9890c6ad9f3
+	golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac
 	golang.org/x/image v0.24.0
-	golang.org/x/mobile v0.0.0-20250106192035-c31d5b91ecc3
+	golang.org/x/mobile v0.0.0-20250210185054-b38b8813d607
 	golang.org/x/mod v0.23.0
-	golang.org/x/net v0.34.0
+	golang.org/x/net v0.35.0
 	golang.org/x/oauth2 v0.26.0
 	golang.org/x/sync v0.11.0
 	golang.org/x/sys v0.30.0
 	golang.org/x/term v0.29.0
 	golang.org/x/text v0.22.0
 	golang.org/x/time v0.10.0
-	golang.org/x/tools v0.29.0
+	golang.org/x/tools v0.30.0
 	google.golang.org/grpc v1.70.0
 	google.golang.org/protobuf v1.36.5
 	gopkg.in/yaml.v3 v3.0.1
