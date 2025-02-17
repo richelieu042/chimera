@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.23
+go 1.24
 
 require (
 	fyne.io/fyne/v2 v2.5.4
@@ -32,7 +32,7 @@ require (
 	github.com/go-kratos/kratos/v2 v2.8.3
 	github.com/go-oauth2/oauth2/v4 v4.5.2
 	github.com/go-pay/gopay v1.5.108
-	github.com/go-playground/validator/v10 v10.24.0
+	github.com/go-playground/validator/v10 v10.25.0
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/goccy/go-json v0.10.5
 	github.com/gogf/gf/v2 v2.8.3
@@ -45,7 +45,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.31.0
+	github.com/hashicorp/consul/api v1.31.1
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -83,7 +83,7 @@ require (
 	github.com/pelletier/go-toml/v2 v2.2.3
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
-	github.com/playwright-community/playwright-go v0.4902.0
+	github.com/playwright-community/playwright-go v0.5001.0
 	github.com/redis/go-redis/v9 v9.7.0
 	github.com/redis/rueidis v1.0.54
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
@@ -98,7 +98,7 @@ require (
 	github.com/sony/sonyflake v1.2.0
 	github.com/spf13/afero v1.12.0
 	github.com/spf13/cast v1.7.1
-	github.com/spf13/cobra v1.8.1
+	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.19.0
 	github.com/stretchr/testify v1.10.0
 	github.com/tidwall/buntdb v1.3.2
@@ -107,8 +107,8 @@ require (
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.0.2
 	github.com/xuri/excelize/v2 v2.9.0
-	github.com/yeqown/go-qrcode/v2 v2.2.4
-	github.com/yeqown/go-qrcode/writer/standard v1.2.4
+	github.com/yeqown/go-qrcode/v2 v2.2.5
+	github.com/yeqown/go-qrcode/writer/standard v1.2.5
 	go.etcd.io/etcd/client/v3 v3.5.18
 	go.mongodb.org/mongo-driver v1.17.2
 	go.opentelemetry.io/otel v1.34.0
@@ -122,7 +122,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.14.0
 	golang.org/x/crypto v0.33.0
-	golang.org/x/exp v0.0.0-20250210185358-939b2ce775ac
+	golang.org/x/exp v0.0.0-20250215185904-eff6e970281f
 	golang.org/x/image v0.24.0
 	golang.org/x/mobile v0.0.0-20250210185054-b38b8813d607
 	golang.org/x/mod v0.23.0
@@ -331,7 +331,7 @@ require (
 	github.com/signalsciences/ac v1.2.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	github.com/spf13/pflag v1.0.5 // indirect
+	github.com/spf13/pflag v1.0.6 // indirect
 	github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c // indirect
 	github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
