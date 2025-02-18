@@ -62,7 +62,7 @@ tasks:
   darwin-arm64:
     cmds:
       - task: build
-        vars: { OS: darwin, ARCH: arm64, TAGS: go_json, UPX: false }
+        vars: { OS: darwin, ARCH: arm64, TAGS: sonic, UPX: false }
   linux-amd64:
     cmds:
       - task: build
