@@ -7,6 +7,8 @@ import (
 )
 
 func TestSendMail(t *testing.T) {
+	/* 仅供参考，下面的 Password 已失效 */
+
 	sender := &SmtpConfig{
 		Address:  "smtp.163.com:25",
 		Host:     "smtp.163.com",

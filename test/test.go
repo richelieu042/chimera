@@ -1,24 +1,29 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"go.uber.org/zap"
-	"os"
+	"encoding/json"
+	"fmt"
+	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+	"time"
 )
 
-func main() {
-	if len(os.Args) != 3 {
-		console.Panic("len(os.Args) invalid", zap.Int("length", len(os.Args)))
-	}
-	certFile := os.Args[1]
-	keyFile := os.Args[2]
+type Bean struct {
+	ID        string    `json:"id"`
+	UpdatedAt time.Time `json:"updated_at,omitzero"`
+}
 
-	engine := gin.Default()
-	engine.Any("/test", func(ctx *gin.Context) {
-		ctx.String(200, "Hello world!")
-	})
-	if err := engine.RunTLS(":666", certFile, keyFile); err != nil {
-		console.Fatalf("Fail to run, error: %s", err)
+func main() {
+	b := &Bean{
+		ID:        "123",
+		UpdatedAt: time.Time{},
 	}
+
+	data, err := json.Marshal(b)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(string(data))
+
+	fmt.Println(jsonKit.GetLibrary())
+	fmt.Println(jsonKit.MarshalToString(b))
 }
