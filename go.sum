@@ -863,8 +863,8 @@ github.com/hashicorp/memberlist v0.5.0/go.mod h1:yvyXLpo0QaGE59Y7hDTsTzDD25JYBZ4
 github.com/hashicorp/raft v1.1.0/go.mod h1:4Ak7FSPnuvmb0GV6vgIAJ4vYT4bek9bb6Q+7HVbyzqM=
 github.com/hashicorp/raft v1.7.2 h1:pyvxhfJ4R8VIAlHKvLoKQWElZspsCVT6YWuxVxsPAgc=
 github.com/hashicorp/raft v1.7.2/go.mod h1:DfvCGFxpAUPE0L4Uc8JLlTPtc3GzSbdH0MTJCLgnmJQ=
-github.com/hashicorp/raft-boltdb v0.0.0-20250221072210-ad20aa75763d h1:XQhdElYW9VSEi91rOuwbIRobW03LWMqhiojHW6gd8ok=
-github.com/hashicorp/raft-boltdb v0.0.0-20250221072210-ad20aa75763d/go.mod h1:FLQZr+lEOtW/5JZQCqRihQOrmyqWRqpJ+pP1gjb8XTE=
+github.com/hashicorp/raft-boltdb v0.0.0-20250225060035-8f7048cdfa53 h1:fUf95VbhzEWlq/ybLgAl/RuglyFnTNGbqyx8yLyeuCQ=
+github.com/hashicorp/raft-boltdb v0.0.0-20250225060035-8f7048cdfa53/go.mod h1:FLQZr+lEOtW/5JZQCqRihQOrmyqWRqpJ+pP1gjb8XTE=
 github.com/hashicorp/serf v0.8.2/go.mod h1:6hOLApaqBFA1NXqRQAsxw9QxuDEvNxSQRwA/JwenrHc=
 github.com/hashicorp/serf v0.10.1 h1:Z1H2J60yRKvfDYAOZLd2MU0ND4AH/WDz7xYHDWQsIPY=
 github.com/hashicorp/serf v0.10.1/go.mod h1:yL2t6BqATOLGc5HF7qbFkTfXoPIY0WZdWHfEvMqbG+4=

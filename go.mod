@@ -52,7 +52,7 @@ require (
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/hashicorp/raft v1.7.2
-	github.com/hashicorp/raft-boltdb v0.0.0-20250221072210-ad20aa75763d
+	github.com/hashicorp/raft-boltdb v0.0.0-20250225060035-8f7048cdfa53
 	github.com/hibiken/asynq v0.25.1
 	github.com/imroc/req/v3 v3.49.1
 	github.com/itchyny/gojq v0.12.17
