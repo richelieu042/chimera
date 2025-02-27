@@ -16,7 +16,7 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.7.0
-	github.com/dromara/carbon/v2 v2.5.2
+	github.com/dromara/carbon/v2 v2.5.3
 	github.com/duke-git/lancet/v2 v2.3.4
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
