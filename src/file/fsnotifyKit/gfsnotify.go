@@ -7,7 +7,7 @@ var (
 	/*
 		@param path 文件 || 目录
 	*/
-	Add func(path string, callbackFunc func(event *gfsnotify.Event), recursive ...bool) (callback *gfsnotify.Callback, err error) = gfsnotify.Add
+	Add func(path string, callbackFunc func(event *gfsnotify.Event), option ...gfsnotify.WatchOption) (callback *gfsnotify.Callback, err error) = gfsnotify.Add
 
 	// Remove 移除监听.
 	Remove func(path string) error = gfsnotify.Remove

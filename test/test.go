@@ -7,14 +7,14 @@ import (
 	"time"
 )
 
-type MyInt[T comparable] = int
-
-type Result[T any] = struct {
-	Value T
-	Error error
-}
-
-type AsyncResult[T any, S ~[]T] = func() (Result[T], S)
+//type MyInt[T comparable] = int
+//
+//type Result[T any] = struct {
+//	Value T
+//	Error error
+//}
+//
+//type AsyncResult[T any, S ~[]T] = func() (Result[T], S)
 
 type Bean struct {
 	ID        string     `json:"id"`
