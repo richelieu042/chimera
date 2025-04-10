@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24.1
+go 1.24.2
 
 require (
 	fyne.io/fyne/v2 v2.5.5
@@ -14,25 +14,25 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.1
+	github.com/dromara/carbon/v2 v2.6.2
 	github.com/duke-git/lancet/v2 v2.3.5
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.18.2
 	github.com/fatih/structs v1.1.0
-	github.com/fsnotify/fsnotify v1.8.0
+	github.com/fsnotify/fsnotify v1.9.0
 	github.com/gabriel-vasile/mimetype v1.4.8
-	github.com/gin-contrib/cors v1.7.4
-	github.com/gin-contrib/gzip v1.2.2
-	github.com/gin-contrib/pprof v1.5.2
-	github.com/gin-contrib/size v1.0.1
-	github.com/gin-contrib/sse v1.0.0
-	github.com/gin-contrib/static v1.1.3
+	github.com/gin-contrib/cors v1.7.5
+	github.com/gin-contrib/gzip v1.2.3
+	github.com/gin-contrib/pprof v1.5.3
+	github.com/gin-contrib/size v1.0.2
+	github.com/gin-contrib/sse v1.1.0
+	github.com/gin-contrib/static v1.1.5
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-kratos/kratos/v2 v2.8.4
-	github.com/go-oauth2/oauth2/v4 v4.5.2
+	github.com/go-oauth2/oauth2/v4 v4.5.3
 	github.com/go-pay/gopay v1.5.110
-	github.com/go-playground/validator/v10 v10.25.0
+	github.com/go-playground/validator/v10 v10.26.0
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/goccy/go-json v0.10.5
 	github.com/gogf/gf/v2 v2.9.0
@@ -45,7 +45,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.31.2
+	github.com/hashicorp/consul/api v1.32.0
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -64,9 +64,9 @@ require (
 	github.com/linxGnu/grocksdb v1.9.9
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20241220152942-06eb5c6e8230
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
-	github.com/magiconair/properties v1.8.9
+	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
-	github.com/medama-io/go-useragent v1.0.3
+	github.com/medama-io/go-useragent v1.1.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
@@ -74,18 +74,18 @@ require (
 	github.com/nacos-group/nacos-sdk-go/v2 v2.2.9
 	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
-	github.com/nicksnyder/go-i18n/v2 v2.5.1
+	github.com/nicksnyder/go-i18n/v2 v2.6.0
 	github.com/oklog/ulid/v2 v2.1.0
 	github.com/olahol/melody v1.2.1
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.11.2
 	github.com/pdfcpu/pdfcpu v0.9.1
-	github.com/pelletier/go-toml/v2 v2.2.3
+	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
-	github.com/playwright-community/playwright-go v0.5001.0
+	github.com/playwright-community/playwright-go v0.5101.0
 	github.com/redis/go-redis/v9 v9.7.3
-	github.com/redis/rueidis v1.0.56
+	github.com/redis/rueidis v1.0.57
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/rs/xid v1.6.0
@@ -105,7 +105,7 @@ require (
 	github.com/tidwall/gjson v1.18.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	github.com/unidoc/unioffice v1.39.0
-	github.com/vulcand/oxy/v2 v2.0.2
+	github.com/vulcand/oxy/v2 v2.0.3
 	github.com/xuri/excelize/v2 v2.9.0
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.2.5
@@ -120,21 +120,21 @@ require (
 	go.opentelemetry.io/otel/trace v1.35.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.0
-	golang.org/x/arch v0.15.0
-	golang.org/x/crypto v0.36.0
-	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394
-	golang.org/x/image v0.25.0
-	golang.org/x/mobile v0.0.0-20250305212854-3a7bc9f8a4de
+	golang.org/x/arch v0.16.0
+	golang.org/x/crypto v0.37.0
+	golang.org/x/exp v0.0.0-20250408133849-7e4ce0ab07d0
+	golang.org/x/image v0.26.0
+	golang.org/x/mobile v0.0.0-20250408133729-978277e7eaf7
 	golang.org/x/mod v0.24.0
-	golang.org/x/net v0.38.0
-	golang.org/x/oauth2 v0.28.0
-	golang.org/x/sync v0.12.0
-	golang.org/x/sys v0.31.0
-	golang.org/x/term v0.30.0
-	golang.org/x/text v0.23.0
+	golang.org/x/net v0.39.0
+	golang.org/x/oauth2 v0.29.0
+	golang.org/x/sync v0.13.0
+	golang.org/x/sys v0.32.0
+	golang.org/x/term v0.31.0
+	golang.org/x/text v0.24.0
 	golang.org/x/time v0.11.0
-	golang.org/x/tools v0.31.0
-	google.golang.org/grpc v1.71.0
+	golang.org/x/tools v0.32.0
+	google.golang.org/grpc v1.71.1
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -157,7 +157,7 @@ require (
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 // indirect
 	github.com/99designs/keyring v1.2.1 // indirect
 	github.com/AthenZ/athenz v1.10.39 // indirect
-	github.com/BurntSushi/toml v1.4.0 // indirect
+	github.com/BurntSushi/toml v1.5.0 // indirect
 	github.com/ClickHouse/ch-go v0.61.5 // indirect
 	github.com/ClickHouse/clickhouse-go/v2 v2.23.2 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
@@ -239,7 +239,6 @@ require (
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
-	github.com/golang-jwt/jwt v3.2.1+incompatible // indirect
 	github.com/golang-sql/civil v0.0.0-20220223132316-b832511892a9 // indirect
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
@@ -319,7 +318,7 @@ require (
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/quic-go/qpack v0.5.1 // indirect
 	github.com/quic-go/quic-go v0.48.2 // indirect
-	github.com/redis/rueidis/rueidiscompat v1.0.56 // indirect
+	github.com/redis/rueidis/rueidiscompat v1.0.57 // indirect
 	github.com/refraction-networking/utls v1.6.7 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect

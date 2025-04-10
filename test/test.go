@@ -1,43 +1,36 @@
 package main
 
 import (
-	"encoding/json"
-	"fmt"
-	"github.com/bytedance/sonic"
-	"time"
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu-yang/chimera/v3/src/log/console"
 )
 
-//type MyInt[T comparable] = int
-//
-//type Result[T any] = struct {
-//	Value T
-//	Error error
-//}
-//
-//type AsyncResult[T any, S ~[]T] = func() (Result[T], S)
-
-type Bean struct {
-	ID        string     `json:"id"`
-	UpdatedAt *time.Time `json:"updated_at,omitzero"`
-}
-
 func main() {
-	b := &Bean{
-		ID:        "123",
-		UpdatedAt: nil,
-	}
+	engine := gin.Default()
 
-	// (1) 支持：标准库
-	data, err := json.Marshal(b)
-	if err != nil {
+	engine.Any("/test", func(ctx *gin.Context) {
+		console.Info("---")
+		s := []string{
+			"X-Forwarded-For",
+			"X-Real-IP",
+			"Forwarded",
+			"Via",
+			"CF-Connecting-IP",
+			"True-Client-IP",
+		}
+		for _, key := range s {
+			value := ctx.Request.Header.Get(key)
+			console.Infof("[HEADER] key: %s, value: %s", key, value)
+		}
+
+		console.Infof("ClientIP: %s", ctx.ClientIP())
+		console.Infof("RemoteIP: %s", ctx.RemoteIP())
+		console.Info("===")
+
+		ctx.String(200, "Hello world!")
+	})
+
+	if err := engine.Run(":8001"); err != nil {
 		panic(err)
 	}
-	fmt.Println("std:", string(data))
-
-	// (2) 支持：sonic
-	str, err := sonic.MarshalString(b)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println("sonic:", str)
 }
