@@ -14,14 +14,14 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.2
+	github.com/dromara/carbon/v2 v2.6.3
 	github.com/duke-git/lancet/v2 v2.3.5
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.18.2
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.9.0
-	github.com/gabriel-vasile/mimetype v1.4.8
+	github.com/gabriel-vasile/mimetype v1.4.9
 	github.com/gin-contrib/cors v1.7.5
 	github.com/gin-contrib/gzip v1.2.3
 	github.com/gin-contrib/pprof v1.5.3
@@ -79,7 +79,7 @@ require (
 	github.com/olahol/melody v1.2.1
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.11.3
-	github.com/pdfcpu/pdfcpu v0.9.1
+	github.com/pdfcpu/pdfcpu v0.10.1
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
@@ -134,7 +134,7 @@ require (
 	golang.org/x/text v0.24.0
 	golang.org/x/time v0.11.0
 	golang.org/x/tools v0.32.0
-	google.golang.org/grpc v1.71.1
+	google.golang.org/grpc v1.72.0
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -269,7 +269,8 @@ require (
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/hashicorp/serf v0.10.1 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
-	github.com/hhrutter/tiff v1.0.1 // indirect
+	github.com/hhrutter/pkcs7 v0.2.0 // indirect
+	github.com/hhrutter/tiff v1.0.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/itchyny/timefmt-go v0.1.6 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
