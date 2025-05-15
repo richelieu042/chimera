@@ -1,9 +1,9 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24.2
+go 1.24.3
 
 require (
-	fyne.io/fyne/v2 v2.6.0
+	fyne.io/fyne/v2 v2.6.1
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.1.1
 	github.com/apache/pulsar-client-go v0.15.0
@@ -14,7 +14,7 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.4
+	github.com/dromara/carbon/v2 v2.6.5
 	github.com/duke-git/lancet/v2 v2.3.5
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -31,7 +31,7 @@ require (
 	github.com/gin-gonic/gin v1.10.0
 	github.com/go-kratos/kratos/v2 v2.8.4
 	github.com/go-oauth2/oauth2/v4 v4.5.3
-	github.com/go-pay/gopay v1.5.112
+	github.com/go-pay/gopay v1.5.113
 	github.com/go-playground/validator/v10 v10.26.0
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/goccy/go-json v0.10.5
@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.0
 	github.com/klauspost/cpuid/v2 v2.2.10
 	github.com/linxGnu/grocksdb v1.10.0
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250505114613-ec1ae9504ebb
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250508043914-ed57fa5c5274
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -106,9 +106,9 @@ require (
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.0.3
-	github.com/xuri/excelize/v2 v2.9.0
+	github.com/xuri/excelize/v2 v2.9.1
 	github.com/yeqown/go-qrcode/v2 v2.2.5
-	github.com/yeqown/go-qrcode/writer/standard v1.2.6
+	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.5.21
 	go.mongodb.org/mongo-driver v1.17.3
 	go.opentelemetry.io/otel v1.35.0
@@ -134,7 +134,7 @@ require (
 	golang.org/x/text v0.25.0
 	golang.org/x/time v0.11.0
 	golang.org/x/tools v0.33.0
-	google.golang.org/grpc v1.72.0
+	google.golang.org/grpc v1.72.1
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -143,7 +143,7 @@ require (
 	gorm.io/driver/postgres v1.5.11
 	gorm.io/driver/sqlite v1.5.7
 	gorm.io/driver/sqlserver v1.5.4
-	gorm.io/gorm v1.26.0
+	gorm.io/gorm v1.26.1
 	sigs.k8s.io/yaml v1.4.0
 )
 
@@ -301,7 +301,6 @@ require (
 	github.com/minio/asm2plan9s v0.0.0-20200509001527-cdd76441f9d8 // indirect
 	github.com/minio/c2goasm v0.0.0-20190812172519-36a3d3bbc4f3 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
-	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/montanaflynn/stats v0.7.1 // indirect
 	github.com/mtibben/percent v0.2.1 // indirect
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
@@ -346,6 +345,7 @@ require (
 	github.com/tidwall/pretty v1.2.1 // indirect
 	github.com/tidwall/rtred v0.1.2 // indirect
 	github.com/tidwall/tinyqueue v0.1.1 // indirect
+	github.com/tiendc/go-deepcopy v1.6.0 // indirect
 	github.com/tjfoc/gmsm v1.4.1 // indirect
 	github.com/tklauser/go-sysconf v0.3.12 // indirect
 	github.com/tklauser/numcpus v0.6.1 // indirect
@@ -357,8 +357,8 @@ require (
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
-	github.com/xuri/efp v0.0.0-20240408161823-9ad904a10d6d // indirect
-	github.com/xuri/nfp v0.0.0-20240318013403-ab9948c2c4a7 // indirect
+	github.com/xuri/efp v0.0.1 // indirect
+	github.com/xuri/nfp v0.0.1 // indirect
 	github.com/yeqown/reedsolomon v1.0.0 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
 	github.com/yuin/goldmark v1.7.8 // indirect
