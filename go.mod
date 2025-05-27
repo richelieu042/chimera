@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24
+go 1.24.3
 
 require (
 	fyne.io/fyne/v2 v2.6.1
