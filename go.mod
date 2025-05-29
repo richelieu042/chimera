@@ -15,7 +15,7 @@ require (
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
 	github.com/dromara/carbon/v2 v2.6.7
-	github.com/duke-git/lancet/v2 v2.3.5
+	github.com/duke-git/lancet/v2 v2.3.6
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.18.2
@@ -50,7 +50,7 @@ require (
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/hashicorp/raft v1.7.3
-	github.com/hashicorp/raft-boltdb v0.0.0-20250225060035-8f7048cdfa53
+	github.com/hashicorp/raft-boltdb v0.0.0-20250528070419-144f8b0a1edb
 	github.com/hibiken/asynq v0.25.1
 	github.com/imroc/req/v3 v3.52.2
 	github.com/itchyny/gojq v0.12.17
@@ -71,7 +71,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.20.0
-	github.com/nacos-group/nacos-sdk-go/v2 v2.3.1
+	github.com/nacos-group/nacos-sdk-go/v2 v2.3.2
 	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.0
@@ -79,12 +79,12 @@ require (
 	github.com/olahol/melody v1.2.1
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.11.3
-	github.com/pdfcpu/pdfcpu v0.10.2
+	github.com/pdfcpu/pdfcpu v0.11.0
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.0
-	github.com/redis/go-redis/v9 v9.8.0
+	github.com/redis/go-redis/v9 v9.9.0
 	github.com/redis/rueidis v1.0.60
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -140,7 +140,7 @@ require (
 	gorm.io/driver/bigquery v1.2.0
 	gorm.io/driver/clickhouse v0.7.0
 	gorm.io/driver/mysql v1.5.7
-	gorm.io/driver/postgres v1.5.11
+	gorm.io/driver/postgres v1.6.0
 	gorm.io/driver/sqlite v1.5.7
 	gorm.io/driver/sqlserver v1.6.0
 	gorm.io/gorm v1.30.0
@@ -282,9 +282,9 @@ require (
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/itchyny/timefmt-go v0.1.6 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
-	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
-	github.com/jackc/pgx/v5 v5.5.5 // indirect
-	github.com/jackc/puddle/v2 v2.2.1 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+	github.com/jackc/pgx/v5 v5.6.0 // indirect
+	github.com/jackc/puddle/v2 v2.2.2 // indirect
 	github.com/jeandeaual/go-locale v0.0.0-20241217141322-fcc2cadd6f08 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
