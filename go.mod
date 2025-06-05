@@ -8,7 +8,7 @@ require (
 	github.com/andybalholm/brotli v1.1.1
 	github.com/apache/pulsar-client-go v0.15.1
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.2
-	github.com/bytedance/sonic v1.13.2
+	github.com/bytedance/sonic v1.13.3
 	github.com/centrifugal/centrifuge v0.36.0
 	github.com/centrifugal/gocent/v3 v3.3.0
 	github.com/coocood/freecache v1.2.4
@@ -50,7 +50,7 @@ require (
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/hashicorp/raft v1.7.3
-	github.com/hashicorp/raft-boltdb v0.0.0-20250528070419-144f8b0a1edb
+	github.com/hashicorp/raft-boltdb v0.0.0-20250603080355-5acfa2a95991
 	github.com/hibiken/asynq v0.25.1
 	github.com/imroc/req/v3 v3.52.2
 	github.com/itchyny/gojq v0.12.17
@@ -97,7 +97,7 @@ require (
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/sony/sonyflake v1.2.1
 	github.com/spf13/afero v1.14.0
-	github.com/spf13/cast v1.8.0
+	github.com/spf13/cast v1.9.2
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.10.0
@@ -122,7 +122,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.17.0
 	golang.org/x/crypto v0.38.0
-	golang.org/x/exp v0.0.0-20250506013437-ce4c2cf36ca6
+	golang.org/x/exp v0.0.0-20250531010427-b6e5de432a8b
 	golang.org/x/image v0.27.0
 	golang.org/x/mobile v0.0.0-20250520180527-a1d90793fc63
 	golang.org/x/mod v0.24.0
@@ -139,9 +139,9 @@ require (
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
 	gorm.io/driver/clickhouse v0.7.0
-	gorm.io/driver/mysql v1.5.7
+	gorm.io/driver/mysql v1.6.0
 	gorm.io/driver/postgres v1.6.0
-	gorm.io/driver/sqlite v1.5.7
+	gorm.io/driver/sqlite v1.6.0
 	gorm.io/driver/sqlserver v1.6.0
 	gorm.io/gorm v1.30.0
 	sigs.k8s.io/yaml v1.4.0
@@ -155,6 +155,7 @@ require (
 	cloud.google.com/go/compute/metadata v0.6.0 // indirect
 	cloud.google.com/go/iam v1.4.1 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.6.0 // indirect
+	filippo.io/edwards25519 v1.1.0 // indirect
 	fyne.io/systray v1.11.0 // indirect
 	github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4 // indirect
 	github.com/99designs/keyring v1.2.1 // indirect
@@ -235,7 +236,7 @@ require (
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-sql-driver/mysql v1.7.0 // indirect
+	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/go-text/render v0.2.0 // indirect
