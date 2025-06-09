@@ -9,7 +9,7 @@ require (
 	github.com/apache/pulsar-client-go v0.15.1
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.2
 	github.com/bytedance/sonic v1.13.3
-	github.com/centrifugal/centrifuge v0.36.0
+	github.com/centrifugal/centrifuge v0.36.1
 	github.com/centrifugal/gocent/v3 v3.3.0
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
@@ -76,7 +76,7 @@ require (
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.0
 	github.com/oklog/ulid/v2 v2.1.1
-	github.com/olahol/melody v1.2.1
+	github.com/olahol/melody v1.3.0
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.11.3
 	github.com/pdfcpu/pdfcpu v0.11.0
@@ -84,8 +84,8 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.0
-	github.com/redis/go-redis/v9 v9.9.0
-	github.com/redis/rueidis v1.0.60
+	github.com/redis/go-redis/v9 v9.10.0
+	github.com/redis/rueidis v1.0.61
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/rs/xid v1.6.0
@@ -109,7 +109,7 @@ require (
 	github.com/xuri/excelize/v2 v2.9.1
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
-	go.etcd.io/etcd/client/v3 v3.6.0
+	go.etcd.io/etcd/client/v3 v3.6.1
 	go.mongodb.org/mongo-driver v1.17.4
 	go.opentelemetry.io/otel v1.36.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.36.0
@@ -122,9 +122,9 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.18.0
 	golang.org/x/crypto v0.39.0
-	golang.org/x/exp v0.0.0-20250531010427-b6e5de432a8b
+	golang.org/x/exp v0.0.0-20250606033433-dcc06ee1d476
 	golang.org/x/image v0.28.0
-	golang.org/x/mobile v0.0.0-20250520180527-a1d90793fc63
+	golang.org/x/mobile v0.0.0-20250606033058-a2a15c67f36f
 	golang.org/x/mod v0.25.0
 	golang.org/x/net v0.41.0
 	golang.org/x/oauth2 v0.30.0
@@ -326,7 +326,7 @@ require (
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/quic-go/qpack v0.5.1 // indirect
 	github.com/quic-go/quic-go v0.51.0 // indirect
-	github.com/redis/rueidis/rueidiscompat v1.0.60 // indirect
+	github.com/redis/rueidis/rueidiscompat v1.0.61 // indirect
 	github.com/refraction-networking/utls v1.6.7 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
@@ -371,8 +371,8 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.0 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.6.0 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.1 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.1 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.1.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.59.0 // indirect
