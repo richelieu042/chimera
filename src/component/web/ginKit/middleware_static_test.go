@@ -52,7 +52,10 @@ func TestNewStaticMiddlewareWithEmbedFolder(t *testing.T) {
 			e.g.
 			http://127.0.0.1/a.txt
 		*/
-		m := NewStaticMiddlewareWithEmbedFolder("/", staticFs, "_test")
+		m, err := NewStaticMiddlewareWithEmbedFolder("/", staticFs, "_test")
+		if err != nil {
+			panic(err)
+		}
 		engine.Use(m)
 	}
 	{
@@ -61,7 +64,10 @@ func TestNewStaticMiddlewareWithEmbedFolder(t *testing.T) {
 			e.g.
 			http://127.0.0.1/c/a.txt
 		*/
-		m := NewStaticMiddlewareWithEmbedFolder("/c", staticFs, "_test")
+		m, err := NewStaticMiddlewareWithEmbedFolder("/c", staticFs, "_test")
+		if err != nil {
+			panic(err)
+		}
 		engine.Use(m)
 	}
 
