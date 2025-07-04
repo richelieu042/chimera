@@ -24,7 +24,7 @@ func SetCellBool(f *excelize.File, sheetName string, col, row int, value bool) e
 	return f.SetCellBool(sheetName, cellName, value)
 }
 
-func SetCellInt(f *excelize.File, sheetName string, col, row int, value int) error {
+func SetCellInt(f *excelize.File, sheetName string, col, row int, value int64) error {
 	cellName, err := CoordinatesToCellName(col, row)
 	if err != nil {
 		return err
