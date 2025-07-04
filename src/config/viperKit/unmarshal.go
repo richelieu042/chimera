@@ -9,7 +9,7 @@
 package viperKit
 
 import (
-	"github.com/mitchellh/mapstructure"
+	"github.com/go-viper/mapstructure/v2"
 	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/ptrKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
