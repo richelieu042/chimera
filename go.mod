@@ -34,6 +34,7 @@ require (
 	github.com/go-pay/gopay v1.5.114
 	github.com/go-playground/validator/v10 v10.27.0
 	github.com/go-redsync/redsync/v4 v4.13.0
+	github.com/go-viper/mapstructure/v2 v2.3.0
 	github.com/goccy/go-json v0.10.5
 	github.com/gogf/gf/v2 v2.9.0
 	github.com/golang-jwt/jwt/v5 v5.2.2
@@ -95,7 +96,7 @@ require (
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
-	github.com/sony/sonyflake v1.2.1
+	github.com/sony/sonyflake v1.3.0
 	github.com/spf13/afero v1.14.0
 	github.com/spf13/cast v1.9.2
 	github.com/spf13/cobra v1.9.1
@@ -240,7 +241,6 @@ require (
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-text/render v0.2.0 // indirect
 	github.com/go-text/typesetting v0.2.1 // indirect
-	github.com/go-viper/mapstructure/v2 v2.2.1 // indirect
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
