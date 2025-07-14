@@ -53,11 +53,11 @@ tasks:
   windows-386:
     cmds:
       - task: build
-        vars: { OS: windows, ARCH: 386, CC: i686-w64-mingw32-gcc, CXX: i686-w64-mingw32-g++, TAGS: go_json, UPX: true }
+        vars: { OS: windows, ARCH: 386, CC: i686-w64-mingw32-gcc, CXX: i686-w64-mingw32-g++, TAGS: "", UPX: true }
   windows-amd64-noavx:
     cmds:
       - task: build
-        vars: { OS: windows, ARCH: amd64, CC: x86_64-w64-mingw32-gcc, CXX: x86_64-w64-mingw32-g++, TAGS: go_json, UPX: true }
+        vars: { OS: windows, ARCH: amd64, CC: x86_64-w64-mingw32-gcc, CXX: x86_64-w64-mingw32-g++, TAGS: "", UPX: true }
   windows-amd64:
     cmds:
       - task: build
@@ -73,23 +73,23 @@ tasks:
   linux-amd64-noavx:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: amd64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: go_json, UPX: true }
+        vars: { OS: linux, ARCH: amd64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: true }
   linux-arm64:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: arm64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: go_json, UPX: true }
+        vars: { OS: linux, ARCH: arm64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: true }
   linux-mips64:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: mips64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: go_json, UPX: false }
+        vars: { OS: linux, ARCH: mips64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: false }
   linux-mips64le:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: mips64le, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: go_json, UPX: false }
+        vars: { OS: linux, ARCH: mips64le, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: false }
   linux-loong64:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: loong64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: go_json, UPX: false }
+        vars: { OS: linux, ARCH: loong64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: false }
   build:
     vars:
       OS: '{{default "UNKNOWN" .OS}}'
@@ -100,11 +100,12 @@ tasks:
       TAGS: '{{default "" .TAGS}}'
       UPX: '{{default "false" .UPX}}'
       NOAVX: '{{if and (eq .ARCH "amd64") (ne .TAGS "sonic avx")}}_noavx{{end}}'
-      NAME: '{{.APP}}_{{.VERSION}}_{{.OS}}_{{.ARCH}}{{.NOAVX}}{{.EXT}}'
+      NAME: '{{.APP}}-{{.OS}}-{{.ARCH}}{{.NOAVX}}{{.EXT}}'
       TARGET: '{{.NAME}}'
     cmds:
       - echo {{.TARGET}}
       - rm -rf {{.TARGET}}  # 文件可以不存在
-      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
-#      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} garble build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
+      #      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
+      #      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} garble -seed=kaach9NU8YlxRgeALT77NA -literals -tiny build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
+      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} garble -literals -tiny build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
       - if [ {{.UPX}} == "true" ]; then upx -9 {{.TARGET}}; fi
