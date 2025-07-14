@@ -6,6 +6,8 @@ vars:
   SOURCE: test/test.go
   # 0 || 1
   CGO_ENABLED: 0
+  # 0 || 1
+  OBFUSCATE: 0
   VERSION: 0.0.1
   BUILDER:
     sh: whoami
