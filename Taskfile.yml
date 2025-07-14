@@ -24,6 +24,7 @@ tasks:
       - task: build-parallel
   prepare:
     cmds:
+      - go install mvdan.cc/garble@latest
       - go mod tidy
   # 串行
   build-serial:
@@ -105,4 +106,5 @@ tasks:
       - echo {{.TARGET}}
       - rm -rf {{.TARGET}}  # 文件可以不存在
       - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
+#      - CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} garble build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
       - if [ {{.UPX}} == "true" ]; then upx -9 {{.TARGET}}; fi
