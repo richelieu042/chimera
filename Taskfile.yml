@@ -12,14 +12,15 @@ vars:
     sh: date '+%F'
   BUILD_TIME:
     sh: date '+%FT%T %A %Z'
-  # 0: 不进行混淆; 1: 进行混淆（通过garble）
+  # 0: 不进行混淆; 1: 进行混淆（通过 garble）
   OBFUSCATE: 1
-  GARBLE_FLAGS: "-seed=kaach9AA8YlxRgeALT77NA -literals -tiny"
+  GARBLE_FLAGS: "-seed=kaach9AA8YlxRgeALT77NA -literals"
 
 tasks:
   default:
     cmds:
       - task: prepare
+#      - task: build-serial
       - task: build-parallel
 
   prepare:

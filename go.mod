@@ -14,7 +14,7 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.10
+	github.com/dromara/carbon/v2 v2.6.11
 	github.com/duke-git/lancet/v2 v2.3.7
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -123,7 +123,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.19.0
 	golang.org/x/crypto v0.40.0
-	golang.org/x/exp v0.0.0-20250711185948-6ae5c78190dc
+	golang.org/x/exp v0.0.0-20250717185816-542afb5b7346
 	golang.org/x/image v0.29.0
 	golang.org/x/mobile v0.0.0-20250711185624-d5bb5ecc55c0
 	golang.org/x/mod v0.26.0
@@ -135,7 +135,7 @@ require (
 	golang.org/x/text v0.27.0
 	golang.org/x/time v0.12.0
 	golang.org/x/tools v0.35.0
-	google.golang.org/grpc v1.74.0
+	google.golang.org/grpc v1.73.0
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -153,7 +153,7 @@ require (
 	cloud.google.com/go/auth v0.15.0 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.7 // indirect
 	cloud.google.com/go/bigquery v1.66.2 // indirect
-	cloud.google.com/go/compute/metadata v0.7.0 // indirect
+	cloud.google.com/go/compute/metadata v0.6.0 // indirect
 	cloud.google.com/go/iam v1.4.1 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.6.0 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
