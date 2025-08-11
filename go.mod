@@ -1,12 +1,12 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24.5
+go 1.24.6
 
 require (
 	fyne.io/fyne/v2 v2.6.2
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.0
-	github.com/apache/pulsar-client-go v0.15.1
+	github.com/apache/pulsar-client-go v0.16.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.2
 	github.com/bytedance/sonic v1.14.0
 	github.com/centrifugal/centrifuge v0.37.0
@@ -85,8 +85,8 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.0
-	github.com/redis/go-redis/v9 v9.11.0
-	github.com/redis/rueidis v1.0.63
+	github.com/redis/go-redis/v9 v9.12.0
+	github.com/redis/rueidis v1.0.64
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/rs/xid v1.6.0
@@ -121,22 +121,22 @@ require (
 	go.opentelemetry.io/otel/trace v1.37.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.0
-	golang.org/x/arch v0.19.0
-	golang.org/x/crypto v0.40.0
-	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792
-	golang.org/x/image v0.29.0
-	golang.org/x/mobile v0.0.0-20250711185624-d5bb5ecc55c0
-	golang.org/x/mod v0.26.0
-	golang.org/x/net v0.42.0
+	golang.org/x/arch v0.20.0
+	golang.org/x/crypto v0.41.0
+	golang.org/x/exp v0.0.0-20250808145144-a408d31f581a
+	golang.org/x/image v0.30.0
+	golang.org/x/mobile v0.0.0-20250808145247-395d808d53cd
+	golang.org/x/mod v0.27.0
+	golang.org/x/net v0.43.0
 	golang.org/x/oauth2 v0.30.0
 	golang.org/x/sync v0.16.0
-	golang.org/x/sys v0.34.0
-	golang.org/x/term v0.33.0
-	golang.org/x/text v0.27.0
+	golang.org/x/sys v0.35.0
+	golang.org/x/term v0.34.0
+	golang.org/x/text v0.28.0
 	golang.org/x/time v0.12.0
-	golang.org/x/tools v0.35.0
+	golang.org/x/tools v0.36.0
 	google.golang.org/grpc v1.74.2
-	google.golang.org/protobuf v1.36.6
+	google.golang.org/protobuf v1.36.7
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
 	gorm.io/driver/clickhouse v0.7.0
@@ -323,7 +323,7 @@ require (
 	github.com/prometheus/procfs v0.15.1 // indirect
 	github.com/quic-go/qpack v0.5.1 // indirect
 	github.com/quic-go/quic-go v0.53.0 // indirect
-	github.com/redis/rueidis/rueidiscompat v1.0.63 // indirect
+	github.com/redis/rueidis/rueidiscompat v1.0.64 // indirect
 	github.com/refraction-networking/utls v1.7.3 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
