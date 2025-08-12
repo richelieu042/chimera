@@ -1,9 +1,10 @@
 package fileKit
 
 import (
-	"github.com/gabriel-vasile/mimetype"
 	"io"
 	"net/http"
+
+	"github.com/gabriel-vasile/mimetype"
 )
 
 // DetectContentType 获取 ContentType(即MimeType).

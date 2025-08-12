@@ -85,7 +85,7 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.0
-	github.com/redis/go-redis/v9 v9.12.0
+	github.com/redis/go-redis/v9 v9.12.1
 	github.com/redis/rueidis v1.0.64
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -123,7 +123,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.20.0
 	golang.org/x/crypto v0.41.0
-	golang.org/x/exp v0.0.0-20250808145144-a408d31f581a
+	golang.org/x/exp v0.0.0-20250811191247-51f88131bc50
 	golang.org/x/image v0.30.0
 	golang.org/x/mobile v0.0.0-20250808145247-395d808d53cd
 	golang.org/x/mod v0.27.0
