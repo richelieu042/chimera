@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24.6
+go 1.25.0
 
 require (
 	fyne.io/fyne/v2 v2.6.2
@@ -62,7 +62,7 @@ require (
 	github.com/json-iterator/go v1.1.12
 	github.com/klauspost/compress v1.18.0
 	github.com/klauspost/cpuid/v2 v2.3.0
-	github.com/linxGnu/grocksdb v1.10.1
+	github.com/linxGnu/grocksdb v1.10.2
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250630080345-f9402614f6ba
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
@@ -123,9 +123,9 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.20.0
 	golang.org/x/crypto v0.41.0
-	golang.org/x/exp v0.0.0-20250811191247-51f88131bc50
+	golang.org/x/exp v0.0.0-20250813145105-42675adae3e6
 	golang.org/x/image v0.30.0
-	golang.org/x/mobile v0.0.0-20250808145247-395d808d53cd
+	golang.org/x/mobile v0.0.0-20250813145510-f12310a0cfd9
 	golang.org/x/mod v0.27.0
 	golang.org/x/net v0.43.0
 	golang.org/x/oauth2 v0.30.0
