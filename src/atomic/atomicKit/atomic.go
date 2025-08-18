@@ -1,9 +1,10 @@
 package atomicKit
 
 import (
-	"go.uber.org/atomic"
 	"time"
 	"unsafe"
+
+	"go.uber.org/atomic"
 )
 
 var (
