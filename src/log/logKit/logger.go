@@ -1,11 +1,12 @@
 package logKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"io"
 	"log"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
 // NewLogger

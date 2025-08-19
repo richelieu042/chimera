@@ -1,9 +1,10 @@
 package zapKit
 
 import (
+	"log"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"log"
 )
 
 // NewStdLogger *zap.Logger => *log.Logger

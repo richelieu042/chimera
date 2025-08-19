@@ -1,9 +1,10 @@
 package logrusKit
 
 import (
-	"github.com/sirupsen/logrus"
 	"io"
 	"os"
+
+	"github.com/sirupsen/logrus"
 )
 
 type (

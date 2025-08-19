@@ -2,8 +2,9 @@ package logrusKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"runtime"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 )
 
 func GetLocation(f *runtime.Frame) string {

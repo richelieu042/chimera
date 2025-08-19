@@ -1,10 +1,11 @@
 package zapKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/concurrency/mutexKit"
-	"go.uber.org/zap"
 	"sync"
 	"time"
+
+	"github.com/richelieu-yang/chimera/v3/src/concurrency/mutexKit"
+	"go.uber.org/zap"
 )
 
 var (

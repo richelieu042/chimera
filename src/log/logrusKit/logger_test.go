@@ -1,9 +1,10 @@
 package logrusKit
 
 import (
+	"testing"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/ioKit"
 	"github.com/richelieu-yang/chimera/v3/src/dataSizeKit"
-	"testing"
 )
 
 func TestNewLogger(t *testing.T) {

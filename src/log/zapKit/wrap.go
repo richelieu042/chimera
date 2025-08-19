@@ -1,8 +1,9 @@
 package zapKit
 
 import (
-	"go.uber.org/zap"
 	"io"
+
+	"go.uber.org/zap"
 )
 
 // WrapLogger

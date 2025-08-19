@@ -1,10 +1,11 @@
 package logrusKit
 
 import (
-	"github.com/rifflock/lfshook"
-	"github.com/sirupsen/logrus"
 	"os"
 	"testing"
+
+	"github.com/rifflock/lfshook"
+	"github.com/sirupsen/logrus"
 )
 
 // TestNewLfsHook

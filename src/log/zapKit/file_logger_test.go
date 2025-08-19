@@ -1,8 +1,9 @@
 package zapKit
 
 import (
-	"go.uber.org/zap/zapcore"
 	"testing"
+
+	"go.uber.org/zap/zapcore"
 )
 
 func TestNewFileLogger(t *testing.T) {

@@ -1,10 +1,11 @@
 package logrusKit
 
 import (
+	"os"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/ioKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"github.com/sirupsen/logrus"
-	"os"
 )
 
 // NewFileLogger 输出到 文件(not rotatable).

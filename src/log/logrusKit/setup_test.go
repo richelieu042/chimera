@@ -1,8 +1,9 @@
 package logrusKit
 
 import (
-	"github.com/sirupsen/logrus"
 	"testing"
+
+	"github.com/sirupsen/logrus"
 )
 
 func TestMustSetUp(t *testing.T) {

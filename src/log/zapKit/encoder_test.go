@@ -2,9 +2,10 @@ package zapKit
 
 import (
 	"context"
+	"testing"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"testing"
 )
 
 func TestNewEncoder(t *testing.T) {

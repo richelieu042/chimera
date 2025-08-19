@@ -1,10 +1,11 @@
 package zapKit
 
 import (
+	"strings"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"strings"
 )
 
 // StringToLevel

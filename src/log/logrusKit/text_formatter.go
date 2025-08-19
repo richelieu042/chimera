@@ -1,10 +1,11 @@
 package logrusKit
 
 import (
+	"runtime"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"github.com/sirupsen/logrus"
-	"runtime"
 )
 
 func NewDefaultTextFormatter() *logrus.TextFormatter {
