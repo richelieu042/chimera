@@ -1,8 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.24.0
-
-toolchain go1.24.6
+go 1.25.0
 
 require (
 	fyne.io/fyne/v2 v2.6.2
@@ -55,7 +53,7 @@ require (
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb v0.0.0-20250701115049-6cdf087e85ed
 	github.com/hibiken/asynq v0.25.1
-	github.com/imroc/req/v3 v3.54.0
+	github.com/imroc/req/v3 v3.54.1
 	github.com/itchyny/gojq v0.12.17
 	github.com/jedib0t/go-pretty/v6 v6.6.8
 	github.com/jinzhu/copier v0.4.0
@@ -74,7 +72,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
-	github.com/nacos-group/nacos-sdk-go/v2 v2.3.2
+	github.com/nacos-group/nacos-sdk-go/v2 v2.3.3
 	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.0
