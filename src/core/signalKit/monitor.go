@@ -1,10 +1,11 @@
 package signalKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
 	"os"
 	"os/signal"
+
+	"github.com/richelieu-yang/chimera/v3/src/log/console"
+	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
 )
 
 //var printOnce sync.Once
