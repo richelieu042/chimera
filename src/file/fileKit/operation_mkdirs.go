@@ -1,18 +1,30 @@
 package fileKit
 
 import (
+	"os"
+
 	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"os"
 )
 
-// MkDirs 为目录路径，创建（一级或多级）目录.
+func MkDirs(dirPaths ...string) error {
+	/*
+		0755:
+		(1) 所有者: 		读、写、执行
+		(2) 用户组: 		读、执行
+		(3) 其他用户: 	读、执行
+	*/
+	return MkDirsWithPerm(0755, dirPaths...)
+}
+
+// MkDirsWithPerm 为目录路径，创建（一级或多级）目录.
 /*
 PS:
 (1) 如果目录已经存在，将返回nil；
 (2) 如果 传参dirPath 对应的是个已存在的文件，将返回error（"mkdir {xxx}: not a directory"）.
 
+@param perm 目录权限，一般使用0755
 @param dirPaths	目录路径s（相对路径 || 绝对路径）
 
 e.g.
@@ -25,9 +37,7 @@ e.g.1 Mac
 	(".")					=>	nil（什么都不会做）
 	("./")					=>	nil（什么都不会做）
 */
-func MkDirs(dirPaths ...string) error {
-	var perm os.FileMode = 0777
-
+func MkDirsWithPerm(perm os.FileMode, dirPaths ...string) error {
 	for _, dirPath := range dirPaths {
 		// os.MkdirAll() 的第一个传参:
 		// (1) 如果为""会返回error(mkdir : no such file or directory)
@@ -44,19 +54,24 @@ func MkDirs(dirPaths ...string) error {
 	return nil
 }
 
-// MkParentDirs 为父路径，创建（一级或多级）目录.
+func MkParentDirs(paths ...string) error {
+	return MkParentDirsWithPerm(0755, paths...)
+}
+
+// MkParentDirsWithPerm 为父路径，创建（一级或多级）目录.
 /*
-@param filePaths （文件 || 目录）路径s（相对路径 || 绝对路径）
+@param perm 		目录权限，一般使用0755
+@param filePaths 	（文件 || 目录）路径s（相对路径 || 绝对路径）
 
 e.g.
 	("")	=> nil
 	(".")	=> nil
 */
-func MkParentDirs(paths ...string) error {
+func MkParentDirsWithPerm(perm os.FileMode, paths ...string) error {
 	for _, path := range paths {
 		// Richelieu: 为防止 import cycle，不直接使用 pathKit.ParentDir
 		parentDir := gfile.Dir(path)
-		if err := MkDirs(parentDir); err != nil {
+		if err := MkDirsWithPerm(perm, parentDir); err != nil {
 			return err
 		}
 	}
