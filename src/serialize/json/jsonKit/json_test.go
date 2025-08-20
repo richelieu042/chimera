@@ -1,9 +1,10 @@
 package jsonKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
 	"log"
 	"testing"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
 )
 
 func TestMarshalToFile(t *testing.T) {

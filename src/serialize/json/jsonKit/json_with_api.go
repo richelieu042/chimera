@@ -1,8 +1,9 @@
 package jsonKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
 func MarshalWithAPI(api API, v interface{}) ([]byte, error) {
