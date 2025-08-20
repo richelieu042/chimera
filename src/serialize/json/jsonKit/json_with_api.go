@@ -59,7 +59,7 @@ func MarshalToFileWithAPI(api API, in interface{}, filePath string, perm os.File
 	if err != nil {
 		return err
 	}
-	return fileKit.WriteToFile(filePath, data)
+	return fileKit.WriteToFile(filePath, data, perm)
 }
 
 func UnmarshalWithAPI(api API, data []byte, v interface{}) error {
