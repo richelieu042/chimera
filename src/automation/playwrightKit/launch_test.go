@@ -1,13 +1,14 @@
 package playwrightKit
 
 import (
+	"testing"
+	"time"
+
 	"github.com/playwright-community/playwright-go"
 	"github.com/richelieu-yang/chimera/v3/src/consts"
 	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	_ "github.com/richelieu-yang/chimera/v3/src/log/logrusInitKit"
 	"github.com/sirupsen/logrus"
-	"testing"
-	"time"
 )
 
 func TestLaunchBrowser(t *testing.T) {

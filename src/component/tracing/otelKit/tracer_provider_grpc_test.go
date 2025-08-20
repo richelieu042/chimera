@@ -2,15 +2,16 @@ package otelKit
 
 import (
 	"context"
+	"net/http"
+	"sync"
+	"testing"
+	"time"
+
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
-	"net/http"
-	"sync"
-	"testing"
-	"time"
 )
 
 func TestNewGrpcTracerProvider(t *testing.T) {

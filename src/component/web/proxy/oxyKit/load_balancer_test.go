@@ -3,9 +3,10 @@ package oxyKit
 import (
 	_ "github.com/richelieu-yang/chimera/v3/src/log/logrusInitKit"
 
+	"testing"
+
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
-	"testing"
 )
 
 func TestNewLoadBalancerHandler(t *testing.T) {
