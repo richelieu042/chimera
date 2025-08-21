@@ -30,7 +30,7 @@ require (
 	github.com/gin-contrib/static v1.1.5
 	github.com/gin-gonic/gin v1.10.1
 	github.com/go-kratos/kratos/v2 v2.8.4
-	github.com/go-oauth2/oauth2/v4 v4.5.3
+	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.114
 	github.com/go-playground/validator/v10 v10.27.0
 	github.com/go-redsync/redsync/v4 v4.13.0
@@ -136,7 +136,7 @@ require (
 	golang.org/x/time v0.12.0
 	golang.org/x/tools v0.36.0
 	google.golang.org/grpc v1.75.0
-	google.golang.org/protobuf v1.36.7
+	google.golang.org/protobuf v1.36.8
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
 	gorm.io/driver/clickhouse v0.7.0
