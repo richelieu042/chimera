@@ -3,7 +3,7 @@ module github.com/richelieu-yang/chimera/v3
 go 1.25.0
 
 require (
-	fyne.io/fyne/v2 v2.6.2
+	fyne.io/fyne/v2 v2.6.3
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.0
 	github.com/apache/pulsar-client-go v0.16.0
@@ -21,7 +21,7 @@ require (
 	github.com/emersion/go-message v0.18.2
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.9.0
-	github.com/gabriel-vasile/mimetype v1.4.9
+	github.com/gabriel-vasile/mimetype v1.4.10
 	github.com/gin-contrib/cors v1.7.6
 	github.com/gin-contrib/gzip v1.2.3
 	github.com/gin-contrib/pprof v1.5.3
@@ -36,11 +36,11 @@ require (
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/go-viper/mapstructure/v2 v2.4.0
 	github.com/goccy/go-json v0.10.5
-	github.com/gogf/gf/v2 v2.9.0
+	github.com/gogf/gf/v2 v2.9.1
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
-	github.com/google/wire v0.6.0
+	github.com/google/wire v0.7.0
 	github.com/gorilla/context v1.1.2
 	github.com/gorilla/securecookie v1.1.2
 	github.com/gorilla/sessions v1.4.0
@@ -53,7 +53,7 @@ require (
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb v0.0.0-20250701115049-6cdf087e85ed
 	github.com/hibiken/asynq v0.25.1
-	github.com/imroc/req/v3 v3.54.1
+	github.com/imroc/req/v3 v3.54.2
 	github.com/itchyny/gojq v0.12.17
 	github.com/jedib0t/go-pretty/v6 v6.6.8
 	github.com/jinzhu/copier v0.4.0
@@ -63,7 +63,7 @@ require (
 	github.com/klauspost/compress v1.18.0
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.2
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250630080345-f9402614f6ba
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250822111051-4996c0ff6a90
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -101,7 +101,7 @@ require (
 	github.com/spf13/cast v1.9.2
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/viper v1.20.1
-	github.com/stretchr/testify v1.10.0
+	github.com/stretchr/testify v1.11.1
 	github.com/tidwall/buntdb v1.3.2
 	github.com/tidwall/gjson v1.18.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
@@ -144,7 +144,7 @@ require (
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/driver/sqlserver v1.6.1
-	gorm.io/gorm v1.30.1
+	gorm.io/gorm v1.30.2
 	sigs.k8s.io/yaml v1.6.0
 )
 
@@ -298,7 +298,7 @@ require (
 	github.com/mailgun/multibuf v0.1.2 // indirect
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/maruel/rs v1.1.0 // indirect
-	github.com/mattn/go-colorable v0.1.13 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
 	github.com/mattn/go-runewidth v0.0.16 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
