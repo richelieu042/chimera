@@ -8,7 +8,7 @@ require (
 	github.com/andybalholm/brotli v1.2.0
 	github.com/apache/pulsar-client-go v0.16.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.2
-	github.com/bytedance/sonic v1.14.0
+	github.com/bytedance/sonic v1.14.1
 	github.com/centrifugal/centrifuge v0.37.0
 	github.com/centrifugal/gocent/v3 v3.3.0
 	github.com/coocood/freecache v1.2.4
@@ -36,7 +36,7 @@ require (
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/go-viper/mapstructure/v2 v2.4.0
 	github.com/goccy/go-json v0.10.5
-	github.com/gogf/gf/v2 v2.9.1
+	github.com/gogf/gf/v2 v2.9.2
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
@@ -99,7 +99,7 @@ require (
 	github.com/sony/sonyflake v1.3.0
 	github.com/spf13/afero v1.14.0
 	github.com/spf13/cast v1.9.2
-	github.com/spf13/cobra v1.9.1
+	github.com/spf13/cobra v1.10.1
 	github.com/spf13/viper v1.20.1
 	github.com/stretchr/testify v1.11.1
 	github.com/tidwall/buntdb v1.3.2
@@ -197,6 +197,7 @@ require (
 	github.com/boltdb/bolt v1.3.1 // indirect
 	github.com/boyter/go-string v1.0.5 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
+	github.com/bytedance/gopkg v0.1.3 // indirect
 	github.com/bytedance/sonic/loader v0.3.0 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.3.0 // indirect
@@ -204,7 +205,7 @@ require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
 	github.com/cloudflare/circl v1.6.1 // indirect
-	github.com/cloudwego/base64x v0.1.5 // indirect
+	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
 	github.com/danieljoos/wincred v1.1.2 // indirect
@@ -338,7 +339,7 @@ require (
 	github.com/signalsciences/ac v1.2.0 // indirect
 	github.com/sourcegraph/conc v0.3.0 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
-	github.com/spf13/pflag v1.0.6 // indirect
+	github.com/spf13/pflag v1.0.9 // indirect
 	github.com/srwiley/oksvg v0.0.0-20221011165216-be6e8873101c // indirect
 	github.com/srwiley/rasterx v0.0.0-20220730225603-2ab79fcdd4ef // indirect
 	github.com/subosito/gotenv v1.6.0 // indirect
