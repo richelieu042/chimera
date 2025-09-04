@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.25.0
+go 1.25.1
 
 require (
 	fyne.io/fyne/v2 v2.6.3
@@ -36,7 +36,7 @@ require (
 	github.com/go-redsync/redsync/v4 v4.13.0
 	github.com/go-viper/mapstructure/v2 v2.4.0
 	github.com/goccy/go-json v0.10.5
-	github.com/gogf/gf/v2 v2.9.2
+	github.com/gogf/gf/v2 v2.9.3
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
@@ -85,7 +85,7 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.0
-	github.com/redis/go-redis/v9 v9.12.1
+	github.com/redis/go-redis/v9 v9.13.0
 	github.com/redis/rueidis v1.0.64
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
