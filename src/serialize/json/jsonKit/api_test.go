@@ -2,7 +2,6 @@ package jsonKit
 
 import (
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
 	"testing"
 )
 
@@ -17,7 +16,7 @@ func TestUnmarshalFromString(t *testing.T) {
 		panic("not equal")
 	}
 
-	json, err := MarshalIndentToStringWithAPI(jsoniter.ConfigCompatibleWithStandardLibrary, m, "", "    ")
+	json, err := MarshalIndentToStringWithAPI(GetStdApi(), m, "", "    ")
 	if err != nil {
 		panic(err)
 	}

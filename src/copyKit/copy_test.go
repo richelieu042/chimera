@@ -2,9 +2,9 @@ package copyKit
 
 import (
 	"fmt"
-	jsoniter "github.com/json-iterator/go"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
 	"testing"
+
+	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
 )
 
 func TestDeepCopy(t *testing.T) {
@@ -43,8 +43,8 @@ func TestDeepCopy(t *testing.T) {
 	src["b"] = true
 	b.Id = 777
 
-	fmt.Println(jsonKit.MarshalToStringWithAPI(jsoniter.ConfigCompatibleWithStandardLibrary, src))
-	fmt.Println(jsonKit.MarshalToStringWithAPI(jsoniter.ConfigCompatibleWithStandardLibrary, dest))
+	fmt.Println(jsonKit.MarshalToStringWithAPI(jsonKit.GetStdApi(), src))
+	fmt.Println(jsonKit.MarshalToStringWithAPI(jsonKit.GetStdApi(), dest))
 }
 
 // case: 传参为 nil
