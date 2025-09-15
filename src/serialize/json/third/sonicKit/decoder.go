@@ -1,8 +1,9 @@
 package sonicKit
 
 import (
-	"github.com/bytedance/sonic"
 	"io"
+
+	"github.com/bytedance/sonic"
 )
 
 // NewDecoder 解码器（from json）
