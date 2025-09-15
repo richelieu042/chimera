@@ -29,7 +29,7 @@ require (
 	github.com/gin-contrib/sse v1.1.0
 	github.com/gin-contrib/static v1.1.5
 	github.com/gin-gonic/gin v1.10.1
-	github.com/go-kratos/kratos/v2 v2.9.0
+	github.com/go-kratos/kratos/v2 v2.9.1
 	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.114
 	github.com/go-playground/validator/v10 v10.27.0
@@ -62,11 +62,11 @@ require (
 	github.com/klauspost/compress v1.18.0
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.2
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250909143413-87d53b501838
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20250913153014-716326f4bc76
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
-	github.com/medama-io/go-useragent v1.2.1
+	github.com/medama-io/go-useragent v1.2.2
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
@@ -122,9 +122,9 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.21.0
 	golang.org/x/crypto v0.42.0
-	golang.org/x/exp v0.0.0-20250819193227-8b4c13bb791b
+	golang.org/x/exp v0.0.0-20250911091902-df9299821621
 	golang.org/x/image v0.31.0
-	golang.org/x/mobile v0.0.0-20250813145510-f12310a0cfd9
+	golang.org/x/mobile v0.0.0-20250911085028-6912353760cf
 	golang.org/x/mod v0.28.0
 	golang.org/x/net v0.44.0
 	golang.org/x/oauth2 v0.31.0
@@ -143,7 +143,7 @@ require (
 	gorm.io/driver/postgres v1.6.0
 	gorm.io/driver/sqlite v1.6.0
 	gorm.io/driver/sqlserver v1.6.1
-	gorm.io/gorm v1.30.5
+	gorm.io/gorm v1.31.0
 	sigs.k8s.io/yaml v1.6.0
 )
 
