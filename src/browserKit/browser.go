@@ -1,8 +1,9 @@
 package browserKit
 
 import (
-	"github.com/pkg/browser"
 	"io"
+
+	"github.com/pkg/browser"
 )
 
 var (

@@ -11,6 +11,7 @@ func TestNewCache(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+
 	for i := 0; i < 16; i++ {
 		cache.Add(i, nil)
 	}

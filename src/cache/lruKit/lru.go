@@ -1,9 +1,10 @@
 package lruKit
 
 import (
+	"time"
+
 	lru "github.com/hashicorp/golang-lru/v2"
 	"github.com/hashicorp/golang-lru/v2/expirable"
-	"time"
 )
 
 // NewCache 缓存（不带TTL）.

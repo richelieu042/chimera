@@ -1,11 +1,12 @@
 package playwrightKit
 
 import (
+	"os"
+	"strings"
+
 	"github.com/playwright-community/playwright-go"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"os"
-	"strings"
 )
 
 // LaunchBrowser

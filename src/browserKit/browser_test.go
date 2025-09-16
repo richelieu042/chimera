@@ -2,11 +2,12 @@ package browserKit
 
 import (
 	"fmt"
+	"testing"
+	"time"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"github.com/richelieu-yang/chimera/v3/src/idKit"
-	"testing"
-	"time"
 )
 
 // 让默认浏览器打开 "https://www.baidu.com"
