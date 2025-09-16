@@ -1,9 +1,10 @@
 package console
 
 import (
+	"testing"
+
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
-	"testing"
 )
 
 func TestDebug(t *testing.T) {

@@ -2,6 +2,8 @@ package consoleKit
 
 import (
 	"fmt"
+	"time"
+
 	"github.com/richelieu-yang/chimera/v3/src/consts"
 	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
@@ -10,7 +12,6 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"github.com/robfig/cron/v3"
 	"github.com/sirupsen/logrus"
-	"time"
 )
 
 // RotateOutput spec触发时，备份并清空传参output对应的文件.
