@@ -13,3 +13,7 @@ Golang的工具库（Tools of Golang）
 
 路径: _chimera-lib/config.yaml
 
+### uber-go/nilaway - 检测可能的nil panic
+
+go install go.uber.org/nilaway/cmd/nilaway@latest  
+nilaway ./...
