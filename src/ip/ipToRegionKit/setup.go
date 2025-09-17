@@ -3,6 +3,7 @@ package ipToRegionKit
 import (
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"github.com/richelieu-yang/chimera/v3/src/log/console"
 )
@@ -10,31 +11,43 @@ import (
 var NotSetupError = errorKit.Newf("haven’t been set up correctly")
 
 // 缓存整个xdb数据的情况下，searcher对象可以安全用于并发
-var searcher *xdb.Searcher
+var (
+	ipv4Searcher *xdb.Searcher
 
-func MustSetUp(xdbPath string) {
-	err := SetUp(xdbPath)
+	ipv6Searcher *xdb.Searcher
+)
+
+func MustSetUp(ipv4XdbPath, ipv6XdbPath string) {
+	err := SetUp(ipv4XdbPath, ipv6XdbPath)
 	if err != nil {
 		console.Fatalf("Fail to set up, error: %s", err.Error())
 	}
 }
 
-func SetUp(xdbPath string) (err error) {
+func SetUp(ipv4XdbPath, ipv6XdbPath string) (err error) {
 	defer func() {
 		if err != nil {
-			searcher = nil
+			ipv4Searcher = nil
+			ipv6Searcher = nil
 		}
 	}()
 
-	searcher, err = loadXdbFile(xdbPath)
-	return err
+	ipv4Searcher, err = loadXdbFile(xdb.IPv4, ipv4XdbPath)
+	if err != nil {
+		return
+	}
+	ipv6Searcher, err = loadXdbFile(xdb.IPv6, ipv6XdbPath)
+	return
 }
 
 // loadXdbFile
 /*
 @param path xdb文件的路径
 */
-func loadXdbFile(xdbPath string) (*xdb.Searcher, error) {
+func loadXdbFile(version *xdb.Version, xdbPath string) (*xdb.Searcher, error) {
+	if err := interfaceKit.AssertNotNil(version, "version"); err != nil {
+		return nil, err
+	}
 	if err := fileKit.AssertExistAndIsFile(xdbPath); err != nil {
 		return nil, err
 	}
@@ -44,5 +57,5 @@ func loadXdbFile(xdbPath string) (*xdb.Searcher, error) {
 	if err != nil {
 		return nil, err
 	}
-	return xdb.NewWithBuffer(cBuff)
+	return xdb.NewWithBuffer(version, cBuff)
 }

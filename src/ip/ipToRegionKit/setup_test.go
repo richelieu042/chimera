@@ -1,10 +1,11 @@
 package ipToRegionKit
 
 import (
+	"testing"
+
 	"github.com/richelieu-yang/chimera/v3/src/consts"
 	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"testing"
 )
 
 func TestGetRegion(t *testing.T) {
@@ -18,16 +19,25 @@ func TestGetRegion(t *testing.T) {
 
 	/*
 		https://github.com/lionsoul2014/ip2region/blob/master/data/ip2region.xdb
-		下载下来，放到 "_chimera-lib" 目录下.
 	*/
-	xdbPath := "_chimera-lib/ip2region.xdb"
-	MustSetUp(xdbPath)
+	ipv4XdbPath := "_temp/ip2region_v4.xdb"
+	ipv6XdbPath := "_temp/ip2region_v6.xdb"
+	MustSetUp(ipv4XdbPath, ipv6XdbPath)
 
-	//ip := "10.0.9.141"
-	ip := "74.125.68.105"
-	str, err := GetRegion(ip)
-	if err != nil {
-		panic(err)
+	{
+		ip := "155.117.18.75"
+		str, err := GetIPv4Region(ip)
+		if err != nil {
+			panic(err)
+		}
+		console.Info(str)
 	}
-	console.Info(str)
+	{
+		ip := "2602:f988:210:251::c30"
+		str, err := GetIPv6Region(ip)
+		if err != nil {
+			panic(err)
+		}
+		console.Info(str)
+	}
 }

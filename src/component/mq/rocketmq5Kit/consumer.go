@@ -38,8 +38,10 @@ func NewSimpleConsumer(consumerGroup string, subscriptionExpressions map[string]
 		ConsumerGroup: consumerGroup,
 		Credentials:   config.Credentials,
 	},
-		rmq_client.WithAwaitDuration(DefaultAwaitDuration),
-		rmq_client.WithSubscriptionExpressions(subscriptionExpressions),
+		rmq_client.WithSimpleAwaitDuration(DefaultAwaitDuration),
+		rmq_client.WithSimpleSubscriptionExpressions(subscriptionExpressions),
+		//rmq_client.WithAwaitDuration(DefaultAwaitDuration),
+		//rmq_client.WithSubscriptionExpressions(subscriptionExpressions),
 	)
 	if err != nil {
 		return nil, errorKit.Wrapf(err, "Fail to new simple consumer")
