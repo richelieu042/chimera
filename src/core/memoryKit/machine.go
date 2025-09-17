@@ -1,6 +1,6 @@
 package memoryKit
 
-import "github.com/shirou/gopsutil/v3/mem"
+import "github.com/shirou/gopsutil/v4/mem"
 
 // GetMachineMemoryStats 获取（当前瞬间的）服务器内存状态.
 /*

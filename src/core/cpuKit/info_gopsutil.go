@@ -3,10 +3,11 @@
 package cpuKit
 
 import (
-	"github.com/shirou/gopsutil/v3/cpu"
-	"github.com/shirou/gopsutil/v3/process"
 	"os"
 	"time"
+
+	"github.com/shirou/gopsutil/v4/cpu"
+	"github.com/shirou/gopsutil/v4/process"
 )
 
 // GetUsagePercent CPU使用率

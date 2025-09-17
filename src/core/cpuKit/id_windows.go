@@ -2,9 +2,10 @@ package cpuKit
 
 import (
 	"bytes"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/shirou/gopsutil/v3/cpu"
+	"github.com/shirou/gopsutil/v4/cpu"
 )
 
 // GetCpuId 获取cpu的id

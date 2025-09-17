@@ -5,7 +5,7 @@ package diskKit
 import (
 	"github.com/richelieu-yang/chimera/v3/src/core/conditionKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
-	"github.com/shirou/gopsutil/v3/disk"
+	"github.com/shirou/gopsutil/v4/disk"
 )
 
 func GetDiskUsageStats() (*DiskUsageStats, error) {

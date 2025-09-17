@@ -1,8 +1,9 @@
 package processKit
 
 import (
-	"github.com/shirou/gopsutil/v3/process"
 	"os"
+
+	"github.com/shirou/gopsutil/v4/process"
 )
 
 var PID int = os.Getpid()

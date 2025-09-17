@@ -2,8 +2,9 @@
 package runtimeKit
 
 import (
-	"github.com/shirou/gopsutil/v3/host"
 	"runtime"
+
+	"github.com/shirou/gopsutil/v4/host"
 )
 
 func GetHostInfo() (*host.InfoStat, error) {
