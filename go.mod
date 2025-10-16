@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.25.2
+go 1.25.3
 
 require (
 	fyne.io/fyne/v2 v2.6.3
@@ -14,7 +14,7 @@ require (
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.12
+	github.com/dromara/carbon/v2 v2.6.13
 	github.com/duke-git/lancet/v2 v2.3.7
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.0
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.2
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251011075309-e39ac2d6d123
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251015133354-5a51b754117e
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
