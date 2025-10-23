@@ -31,7 +31,7 @@ require (
 	github.com/gin-gonic/gin v1.11.0
 	github.com/go-kratos/kratos/v2 v2.9.1
 	github.com/go-oauth2/oauth2/v4 v4.5.4
-	github.com/go-pay/gopay v1.5.114
+	github.com/go-pay/gopay v1.5.115
 	github.com/go-playground/validator/v10 v10.28.0
 	github.com/go-redsync/redsync/v4 v4.14.0
 	github.com/go-viper/mapstructure/v2 v2.4.0
@@ -59,10 +59,10 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.18.0
+	github.com/klauspost/compress v1.18.1
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.2
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251019150700-a30d9222258d
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251021064755-08d3ef69b069
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -79,7 +79,7 @@ require (
 	github.com/olahol/melody v1.3.0
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.11.3
-	github.com/pdfcpu/pdfcpu v0.11.0
+	github.com/pdfcpu/pdfcpu v0.11.1
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
@@ -124,7 +124,7 @@ require (
 	golang.org/x/crypto v0.43.0
 	golang.org/x/exp v0.0.0-20251017212417-90e834f514db
 	golang.org/x/image v0.32.0
-	golang.org/x/mobile v0.0.0-20251009145931-8baca8bf4eeb
+	golang.org/x/mobile v0.0.0-20251021151156-188f512ec823
 	golang.org/x/mod v0.29.0
 	golang.org/x/net v0.46.0
 	golang.org/x/oauth2 v0.32.0
@@ -203,6 +203,7 @@ require (
 	github.com/centrifugal/protocol v0.16.2 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.2.0 // indirect
 	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
@@ -303,7 +304,7 @@ require (
 	github.com/maruel/rs v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.14 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/mattn/go-runewidth v0.0.16 // indirect
+	github.com/mattn/go-runewidth v0.0.19 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/maypok86/otter v1.2.4 // indirect
 	github.com/microsoft/go-mssqldb v1.8.2 // indirect
@@ -329,7 +330,6 @@ require (
 	github.com/refraction-networking/utls v1.7.3 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
-	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rymdport/portal v0.4.2 // indirect
 	github.com/sagikazarmark/locafero v0.11.0 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
