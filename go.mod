@@ -23,7 +23,7 @@ require (
 	github.com/fsnotify/fsnotify v1.9.0
 	github.com/gabriel-vasile/mimetype v1.4.10
 	github.com/gin-contrib/cors v1.7.6
-	github.com/gin-contrib/gzip v1.2.4
+	github.com/gin-contrib/gzip v1.2.5
 	github.com/gin-contrib/pprof v1.5.3
 	github.com/gin-contrib/size v1.0.2
 	github.com/gin-contrib/sse v1.1.0
@@ -46,7 +46,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.32.4
+	github.com/hashicorp/consul/api v1.33.0
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.7.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -61,8 +61,8 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.1
 	github.com/klauspost/cpuid/v2 v2.3.0
-	github.com/linxGnu/grocksdb v1.10.2
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251021064755-08d3ef69b069
+	github.com/linxGnu/grocksdb v1.10.3
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251024044900-572aa7b76af4
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -71,7 +71,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
-	github.com/nacos-group/nacos-sdk-go/v2 v2.3.4
+	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
 	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.0
@@ -84,7 +84,7 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.22
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.1
-	github.com/redis/go-redis/v9 v9.14.1
+	github.com/redis/go-redis/v9 v9.16.0
 	github.com/redis/rueidis v1.0.67
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -122,7 +122,7 @@ require (
 	go.uber.org/zap v1.27.0
 	golang.org/x/arch v0.22.0
 	golang.org/x/crypto v0.43.0
-	golang.org/x/exp v0.0.0-20251017212417-90e834f514db
+	golang.org/x/exp v0.0.0-20251023183803-a4bb9ffd2546
 	golang.org/x/image v0.32.0
 	golang.org/x/mobile v0.0.0-20251021151156-188f512ec823
 	golang.org/x/mod v0.29.0
