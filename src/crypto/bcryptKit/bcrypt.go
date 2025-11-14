@@ -23,6 +23,7 @@ func GenerateFromPassword(password []byte, costArgs ...int) (hashedPassword []by
 			return
 		}
 	} else {
+		// 默认值
 		cost = bcrypt.DefaultCost
 	}
 
