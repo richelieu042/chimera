@@ -17,3 +17,7 @@ Golang的工具库（Tools of Golang）
 
 go install go.uber.org/nilaway/cmd/nilaway@latest  
 nilaway ./...
+
+## 定期更新
+
+- otelKit/resource.go
