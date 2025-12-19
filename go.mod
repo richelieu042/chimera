@@ -53,7 +53,7 @@ require (
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb v0.0.0-20251103221153-05f9dd7a5148
 	github.com/hibiken/asynq v0.25.1
-	github.com/imroc/req/v3 v3.56.0
+	github.com/imroc/req/v3 v3.57.0
 	github.com/itchyny/gojq v0.12.18
 	github.com/jedib0t/go-pretty/v6 v6.7.7
 	github.com/jinzhu/copier v0.4.0
@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.2
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.3
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251212071458-897af4532ed3
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251215094000-f12b9765b373
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -81,7 +81,7 @@ require (
 	github.com/panjf2000/ants/v2 v2.11.3
 	github.com/pdfcpu/pdfcpu v0.11.1
 	github.com/pelletier/go-toml/v2 v2.2.4
-	github.com/pierrec/lz4/v4 v4.1.22
+	github.com/pierrec/lz4/v4 v4.1.23
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.1
 	github.com/redis/go-redis/v9 v9.17.2
@@ -109,7 +109,7 @@ require (
 	github.com/xuri/excelize/v2 v2.10.0
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
-	go.etcd.io/etcd/client/v3 v3.6.6
+	go.etcd.io/etcd/client/v3 v3.6.7
 	go.mongodb.org/mongo-driver v1.17.6
 	go.opentelemetry.io/otel v1.39.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.39.0
@@ -322,8 +322,8 @@ require (
 	github.com/prometheus/common v0.66.1 // indirect
 	github.com/prometheus/procfs v0.16.1 // indirect
 	github.com/quagmt/udecimal v1.9.0 // indirect
-	github.com/quic-go/qpack v0.5.1 // indirect
-	github.com/quic-go/quic-go v0.56.0 // indirect
+	github.com/quic-go/qpack v0.6.0 // indirect
+	github.com/quic-go/quic-go v0.57.1 // indirect
 	github.com/refraction-networking/utls v1.8.1 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.4 // indirect
@@ -366,8 +366,8 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.6 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.6.6 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.7 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.7 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect
