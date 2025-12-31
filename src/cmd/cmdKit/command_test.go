@@ -35,7 +35,7 @@ func TestNewCommand1(t *testing.T) {
 }
 
 func TestExecute(t *testing.T) {
-	data, err := Execute(context.TODO(), "java", "-version")
+	data, err := Run(context.TODO(), "java", "-version")
 	if err != nil {
 		panic(err)
 	}
