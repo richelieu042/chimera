@@ -29,12 +29,20 @@ func NewCommand(ctx context.Context, name string, args []string, options ...CmdO
 (2) 假如自行处理命令行中的路径，反而会导致: 命令执行失败
 */
 func Run(ctx context.Context, name string, args ...string) ([]byte, error) {
+	if ctx == nil {
+		ctx = context.TODO()
+	}
+
 	cmd := exec.CommandContext(ctx, name, args...)
 	return cmd.Output()
 }
 
 // RunCombinedly 执行命令（会阻塞直到命令结束）
 func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, error) {
+	if ctx == nil {
+		ctx = context.TODO()
+	}
+
 	cmd := exec.CommandContext(ctx, name, args...)
 	return cmd.CombinedOutput()
 }

@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.2
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.3
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251229114200-0d152d91a551
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251231140407-f302c68012c5
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -74,7 +74,7 @@ require (
 	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
 	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
-	github.com/nicksnyder/go-i18n/v2 v2.6.0
+	github.com/nicksnyder/go-i18n/v2 v2.6.1
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
@@ -91,7 +91,7 @@ require (
 	github.com/rs/xid v1.6.0
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/samber/lo v1.52.0
-	github.com/shirou/gopsutil/v4 v4.25.11
+	github.com/shirou/gopsutil/v4 v4.25.12
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
@@ -158,7 +158,7 @@ require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	fyne.io/systray v1.11.1-0.20250603113521-ca66a66d8b58 // indirect
 	github.com/AthenZ/athenz v1.12.13 // indirect
-	github.com/BurntSushi/toml v1.5.0 // indirect
+	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/ClickHouse/ch-go v0.61.5 // indirect
 	github.com/ClickHouse/clickhouse-go/v2 v2.30.0 // indirect
 	github.com/DataDog/zstd v1.5.2 // indirect
