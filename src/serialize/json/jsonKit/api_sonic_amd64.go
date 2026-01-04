@@ -1,4 +1,4 @@
-//go:build go1.17 && amd64 && sonic && avx
+//go:build go1.18 && amd64 && sonic && avx
 
 package jsonKit
 
