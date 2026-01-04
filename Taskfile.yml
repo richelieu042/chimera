@@ -85,7 +85,7 @@ tasks:
   linux-arm64:
     cmds:
       - task: build
-        vars: { OS: linux, ARCH: arm64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "", UPX: true }
+        vars: { OS: linux, ARCH: arm64, CC: x86_64-linux-musl-gcc, CXX: x86_64-linux-musl-g++, TAGS: "sonic", UPX: true }
 
   linux-mips64:
     cmds:
