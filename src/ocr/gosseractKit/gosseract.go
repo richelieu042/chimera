@@ -16,6 +16,18 @@ func GertText(imgPath string) (string, error) {
 
 	client := gosseract.NewClient()
 	defer client.Close()
+
+	// 设置语言 (支持中英文)
+	if err := client.SetLanguage("chi_sim", "eng"); err != nil {
+		return "", err
+	}
+
+	// 设置PSM模式
+	// gosseract.PSM_AUTO: 自动检测布局
+	if err := client.SetPageSegMode(gosseract.PSM_AUTO); err != nil {
+		return "", err
+	}
+
 	if err := client.SetImage(imgPath); err != nil {
 		return "", err
 	}
