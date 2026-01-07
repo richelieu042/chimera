@@ -3,9 +3,10 @@ package timeKit
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/richelieu-yang/chimera/v3/src/cmd/cmdKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"time"
 )
 
 // GetMachineTime 获取系统时间（机器时间；本地时间；time.Local）.
@@ -31,7 +32,7 @@ func SetMachineTime(ctx context.Context, t time.Time, rootPassword string) error
 		script = fmt.Sprintf(`echo "%s" | sudo -S date %s`, rootPassword, timeStr)
 	}
 
-	_, err := cmdKit.ExecuteToString(ctx, "sh", "-c", script)
+	_, err := cmdKit.RunCombinedly(ctx, "sh", "-c", script)
 	return err
 }
 

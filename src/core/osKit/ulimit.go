@@ -4,11 +4,12 @@ package osKit
 
 import (
 	"context"
+	"strconv"
+
 	"github.com/richelieu-yang/chimera/v3/src/cmd/cmdKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"strconv"
 )
 
 // GetUlimitInfo 获取: 目前资源限制的信息.
@@ -16,11 +17,11 @@ import (
 命令: sh -c "ulimit -a"
 */
 func GetUlimitInfo() (string, error) {
-	str, err := cmdKit.ExecuteToString(context.TODO(), "sh", "-c", "ulimit -a")
+	data, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ulimit -a")
 	if err != nil {
 		return "", err
 	}
-	str = strKit.TrimSpace(str)
+	str := strKit.TrimSpace(string(data))
 
 	return str, nil
 }
@@ -32,12 +33,12 @@ PS:
 (2) 为何使用 sh -c "ulimit -n" 而非 ulimit -n? https://www.thinbug.com/q/17483723
 */
 func GetMaxOpenFiles() (int, error) {
-	str, err := cmdKit.ExecuteToString(context.TODO(), "sh", "-c", "ulimit -n")
+	data, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ulimit -n")
 	if err != nil {
 		return 0, err
 	}
 	// e.g. "122880\n" => "122880"
-	str = strKit.TrimSpace(str)
+	str := strKit.TrimSpace(string(data))
 
 	i, err := intKit.StringToInt(str)
 	if err != nil {
@@ -69,12 +70,12 @@ PS:
 (2) ulimit -u命令也可以用来限制单个用户可以创建的线程数，因为: 在Linux中，线程本质上只是具有共享地址空间的进程。
 */
 func GetMaxProcessThreadCountByUser() (int, error) {
-	str, err := cmdKit.ExecuteToString(context.TODO(), "sh", "-c", "ulimit -u")
+	data, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ulimit -u")
 	if err != nil {
 		return 0, err
 	}
 	// e.g."5333\n" => "5333"
-	str = strKit.TrimSpace(str)
+	str := strKit.TrimSpace(string(data))
 
 	i, err := intKit.StringToInt(str)
 	if err != nil {
@@ -85,12 +86,12 @@ func GetMaxProcessThreadCountByUser() (int, error) {
 
 // GetCoreFileSize 获取: core文件的最大值，单位为区块.
 func GetCoreFileSize() (string, error) {
-	str, err := cmdKit.ExecuteToString(context.TODO(), "sh", "-c", "ulimit -c")
+	data, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ulimit -c")
 	if err != nil {
 		return "", err
 	}
 	// e.g."5333\n" => "5333"
-	str = strKit.TrimSpace(str)
+	str := strKit.TrimSpace(string(data))
 
 	if str == "unlimited" {
 		return str, nil
