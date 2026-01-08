@@ -118,3 +118,33 @@ func ResizeKeepAspectRatio(srcPath, dstPath string, maxWidth, maxHeight int) (er
 
 	return processDst(dstPath, dstImg, srcExt)
 }
+
+// ResizeByWidth 按宽度等比例缩放图片.
+func ResizeByWidth(srcPath, dstPath string, width int) (err error) {
+	srcImg, srcExt, err := processSrc(srcPath)
+	if err != nil {
+		return
+	}
+
+	dstImg, err := ResizeImageByWidth(srcImg, width)
+	if err != nil {
+		return
+	}
+
+	return processDst(dstPath, dstImg, srcExt)
+}
+
+// ResizeByHeight 按高度等比例缩放图片.
+func ResizeByHeight(srcPath, dstPath string, height int) (err error) {
+	srcImg, srcExt, err := processSrc(srcPath)
+	if err != nil {
+		return
+	}
+
+	dstImg, err := ResizeImageByHeight(srcImg, height)
+	if err != nil {
+		return
+	}
+
+	return processDst(dstPath, dstImg, srcExt)
+}

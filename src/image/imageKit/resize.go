@@ -101,7 +101,6 @@ func ResizeImageByWidth(src image.Image, width int) (image.Image, error) {
 	@param src		源图片对象
 	@param height	目标高度
 */
-
 func ResizeImageByHeight(src image.Image, height int) (image.Image, error) {
 	bounds := src.Bounds()
 	srcWidth := bounds.Dx()
