@@ -8,7 +8,7 @@ import (
 )
 
 // resizeImage 私有函数，调用此函数前须确保传参没有问题
-func resizeImage(src image.Image, width, height int) image.Image {
+func resizeImage(srcImg image.Image, width, height int) image.Image {
 	dst := image.NewRGBA(image.Rect(0, 0, width, height))
 
 	/*
@@ -18,12 +18,15 @@ func resizeImage(src image.Image, width, height int) image.Image {
 			draw.BiLinear - 双线性插值
 			draw.CatmullRom - 高质量，推荐使用
 	*/
-	draw.CatmullRom.Scale(dst, dst.Bounds(), src, src.Bounds(), draw.Over, nil)
+	draw.CatmullRom.Scale(dst, dst.Bounds(), srcImg, srcImg.Bounds(), draw.Over, nil)
 	return dst
 }
 
 // ResizeImage 缩放图片到指定尺寸（不保证纵横比）.
-func ResizeImage(src image.Image, width, height int) (image.Image, error) {
+func ResizeImage(srcImg image.Image, width, height int) (image.Image, error) {
+	if srcImg == nil {
+		return nil, errorKit.Newf("srcImg is nil")
+	}
 	if width <= 0 {
 		return nil, errorKit.Newf("invalid width: %d", width)
 	}
@@ -31,22 +34,25 @@ func ResizeImage(src image.Image, width, height int) (image.Image, error) {
 		return nil, errorKit.Newf("invalid height: %d", height)
 	}
 
-	return resizeImage(src, width, height), nil
+	return resizeImage(srcImg, width, height), nil
 }
 
 // ResizeImageWithScale 按指定比例缩放图片（保证纵横比）.
-func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
+func ResizeImageWithScale(srcImg image.Image, scale float64) (image.Image, error) {
+	if srcImg == nil {
+		return nil, errorKit.Newf("srcImg is nil")
+	}
 	if scale <= 0 {
 		return nil, errorKit.Newf("invalid scale: %f", scale)
 	}
 
-	bounds := src.Bounds()
+	bounds := srcImg.Bounds()
 	srcWidth := bounds.Dx()
 	srcHeight := bounds.Dy()
 	targetWidth := int(float64(srcWidth) * scale)
 	targetHeight := int(float64(srcHeight) * scale)
 
-	return resizeImage(src, targetWidth, targetHeight), nil
+	return resizeImage(srcImg, targetWidth, targetHeight), nil
 }
 
 // ResizeImageKeepAspectRatio 按比例调整图片大小（保证纵横比；适应指定尺寸）.
@@ -55,7 +61,10 @@ func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
 	@param	maxWidth	最大宽度
 	@param	maxHeight	最大高度
 */
-func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image.Image, error) {
+func ResizeImageKeepAspectRatio(srcImg image.Image, maxWidth, maxHeight int) (image.Image, error) {
+	if srcImg == nil {
+		return nil, errorKit.Newf("srcImg is nil")
+	}
 	if maxWidth <= 0 {
 		return nil, errorKit.Newf("invalid maxWidth: %d", maxWidth)
 	}
@@ -63,7 +72,7 @@ func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image
 		return nil, errorKit.Newf("invalid maxHeight: %d", maxHeight)
 	}
 
-	bounds := src.Bounds()
+	bounds := srcImg.Bounds()
 	srcWidth := bounds.Dx()
 	srcHeight := bounds.Dy()
 
@@ -77,7 +86,7 @@ func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image
 		targetHeight = int(float64(maxWidth) / ratio)
 	}
 
-	return resizeImage(src, targetWidth, targetHeight), nil
+	return resizeImage(srcImg, targetWidth, targetHeight), nil
 }
 
 // ResizeImageByWidth 按宽度等比例缩放图片.
@@ -85,15 +94,22 @@ func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image
 	@param src		源图片对象
 	@param width	目标宽度
 */
-func ResizeImageByWidth(src image.Image, width int) (image.Image, error) {
-	bounds := src.Bounds()
+func ResizeImageByWidth(srcImg image.Image, width int) (image.Image, error) {
+	if srcImg == nil {
+		return nil, errorKit.Newf("srcImg is nil")
+	}
+	if width <= 0 {
+		return nil, errorKit.Newf("invalid width: %d", width)
+	}
+
+	bounds := srcImg.Bounds()
 	srcWidth := bounds.Dx()
 	srcHeight := bounds.Dy()
 
 	scale := float64(width) / float64(srcWidth)
 	height := int(float64(srcHeight) * scale)
 
-	return resizeImage(src, width, height), nil
+	return resizeImage(srcImg, width, height), nil
 }
 
 // ResizeImageByHeight 按高度等比例缩放图片.
@@ -101,13 +117,20 @@ func ResizeImageByWidth(src image.Image, width int) (image.Image, error) {
 	@param src		源图片对象
 	@param height	目标高度
 */
-func ResizeImageByHeight(src image.Image, height int) (image.Image, error) {
-	bounds := src.Bounds()
+func ResizeImageByHeight(srcImg image.Image, height int) (image.Image, error) {
+	if srcImg == nil {
+		return nil, errorKit.Newf("srcImg is nil")
+	}
+	if height <= 0 {
+		return nil, errorKit.Newf("invalid height: %d", height)
+	}
+
+	bounds := srcImg.Bounds()
 	srcWidth := bounds.Dx()
 	srcHeight := bounds.Dy()
 
 	scale := float64(height) / float64(srcHeight)
 	width := int(float64(srcWidth) * scale)
 
-	return resizeImage(src, width, height), nil
+	return resizeImage(srcImg, width, height), nil
 }

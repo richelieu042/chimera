@@ -1,26 +1,49 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/richelieu-yang/chimera/v3/src/image/imageKit"
+	"image"
+	"image/jpeg"
+	"os"
 )
 
+func cropImage(inputPath, outputPath string, x, y, width, height int) error {
+	// 打开原图
+	file, err := os.Open(inputPath)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// 解码图片
+	img, _, err := image.Decode(file)
+	if err != nil {
+		return err
+	}
+
+	// 定义裁剪区域
+	cropRect := image.Rect(x, y, x+width, y+height)
+
+	// 裁剪图片
+	croppedImg := img.(interface {
+		SubImage(r image.Rectangle) image.Image
+	}).SubImage(cropRect)
+
+	// 保存裁剪后的图片
+	outFile, err := os.Create(outputPath)
+	if err != nil {
+		return err
+	}
+	defer outFile.Close()
+
+	// 根据输出格式编码
+	return jpeg.Encode(outFile, croppedImg, &jpeg.Options{Quality: 90})
+	// 或者使用 png.Encode(outFile, croppedImg)
+}
+
 func main() {
-	////err := gfile.RemoveFile("/Users/richelieu/Desktop/111.png")
-	//err := gfile.RemoveAll("/Users/richelieu/Desktop/222.png")
-	//
-	//fmt.Println(err)
-
-	srcPath := "/Users/richelieu/Desktop/iShot_2026-01-08_14.07.26.png"
-
-	//err := imageKit.Resize(srcPath, "222.png", 1000, 100)
-
-	//err := imageKit.ResizeWithScale(srcPath, "333.png", 2)
-
-	//err := imageKit.ResizeKeepAspectRatio(srcPath, "444.png", 1000, 1000)
-
-	err := imageKit.ResizeByHeight(srcPath, "555.png", 1000)
-
-	fmt.Println(err)
+	// 从 (100, 100) 位置开始，裁剪 300x200 的区域
+	err := cropImage("input.jpg", "output.jpg", 100, 100, 300, 200)
+	if err != nil {
+		panic(err)
+	}
 }
