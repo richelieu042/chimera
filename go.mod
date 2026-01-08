@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.2
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.4
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260107080014-2cb7863112c8
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260108042314-4c569581b811
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
