@@ -6,6 +6,7 @@ import (
 	"io"
 
 	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
@@ -24,12 +25,13 @@ var (
 /*
 @return 第2个: 图片的格式名称，例如 "png"、"jpeg" 等（不带"." && 转为小写）
 */
-func DecodeWithPath(imgPath string) (img image.Image, format string, err error) {
-	if err := fileKit.AssertExistAndIsFile(imgPath); err != nil {
+func DecodeWithPath(path string) (img image.Image, format string, err error) {
+	path = strKit.TrimSpace(path)
+	if err := fileKit.AssertExistAndIsFile(path); err != nil {
 		return nil, "", err
 	}
 
-	f, err := fileKit.OpenReadOnly(imgPath)
+	f, err := fileKit.OpenReadOnly(path)
 	if err != nil {
 		return nil, "", err
 	}
