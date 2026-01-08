@@ -18,7 +18,9 @@ func main() {
 
 	//err := imageKit.ResizeWithScale(srcPath, "333.png", 2)
 
-	err := imageKit.ResizeKeepAspectRatio(srcPath, "444.png", 1000, 1000)
+	//err := imageKit.ResizeKeepAspectRatio(srcPath, "444.png", 1000, 1000)
+
+	err := imageKit.ResizeByHeight(srcPath, "555.png", 1000)
 
 	fmt.Println(err)
 }
