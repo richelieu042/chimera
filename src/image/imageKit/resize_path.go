@@ -47,7 +47,7 @@ func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
 		return err
 	}
 	defer func() {
-		dstFile.Close()
+		_ = dstFile.Close()
 
 		// 失败的情况下，毁尸灭迹（把生成的目标文件删了）
 		if err != nil {
@@ -58,7 +58,6 @@ func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
 	// (4) 根据目标文件扩展名编码保存
 	switch dstExt {
 	case ".png":
-		// PNG 格式
 		err = png.Encode(dstFile, dstImg)
 	case ".jpg", ".jpeg":
 		err = jpeg.Encode(dstFile, dstImg, &jpeg.Options{Quality: 100})
@@ -90,6 +89,7 @@ func Resize(srcPath, dstPath string, width, height int) (err error) {
 	return processDst(dstPath, dstImg, srcExt)
 }
 
+// ResizeWithScale 按指定比例缩放图片（保证纵横比）.
 func ResizeWithScale(srcPath, dstPath string, scale float64) (err error) {
 	srcImg, srcExt, err := processSrc(srcPath)
 	if err != nil {
@@ -104,6 +104,7 @@ func ResizeWithScale(srcPath, dstPath string, scale float64) (err error) {
 	return processDst(dstPath, dstImg, srcExt)
 }
 
+// ResizeKeepAspectRatio 按比例调整图片大小（保证纵横比；适应指定尺寸）.
 func ResizeKeepAspectRatio(srcPath, dstPath string, maxWidth, maxHeight int) (err error) {
 	srcImg, srcExt, err := processSrc(srcPath)
 	if err != nil {

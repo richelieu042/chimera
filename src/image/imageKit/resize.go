@@ -49,7 +49,7 @@ func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
 	return resizeImage(src, targetWidth, targetHeight), nil
 }
 
-// ResizeImageKeepAspectRatio 按比例调整图片大小（保证纵横比；适应指定尺寸）
+// ResizeImageKeepAspectRatio 按比例调整图片大小（保证纵横比；适应指定尺寸）.
 /*
 	@param	src			源图片对象
 	@param	maxWidth	最大宽度
