@@ -18,8 +18,6 @@ var (
 	   		第3个: error（可能为nil）
 	*/
 	Decode func(r io.Reader) (img image.Image, format string, err error) = image.Decode
-
-	OpenAndDecode func(imgPath string) (img image.Image, format string, err error) = DecodeWithPath
 )
 
 // DecodeWithPath 解码图片.

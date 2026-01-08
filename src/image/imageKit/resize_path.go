@@ -2,8 +2,6 @@ package imageKit
 
 import (
 	"image"
-	"image/jpeg"
-	"image/png"
 
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
@@ -11,11 +9,13 @@ import (
 )
 
 func processSrc(srcPath string) (image.Image, string, error) {
+	// 检查 && 容错
 	if err := strKit.AssertNotBlank(srcPath, "srcPath"); err != nil {
 		return nil, "", err
 	}
+	srcPath = strKit.TrimSpace(srcPath)
 
-	srcImg, srcFormat, err := OpenAndDecode(srcPath)
+	srcImg, srcFormat, err := DecodeWithPath(srcPath)
 	if err != nil {
 		return nil, "", errorKit.Wrapf(err, "fail to decode source image")
 	}
@@ -25,9 +25,11 @@ func processSrc(srcPath string) (image.Image, string, error) {
 }
 
 func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
+	// 检查 && 容错
 	if err := strKit.AssertNotBlank(dstPath, "dstPath"); err != nil {
 		return err
 	}
+	dstPath = strKit.TrimSpace(dstPath)
 
 	// 处理特殊情况: dstPath不带格式
 	dstExt := fileKit.GetExt(dstPath)
@@ -55,16 +57,8 @@ func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
 		}
 	}()
 
-	// (4) 根据目标文件扩展名编码保存
-	switch dstExt {
-	case ".png":
-		err = png.Encode(dstFile, dstImg)
-	case ".jpg", ".jpeg":
-		err = jpeg.Encode(dstFile, dstImg, &jpeg.Options{Quality: 100})
-	default:
-		err = errorKit.Newf("unsupported dstExt: %s", dstExt)
-	}
-	return
+	// (4) 根据目标文件扩展名编码保存（保存为文件）
+	return Encode(dstFile, dstImg, dstExt)
 }
 
 // Resize 缩放图片到指定尺寸（不保证纵横比）.

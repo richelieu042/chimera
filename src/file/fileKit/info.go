@@ -1,10 +1,12 @@
 package fileKit
 
 import (
-	"github.com/gogf/gf/v2/os/gfile"
 	"os"
 	"path/filepath"
 	"strings"
+
+	"github.com/gogf/gf/v2/os/gfile"
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 )
 
 var (
@@ -63,13 +65,12 @@ var (
 		("./iShot_2024-09-04_13.51.58.PNG") => ".png"
 */
 func GetExt(path string, lowerArgs ...bool) (ext string) {
+	path = strKit.TrimSpace(path)
 	ext = gfile.Ext(path)
-
 	if lowerArgs == nil || lowerArgs[0] {
 		// 手动转换为小写字母
 		ext = strings.ToLower(ext)
 	}
-
 	return
 }
 
