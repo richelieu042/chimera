@@ -40,21 +40,13 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 
 // EncodeWithPath 保存为文件.
 func EncodeWithPath(path string, img image.Image) (err error) {
-	// 参数检查 && 容错
+	/* 参数检查 && 容错 */
 	if err := strKit.AssertNotBlank(path, "path"); err != nil {
 		return err
 	}
 	path = strKit.TrimSpace(path)
 	if img == nil {
 		return errorKit.Newf("img is nil")
-	}
-
-	ext := fileKit.GetExt(path)
-	switch ext {
-	case ".png":
-	case ".jpg", ".jpeg":
-	default:
-		return errorKit.Newf("unsupported ext: [%s]", ext)
 	}
 
 	file, err := fileKit.Create(path)
@@ -69,6 +61,8 @@ func EncodeWithPath(path string, img image.Image) (err error) {
 			_ = fileKit.Delete(path)
 		}
 	}()
+
+	ext := fileKit.GetExt(path)
 
 	return Encode(file, img, ext)
 }
