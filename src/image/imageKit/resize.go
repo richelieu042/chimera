@@ -2,16 +2,13 @@ package imageKit
 
 import (
 	"image"
-	"image/jpeg"
-	"image/png"
 
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"golang.org/x/image/draw"
 )
 
-func ResizeImage(src image.Image, width, height int) image.Image {
+// resizeImage 私有函数，调用此函数前须确保传参没有问题
+func resizeImage(src image.Image, width, height int) image.Image {
 	dst := image.NewRGBA(image.Rect(0, 0, width, height))
 
 	/*
@@ -25,99 +22,58 @@ func ResizeImage(src image.Image, width, height int) image.Image {
 	return dst
 }
 
-// Resize 缩放图片到指定尺寸（不保证纵横比）
-/*
-	@param srcPath	源图片文件路径
-	@param dstPath	目标图片文件路径
-	@param width	目标宽度（像素）
-	@param height	目标高度（像素）
-	@return 返回错误信息，如果成功则返回 nil
-*/
-func Resize(srcPath, dstPath string, width, height int) (err error) {
-	// (0) 参数检查
-	if err := strKit.AssertNotBlank(srcPath, "srcPath"); err != nil {
-		return err
-	}
-	if err := strKit.AssertNotBlank(dstPath, "dstPath"); err != nil {
-		return err
-	}
+func ResizeImage(src image.Image, width, height int) (image.Image, error) {
 	if width <= 0 {
-		return errorKit.Newf("invalid width: %d", width)
+		return nil, errorKit.Newf("invalid width: %d", width)
 	}
 	if height <= 0 {
-		return errorKit.Newf("invalid height: %d", height)
+		return nil, errorKit.Newf("invalid height: %d", height)
 	}
 
-	// (1) 打开源图片文件 && 解码图片（自动识别格式）
-	srcImg, srcFormat, err := OpenAndDecode(srcPath)
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to decode source image")
-	}
-
-	// (2) 确定目标文件的格式 && 创建文件（会自动创建父目录）
-	dstExt := fileKit.GetExt(dstPath)
-	if strKit.IsEmpty(dstExt) {
-		dstExt = "." + srcFormat
-		dstPath += dstExt
-	}
-	switch dstExt {
-	case ".png":
-	case ".jpg", ".jpeg":
-	default:
-		return errorKit.Newf("unsupported dstExt: %s", dstExt)
-	}
-	dstFile, err := fileKit.Create(dstPath)
-	if err != nil {
-		return err
-	}
-	defer func() {
-		dstFile.Close()
-
-		// 失败的情况下，毁尸灭迹
-		if err != nil {
-			_ = fileKit.Delete(dstPath)
-		}
-	}()
-
-	// (3) 创建目标图片对象，使用 CatmullRom 算法进行高质量缩放
-	dstImg := ResizeImage(srcImg, width, height)
-
-	// (4) 根据目标文件扩展名编码保存
-	switch dstExt {
-	case ".png":
-		// PNG 格式
-		err = png.Encode(dstFile, dstImg)
-	case ".jpg", ".jpeg":
-		err = jpeg.Encode(dstFile, dstImg, &jpeg.Options{Quality: 100})
-	default:
-		err = errorKit.Newf("unsupported dstExt: %s", dstExt)
-	}
-	return
+	return resizeImage(src, width, height), nil
 }
 
-//// ResizeWithScale 按指定比例缩放图片.
-///*
-//	@param scale 缩放比例，如 0.5 表示缩小到原来的 50%，2.0 表示放大到 200%
-//*/
-//func ResizeWithScale(srcPath, dstPath string, scale float64) error {
-//	// (0) 参数检查
-//	if err := strKit.AssertNotBlank(srcPath, "srcPath"); err != nil {
-//		return err
-//	}
-//	if err := strKit.AssertNotBlank(dstPath, "dstPath"); err != nil {
-//		return err
-//	}
-//	if scale <= 0 {
-//		return errorKit.Newf("invalid scale: %f", scale)
-//	}
-//
-//	OpenAndDecode(srcPath)
-//
-//	bounds := src.Bounds()
-//	srcWidth := bounds.Dx()
-//	srcHeight := bounds.Dy()
-//	targetWidth := int(float64(srcWidth) * scale)
-//	targetHeight := int(float64(srcHeight) * scale)
-//
-//	return nil
-//}
+func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
+	if scale <= 0 {
+		return nil, errorKit.Newf("invalid scale: %f", scale)
+	}
+
+	bounds := src.Bounds()
+	srcWidth := bounds.Dx()
+	srcHeight := bounds.Dy()
+	targetWidth := int(float64(srcWidth) * scale)
+	targetHeight := int(float64(srcHeight) * scale)
+
+	return resizeImage(src, targetWidth, targetHeight), nil
+}
+
+// ResizeImageKeepAspectRatio 按比例调整图片大小（保持宽高比，适应指定尺寸）
+/*
+	@param	src			源图片对象
+	@param	maxWidth	最大宽度
+	@param	maxHeight	最大高度
+*/
+func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image.Image, error) {
+	if maxWidth <= 0 {
+		return nil, errorKit.Newf("invalid maxWidth: %d", maxWidth)
+	}
+	if maxHeight <= 0 {
+		return nil, errorKit.Newf("invalid maxHeight: %d", maxHeight)
+	}
+
+	bounds := src.Bounds()
+	srcWidth := bounds.Dx()
+	srcHeight := bounds.Dy()
+
+	// 计算缩放比例
+	ratio := float64(srcWidth) / float64(srcHeight)
+	targetWidth := maxWidth
+	targetHeight := maxHeight
+	if float64(maxWidth)/float64(maxHeight) > ratio {
+		targetWidth = int(float64(maxHeight) * ratio)
+	} else {
+		targetHeight = int(float64(maxWidth) / ratio)
+	}
+
+	return resizeImage(src, targetWidth, targetHeight), nil
+}
