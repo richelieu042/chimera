@@ -1,9 +1,10 @@
 package qrCodeKit
 
 import (
-	"github.com/skip2/go-qrcode"
 	"image/color"
 	"testing"
+
+	"github.com/skip2/go-qrcode"
 )
 
 func TestGenerateFile(t *testing.T) {

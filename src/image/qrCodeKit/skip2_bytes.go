@@ -1,9 +1,10 @@
 package qrCodeKit
 
 import (
+	"image/color"
+
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"github.com/skip2/go-qrcode"
-	"image/color"
 )
 
 // Generate 生成二维码([]byte类型).

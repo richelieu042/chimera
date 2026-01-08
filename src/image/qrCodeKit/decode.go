@@ -1,8 +1,9 @@
 package qrCodeKit
 
 import (
-	"github.com/tuotoo/qrcode"
 	"os"
+
+	"github.com/tuotoo/qrcode"
 )
 
 // Decode 解析二维码（仅支持部分图片）.

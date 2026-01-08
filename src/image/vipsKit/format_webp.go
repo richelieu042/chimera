@@ -1,9 +1,10 @@
 package vipsKit
 
 import (
+	"os"
+
 	"github.com/davidbyttow/govips/v2/vips"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"os"
 )
 
 // ToWebpData

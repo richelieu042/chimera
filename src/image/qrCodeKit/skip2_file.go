@@ -1,18 +1,19 @@
 package qrCodeKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mathKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/image/imageKit"
-	"github.com/skip2/go-qrcode"
 	"image"
 	"image/color"
 	"image/draw"
 	"image/jpeg"
 	"image/png"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/mathKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu-yang/chimera/v3/src/image/imageKit"
+	"github.com/skip2/go-qrcode"
 )
 
 // GenerateFile 生成二维码文件.

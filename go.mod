@@ -3,7 +3,7 @@ module github.com/richelieu-yang/chimera/v3
 go 1.25.5
 
 require (
-	fyne.io/fyne/v2 v2.7.1
+	fyne.io/fyne/v2 v2.7.2
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.0
 	github.com/apache/pulsar-client-go v0.18.0
@@ -61,8 +61,8 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.2
 	github.com/klauspost/cpuid/v2 v2.3.0
-	github.com/linxGnu/grocksdb v1.10.3
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20251231140407-f302c68012c5
+	github.com/linxGnu/grocksdb v1.10.4
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260107080014-2cb7863112c8
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -120,7 +120,6 @@ require (
 	go.opentelemetry.io/otel/trace v1.39.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.1
-	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.23.0
 	golang.org/x/crypto v0.46.0
 	golang.org/x/exp v0.0.0-20251219203646-944ab1f22d93
@@ -157,7 +156,7 @@ require (
 	cloud.google.com/go/iam v1.4.1 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.7.0 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
-	fyne.io/systray v1.11.1-0.20250603113521-ca66a66d8b58 // indirect
+	fyne.io/systray v1.12.0 // indirect
 	github.com/AthenZ/athenz v1.12.13 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/ClickHouse/ch-go v0.61.5 // indirect

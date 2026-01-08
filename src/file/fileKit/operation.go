@@ -1,10 +1,11 @@
 package fileKit
 
 import (
-	"github.com/gogf/gf/v2/os/gfile"
 	"os"
 	"path/filepath"
 	"time"
+
+	"github.com/gogf/gf/v2/os/gfile"
 )
 
 var (
@@ -14,14 +15,17 @@ var (
 	// CutAndPaste 剪贴.
 	CutAndPaste func(src string, dst string) (err error) = gfile.Move
 
-	// Remove 删除文件（或目录）.
+	// RemoveFile 删除文件.
+	RemoveFile func(path string) (err error) = gfile.RemoveFile
+
+	// RemoveAll 删除文件（或目录）.
 	/*
 		PS: 如果是目录且内部有文件或目录，也会一并删除.
 	*/
-	Remove func(path string) (err error) = gfile.Remove
+	RemoveAll func(path string) (err error) = gfile.RemoveAll
 
 	// Delete 删除文件（或目录）.
-	Delete func(path string) (err error) = Remove
+	Delete func(path string) (err error) = RemoveAll
 
 	// Truncate 更改文件大小的函数.
 	/*
@@ -57,7 +61,7 @@ func EmptyDir(dirPath string) error {
 	}
 	for _, dirEntry := range dirEntries {
 		path := filepath.Join(dirPath, dirEntry.Name())
-		if err := Remove(path); err != nil {
+		if err := RemoveAll(path); err != nil {
 			return err
 		}
 	}

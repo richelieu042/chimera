@@ -3,6 +3,8 @@ package pulsarKit
 import (
 	"context"
 	"fmt"
+	"time"
+
 	"github.com/apache/pulsar-client-go/pulsar"
 	"github.com/richelieu-yang/chimera/v3/src/core/conditionKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
@@ -15,7 +17,6 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/randomKit"
 	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"github.com/sirupsen/logrus"
-	"time"
 )
 
 const (
@@ -61,12 +62,12 @@ func verify(config *VerifyConfig) (err error) {
 	defer func() {
 		if err == nil {
 			// 验证成功的情况下，删掉客户端日志文件
-			if err := fileKit.Remove(consumerLogPath); err != nil {
+			if err := fileKit.RemoveAll(consumerLogPath); err != nil {
 				logger.WithError(err).Error("Fail to delete consumerLogPath.")
 			} else {
 				logger.Info("Delete consumerLogPath.")
 			}
-			if err := fileKit.Remove(producerLogPath); err != nil {
+			if err := fileKit.RemoveAll(producerLogPath); err != nil {
 				logger.WithError(err).Error("Fail to delete producerLogPath.")
 			} else {
 				logger.Info("Delete producerLogPath.")

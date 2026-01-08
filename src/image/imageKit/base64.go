@@ -2,12 +2,13 @@ package imageKit
 
 import (
 	"fmt"
+	"os"
+	"regexp"
+
 	"github.com/richelieu-yang/chimera/v3/src/component/web/http_client/httpClientKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"os"
-	"regexp"
 )
 
 // GetImageBase64 (硬盘上的)图片 => base64字符串

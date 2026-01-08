@@ -2,11 +2,12 @@ package imageKit
 
 import (
 	"bytes"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"image"
 	"io"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
 // Decode 解码图片（部分特殊格式不支持; path => image.Image）.

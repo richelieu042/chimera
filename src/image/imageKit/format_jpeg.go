@@ -1,12 +1,13 @@
 package imageKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"image"
 	"image/color"
 	"image/draw"
 	"image/jpeg"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
 // ToJpeg 将图片格式转换为".jpg"(||".jpeg").

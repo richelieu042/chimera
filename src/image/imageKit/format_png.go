@@ -1,9 +1,10 @@
 package imageKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"image/png"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
 // ToPng 将图片格式转换为".png".

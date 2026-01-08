@@ -1,9 +1,10 @@
 package imageKit
 
 import (
+	"os"
+
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"golang.org/x/image/bmp"
-	"os"
 )
 
 // ToBmp 将图片格式转换为".bmp".
