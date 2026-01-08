@@ -22,6 +22,7 @@ func resizeImage(src image.Image, width, height int) image.Image {
 	return dst
 }
 
+// ResizeImage 缩放图片到指定尺寸（不保证纵横比）.
 func ResizeImage(src image.Image, width, height int) (image.Image, error) {
 	if width <= 0 {
 		return nil, errorKit.Newf("invalid width: %d", width)
@@ -33,6 +34,7 @@ func ResizeImage(src image.Image, width, height int) (image.Image, error) {
 	return resizeImage(src, width, height), nil
 }
 
+// ResizeImageWithScale 按指定比例缩放图片（保证纵横比）.
 func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
 	if scale <= 0 {
 		return nil, errorKit.Newf("invalid scale: %f", scale)
@@ -47,7 +49,7 @@ func ResizeImageWithScale(src image.Image, scale float64) (image.Image, error) {
 	return resizeImage(src, targetWidth, targetHeight), nil
 }
 
-// ResizeImageKeepAspectRatio 按比例调整图片大小（保持宽高比，适应指定尺寸）
+// ResizeImageKeepAspectRatio 按比例调整图片大小（保证纵横比；适应指定尺寸）
 /*
 	@param	src			源图片对象
 	@param	maxWidth	最大宽度
