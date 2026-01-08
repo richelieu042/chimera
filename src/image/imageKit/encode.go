@@ -41,10 +41,10 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 // EncodeWithPath 保存为文件.
 func EncodeWithPath(path string, img image.Image) (err error) {
 	/* 参数检查 && 容错 */
-	if err := strKit.AssertNotBlank(path, "path"); err != nil {
+	path = strKit.TrimSpace(path)
+	if err := strKit.AssertNotEmpty(path, "path"); err != nil {
 		return err
 	}
-	path = strKit.TrimSpace(path)
 	if img == nil {
 		return errorKit.Newf("img is nil")
 	}
