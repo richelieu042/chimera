@@ -19,12 +19,12 @@ var (
 	*/
 	Decode func(r io.Reader) (img image.Image, format string, err error) = image.Decode
 
-	OpenAndDecode = DecodeWithPath
+	OpenAndDecode func(imgPath string) (img image.Image, format string, err error) = DecodeWithPath
 )
 
 // DecodeWithPath 解码图片.
 /*
-@param imagePath 图片的路径.
+@return 第2个: 图片的格式名称，例如 "png"、"jpeg" 等（不带"." && 转为小写）
 */
 func DecodeWithPath(imgPath string) (img image.Image, format string, err error) {
 	if err := fileKit.AssertExistAndIsFile(imgPath); err != nil {
