@@ -27,7 +27,7 @@ func ToJpeg(src, dest string, qualityArgs ...int8) error {
 		quality = qualityArgs[0]
 	}
 
-	srcImage, _, err := DecodeWithImagePath(src)
+	srcImage, _, err := DecodeWithPath(src)
 	destFile, err := os.Create(dest)
 	if err != nil {
 		return err

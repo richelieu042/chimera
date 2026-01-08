@@ -4,31 +4,34 @@ import (
 	"bytes"
 	"image"
 	"io"
-	"os"
 
 	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
-// Decode 解码图片（部分特殊格式不支持; path => image.Image）.
-/*
-@param r 类型可以是: *os.File（用完记得调用Close()）
-@return 第1个: image.Image实例
-		第2个: 表示图像的格式名称，例如 "png"、"jpeg" 等（不带"." && 转为小写）
-		第3个: error（可能为nil）
-*/
-var Decode func(r io.Reader) (img image.Image, format string, err error) = image.Decode
+var (
+	// Decode 解码图片（部分特殊格式不支持; path => image.Image）.
+	/*
+	   @param r 类型可以是: *os.File（用完记得调用Close()）
+	   @return 第1个: image.Image实例
+	   		第2个: 表示图像的格式名称，例如 "png"、"jpeg" 等（不带"." && 转为小写）
+	   		第3个: error（可能为nil）
+	*/
+	Decode func(r io.Reader) (img image.Image, format string, err error) = image.Decode
 
-// DecodeWithImagePath 解码图片.
+	OpenAndDecode = DecodeWithPath
+)
+
+// DecodeWithPath 解码图片.
 /*
 @param imagePath 图片的路径.
 */
-func DecodeWithImagePath(imgPath string) (img image.Image, format string, err error) {
+func DecodeWithPath(imgPath string) (img image.Image, format string, err error) {
 	if err := fileKit.AssertExistAndIsFile(imgPath); err != nil {
 		return nil, "", err
 	}
 
-	f, err := os.Open(imgPath)
+	f, err := fileKit.OpenReadOnly(imgPath)
 	if err != nil {
 		return nil, "", err
 	}
