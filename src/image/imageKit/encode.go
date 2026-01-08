@@ -38,8 +38,8 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	return
 }
 
-// EncodeWithPath 保存为文件.
-func EncodeWithPath(path string, img image.Image) (err error) {
+// EncodeToPath 保存为文件.
+func EncodeToPath(path string, img image.Image) (err error) {
 	/* 参数检查 && 容错 */
 	path = strKit.TrimSpace(path)
 	if err := strKit.AssertNotEmpty(path, "path"); err != nil {

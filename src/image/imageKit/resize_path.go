@@ -15,7 +15,7 @@ func processSrc(srcPath string) (image.Image, string, error) {
 	}
 	srcPath = strKit.TrimSpace(srcPath)
 
-	srcImg, srcFormat, err := DecodeWithPath(srcPath)
+	srcImg, srcFormat, err := DecodeFromPath(srcPath)
 	if err != nil {
 		return nil, "", errorKit.Wrapf(err, "fail to decode source image")
 	}
@@ -38,7 +38,7 @@ func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
 		dstPath += dstExt
 	}
 
-	return EncodeWithPath(dstPath, dstImg)
+	return EncodeToPath(dstPath, dstImg)
 }
 
 // Resize 缩放图片到指定尺寸（不保证纵横比）.

@@ -16,7 +16,7 @@ func ToTiff(src, dest string, opts *tiff.Options) error {
 		return err
 	}
 
-	srcImage, _, err := DecodeWithPath(src)
+	srcImage, _, err := DecodeFromPath(src)
 	destFile, err := os.Create(dest)
 	if err != nil {
 		return err

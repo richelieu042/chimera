@@ -16,7 +16,7 @@ func TestEncodeToFile(t *testing.T) {
 
 // 带 logo 的二维码（注意，logo的尺寸不能大于二维码的1/5）.
 func TestEncodeToFile1(t *testing.T) {
-	img, _, err := imageKit.DecodeWithPath("_logo.png")
+	img, _, err := imageKit.DecodeFromPath("_logo.png")
 	if err != nil {
 		panic(err)
 	}
