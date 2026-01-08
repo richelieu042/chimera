@@ -3,7 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu-yang/chimera/v3/src/idKit"
+	"github.com/richelieu-yang/chimera/v3/src/image/imageKit"
 )
 
 func main() {
@@ -24,6 +25,8 @@ func main() {
 	//
 	//fmt.Println(err)
 
-	fmt.Println(fileKit.GetExt("	111.exe "))
+	//fmt.Println(fileKit.GetExt("	111.exe "))
 
+	err := imageKit.Clip("screen.png", idKit.NewUUID()+".jpg", 0, 0, 1000, 500)
+	fmt.Println(err)
 }
