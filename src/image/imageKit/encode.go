@@ -12,7 +12,7 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
-// Encode 保存为文件.
+// Encode image.Image => 文件
 /*
 @param ext 文件扩展名（带'.'且小写字母化） e.g. ".png"
 */
@@ -38,13 +38,9 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	return
 }
 
-// EncodeToPath 保存为文件.
+// EncodeToPath image.Image => 文件
 func EncodeToPath(path string, img image.Image) (err error) {
-	/* 参数检查 && 容错 */
 	path = strKit.TrimSpace(path)
-	if err := strKit.AssertNotEmpty(path, "path"); err != nil {
-		return err
-	}
 	if img == nil {
 		return errorKit.Newf("img is nil")
 	}
