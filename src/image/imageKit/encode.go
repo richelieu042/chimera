@@ -12,7 +12,7 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
-// Encode 根据目标文件扩展名编码保存（保存为文件）.
+// Encode 保存为文件.
 /*
 @param ext 文件扩展名（带'.'且小写字母化） e.g. ".png"
 */
@@ -38,6 +38,7 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	return
 }
 
+// EncodeWithPath 保存为文件.
 func EncodeWithPath(path string, img image.Image) (err error) {
 	// 参数检查 && 容错
 	if err := strKit.AssertNotBlank(path, "path"); err != nil {
