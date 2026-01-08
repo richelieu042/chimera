@@ -71,7 +71,7 @@ func Resize(srcPath, dstPath string, width, height int) (err error) {
 	}()
 
 	// (3) 创建目标图片对象，使用 CatmullRom 算法进行高质量缩放
-	dstImg := resize(srcImg, width, height)
+	dstImg := ResizeImage(srcImg, width, height)
 
 	// (4) 根据目标文件扩展名编码保存
 	switch dstExt {
@@ -86,7 +86,7 @@ func Resize(srcPath, dstPath string, width, height int) (err error) {
 	return
 }
 
-func resize(src image.Image, width, height int) image.Image {
+func ResizeImage(src image.Image, width, height int) image.Image {
 	dst := image.NewRGBA(image.Rect(0, 0, width, height))
 
 	/*

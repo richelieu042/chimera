@@ -12,6 +12,6 @@ func main() {
 	//
 	//fmt.Println(err)
 
-	err := imageKit.Resize("/Users/richelieu/Desktop/iShot_2026-01-07_15.27.36.png", "222.png", 100, 100)
+	err := imageKit.Resize("/Users/richelieu/Desktop/iShot_2026-01-07_15.27.36.png", "222.png", 1000, 100)
 	fmt.Println(err)
 }
