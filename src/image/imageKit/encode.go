@@ -17,6 +17,14 @@ import (
 @param ext 文件扩展名（带'.'且小写字母化） e.g. ".png"
 */
 func Encode(file io.Writer, img image.Image, ext string) (err error) {
+	// 参数检查 && 容错
+	if file == nil {
+		return errorKit.Newf("file is nil")
+	}
+	if img == nil {
+		return errorKit.Newf("img is nil")
+	}
+
 	switch ext {
 	case ".png":
 		err = png.Encode(file, img)
@@ -25,7 +33,7 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	case ".gif":
 		err = gif.Encode(file, img, nil)
 	default:
-		err = errorKit.Newf("unsupported ext: %s", ext)
+		err = errorKit.Newf("unsupported ext: [%s]", ext)
 	}
 	return
 }
@@ -35,20 +43,17 @@ func EncodeWithPath(path string, img image.Image) (err error) {
 	if err := strKit.AssertNotBlank(path, "path"); err != nil {
 		return err
 	}
+	path = strKit.TrimSpace(path)
 	if img == nil {
 		return errorKit.Newf("img is nil")
 	}
-	path = strKit.TrimSpace(path)
 
 	ext := fileKit.GetExt(path)
 	switch ext {
 	case ".png":
 	case ".jpg", ".jpeg":
 	default:
-		if strKit.IsEmpty(ext) {
-			return errorKit.Newf("ext is empty")
-		}
-		return errorKit.Newf("unsupported ext: %s", ext)
+		return errorKit.Newf("unsupported ext: [%s]", ext)
 	}
 
 	file, err := fileKit.Create(path)

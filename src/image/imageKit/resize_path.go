@@ -31,34 +31,14 @@ func processDst(dstPath string, dstImg image.Image, srcExt string) (err error) {
 	}
 	dstPath = strKit.TrimSpace(dstPath)
 
-	// 处理特殊情况: dstPath不带格式
+	// 处理特殊情况: dstPath 不带格式，则使用 srcPath 的格式
 	dstExt := fileKit.GetExt(dstPath)
 	if strKit.IsEmpty(dstExt) {
 		dstExt = srcExt
 		dstPath += dstExt
 	}
-	switch dstExt {
-	case ".png":
-	case ".jpg", ".jpeg":
-	default:
-		return errorKit.Newf("unsupported dstExt: %s", dstExt)
-	}
 
-	dstFile, err := fileKit.Create(dstPath)
-	if err != nil {
-		return err
-	}
-	defer func() {
-		_ = dstFile.Close()
-
-		// 失败的情况下，毁尸灭迹（把生成的目标文件删了）
-		if err != nil {
-			_ = fileKit.Delete(dstPath)
-		}
-	}()
-
-	// (4) 根据目标文件扩展名编码保存（保存为文件）
-	return Encode(dstFile, dstImg, dstExt)
+	return EncodeWithPath(dstPath, dstImg)
 }
 
 // Resize 缩放图片到指定尺寸（不保证纵横比）.
