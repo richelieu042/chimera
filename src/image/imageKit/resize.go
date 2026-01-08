@@ -79,3 +79,36 @@ func ResizeImageKeepAspectRatio(src image.Image, maxWidth, maxHeight int) (image
 
 	return resizeImage(src, targetWidth, targetHeight), nil
 }
+
+// ResizeImageByWidth 按宽度等比例缩放图片.
+/*
+	@param src		源图片对象
+	@param width	目标宽度
+*/
+func ResizeImageByWidth(src image.Image, width int) (image.Image, error) {
+	bounds := src.Bounds()
+	srcWidth := bounds.Dx()
+	srcHeight := bounds.Dy()
+
+	scale := float64(width) / float64(srcWidth)
+	height := int(float64(srcHeight) * scale)
+
+	return resizeImage(src, width, height), nil
+}
+
+// ResizeImageByHeight 按高度等比例缩放图片.
+/*
+	@param src		源图片对象
+	@param height	目标高度
+*/
+
+func ResizeImageByHeight(src image.Image, height int) (image.Image, error) {
+	bounds := src.Bounds()
+	srcWidth := bounds.Dx()
+	srcHeight := bounds.Dy()
+
+	scale := float64(height) / float64(srcHeight)
+	width := int(float64(srcWidth) * scale)
+
+	return resizeImage(src, width, height), nil
+}
