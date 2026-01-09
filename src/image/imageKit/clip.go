@@ -40,7 +40,7 @@ func ClipImage(img image.Image, x, y, width, height int) (image.Image, error) {
 		// 方案1：如果不支持 SubImage，手动复制像素
 		return manualCrop(img, cropRect), nil
 	}
-	// 方案2：裁剪图片
+	// 方案2：通过 SubImage 裁剪图片
 	return subImager.SubImage(cropRect), nil
 }
 
