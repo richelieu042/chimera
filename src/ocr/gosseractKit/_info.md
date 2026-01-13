@@ -1,14 +1,10 @@
-## otiai10/gosseract
-github(2.4k Star): 
-    https://github.com/otiai10/gosseract
+## 依赖
 
-#### 必要项
-* CGO
-* leptonica
-* tesseract
+- [otiai10/gosseract](https://github.com/otiai10/gosseract)
+- [tesseract-ocr/tesseract](https://github.com/tesseract-ocr/tesseract)
 
-#### 参考
-tesseract-ocr/tesseract(55.7k Star): 
-    https://github.com/tesseract-ocr/tesseract
+#### 必要条件（macOS）
 
+* brew install tesseract leptonica
+* Go配置：CGO_ENABLED='1'
 
