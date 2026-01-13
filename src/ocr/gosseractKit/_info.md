@@ -5,6 +5,6 @@
 
 #### 必要条件（macOS）
 
-* brew install tesseract leptonica
 * Go配置：CGO_ENABLED='1'
+* brew install tesseract leptonica
 
