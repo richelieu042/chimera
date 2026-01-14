@@ -9,7 +9,7 @@ import (
 // WriteToFile 将数据（[]byte, 字节流）写到文件中.
 /*
 @param filePath 目标文件的路径
-				(1) 不存在的话，会创建一个新的文件;
+				(1) 不存在的话，会创建一个新的文件（也会自动创建父目录）;
 				(2) 存在且是个文件的话，会 "覆盖" 掉旧的（并不会加到该文件的最后面）.
 */
 func WriteToFile(filePath string, content []byte, permArgs ...os.FileMode) error {

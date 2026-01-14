@@ -2,7 +2,6 @@ package imageKit
 
 import (
 	"encoding/base64"
-	"os"
 	"strings"
 
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
@@ -42,7 +41,7 @@ func Base64ToFile(base64Str, outputPath string) error {
 		return err
 	}
 
-	err = os.WriteFile(outputPath, imageData, 0644)
+	err = fileKit.WriteToFile(outputPath, imageData, 0644)
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to write file")
 	}
