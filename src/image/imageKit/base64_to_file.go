@@ -41,6 +41,5 @@ func Base64ToFile(base64Str, outputPath string) error {
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to write file")
 	}
-
 	return nil
 }
