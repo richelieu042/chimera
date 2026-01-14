@@ -9,14 +9,14 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
-// Base64ToImageFile 将base64字符串转换为图片文件
+// Base64ToFile 将base64字符串转换为图片文件
 // 参数:
 //   - base64Str: base64编码的图片字符串，可能包含"data:"前缀
 //   - outputPath: 输出文件路径
 //
 // 返回:
 //   - error: 错误信息，成功则返回nil
-func Base64ToImageFile(base64Str, outputPath string) error {
+func Base64ToFile(base64Str, outputPath string) error {
 	// 移除可能存在的data:前缀
 	// Data URL格式示例: data:image/png;base64,iVBORw0KGgo...
 	// 我们只需要逗号后面的纯base64数据部分
