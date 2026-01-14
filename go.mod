@@ -120,6 +120,7 @@ require (
 	go.opentelemetry.io/otel/trace v1.39.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.1
+	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.23.0
 	golang.org/x/crypto v0.47.0
 	golang.org/x/exp v0.0.0-20260112195511-716be5621a96
