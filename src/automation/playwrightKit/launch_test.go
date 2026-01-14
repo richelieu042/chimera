@@ -7,8 +7,7 @@ import (
 	"github.com/playwright-community/playwright-go"
 	"github.com/richelieu-yang/chimera/v3/src/consts"
 	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	_ "github.com/richelieu-yang/chimera/v3/src/log/logrusInitKit"
-	"github.com/sirupsen/logrus"
+	"github.com/richelieu-yang/chimera/v3/src/log/console"
 )
 
 func TestLaunchBrowser(t *testing.T) {
@@ -17,7 +16,8 @@ func TestLaunchBrowser(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		logrus.Infof("wd: [%s].", wd)
+
+		console.Infof("wd: [%s].", wd)
 	}
 
 	url := "https://www.moulem.com/"
@@ -43,9 +43,9 @@ func TestLaunchBrowser(t *testing.T) {
 		panic(err)
 	}
 
-	logrus.Info("sleep starts")
+	console.Info("sleep starts")
 	time.Sleep(time.Second * 10)
-	logrus.Info("sleep ends")
+	console.Info("sleep ends")
 
 	{
 		locator := page.Locator("input#search")
@@ -53,7 +53,7 @@ func TestLaunchBrowser(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		logrus.Infof("count: %d", count)
+		console.Infof("count: %d", count)
 		if err := locator.Fill("hello world!"); err != nil {
 			panic(err)
 		}
@@ -65,7 +65,7 @@ func TestLaunchBrowser(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		logrus.Infof("count: %d", count)
+		console.Infof("count: %d", count)
 		if err := locator.Click(); err != nil {
 			panic(err)
 		}
@@ -75,7 +75,7 @@ func TestLaunchBrowser(t *testing.T) {
 	//if err != nil {
 	//	panic(err)
 	//}
-	//logrus.Infof("reload: %t", resp.Ok())
+	//console.Infof("reload: %t", resp.Ok())
 
 	select {}
 }
