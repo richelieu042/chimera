@@ -30,6 +30,7 @@ func TestLaunchBrowser(t *testing.T) {
 	}
 	defer pw.Stop()
 	defer browser.Close()
+
 	bctx, err := browser.NewContext()
 	if err != nil {
 		panic(err)
