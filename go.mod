@@ -46,7 +46,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.33.0
+	github.com/hashicorp/consul/api v1.33.2
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.8.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
