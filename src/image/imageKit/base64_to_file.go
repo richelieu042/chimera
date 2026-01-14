@@ -37,10 +37,6 @@ func Base64ToFile(base64Str, outputPath string) error {
 
 	// 将解码后的图片数据写入文件
 	// 0644权限: 所有者可读写(6)，组用户可读(4)，其他用户可读(4)
-	if err := fileKit.MkParentDirs(outputPath); err != nil {
-		return err
-	}
-
 	err = fileKit.WriteToFile(outputPath, imageData, 0644)
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to write file")
