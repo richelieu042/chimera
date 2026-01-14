@@ -8,7 +8,7 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 )
 
-// TrimTransparentForPng 裁剪透明边缘（适用的图片格式：.png）
+// TrimTransparentForPng 裁剪 .png 图片的透明边缘.
 /*
 @param inputPath	输入图片的路径，要求后缀为.png
 @param outputPath	输出图片的路径，为空则覆盖原文件
