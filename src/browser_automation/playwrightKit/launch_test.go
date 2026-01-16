@@ -29,7 +29,7 @@ func TestLaunchBrowser(t *testing.T) {
 		panic(err)
 	}
 	defer pw.Stop()
-	defer browser.Close()
+	defer browser.Close() // defer语句的执行顺序是从上往下：先关 browser，再关 pw
 
 	bctx, err := browser.NewContext()
 	if err != nil {

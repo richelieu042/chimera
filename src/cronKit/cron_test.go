@@ -1,10 +1,11 @@
 package cronKit
 
 import (
-	"github.com/sirupsen/logrus"
 	"log"
 	"testing"
 	"time"
+
+	"github.com/sirupsen/logrus"
 )
 
 func TestNewCronWithTask(t *testing.T) {
