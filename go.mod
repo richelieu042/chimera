@@ -1,6 +1,6 @@
 module github.com/richelieu-yang/chimera/v3
 
-go 1.25.5
+go 1.25.6
 
 require (
 	fyne.io/fyne/v2 v2.7.2
@@ -36,7 +36,7 @@ require (
 	github.com/go-redsync/redsync/v4 v4.15.0
 	github.com/go-viper/mapstructure/v2 v2.5.0
 	github.com/goccy/go-json v0.10.5
-	github.com/gogf/gf/v2 v2.9.7
+	github.com/gogf/gf/v2 v2.9.8
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
@@ -59,7 +59,7 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.18.2
+	github.com/klauspost/compress v1.18.3
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.4
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260109033043-398149f17e54
@@ -81,7 +81,7 @@ require (
 	github.com/panjf2000/ants/v2 v2.11.4
 	github.com/pdfcpu/pdfcpu v0.11.1
 	github.com/pelletier/go-toml/v2 v2.2.4
-	github.com/pierrec/lz4/v4 v4.1.23
+	github.com/pierrec/lz4/v4 v4.1.25
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.1
 	github.com/redis/go-redis/v9 v9.17.2
@@ -93,7 +93,7 @@ require (
 	github.com/samber/lo v1.52.0
 	github.com/shirou/gopsutil/v4 v4.25.12
 	github.com/shopspring/decimal v1.4.0
-	github.com/sirupsen/logrus v1.9.3
+	github.com/sirupsen/logrus v1.9.4
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
 	github.com/sony/sonyflake v1.3.0
 	github.com/spf13/afero v1.15.0
