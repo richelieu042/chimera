@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/richelieu-yang/chimera/v3/src/cmd/cmdKit"
+	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 )
