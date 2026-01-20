@@ -6,7 +6,9 @@ import (
 
 // NewSimpleCommand
 /*
-PS: 自动支持 "-h" 或 "--help" 标识.
+PS:
+(1) 自动支持 "-h" 或 "--help" 标识.
+(2)
 
 @param use		命令的名称
 @param short	命令的 "简短描述" ，帮助用户快速理解其功能
