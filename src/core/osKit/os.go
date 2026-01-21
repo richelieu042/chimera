@@ -1,8 +1,9 @@
 package osKit
 
 import (
-	"github.com/duke-git/lancet/v2/system"
 	"runtime"
+
+	"github.com/duke-git/lancet/v2/system"
 )
 
 // OS 操作系统
