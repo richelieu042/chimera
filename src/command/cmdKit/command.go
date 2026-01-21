@@ -22,7 +22,7 @@ func NewCommand(ctx context.Context, name string, args []string, options ...CmdO
 	return opts.NewCommand(ctx, name, args...)
 }
 
-// Run 执行命令（会阻塞直到命令结束）
+// Run 执行命令（会阻塞直到命令结束） - 只有 stdout 在 output 中
 /*
 !!!:
 (1) exec.Cmd结构体执行时，会处理路径中的空格（e.g. java可执行文件的绝对路径、-Djava.ext.dirs=的路径...）
@@ -37,7 +37,12 @@ func Run(ctx context.Context, name string, args ...string) ([]byte, error) {
 	return cmd.Output()
 }
 
-// RunCombinedly 执行命令（会阻塞直到命令结束）
+func RunToString(ctx context.Context, name string, args ...string) (string, error) {
+	data, err := Run(ctx, name, args...)
+	return string(data), err
+}
+
+// RunCombinedly 执行命令（会阻塞直到命令结束） - stdout 和 stderr 都在 output 中，两者的内容会合并到一起返回
 func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, error) {
 	if ctx == nil {
 		ctx = context.TODO()
@@ -45,4 +50,9 @@ func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, er
 
 	cmd := exec.CommandContext(ctx, name, args...)
 	return cmd.CombinedOutput()
+}
+
+func RunCombinedlyToString(ctx context.Context, name string, args ...string) (string, error) {
+	data, err := RunCombinedly(ctx, name, args...)
+	return string(data), err
 }

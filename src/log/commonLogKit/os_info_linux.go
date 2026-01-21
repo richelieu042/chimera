@@ -4,14 +4,15 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/cmd/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
+
+	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 )
 
 func printUlimitInfo(logger Logger) {
@@ -124,7 +125,7 @@ func printOsInfo(logger Logger) {
 (2) 如果输出为 cgroup2fs，则表示系统使用的是 cgroup v2.
 */
 func printCgroupInfo(logger Logger) {
-	cgroupType, err := cmdKit.ExecuteToString(context.TODO(), "bash", "-c", "stat -fc %T /sys/fs/cgroup/")
+	cgroupType, err := cmdKit.RunToString(context.TODO(), "bash", "-c", "stat -fc %T /sys/fs/cgroup/")
 	if err != nil {
 		logger.Warnf("Fail to get cgroup type, error: %s", err.Error())
 		return

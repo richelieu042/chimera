@@ -1,20 +1,21 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-
-	"github.com/richelieu-yang/chimera/v3/src/command/cobraKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/spf13/cobra"
+	"os/exec"
 )
 
 func main() {
-	cc := cobraKit.NewSimpleCommand("ccc", "简短描述。", "详细描述", func(cmd *cobra.Command, args []string) {
-		console.Info("Run...")
-	})
-
-	err := cc.Execute()
+	cmd := exec.Command("ls", "-l")
+	output, err := cmd.Output()
 	if err != nil {
-		fmt.Println(err)
+		// 如果命令执行失败，err 是 *ExitError 类型
+		// 可以通过类型断言获取 stderr
+		var exitErr *exec.ExitError
+		if errors.As(err, &exitErr) {
+			fmt.Println("stderr:", string(exitErr.Stderr))
+		}
 	}
+	fmt.Println("stdout:", string(output))
 }
