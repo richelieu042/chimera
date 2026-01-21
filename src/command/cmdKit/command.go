@@ -22,7 +22,7 @@ func NewCommand(ctx context.Context, name string, args []string, options ...CmdO
 	return opts.NewCommand(ctx, name, args...)
 }
 
-// Run 执行命令（会阻塞直到命令结束） - 只有 stdout 在 output 中
+// Run 执行命令（会阻塞直到命令结束） - 只有 stdout 在 output 中，标准错误（stderr）会被丢弃或继承父进程的 stderr
 /*
 !!!:
 (1) exec.Cmd结构体执行时，会处理路径中的空格（e.g. java可执行文件的绝对路径、-Djava.ext.dirs=的路径...）
