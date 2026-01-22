@@ -24,6 +24,6 @@ func NewSimpleCommand(use, short, long string, run func(cmd *cobra.Command, args
 
 		Run: run,
 
-		TraverseChildren: false,
+		TraverseChildren: false, // 默认情况：只解析当前命令上的本地标识（local flags），而父命令上的本地标识会被忽略.
 	}
 }
