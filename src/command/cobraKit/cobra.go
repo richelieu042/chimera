@@ -23,5 +23,7 @@ func NewSimpleCommand(use, short, long string, run func(cmd *cobra.Command, args
 		Long:  long,
 
 		Run: run,
+
+		TraverseChildren: false,
 	}
 }
