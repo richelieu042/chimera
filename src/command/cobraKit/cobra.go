@@ -24,6 +24,8 @@ func NewSimpleCommand(use, short, long string, run func(cmd *cobra.Command, args
 
 		Run: run,
 
-		TraverseChildren: false, // 默认情况：只解析当前命令上的本地标识（local flags），而父命令上的本地标识会被忽略.
+		Args: cobra.ArbitraryArgs, // 接受任何非选项参数（（即命令行中不带有 - 或 -- 前缀的参数））
+
+		TraverseChildren: false, // 只解析当前命令上的本地标识（local flags），而父命令上的本地标识会被忽略.
 	}
 }
