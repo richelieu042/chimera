@@ -31,7 +31,7 @@ func TestLaunchBrowser(t *testing.T) {
 	defer pw.Stop()
 	defer browser.Close() // defer语句的执行顺序是从上往下：先关 browser，再关 pw
 
-	/* 创建浏览器上下文 */
+	/* (1) 创建浏览器上下文 */
 	bctx, err := browser.NewContext(playwright.BrowserNewContextOptions{
 		UserAgent: playwright.String(
 			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
@@ -47,13 +47,13 @@ func TestLaunchBrowser(t *testing.T) {
 		},
 
 		Viewport: &playwright.Size{
-			Width:  1920,
-			Height: 1080,
+			Width:  1440,
+			Height: 800,
 		},
 		// 👇 建议加上 Screen，和 Viewport 保持一致
 		Screen: &playwright.Size{
-			Width:  1920,
-			Height: 1080,
+			Width:  1440,
+			Height: 800,
 		},
 
 		Locale:            playwright.String("zh-CN"),
@@ -61,48 +61,44 @@ func TestLaunchBrowser(t *testing.T) {
 		DeviceScaleFactor: playwright.Float(1.0), // 👈 建议显式设置
 	})
 
-	/* 创建新页面 */
+	/* (2) 创建新页面 */
 	page, err := bctx.NewPage()
 	if err != nil {
 		panic(err)
 	}
+	defer page.Close()
+
+	/* (3) 设置默认超时 */
+	page.SetDefaultTimeout(30_000) // 单位: ms
+
 	if _, err = page.Goto(url); err != nil {
 		panic(err)
 	}
 
 	console.Info("sleep starts")
-	time.Sleep(time.Second * 10)
+	time.Sleep(time.Second * 3)
 	console.Info("sleep ends")
 
-	{
-		locator := page.Locator("input#search")
-		count, err := locator.Count()
-		if err != nil {
-			panic(err)
-		}
-		console.Infof("count: %d", count)
-		if err := locator.Fill("hello world!"); err != nil {
-			panic(err)
-		}
+	// 输入文本
+	loc := page.Locator("input#search")
+	count, err := loc.Count()
+	if err != nil {
+		panic(err)
 	}
-
-	{
-		locator := page.Locator("input#searchBtn")
-		count, err := locator.Count()
-		if err != nil {
-			panic(err)
-		}
-		console.Infof("count: %d", count)
-		if err := locator.Click(); err != nil {
-			panic(err)
-		}
+	console.Infof("count: %d", count)
+	if err := loc.Fill("hello world!"); err != nil {
+		panic(err)
 	}
-
-	//resp, err := page.Reload()
-	//if err != nil {
-	//	panic(err)
-	//}
-	//console.Infof("reload: %t", resp.Ok())
+	// 点击按钮
+	btnLoc := page.Locator("input#searchBtn")
+	btnCount, err := btnLoc.Count()
+	if err != nil {
+		panic(err)
+	}
+	console.Infof("btnCount: %d", btnCount)
+	if err := btnLoc.Click(); err != nil {
+		panic(err)
+	}
 
 	select {}
 }
