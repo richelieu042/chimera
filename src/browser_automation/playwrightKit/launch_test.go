@@ -61,7 +61,7 @@ func TestLaunchBrowser(t *testing.T) {
 		DeviceScaleFactor: playwright.Float(1.0), // 👈 建议显式设置
 	})
 
-	/* (2) 创建新页面 */
+	/* (2) 创建新页面（即浏览器的一个tab） */
 	page, err := bctx.NewPage()
 	if err != nil {
 		panic(err)
