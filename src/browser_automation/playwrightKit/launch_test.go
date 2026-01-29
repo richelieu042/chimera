@@ -31,10 +31,37 @@ func TestLaunchBrowser(t *testing.T) {
 	defer pw.Stop()
 	defer browser.Close() // defer语句的执行顺序是从上往下：先关 browser，再关 pw
 
-	bctx, err := browser.NewContext()
-	if err != nil {
-		panic(err)
-	}
+	/* 创建浏览器上下文 */
+	bctx, err := browser.NewContext(playwright.BrowserNewContextOptions{
+		UserAgent: playwright.String(
+			"Mozilla/5.0 (Windows NT 10.0; Win64; x64) " +
+				"AppleWebKit/537.36 (KHTML, like Gecko) " +
+				"Chrome/131.0.0.0 Safari/537.36",
+		),
+
+		ExtraHttpHeaders: map[string]string{
+			"Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+			// 👇 建议加上这个，让 Accept 头也更真实
+			"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9," +
+				"image/avif,image/webp,image/apng,*/*;q=0.8",
+		},
+
+		Viewport: &playwright.Size{
+			Width:  1920,
+			Height: 1080,
+		},
+		// 👇 建议加上 Screen，和 Viewport 保持一致
+		Screen: &playwright.Size{
+			Width:  1920,
+			Height: 1080,
+		},
+
+		Locale:            playwright.String("zh-CN"),
+		TimezoneId:        playwright.String("Asia/Shanghai"),
+		DeviceScaleFactor: playwright.Float(1.0), // 👈 建议显式设置
+	})
+
+	/* 创建新页面 */
 	page, err := bctx.NewPage()
 	if err != nil {
 		panic(err)
