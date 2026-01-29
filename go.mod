@@ -8,13 +8,13 @@ require (
 	github.com/andybalholm/brotli v1.2.0
 	github.com/apache/pulsar-client-go v0.18.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.3
-	github.com/bytedance/sonic v1.14.2
+	github.com/bytedance/sonic v1.15.0
 	github.com/centrifugal/centrifuge v0.38.0
 	github.com/centrifugal/gocent/v3 v3.4.0
 	github.com/coocood/freecache v1.2.4
 	github.com/davidbyttow/govips/v2 v2.16.0
 	github.com/deckarep/golang-set/v2 v2.8.0
-	github.com/dromara/carbon/v2 v2.6.15
+	github.com/dromara/carbon/v2 v2.6.16
 	github.com/duke-git/lancet/v2 v2.3.8
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -36,8 +36,8 @@ require (
 	github.com/go-redsync/redsync/v4 v4.15.0
 	github.com/go-viper/mapstructure/v2 v2.5.0
 	github.com/goccy/go-json v0.10.5
-	github.com/gogf/gf/v2 v2.9.8
-	github.com/golang-jwt/jwt/v5 v5.3.0
+	github.com/gogf/gf/v2 v2.10.0
+	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
 	github.com/google/wire v0.7.0
@@ -61,8 +61,8 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.3
 	github.com/klauspost/cpuid/v2 v2.3.0
-	github.com/linxGnu/grocksdb v1.10.4
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260109033043-398149f17e54
+	github.com/linxGnu/grocksdb v1.10.5
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260128144803-ad4253dbb0ca
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -84,8 +84,8 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.25
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5200.1
-	github.com/redis/go-redis/v9 v9.17.2
-	github.com/redis/rueidis v1.0.70
+	github.com/redis/go-redis/v9 v9.17.3
+	github.com/redis/rueidis v1.0.71
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
 	github.com/rs/xid v1.6.0
@@ -110,7 +110,7 @@ require (
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.7
-	go.mongodb.org/mongo-driver v1.17.6
+	go.mongodb.org/mongo-driver v1.17.7
 	go.opentelemetry.io/otel v1.39.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.39.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.39.0
@@ -197,7 +197,7 @@ require (
 	github.com/boyter/go-string v1.0.5 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/bytedance/gopkg v0.1.3 // indirect
-	github.com/bytedance/sonic/loader v0.4.0 // indirect
+	github.com/bytedance/sonic/loader v0.5.0 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.4.1 // indirect
 	github.com/centrifugal/protocol v0.17.0 // indirect
