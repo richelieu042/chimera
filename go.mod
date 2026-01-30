@@ -61,7 +61,7 @@ require (
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.3
 	github.com/klauspost/cpuid/v2 v2.3.0
-	github.com/linxGnu/grocksdb v1.10.5
+	github.com/linxGnu/grocksdb v1.10.7
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260128144803-ad4253dbb0ca
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
