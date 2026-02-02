@@ -1,11 +1,17 @@
 package main
 
-import "time"
+import (
+	"fmt"
+	"regexp"
+)
 
 func main() {
-	start := time.Now()
-	time.Sleep(time.Second * 3)
+	input := "Physical size: 1920x1080."
 
-	elapsed := time.Since(start)
-	println(elapsed.String())
+	re := regexp.MustCompile(`(\d+)x(\d+)$`)
+	matches := re.FindStringSubmatch(input)
+	width := matches[1]  // "1920"
+	height := matches[2] // "1080"
+
+	fmt.Println(width, height)
 }

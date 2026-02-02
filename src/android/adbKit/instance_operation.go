@@ -1,0 +1,96 @@
+package adbKit
+
+import (
+	"context"
+	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+)
+
+// Screenshot 截图
+/*
+	@param targetPath: 截图保存的路径
+*/
+func (ins *Instance) Screenshot(targetPath string) error {
+	ins.screenshotMutex.Lock()
+	defer ins.screenshotMutex.Unlock()
+
+	/*
+		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
+	*/
+	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "exec-out", "screencap", "-p")
+	if err != nil {
+		return errorKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", ins.address)
+	}
+
+	// 尝试创建父目录
+	if err := fileKit.MkParentDirs(targetPath); err != nil {
+		return errorKit.Wrapf(err, "fail to make parent dirs of [%s]", targetPath)
+	}
+
+	err = os.WriteFile(targetPath, data, 0644)
+	if err != nil {
+		return errorKit.Wrapf(err, "fail to write file [%s]", targetPath)
+	}
+
+	return nil
+}
+
+// Tap 点击.
+/*
+	命令：adb -s 127.0.0.1:5555 shell input tap <x> <y>
+*/
+func (ins *Instance) Tap(x, y int) error {
+	_, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
+	return err
+}
+
+// LongPress 长按.
+/*
+	命令：adb -s 127.0.0.1:5555 shell input swipe 500 1000 500 1000 2000
+
+	@param duration: 持续时间（单位：ms），默认300ms
+*/
+func (ins *Instance) LongPress(x, y int, duration int) error {
+	if duration <= 0 {
+		duration = 300 // 默认300ms
+	}
+
+	_, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
+		intKit.IntToString(duration),
+	)
+	return err
+}
+
+// Swipe 滑动.
+/*
+	命令：adb -s 127.0.0.1:5555 shell input swipe <x1> <y1> <x2> <y2> <duration>
+
+	@param x1, y1: 起始坐标
+	@param x2, y2: 结束坐标
+	@param duration: 持续时间（单位：ms），默认300ms
+
+	e.g. 	向上滑动（上滑刷新/滚动）
+		adb shell input swipe 500 1500 500 500 300
+	e.g.1 	向下滑动（下拉通知栏）
+		adb shell input swipe 500 100 500 1000 300
+	e.g.2 	向左滑动
+		adb shell input swipe 900 500 100 500 300
+	e.g.3 	向右滑动
+		adb shell input swipe 100 500 900 500 300
+*/
+func (ins *Instance) Swipe(x1, y1, x2, y2 int, duration int) error {
+	if duration <= 0 {
+		duration = 300 // 默认300ms
+	}
+
+	_, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe",
+		intKit.IntToString(x1), intKit.IntToString(y1),
+		intKit.IntToString(x2), intKit.IntToString(y2),
+		intKit.IntToString(duration),
+	)
+	return err
+}
