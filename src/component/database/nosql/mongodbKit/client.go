@@ -2,11 +2,12 @@ package mongodbKit
 
 import (
 	"context"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
-	"go.mongodb.org/mongo-driver/mongo/readpref"
 	"time"
+
+	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"go.mongodb.org/mongo-driver/v2/mongo"
+	"go.mongodb.org/mongo-driver/v2/mongo/options"
+	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
 )
 
 // NewClientSimply
@@ -15,7 +16,7 @@ PS: 单点启动MongoDB，默认使用 27017 端口.
 
 @param uri e.g."mongodb://localhost:27017"
 */
-func NewClientSimply(ctx context.Context, uri string) (*mongo.Client, error) {
+func NewClientSimply(uri string) (*mongo.Client, error) {
 	clientOptions := options.Client()
 	clientOptions.ApplyURI(uri)
 	// The default is 0, meaning a connection can remain unused indefinitely.
@@ -26,11 +27,11 @@ func NewClientSimply(ctx context.Context, uri string) (*mongo.Client, error) {
 	// If this is 0, maximum connection pool size is not limited. The default is 100.
 	clientOptions.SetMaxPoolSize(100)
 
-	return NewClient(ctx, clientOptions)
+	return NewClient(clientOptions)
 }
 
-func NewClient(ctx context.Context, opts ...*options.ClientOptions) (*mongo.Client, error) {
-	client, err := mongo.Connect(ctx, opts...)
+func NewClient(opts ...*options.ClientOptions) (*mongo.Client, error) {
+	client, err := mongo.Connect(opts...)
 	if err != nil {
 		return nil, errorKit.Wrapf(err, "fail to connect")
 	}

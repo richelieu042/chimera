@@ -21,7 +21,7 @@ require (
 	github.com/emersion/go-message v0.18.2
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.9.0
-	github.com/gabriel-vasile/mimetype v1.4.12
+	github.com/gabriel-vasile/mimetype v1.4.13
 	github.com/gin-contrib/cors v1.7.6
 	github.com/gin-contrib/gzip v1.2.5
 	github.com/gin-contrib/pprof v1.5.3
@@ -91,7 +91,7 @@ require (
 	github.com/rs/xid v1.6.0
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/samber/lo v1.52.0
-	github.com/shirou/gopsutil/v4 v4.25.12
+	github.com/shirou/gopsutil/v4 v4.26.1
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.4
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
@@ -110,7 +110,7 @@ require (
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.7
-	go.mongodb.org/mongo-driver v1.17.7
+	go.mongodb.org/mongo-driver v1.17.8
 	go.opentelemetry.io/otel v1.39.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.39.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.39.0
@@ -358,7 +358,7 @@ require (
 	github.com/vulcand/predicate v1.2.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
 	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
-	github.com/xdg-go/scram v1.1.2 // indirect
+	github.com/xdg-go/scram v1.2.0 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/xuri/efp v0.0.1 // indirect
 	github.com/xuri/nfp v0.0.2-0.20250530014748-2ddeb826f9a9 // indirect
@@ -369,6 +369,7 @@ require (
 	github.com/zeebo/xxh3 v1.0.2 // indirect
 	go.etcd.io/etcd/api/v3 v3.6.7 // indirect
 	go.etcd.io/etcd/client/pkg/v3 v3.6.7 // indirect
+	go.mongodb.org/mongo-driver/v2 v2.5.0 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect
