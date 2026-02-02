@@ -13,13 +13,16 @@ import (
 
 func NewInstance(address string) *Instance {
 	return &Instance{
-		screenshotMutex: &sync.Mutex{},
-		address:         address,
+		address: address,
 	}
 }
 
 type Instance struct {
-	screenshotMutex *sync.Mutex
+	/*
+		截图的锁，防止并发冲突.
+		PS: 截图频率不要太高，建议至少要间隔500~1000ms。
+	*/
+	sync.Mutex
 
 	// address 安卓设备的地址
 	/*

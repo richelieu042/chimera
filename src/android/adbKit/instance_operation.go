@@ -15,8 +15,8 @@ import (
 	@param targetPath: 截图保存的路径
 */
 func (ins *Instance) Screenshot(targetPath string) error {
-	ins.screenshotMutex.Lock()
-	defer ins.screenshotMutex.Unlock()
+	ins.Lock()
+	defer ins.Unlock()
 
 	/*
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
