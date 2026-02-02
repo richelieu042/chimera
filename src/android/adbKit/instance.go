@@ -11,9 +11,10 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/log/console"
 )
 
-func NewInstance(address string) *Instance {
+func NewInstance(address string, cleanFlag bool) *Instance {
 	return &Instance{
-		address: address,
+		address:   address,
+		cleanFlag: cleanFlag,
 	}
 }
 
@@ -33,13 +34,7 @@ type Instance struct {
 	*/
 	address string
 
-	// specifiedPhysicalSize 指定的物理尺寸（显示分辨率）
-	/*
-		（1）如果不一致，CheckEnv 会返回 error
-		（2）如果为空，则不检查
-		e.g. "1920x1080"
-	*/
-	specifiedPhysicalSize string
+	cleanFlag bool
 }
 
 func (ins *Instance) CheckEnv() error {
