@@ -5,13 +5,12 @@ import (
 	"os"
 	"testing"
 
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
 	"github.com/spf13/cobra"
 )
 
 func TestNewSimpleCommand(t *testing.T) {
 	rootCmd := NewSimpleCommand("ccc", "ccc的说明.", "", func(cmd *cobra.Command, args []string) {
-		console.Info("logic")
+		fmt.Println("logic...")
 	})
 
 	versionCmd := NewSimpleCommand("version", "Print the version number of newApp.", "", func(cmd *cobra.Command, args []string) {
