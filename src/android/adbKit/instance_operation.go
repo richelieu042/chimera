@@ -9,6 +9,7 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu-yang/chimera/v3/src/randomKit"
 )
 
 // Screenshot 截图
@@ -59,11 +60,11 @@ func (ins *Instance) Tap(x, y int) error {
 /*
 	命令：adb -s 127.0.0.1:5555 shell input swipe 500 1000 500 1000 2000
 
-	@param duration: 持续时间（单位：ms），默认300ms
+	@param duration: 持续时间（单位：ms）
 */
 func (ins *Instance) LongPress(x, y int, duration int) error {
 	if duration <= 0 {
-		duration = 300 // 默认300ms
+		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
 	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
@@ -84,7 +85,7 @@ func (ins *Instance) LongPress(x, y int, duration int) error {
 
 	@param x1, y1: 起始坐标
 	@param x2, y2: 结束坐标
-	@param duration: 持续时间（单位：ms），默认300ms
+	@param duration: 持续时间（单位：ms）
 
 	e.g. 	向上滑动（上滑刷新/滚动）
 		adb -s 127.0.0.1:5555 shell input swipe 500 1500 500 500 300
@@ -97,7 +98,7 @@ func (ins *Instance) LongPress(x, y int, duration int) error {
 */
 func (ins *Instance) Swipe(x1, y1, x2, y2 int, duration int) error {
 	if duration <= 0 {
-		duration = 300 // 默认300ms
+		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
 	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "input", "swipe",
