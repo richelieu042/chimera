@@ -62,7 +62,7 @@ require (
 	github.com/klauspost/compress v1.18.3
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260128144803-ad4253dbb0ca
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260202110255-d427b4dcd879
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -111,13 +111,13 @@ require (
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.7
 	go.mongodb.org/mongo-driver/v2 v2.5.0
-	go.opentelemetry.io/otel v1.39.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.39.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.39.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.39.0
-	go.opentelemetry.io/otel/metric v1.39.0
-	go.opentelemetry.io/otel/sdk v1.39.0
-	go.opentelemetry.io/otel/trace v1.39.0
+	go.opentelemetry.io/otel v1.40.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.40.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.40.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.40.0
+	go.opentelemetry.io/otel/metric v1.40.0
+	go.opentelemetry.io/otel/sdk v1.40.0
+	go.opentelemetry.io/otel/trace v1.40.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.1
 	gocv.io/x/gocv v0.43.0
@@ -125,7 +125,7 @@ require (
 	golang.org/x/crypto v0.47.0
 	golang.org/x/exp v0.0.0-20260112195511-716be5621a96
 	golang.org/x/image v0.35.0
-	golang.org/x/mobile v0.0.0-20260120165949-40bd9ace6ce4
+	golang.org/x/mobile v0.0.0-20260203041319-574ceaa2f723
 	golang.org/x/mod v0.32.0
 	golang.org/x/net v0.49.0
 	golang.org/x/oauth2 v0.34.0
@@ -259,7 +259,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.1 // indirect
 	github.com/gravitational/trace v1.1.16-0.20220114165159-14a9a7dd6aaf // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.3 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.7 // indirect
 	github.com/hack-pad/go-indexeddb v0.3.2 // indirect
 	github.com/hack-pad/safejs v0.1.0 // indirect
 	github.com/hamba/avro/v2 v2.29.0 // indirect
@@ -379,8 +379,8 @@ require (
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.230.0 // indirect
 	google.golang.org/genproto v0.0.0-20250303144028-a0af3efb3deb // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20251202230838-ff82c1b0f217 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20251202230838-ff82c1b0f217 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260128011058-8636f8732409 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260128011058-8636f8732409 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
