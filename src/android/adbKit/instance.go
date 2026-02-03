@@ -51,25 +51,6 @@ type Instance struct {
 	logger *zap.SugaredLogger
 }
 
-func (ins *Instance) checkEnv() error {
-	path, err := cmdKit.LookPath("adb")
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to look path of adb")
-	}
-	ins.logger.Infof("adb path: [%s]", path)
-
-	// adb 版本号
-	{
-		str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "version")
-		if err != nil {
-			return errorKit.Wrapf(err, "fail to run 'adb version'")
-		}
-		ins.logger.Infof("adb version:\n%s", str)
-	}
-
-	return nil
-}
-
 func (ins *Instance) Initialize() error {
 	if err := ins.checkEnv(); err != nil {
 		return err
@@ -113,6 +94,25 @@ func (ins *Instance) Initialize() error {
 		return errorKit.Wrapf(err, "fail to run 'adb devices'")
 	}
 	ins.logger.Infof("adb devices:\n%s", devices)
+
+	return nil
+}
+
+func (ins *Instance) checkEnv() error {
+	path, err := cmdKit.LookPath("adb")
+	if err != nil {
+		return errorKit.Wrapf(err, "fail to look path of adb")
+	}
+	ins.logger.Infof("adb path: [%s]", path)
+
+	// adb 版本号
+	{
+		str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "version")
+		if err != nil {
+			return errorKit.Wrapf(err, "fail to run 'adb version'")
+		}
+		ins.logger.Infof("adb version:\n%s", str)
+	}
 
 	return nil
 }

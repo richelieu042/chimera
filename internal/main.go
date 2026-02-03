@@ -19,8 +19,8 @@ func main() {
 	for {
 		count++
 
-		minute := randomKit.RandFloat(0.5, 1.5, 2) * 1000 * 60
-		d := time.Millisecond * time.Duration(minute)
+		sec := randomKit.Int(30, 61)
+		d := time.Second * time.Duration(sec)
 		console.Info("Sleep starts.", zap.Int("count", count), zap.String("duration", d.String()))
 		time.Sleep(d)
 		console.Info("Sleep ends.", zap.Int("count", count), zap.String("duration", d.String()))
