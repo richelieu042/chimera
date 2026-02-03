@@ -25,7 +25,7 @@ func main() {
 		time.Sleep(d)
 		console.Info("Sleep ends.", zap.Int("count", count), zap.String("duration", d.String()))
 
-		if err := ins.Swipe(500, 1500, 500, 500, 300); err != nil {
+		if err := ins.SwipeLikeAHumanBeing(820, 1200, 880, 500, 450, 20, 50); err != nil {
 			console.Error("Fail to swipe.", zap.Error(err))
 			continue
 		}
