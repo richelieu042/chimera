@@ -74,3 +74,15 @@ func TestNewLogger2(t *testing.T) {
 	logger.Warn("This is a warning message")
 	logger.Error("This is an error message0\nThis is an error message1", zap.String("key", "value"), zap.Error(context.Canceled))
 }
+
+// 带prefix
+func TestNewLogger_Prefix(t *testing.T) {
+	enc := NewEncoder(WithEncoderMessagePrefix("[TEST] "))
+	core := NewCore(enc, nil, zapcore.DebugLevel)
+	logger := NewLogger(core)
+
+	logger.Debug("This is a debug message", zap.String("key", "value"))
+	logger.Info("This is an info message")
+	logger.Warn("This is a warning message")
+	logger.Error("This is an error message0\nThis is an error message1", zap.String("key", "value"), zap.Error(context.Canceled))
+}

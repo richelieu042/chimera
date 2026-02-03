@@ -3,8 +3,9 @@
 package randomKit
 
 import (
-	"github.com/duke-git/lancet/v2/mathutil"
 	"math/rand/v2"
+
+	"github.com/duke-git/lancet/v2/mathutil"
 )
 
 // RandFloat 生成随机float64数字，可以指定范围和精度.（参考: random.RandFloat）

@@ -7,10 +7,10 @@ import (
 
 // NewCore
 /*
-@param enc	不能为nil
-@param ws	可以为nil（默认输出到控制台）
-@param levelEnabler	(1) 不能为nil
-					(2) 可以是多种:
+@param encoder		决定日志格式（不能为nil）
+@param ws			决定日志写入位置，如文件、控制台、网络等（可以为nil: 默认输出到控制台）
+@param levelEnabler	（1）决定哪些日志级别会被记录（不能为nil）
+					（2）可以是多种:
 						(a) zapcore.Level 类型（级别 >= 此值的才会输出）
 							e.g.
 							zapcore.DebugLevel
@@ -29,12 +29,12 @@ import (
 							})
 @param initialFields 可以不传
 */
-func NewCore(enc zapcore.Encoder, writeSyncer zapcore.WriteSyncer, levelEnabler zapcore.LevelEnabler, initialFields ...zapcore.Field) zapcore.Core {
+func NewCore(encoder zapcore.Encoder, writeSyncer zapcore.WriteSyncer, levelEnabler zapcore.LevelEnabler, initialFields ...zapcore.Field) zapcore.Core {
 	if writeSyncer == nil {
 		writeSyncer = LockedWriteSyncerStdout
 	}
 
-	core := zapcore.NewCore(enc, writeSyncer, levelEnabler)
+	core := zapcore.NewCore(encoder, writeSyncer, levelEnabler)
 	if len(initialFields) > 0 {
 		core = core.With(initialFields)
 	}

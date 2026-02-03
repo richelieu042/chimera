@@ -13,21 +13,18 @@ import (
 	(3) [Encoder] 日志级别大写且有颜色(color)
 	(4) [Encoder] Message字段无前缀
 */
-func NewEncoder(options ...EncoderOption) zapcore.Encoder {
+func NewEncoder(options ...EncoderOption) (enc zapcore.Encoder) {
 	opts := loadEncoderOptions(options...)
 
 	encoderConfig := zap.NewProductionEncoderConfig()
 	encoderConfig.EncodeTime = opts.EncodeTime
 	encoderConfig.EncodeLevel = opts.EncodeLevel
 
-	var encoder zapcore.Encoder
 	if opts.IsOutputFormatConsole() {
-		encoder = zapcore.NewConsoleEncoder(encoderConfig)
+		enc = zapcore.NewConsoleEncoder(encoderConfig)
 	} else {
-		encoder = zapcore.NewJSONEncoder(encoderConfig)
+		enc = zapcore.NewJSONEncoder(encoderConfig)
 	}
-
-	encoder = NewPrefixEncoder(encoder, opts.MessagePrefix)
-
-	return encoder
+	enc = attachPrefixToEncoder(enc, opts.MessagePrefix)
+	return
 }

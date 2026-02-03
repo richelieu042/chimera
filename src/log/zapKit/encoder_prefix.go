@@ -26,20 +26,20 @@ func (pe *prefixEncoder) Clone() zapcore.Encoder {
 	}
 }
 
-// NewPrefixEncoder 会给msg字段加上前缀.
+// attachPrefixToEncoder 会给msg字段加上前缀.
 /*
 @param encoder 不能为nil
 @return 可能是传参encoder
 */
-func NewPrefixEncoder(encoder zapcore.Encoder, prefix string) zapcore.Encoder {
-	if pe, ok := encoder.(*prefixEncoder); ok {
-		pe.prefix = prefix
-		return pe
-	}
+func attachPrefixToEncoder(encoder zapcore.Encoder, prefix string) zapcore.Encoder {
 	if prefix == "" {
 		return encoder
 	}
 
+	if pe, ok := encoder.(*prefixEncoder); ok {
+		pe.prefix = prefix
+		return pe
+	}
 	return &prefixEncoder{
 		Encoder: encoder,
 		prefix:  prefix,

@@ -11,10 +11,11 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/log/console"
 )
 
-func NewInstance(address string, cleanFlag bool) *Instance {
+func NewInstance(address string, cleanFlag, verbose bool) *Instance {
 	return &Instance{
 		address:   address,
 		cleanFlag: cleanFlag,
+		verbose:   verbose,
 	}
 }
 
@@ -35,9 +36,11 @@ type Instance struct {
 	address string
 
 	cleanFlag bool
+
+	verbose bool
 }
 
-func (ins *Instance) CheckEnv() error {
+func checkEnv() error {
 	path, err := cmdKit.LookPath("adb")
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to look path of adb")
@@ -57,6 +60,10 @@ func (ins *Instance) CheckEnv() error {
 }
 
 func (ins *Instance) Initialize() error {
+	if err := checkEnv(); err != nil {
+		return err
+	}
+
 	if ins.cleanFlag {
 		// 命令：pkill -f HD-Instance
 		// Richelieu: 此处返回的 err 不用管
