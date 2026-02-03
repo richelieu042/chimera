@@ -2,7 +2,9 @@
 
 package randomKit
 
-import "math/rand/v2"
+import (
+	"math/rand/v2"
+)
 
 // Int 生成随机int.（参考: random.RandInt）
 /*
@@ -17,6 +19,8 @@ import "math/rand/v2"
 	@return 范围: [min, max)
 */
 func Int(min, max int) int {
+	//return random.RandInt(min ,max)
+
 	if min == max {
 		return min
 	}
