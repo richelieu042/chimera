@@ -8,14 +8,27 @@ import (
 	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
+	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
 func NewInstance(address string, cleanFlag, verbose bool) *Instance {
+	enc := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[ABD] "))
+	var level zapcore.Level
+	if verbose {
+		level = zap.InfoLevel
+	} else {
+		level = zap.ErrorLevel
+	}
+	core := zapKit.NewCore(enc, nil, level)
+	logger := zapKit.NewLogger(core)
+
 	return &Instance{
 		address:   address,
 		cleanFlag: cleanFlag,
-		verbose:   verbose,
+		logger:    logger.Sugar(),
 	}
 }
 
@@ -37,68 +50,74 @@ type Instance struct {
 
 	cleanFlag bool
 
-	verbose bool
+	logger *zap.SugaredLogger
 }
 
-func checkEnv() error {
+func (ins *Instance) checkEnv() error {
 	path, err := cmdKit.LookPath("adb")
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to look path of adb")
 	}
-	console.Infof("adb path: [%s]", path)
+	ins.logger.Infof("adb path: [%s]", path)
 
 	// adb 版本号
 	{
-		str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "version")
+		str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "version")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb version'")
 		}
-		console.Infof("adb version:\n%s", str)
+		ins.logger.Infof("adb version:\n%s", str)
 	}
 
 	return nil
 }
 
 func (ins *Instance) Initialize() error {
-	if err := checkEnv(); err != nil {
+	if err := ins.checkEnv(); err != nil {
 		return err
 	}
 
 	if ins.cleanFlag {
 		// 命令：pkill -f HD-Instance
 		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), true, "pkill", "-f", "HD-Instance")
 
 		// 命令：pkill -f adb
 		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), true, "pkill", "-f", "adb")
 
 		// 命令：adb kill-server
-		_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
+		_, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "kill-server")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
 		}
 
 		// 命令：adb start-server
-		_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
+		_, err = cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "start-server")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb start-server'")
 		}
 	}
 
 	// 命令：adb connect {ins.address}
-	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", ins.address)
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", ins.address)
-	}
-	console.Infof("Connect to [%s] successfully.", ins.address)
+	{
+		resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "connect", ins.address)
+		if err != nil {
+			return errorKit.Wrapf(err, "fail to run 'adb connect %s'", ins.address)
+		}
+		if strKit.Index(strKit.ToLower(resp), "failed to") != -1 {
+			return errorKit.Newf("fail to connect to [%s], response: [%s]", ins.address, resp)
+		}
 
-	// adb devices
-	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
+		ins.logger.Infof("Connect to [%s] successfully.", ins.address)
+	}
+
+	// 命令：adb devices
+	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "devices")
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to run 'adb devices'")
 	}
-	console.Infof("adb devices:\n%s", devices)
+	ins.logger.Infof("adb devices:\n%s", devices)
 
 	return nil
 }
@@ -108,7 +127,7 @@ func (ins *Instance) GetPhysicalSize() (width int, height int, err error) {
 	/*
 		执行命令：adb -s 127.0.0.1:5555 shell wm size
 	*/
-	str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "wm", "size")
+	str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "wm", "size")
 	if err != nil {
 		return 0, 0, errorKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", ins.address)
 	}

@@ -3,6 +3,7 @@ package cmdKit
 import (
 	"context"
 	"os/exec"
+	"strings"
 )
 
 var LookPath func(file string) (string, error) = exec.LookPath
@@ -40,11 +41,6 @@ func Run(ctx context.Context, name string, args ...string) ([]byte, error) {
 	return cmd.Output()
 }
 
-func RunToString(ctx context.Context, name string, args ...string) (string, error) {
-	data, err := Run(ctx, name, args...)
-	return string(data), err
-}
-
 // RunCombinedly 执行命令（会阻塞直到命令结束） - stdout 和 stderr 都在 output 中，两者的内容会合并到一起返回
 func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, error) {
 	if ctx == nil {
@@ -55,7 +51,22 @@ func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, er
 	return cmd.CombinedOutput()
 }
 
-func RunCombinedlyToString(ctx context.Context, name string, args ...string) (string, error) {
+func RunToString(ctx context.Context, trimFlag bool, name string, args ...string) (resp string, err error) {
+	data, err := Run(ctx, name, args...)
+	resp = string(data)
+	if trimFlag {
+		// 一般最后会有一个'\n'
+		resp = strings.TrimSpace(resp)
+	}
+	return
+}
+
+func RunCombinedlyToString(ctx context.Context, trimFlag bool, name string, args ...string) (resp string, err error) {
 	data, err := RunCombinedly(ctx, name, args...)
-	return string(data), err
+	resp = string(data)
+	if trimFlag {
+		// 一般最后会有一个'\n'
+		resp = strings.TrimSpace(resp)
+	}
+	return
 }
