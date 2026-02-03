@@ -57,28 +57,30 @@ func (ins *Instance) CheckEnv() error {
 }
 
 func (ins *Instance) Initialize() error {
-	// pkill -f HD-Instance
-	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
+	if ins.cleanFlag {
+		// 命令：pkill -f HD-Instance
+		// Richelieu: 此处返回的 err 不用管
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
 
-	// pkill -f adb
-	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
+		// 命令：pkill -f adb
+		// Richelieu: 此处返回的 err 不用管
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
 
-	// adb kill-server
-	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
+		// 命令：adb kill-server
+		_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
+		if err != nil {
+			return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
+		}
+
+		// 命令：adb start-server
+		_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
+		if err != nil {
+			return errorKit.Wrapf(err, "fail to run 'adb start-server'")
+		}
 	}
 
-	// adb start-server
-	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb start-server'")
-	}
-
-	// adb connect {ins.address}
-	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", ins.address)
+	// 命令：adb connect {ins.address}
+	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", ins.address)
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", ins.address)
 	}
