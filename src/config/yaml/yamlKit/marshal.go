@@ -1,9 +1,10 @@
 package yamlKit
 
 import (
+	"os"
+
 	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"gopkg.in/yaml.v3"
-	"os"
 )
 
 // Marshal
