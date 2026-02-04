@@ -1,8 +1,9 @@
 package k8sYamlKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"os"
+
+	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"sigs.k8s.io/yaml"
 )
 
