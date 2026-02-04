@@ -1,4 +1,4 @@
-package goYamlKit
+package goccyYamlKit
 
 import (
 	"context"
