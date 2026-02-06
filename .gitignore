@@ -36,7 +36,7 @@
 /src/component/database/local/rocksdbKit/_testDir/
 **/_test.db
 /chimera-*
-/_temp
+
 
 # 忽略所有以 _test 开头的文件和目录
 _test*
@@ -44,5 +44,7 @@ _test*/
 
 /src/component/web/ginKit/_temp/
 /src/office/excelKit/_test.xlsx
-/_playwright-deps
 
+_playwright-deps
+_artifacts
+_temp

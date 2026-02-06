@@ -2,6 +2,8 @@ version: '3'
 
 # 全局变量
 vars:
+  # 输出目录（这个别瞎改，以免删库跑路）
+  OUTPUT_DIR: ./_artifacts
   APP: test
   SOURCE: test/test.go
   CGO_ENABLED: 0
@@ -13,14 +15,14 @@ vars:
   BUILD_TIME:
     sh: date '+%FT%T %A %Z'
   # 0: 不进行混淆; 1: 进行混淆（通过 garble）
-  OBFUSCATE: 1
+  OBFUSCATE: 0
   GARBLE_FLAGS: "-seed=kaach9AA8YlxRgeALT77NA -literals"
 
 tasks:
   default:
     cmds:
       - task: prepare
-#      - task: build-serial
+      #      - task: build-serial
       - task: build-parallel
 
   prepare:
@@ -111,23 +113,18 @@ tasks:
       EXT: '{{if eq .OS "windows"}}.exe{{end}}'
       TAGS: '{{default "" .TAGS}}'
       UPX: '{{default "false" .UPX}}'
-      NOAVX: '{{if and (eq .ARCH "amd64") (ne .TAGS "sonic avx")}}_noavx{{end}}'
+      NOAVX: '{{if and (eq .ARCH "amd64") (ne .TAGS "sonic avx")}}-noavx{{end}}'
       NAME: '{{.APP}}-{{.OS}}-{{.ARCH}}{{.NOAVX}}{{.EXT}}'
-      TARGET: '{{.NAME}}'
+      TARGET: '{{.OUTPUT_DIR}}/{{.NAME}}'
     cmds:
-      - echo {{.TARGET}}
-      - rm -rf {{.TARGET}}
+      - echo "Building {{.TARGET}}"
+      - rm -rf {{.TARGET}}  # 文件可以不存在
       - |
-        if [ {{.OBFUSCATE}} -eq 0 ]; then
-          echo "[*] Using go build"
-          CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} \
-          -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" \
-          -tags="{{.TAGS}}" {{.SOURCE}}
+        if [ {{.CGO_ENABLED}} -eq 1 ]; then
+          echo "CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags \"-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w\" -tags=\"{{.TAGS}}\" {{.SOURCE}}"
+          CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
         else
-          echo "[*] Using garble build"
-          CGO_ENABLED={{.CGO_ENABLED}} CC={{.CC}} CXX={{.CXX}} GOOS={{.OS}} GOARCH={{.ARCH}} \
-          garble {{.GARBLE_FLAGS}} build -o {{.TARGET}} \
-          -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" \
-          -tags="{{.TAGS}}" {{.SOURCE}}
+          echo "CGO_ENABLED={{.CGO_ENABLED}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags \"-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w\" -tags=\"{{.TAGS}}\" {{.SOURCE}}"
+          CGO_ENABLED={{.CGO_ENABLED}} GOOS={{.OS}} GOARCH={{.ARCH}} go build -o {{.TARGET}} -ldflags "-X 'main.Version={{.VERSION}}' -X 'main.Builder={{.BUILDER}}' -X 'main.BuildTime={{.BUILD_TIME}}' -s -w" -tags="{{.TAGS}}" {{.SOURCE}}
         fi
       - if [ {{.UPX}} == "true" ]; then upx -9 {{.TARGET}}; fi
