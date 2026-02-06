@@ -5,7 +5,6 @@ import (
 	"strconv"
 
 	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 )
 
 // GetPidMax 获取: 系统的pid最大值（作为系统范围内 进程 和 线程 总数的限制）.
@@ -20,11 +19,10 @@ cat /proc/sys/kernel/pid_max
 sysctl kernel.pid_max
 */
 func GetPidMax() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/pid_max")
+	str, err := cmdKit.RunToString(context.TODO(), true, "sh", "-c", "cat /proc/sys/kernel/pid_max")
 	if err != nil {
 		return 0, err
 	}
-	str = strKit.TrimSpace(str)
 
 	i, err := strconv.Atoi(str)
 	if err != nil {
@@ -40,11 +38,10 @@ cat /proc/sys/kernel/threads-max
 sysctl kernel.threads-max
 */
 func GetThreadsMax() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/threads-max")
+	str, err := cmdKit.RunToString(context.TODO(), true, "sh", "-c", "cat /proc/sys/kernel/threads-max")
 	if err != nil {
 		return 0, err
 	}
-	str = strKit.TrimSpace(str)
 
 	i, err := strconv.Atoi(str)
 	if err != nil {
@@ -62,11 +59,10 @@ cat /proc/sys/vm/max_map_count
 sysctl vm.max_map_count
 */
 func GetMaxMapCount() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/vm/max_map_count")
+	str, err := cmdKit.RunToString(context.TODO(), true, "sh", "-c", "cat /proc/sys/vm/max_map_count")
 	if err != nil {
 		return 0, err
 	}
-	str = strKit.TrimSpace(str)
 
 	i, err := strconv.Atoi(str)
 	if err != nil {
