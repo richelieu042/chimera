@@ -3,7 +3,7 @@ version: '3'
 # 全局变量
 vars:
   # 输出目录（这个别瞎改，以免删库跑路）
-  OUTPUT_DIR: ./_artifacts
+  OUTPUT_DIR: ./__output__
   APP: test
   SOURCE: test/test.go
   CGO_ENABLED: 0
