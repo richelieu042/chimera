@@ -1,10 +1,11 @@
 package gormKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"gorm.io/gorm"
 	"time"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"gorm.io/gorm"
 )
 
 func polyfillOpts(opts ...gorm.Option) []gorm.Option {

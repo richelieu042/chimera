@@ -1,9 +1,10 @@
 package pushKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
 	"sync"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
 func PushToAll(data []byte, exceptBsids []string) (err error) {

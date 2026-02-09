@@ -1,8 +1,8 @@
 package stackKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/listKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/listKit"
 )
 
 // Stack 堆栈（后进先出）

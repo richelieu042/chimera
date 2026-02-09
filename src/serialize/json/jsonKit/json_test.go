@@ -4,7 +4,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
+	"github.com/richelieu042/chimera/v3/src/core/osKit"
 )
 
 func TestMarshalToFile(t *testing.T) {

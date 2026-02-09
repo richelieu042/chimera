@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/gogf/gf/v2/os/gfile"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 var (

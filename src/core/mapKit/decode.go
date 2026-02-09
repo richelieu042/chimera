@@ -2,7 +2,7 @@ package mapKit
 
 import (
 	"github.com/mitchellh/mapstructure"
-	"github.com/richelieu-yang/chimera/v3/src/core/ptrKit"
+	"github.com/richelieu042/chimera/v3/src/core/ptrKit"
 )
 
 // Decode 将 通用的map[string]interface{} 解码到对应的 Go结构体中 ，或者执行相反的操作。

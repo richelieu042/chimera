@@ -8,11 +8,11 @@ import (
 	"image/png"
 	"os"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mathKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/image/imageKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/mathKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/image/imageKit"
 	"github.com/skip2/go-qrcode"
 )
 

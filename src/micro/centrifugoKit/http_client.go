@@ -1,12 +1,13 @@
 package centrifugoKit
 
 import (
-	"github.com/centrifugal/gocent/v3"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/http_client/httpClientKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/randomKit"
 	"net/http"
+
+	"github.com/centrifugal/gocent/v3"
+	"github.com/richelieu042/chimera/v3/src/component/web/http_client/httpClientKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/randomKit"
 )
 
 // NewHttpClient TODO: 待完善

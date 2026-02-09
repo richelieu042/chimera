@@ -1,7 +1,7 @@
 package base64Kit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 func Encode(src []byte, options ...Base64Option) []byte {

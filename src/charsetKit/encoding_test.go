@@ -2,8 +2,9 @@ package charsetKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 func TestIsGBK(t *testing.T) {

@@ -4,10 +4,10 @@ import (
 	"context"
 	"sync"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

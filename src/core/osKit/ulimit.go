@@ -6,10 +6,10 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // GetUlimitInfo 获取: 目前资源限制的信息.

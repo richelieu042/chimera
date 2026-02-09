@@ -1,9 +1,9 @@
 package centrifugoKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
-	"github.com/richelieu-yang/chimera/v3/src/micro/centrifugoKit/proxyproto"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
+	"github.com/richelieu042/chimera/v3/src/micro/centrifugoKit/proxyproto"
 )
 
 // PackToRpcResponse

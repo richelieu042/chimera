@@ -1,11 +1,11 @@
 package statKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/cronKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/cronKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
 )
 

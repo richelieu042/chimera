@@ -1,6 +1,6 @@
 package mapKit
 
-import "github.com/richelieu-yang/chimera/v3/src/copyKit"
+import "github.com/richelieu042/chimera/v3/src/copyKit"
 
 // Copy 浅拷贝
 /*

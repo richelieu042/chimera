@@ -3,13 +3,14 @@ package redisKit
 import (
 	"context"
 	"fmt"
-	"github.com/redis/go-redis/v9"
-	"github.com/richelieu-yang/chimera/v3/src/config/viperKit"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
 	"testing"
+
+	"github.com/redis/go-redis/v9"
+	"github.com/richelieu042/chimera/v3/src/config/viperKit"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 )
 
 func TestSetUp(t *testing.T) {

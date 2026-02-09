@@ -1,8 +1,8 @@
 package strKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/funcKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/funcKit"
 )
 
 func AssertNotEmpty(str string, paramName string) error {

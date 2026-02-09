@@ -2,7 +2,7 @@ package ginKit
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
 )
 
 func DefaultEngine() *gin.Engine {

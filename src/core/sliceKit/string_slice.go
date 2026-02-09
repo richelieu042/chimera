@@ -1,8 +1,9 @@
 package sliceKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"strings"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // PolyfillStringSlice

@@ -1,8 +1,9 @@
 package cpuKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"os/exec"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // GetCpuId

@@ -3,8 +3,9 @@ package httpClientKit
 import (
 	"context"
 	"errors"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"net/url"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // IsTimeoutError 是否是请求超时错误?

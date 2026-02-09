@@ -1,11 +1,12 @@
 package pathKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/idKit"
 	"os"
+
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/idKit"
 )
 
 var tempDir string

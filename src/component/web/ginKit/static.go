@@ -1,10 +1,11 @@
 package ginKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // StaticFile 静态资源（单个文件）

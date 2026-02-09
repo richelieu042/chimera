@@ -3,8 +3,8 @@ package cpuKit
 import (
 	"bytes"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/shirou/gopsutil/v4/cpu"
 )
 

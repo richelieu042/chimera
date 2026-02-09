@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"

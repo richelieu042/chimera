@@ -1,7 +1,7 @@
 package oxyKit
 
 import (
-	_ "github.com/richelieu-yang/chimera/v3/src/log/logrusInitKit"
+	_ "github.com/richelieu042/chimera/v3/src/log/logrusInitKit"
 
 	"testing"
 

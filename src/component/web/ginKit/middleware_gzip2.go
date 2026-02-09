@@ -3,9 +3,10 @@ package ginKit
 import (
 	"bytes"
 	"compress/gzip"
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/compress/gzipKit"
 	"strings"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/compress/gzipKit"
 )
 
 // NewGzipMiddleware2

@@ -1,13 +1,14 @@
 package sseKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 type sseProcessor struct {

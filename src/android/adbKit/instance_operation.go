@@ -4,12 +4,12 @@ import (
 	"context"
 	"os"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/randomKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/randomKit"
 )
 
 // Screenshot 截图

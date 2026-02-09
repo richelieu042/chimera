@@ -1,8 +1,9 @@
 package ocrKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
 	"time"
+
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 )
 
 type (

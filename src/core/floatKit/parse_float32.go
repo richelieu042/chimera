@@ -1,8 +1,9 @@
 package floatKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"strconv"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // ParseStringToFloat32 类型转换: string => float32

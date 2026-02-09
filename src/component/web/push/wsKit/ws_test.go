@@ -2,16 +2,18 @@ package wsKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/core/bytesKit"
-	_ "github.com/richelieu-yang/chimera/v3/src/log/logrusInitKit"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/ginKit"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu-yang/chimera/v3/src/concurrency/poolKit"
-	"github.com/sirupsen/logrus"
+	"github.com/richelieu042/chimera/v3/src/core/bytesKit"
+	_ "github.com/richelieu042/chimera/v3/src/log/logrusInitKit"
+
 	"testing"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/ginKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
+	"github.com/richelieu042/chimera/v3/src/concurrency/poolKit"
+	"github.com/sirupsen/logrus"
 )
 
 func TestWs(t *testing.T) {

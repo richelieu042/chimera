@@ -3,12 +3,13 @@ package wsKit
 import (
 	"context"
 	"fmt"
-	"github.com/gorilla/websocket"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu-yang/chimera/v3/src/compress/brotliKit"
-	"github.com/richelieu-yang/chimera/v3/src/compress/gzipKit"
-	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"time"
+
+	"github.com/gorilla/websocket"
+	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
+	"github.com/richelieu042/chimera/v3/src/compress/brotliKit"
+	"github.com/richelieu042/chimera/v3/src/compress/gzipKit"
+	"github.com/richelieu042/chimera/v3/src/time/timeKit"
 )
 
 var (

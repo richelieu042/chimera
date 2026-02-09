@@ -1,6 +1,6 @@
 package jsonRespKit
 
-import "github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+import "github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 
 // Seal 封装成响应结构体实例，再序列化为json.
 /*

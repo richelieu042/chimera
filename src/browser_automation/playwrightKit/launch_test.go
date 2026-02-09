@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/playwright-community/playwright-go"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 func TestLaunchBrowser(t *testing.T) {

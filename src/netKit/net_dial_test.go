@@ -1,9 +1,10 @@
 package netKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
 	"testing"
 	"time"
+
+	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 func TestDialContextWithTimeout(t *testing.T) {

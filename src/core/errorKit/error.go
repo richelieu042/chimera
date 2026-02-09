@@ -2,7 +2,7 @@ package errorKit
 
 import (
 	"github.com/gogf/gf/v2/errors/gerror"
-	"github.com/richelieu-yang/chimera/v3/src/funcKit"
+	"github.com/richelieu042/chimera/v3/src/funcKit"
 )
 
 var (

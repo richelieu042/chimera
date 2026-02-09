@@ -3,15 +3,16 @@ package wsKit
 import (
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/gorilla/websocket"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/sirupsen/logrus"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/gorilla/websocket"
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/sirupsen/logrus"
 )
 
 type wsProcessor struct {

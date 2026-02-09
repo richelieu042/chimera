@@ -4,7 +4,7 @@ import (
 	"image/png"
 	"os"
 
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // ToPng 将图片格式转换为".png".

@@ -1,17 +1,18 @@
 package etcdKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"io"
+	"sync"
+	"time"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"github.com/sirupsen/logrus"
 	clientv3 "go.etcd.io/etcd/client/v3"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
-	"io"
-	"sync"
-	"time"
 )
 
 var client *clientv3.Client

@@ -4,9 +4,9 @@ import (
 	"context"
 	"regexp"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
 )
 
 // GetPhysicalSize 获取：分辨率（宽高、尺寸）.

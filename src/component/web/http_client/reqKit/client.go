@@ -2,7 +2,7 @@ package reqKit
 
 import (
 	"github.com/imroc/req/v3"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 )
 
 // NewClient

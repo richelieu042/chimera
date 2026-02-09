@@ -1,9 +1,10 @@
 package mailKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/time/timeKit"
 )
 
 func TestSendMail(t *testing.T) {

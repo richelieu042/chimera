@@ -1,7 +1,7 @@
 package console
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )

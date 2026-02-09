@@ -2,14 +2,15 @@ package otelKit
 
 import (
 	"context"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"net/http"
+
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/baggage"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
-	"net/http"
 )
 
 // ExtractFromRequest

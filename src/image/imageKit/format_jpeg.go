@@ -7,7 +7,7 @@ import (
 	"image/jpeg"
 	"os"
 
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // ToJpeg 将图片格式转换为".jpg"(||".jpeg").

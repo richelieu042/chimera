@@ -4,8 +4,9 @@ import (
 	"bytes"
 	"crypto/rand"
 	"crypto/rsa"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
 
 // Decrypt 私钥解密

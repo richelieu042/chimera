@@ -5,8 +5,8 @@ import (
 	"strings"
 
 	"github.com/playwright-community/playwright-go"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // LaunchBrowser

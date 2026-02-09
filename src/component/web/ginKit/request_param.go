@@ -1,12 +1,13 @@
 package ginKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/core/boolKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/floatKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
 	"io"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/core/boolKit"
+	"github.com/richelieu042/chimera/v3/src/core/floatKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
 )
 
 // ObtainGetParam 获取 GET 请求的参数（从url获取）.

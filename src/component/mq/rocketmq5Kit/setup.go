@@ -2,9 +2,9 @@ package rocketmq5Kit
 
 import (
 	"github.com/apache/rocketmq-clients/golang/v5/credentials"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/validateKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
 
 var (

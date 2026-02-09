@@ -2,8 +2,8 @@ package consulKit
 
 import (
 	"github.com/hashicorp/consul/api"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 )
 
 // NewClient

@@ -2,10 +2,10 @@ package rocketmq5Kit
 
 import (
 	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // NewSimpleConsumer

@@ -2,10 +2,11 @@ package rateLimitKit
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"golang.org/x/time/rate"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"golang.org/x/time/rate"
 )
 
 // NewGinMiddleware Gin的限流器，用于限流.

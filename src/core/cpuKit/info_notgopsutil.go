@@ -3,8 +3,9 @@
 package cpuKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"os"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 // GetUsagePercent CPU使用率

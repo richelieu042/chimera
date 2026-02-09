@@ -2,8 +2,9 @@ package pulsarKit
 
 import (
 	"context"
+
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 type (

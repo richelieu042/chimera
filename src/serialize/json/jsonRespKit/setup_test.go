@@ -2,9 +2,10 @@ package jsonRespKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
 )
 
 func TestMustSetUp(t *testing.T) {

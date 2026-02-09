@@ -1,8 +1,8 @@
 package pushKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/setKit"
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
+	"github.com/richelieu042/chimera/v3/src/core/setKit"
 )
 
 var (

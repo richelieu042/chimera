@@ -1,7 +1,7 @@
 package netKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/validateKit"
+	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
 
 const (

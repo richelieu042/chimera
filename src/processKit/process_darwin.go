@@ -4,9 +4,9 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // GetProcessCount 获取: (瞬时的值)系统中所有进程的数量.

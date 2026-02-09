@@ -2,12 +2,13 @@ package otelKit
 
 import (
 	"context"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"net/http"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/baggage"
 	"go.opentelemetry.io/otel/propagation"
 	"go.opentelemetry.io/otel/trace"
-	"net/http"
 )
 
 // InjectIntoRequest 使用 baggage 写入 trace id 和 span id（实际上是写到 Header 中）.

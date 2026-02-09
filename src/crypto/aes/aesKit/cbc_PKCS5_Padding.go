@@ -2,7 +2,7 @@ package aesKit
 
 import (
 	"github.com/gogf/gf/v2/crypto/gaes"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
 
 // EncryptCbcPKCS5PaddingToString 明文([]byte) => 密文(string)

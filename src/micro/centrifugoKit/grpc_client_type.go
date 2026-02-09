@@ -2,9 +2,10 @@ package centrifugoKit
 
 import (
 	"context"
+
 	"github.com/gogf/gf/v2/os/gmutex"
-	"github.com/richelieu-yang/chimera/v3/src/micro/centrifugoKit/apiproto"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+	"github.com/richelieu042/chimera/v3/src/micro/centrifugoKit/apiproto"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 	"google.golang.org/grpc"
 )
 

@@ -1,9 +1,10 @@
 package rsaKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
 )
 
 func TestGenerateKeyFiles(t *testing.T) {

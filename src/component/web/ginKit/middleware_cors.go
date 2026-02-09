@@ -1,10 +1,11 @@
 package ginKit
 
 import (
+	"net/http"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
-	"net/http"
+	"github.com/richelieu042/chimera/v3/src/time/timeKit"
 )
 
 // NewCorsMiddleware 新建一个cors中间件（自带对 OPTIONS请求 的处理）.

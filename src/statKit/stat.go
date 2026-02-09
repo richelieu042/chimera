@@ -1,18 +1,19 @@
 package statKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/cpuKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mathKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/memoryKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
-	"github.com/richelieu-yang/chimera/v3/src/dataSizeKit"
-	"github.com/richelieu-yang/chimera/v3/src/diskKit"
-	"github.com/richelieu-yang/chimera/v3/src/processKit"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
-	"go.uber.org/zap"
 	"os"
 	"runtime"
 	"sync"
+
+	"github.com/richelieu042/chimera/v3/src/core/cpuKit"
+	"github.com/richelieu042/chimera/v3/src/core/mathKit"
+	"github.com/richelieu042/chimera/v3/src/core/memoryKit"
+	"github.com/richelieu042/chimera/v3/src/core/osKit"
+	"github.com/richelieu042/chimera/v3/src/dataSizeKit"
+	"github.com/richelieu042/chimera/v3/src/diskKit"
+	"github.com/richelieu042/chimera/v3/src/processKit"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
+	"go.uber.org/zap"
 )
 
 type (

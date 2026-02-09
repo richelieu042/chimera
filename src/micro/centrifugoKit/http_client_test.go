@@ -4,10 +4,11 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"github.com/centrifugal/gocent/v3"
-	"github.com/richelieu-yang/chimera/v3/src/idKit"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
 	"testing"
+
+	"github.com/centrifugal/gocent/v3"
+	"github.com/richelieu042/chimera/v3/src/idKit"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 )
 
 func TestNewClient(t *testing.T) {

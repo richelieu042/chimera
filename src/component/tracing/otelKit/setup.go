@@ -1,7 +1,7 @@
 package otelKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/atomic/atomicKit"
+	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
 	"go.uber.org/atomic"
 )
 

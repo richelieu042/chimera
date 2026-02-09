@@ -1,8 +1,8 @@
 package mapKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/funcKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/funcKit"
 )
 
 func AssertNotEmpty[K comparable, V any](m map[K]V, name string) error {

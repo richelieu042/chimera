@@ -1,6 +1,6 @@
 package i18nPackKit
 
-import "github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+import "github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 
 // Seal
 /*

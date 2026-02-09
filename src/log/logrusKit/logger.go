@@ -1,8 +1,8 @@
 package logrusKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/ioKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/ioKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/sirupsen/logrus"
 )
 

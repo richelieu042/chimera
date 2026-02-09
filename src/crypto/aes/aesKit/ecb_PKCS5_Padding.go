@@ -1,7 +1,7 @@
 package aesKit
 
 //import (
-//	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+//	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 //	"github.com/zeromicro/go-zero/core/codec"
 //)
 //

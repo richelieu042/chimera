@@ -2,7 +2,7 @@ package idKit
 
 import (
 	"github.com/google/uuid"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // NewUUID UUID v4

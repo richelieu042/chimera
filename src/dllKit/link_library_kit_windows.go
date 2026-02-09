@@ -1,8 +1,9 @@
 package linkLibraryKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"plugin"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 // LoadLinkLibrary 加载动态链接库（Linux、Mac）

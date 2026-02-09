@@ -2,8 +2,8 @@ package rueidisKit
 
 import (
 	"github.com/redis/rueidis"
-	"github.com/richelieu-yang/chimera/v3/src/component/database/nosql/redis/redisKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/component/database/nosql/redis/redisKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 // NewClient TODO: 没深入使用过.

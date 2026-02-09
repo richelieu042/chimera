@@ -2,9 +2,9 @@ package jwtKit
 
 import (
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/caesarKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
+	"github.com/richelieu042/chimera/v3/src/crypto/caesarKit"
 )
 
 // Sign 生成JWT字符串.

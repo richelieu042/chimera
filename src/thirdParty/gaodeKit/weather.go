@@ -2,8 +2,9 @@ package gaodeKit
 
 import (
 	"context"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/http_client/reqKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+
+	"github.com/richelieu042/chimera/v3/src/component/web/http_client/reqKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 const (

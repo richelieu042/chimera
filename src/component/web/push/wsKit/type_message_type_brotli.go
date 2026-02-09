@@ -2,7 +2,7 @@ package wsKit
 
 import (
 	"github.com/gorilla/websocket"
-	"github.com/richelieu-yang/chimera/v3/src/compress/brotliKit"
+	"github.com/richelieu042/chimera/v3/src/compress/brotliKit"
 )
 
 // NewBrotliMessageType

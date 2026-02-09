@@ -1,12 +1,13 @@
 package rocketmq5Kit
 
 import (
-	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
-	"github.com/richelieu-yang/chimera/v3/src/core/envKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"os"
+
+	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
+	"github.com/richelieu042/chimera/v3/src/core/envKit"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 func setClientLog(path string) error {

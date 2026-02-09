@@ -1,17 +1,18 @@
 package nacosKit
 
 import (
-	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
-	"github.com/richelieu-yang/chimera/v3/src/copyKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/netKit"
-	"github.com/richelieu-yang/chimera/v3/src/urlKit"
-	"github.com/richelieu-yang/chimera/v3/src/validateKit"
 	"net/url"
+
+	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
+	"github.com/richelieu042/chimera/v3/src/copyKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/netKit"
+	"github.com/richelieu042/chimera/v3/src/urlKit"
+	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
 
 var (

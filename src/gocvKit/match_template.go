@@ -3,7 +3,7 @@ package gocvKit
 import (
 	"image"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"gocv.io/x/gocv"
 )
 

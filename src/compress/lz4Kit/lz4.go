@@ -2,10 +2,11 @@ package lz4Kit
 
 import (
 	"bytes"
-	"github.com/pierrec/lz4/v4"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"io"
 	"os"
+
+	"github.com/pierrec/lz4/v4"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 var (

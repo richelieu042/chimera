@@ -3,9 +3,9 @@ package ip2RegionKit
 import (
 	"testing"
 
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 func TestGetRegion(t *testing.T) {

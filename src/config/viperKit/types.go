@@ -1,6 +1,6 @@
 package viperKit
 
-import "github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+import "github.com/richelieu042/chimera/v3/src/file/fileKit"
 
 type (
 	// Data 配置文件的数据.

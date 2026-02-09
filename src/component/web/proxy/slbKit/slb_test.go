@@ -1,11 +1,12 @@
 package slbKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/netKit"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/netKit"
 )
 
 // 访问url: http://127.0.0.1:80/test

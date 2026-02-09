@@ -2,10 +2,11 @@ package pulsarKit
 
 import (
 	"context"
+
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/validateKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
 
 var config *Config

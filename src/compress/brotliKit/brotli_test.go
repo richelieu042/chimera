@@ -2,8 +2,9 @@ package brotliKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/core/bytesKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/core/bytesKit"
 )
 
 func TestEntire(t *testing.T) {

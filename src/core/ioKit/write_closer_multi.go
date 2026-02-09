@@ -2,9 +2,10 @@ package ioKit
 
 import (
 	"errors"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
 	"io"
 	"sync"
+
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
 var (

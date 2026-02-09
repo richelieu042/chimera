@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/richelieu-yang/chimera/v3/src/concurrency/mutexKit"
+	"github.com/richelieu042/chimera/v3/src/concurrency/mutexKit"
 	"go.uber.org/zap"
 )
 

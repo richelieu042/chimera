@@ -1,12 +1,13 @@
 package proxyKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
 	"net/http"
 	"net/http/httputil"
 	"net/url"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 // Proxy 代理请求（反向代理，请求转发）.

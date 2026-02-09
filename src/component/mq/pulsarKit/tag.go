@@ -2,8 +2,8 @@ package pulsarKit
 
 import (
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu-yang/chimera/v3/src/consts/key"
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
+	"github.com/richelieu042/chimera/v3/src/consts/key"
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 )
 
 // SetTag

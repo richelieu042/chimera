@@ -5,8 +5,8 @@ package archiverKit
 //	"github.com/mholt/archiver/v4"
 //	"github.com/mholt/archives"
 //
-//	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-//	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
+//	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+//	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 //	"io"
 //)
 //

@@ -2,10 +2,11 @@ package ginKit
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 func DefaultNoMethod(engine *gin.Engine) {

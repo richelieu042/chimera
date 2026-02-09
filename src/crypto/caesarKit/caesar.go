@@ -2,7 +2,8 @@ package caesarKit
 
 import (
 	"encoding/base64"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
 
 // Encrypt 凯撒密码加密.

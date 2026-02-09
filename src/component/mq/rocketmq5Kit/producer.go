@@ -2,10 +2,11 @@ package rocketmq5Kit
 
 import (
 	"context"
-	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
 	"time"
+
+	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
 // NewProducer

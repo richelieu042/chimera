@@ -2,7 +2,7 @@ package i18nKit
 
 import (
 	"github.com/nicksnyder/go-i18n/v2/i18n"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 )
 
 // GetMessage

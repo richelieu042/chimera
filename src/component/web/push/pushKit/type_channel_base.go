@@ -1,9 +1,10 @@
 package pushKit
 
 import (
-	"github.com/gogf/gf/v2/os/gmutex"
-	"github.com/richelieu-yang/chimera/v3/src/time/timeKit"
 	"time"
+
+	"github.com/gogf/gf/v2/os/gmutex"
+	"github.com/richelieu042/chimera/v3/src/time/timeKit"
 )
 
 var _ Channel = &BaseChannel{}

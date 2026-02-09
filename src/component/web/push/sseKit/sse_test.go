@@ -2,15 +2,16 @@ package sseKit
 
 import (
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/ginKit"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu-yang/chimera/v3/src/concurrency/poolKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/bytesKit"
-	"github.com/sirupsen/logrus"
 	"net/http"
 	"testing"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/ginKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
+	"github.com/richelieu042/chimera/v3/src/concurrency/poolKit"
+	"github.com/richelieu042/chimera/v3/src/core/bytesKit"
+	"github.com/sirupsen/logrus"
 )
 
 func TestNewProcessor(t *testing.T) {

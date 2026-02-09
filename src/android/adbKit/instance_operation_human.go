@@ -1,6 +1,6 @@
 package adbKit
 
-import "github.com/richelieu-yang/chimera/v3/src/randomKit"
+import "github.com/richelieu042/chimera/v3/src/randomKit"
 
 func (ins *Instance) TapLikeAHumanBeing(x, y int, axisOffset int) error {
 	x = x + randomKit.Int(-axisOffset, axisOffset+1)

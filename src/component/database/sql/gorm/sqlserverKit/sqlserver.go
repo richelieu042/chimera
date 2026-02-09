@@ -1,7 +1,7 @@
 package sqlliteKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/component/database/sql/gorm/gormKit"
+	"github.com/richelieu042/chimera/v3/src/component/database/sql/gorm/gormKit"
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 )

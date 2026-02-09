@@ -3,7 +3,7 @@ package propertiesKit
 import (
 	"github.com/magiconair/properties"
 	"github.com/mitchellh/mapstructure"
-	"github.com/richelieu-yang/chimera/v3/src/core/mapKit"
+	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 )
 
 var (

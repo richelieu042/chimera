@@ -1,10 +1,11 @@
 package reqKit
 
 import (
-	"github.com/imroc/req/v3"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
 	"net/http"
 	"time"
+
+	"github.com/imroc/req/v3"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
 // NewLbClient http客户端的负载均衡.

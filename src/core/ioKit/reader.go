@@ -3,10 +3,11 @@ package ioKit
 import (
 	"bufio"
 	"bytes"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"io"
 	"os"
 	"strings"
+
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 var (

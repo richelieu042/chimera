@@ -2,13 +2,14 @@ package httpClientKit
 
 import (
 	"bytes"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/urlKit"
 	"io"
 	"mime/multipart"
 	"net/http"
 	"os"
+
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/urlKit"
 )
 
 // Upload Deprecated: Use req111Kit instead.

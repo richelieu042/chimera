@@ -2,13 +2,14 @@ package mailKit
 
 import (
 	"fmt"
-	"github.com/jordan-wright/email"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"net/smtp"
 	"sync"
 	"time"
+
+	"github.com/jordan-wright/email"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 type (

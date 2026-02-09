@@ -1,6 +1,6 @@
 package jsonKit
 
-import "github.com/richelieu-yang/chimera/v3/src/validateKit"
+import "github.com/richelieu042/chimera/v3/src/validateKit"
 
 func IsJson(data []byte) bool {
 	return validateKit.Json(data) == nil

@@ -1,7 +1,7 @@
 package yamlKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"gopkg.in/yaml.v3"
 )
 

@@ -1,11 +1,12 @@
 package buntdbKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/idKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/logrusKit"
+	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/idKit"
+	"github.com/richelieu042/chimera/v3/src/log/logrusKit"
 	"github.com/sirupsen/logrus"
 	"github.com/tidwall/buntdb"
-	"testing"
 )
 
 func TestOpen(t *testing.T) {

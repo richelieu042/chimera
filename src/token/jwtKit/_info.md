@@ -24,7 +24,7 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
 
 func main() {

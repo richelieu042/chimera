@@ -2,10 +2,10 @@ package ip2RegionKit
 
 import (
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 var NotSetupError = errorKit.Newf("haven’t been set up correctly")

@@ -2,11 +2,11 @@ package pushKit
 
 import (
 	"github.com/panjf2000/ants/v2"
-	"github.com/richelieu-yang/chimera/v3/src/atomic/atomicKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/validateKit"
+	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/validateKit"
 	"github.com/sirupsen/logrus"
 )
 

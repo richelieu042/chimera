@@ -1,6 +1,6 @@
 package sliceKit
 
-import "github.com/richelieu-yang/chimera/v3/src/copyKit"
+import "github.com/richelieu042/chimera/v3/src/copyKit"
 
 // CopyToDest 将src的元素复制到dest中（可能会修改dest的内容，但dest的内存地址不变！！！）
 /*

@@ -1,6 +1,6 @@
 package osKit
 
-import "github.com/richelieu-yang/chimera/v3/src/core/errorKit"
+import "github.com/richelieu042/chimera/v3/src/core/errorKit"
 
 func GetPidMax() (int, error) {
 	return 0, errorKit.Newf("not yet realized")

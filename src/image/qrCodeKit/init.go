@@ -1,5 +1,5 @@
 package qrCodeKit
 
 import (
-	_ "github.com/richelieu-yang/chimera/v3/src/image/imageKit"
+	_ "github.com/richelieu042/chimera/v3/src/image/imageKit"
 )

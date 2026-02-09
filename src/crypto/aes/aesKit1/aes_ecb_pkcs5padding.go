@@ -10,9 +10,10 @@ package aesKit1
 import (
 	"crypto/aes"
 	"crypto/cipher"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/crypto/base64Kit"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
 
 // EncryptToString 加密流程: 明文 => 密文 => base64字符串

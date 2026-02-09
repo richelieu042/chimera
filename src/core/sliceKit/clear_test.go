@@ -2,8 +2,9 @@ package sliceKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/core/runtimeKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/core/runtimeKit"
 )
 
 func TestClear(t *testing.T) {

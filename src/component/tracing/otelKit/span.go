@@ -2,8 +2,9 @@ package otelKit
 
 import (
 	"context"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"go.opentelemetry.io/otel/trace"
 )
 

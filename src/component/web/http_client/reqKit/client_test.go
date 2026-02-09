@@ -3,12 +3,13 @@ package reqKit
 import (
 	"context"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/imroc/req/v3"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/netKit"
 	"testing"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/imroc/req/v3"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/netKit"
 )
 
 func TestNewClient(t *testing.T) {

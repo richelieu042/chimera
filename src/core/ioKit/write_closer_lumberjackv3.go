@@ -1,11 +1,12 @@
 package ioKit
 
 import (
-	"github.com/natefinch/lumberjack/v3"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/mathKit"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
 	"time"
+
+	"github.com/natefinch/lumberjack/v3"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/mathKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 type (

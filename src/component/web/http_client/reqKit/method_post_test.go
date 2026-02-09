@@ -3,12 +3,13 @@ package reqKit
 import (
 	"context"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	"github.com/imroc/req/v3"
-	"github.com/richelieu-yang/chimera/v3/src/netKit"
 	"net/url"
 	"testing"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	"github.com/imroc/req/v3"
+	"github.com/richelieu042/chimera/v3/src/netKit"
 )
 
 // POST请求，"Content-Type"为"application/x-www-form-urlencoded; charset=utf-8"

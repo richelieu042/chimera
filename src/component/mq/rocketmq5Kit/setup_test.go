@@ -2,12 +2,13 @@ package rocketmq5Kit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/config/viperKit"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
-	"github.com/sirupsen/logrus"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/config/viperKit"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
+	"github.com/sirupsen/logrus"
 )
 
 func TestMustSetUp(t *testing.T) {

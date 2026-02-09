@@ -7,8 +7,8 @@ import (
 
 	"github.com/bytedance/sonic"
 	"github.com/klauspost/cpuid/v2"
-	"github.com/richelieu-yang/chimera/v3/src/core/cpuKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/osKit"
+	"github.com/richelieu042/chimera/v3/src/core/cpuKit"
+	"github.com/richelieu042/chimera/v3/src/core/osKit"
 )
 
 func init() {

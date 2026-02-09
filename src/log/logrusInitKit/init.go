@@ -1,6 +1,6 @@
 package logrusInitKit
 
-import "github.com/richelieu-yang/chimera/v3/src/log/logrusKit"
+import "github.com/richelieu042/chimera/v3/src/log/logrusKit"
 
 /*
 初始化 logrus 相关的配置.

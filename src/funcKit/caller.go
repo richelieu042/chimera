@@ -62,7 +62,7 @@ func prettyCaller(file string, line int) string {
 }
 
 func prettyFuncName(pc uintptr) string {
-	// e.g."github.com/richelieu-yang/chimera/v3/src/core/file/fileKit.AssertExistAndIsFile"
+	// e.g."github.com/richelieu042/chimera/v3/src/core/file/fileKit.AssertExistAndIsFile"
 	funcName := runtime.FuncForPC(pc).Name()
 
 	index := strings.LastIndex(funcName, ".")

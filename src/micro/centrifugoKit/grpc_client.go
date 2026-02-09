@@ -2,11 +2,12 @@ package centrifugoKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
-	"github.com/richelieu-yang/chimera/v3/src/grpcKit"
-	"github.com/richelieu-yang/chimera/v3/src/idKit"
-	"github.com/richelieu-yang/chimera/v3/src/micro/centrifugoKit/apiproto"
-	"github.com/richelieu-yang/chimera/v3/src/netKit"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/grpcKit"
+	"github.com/richelieu042/chimera/v3/src/idKit"
+	"github.com/richelieu042/chimera/v3/src/micro/centrifugoKit/apiproto"
+	"github.com/richelieu042/chimera/v3/src/netKit"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"google.golang.org/grpc/resolver"

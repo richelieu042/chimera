@@ -3,7 +3,7 @@ package qrCodeKit
 import (
 	"image/color"
 
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/skip2/go-qrcode"
 )
 

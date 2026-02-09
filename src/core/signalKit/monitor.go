@@ -4,8 +4,8 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
-	"github.com/richelieu-yang/chimera/v3/src/log/zapKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 )
 
 //var printOnce sync.Once

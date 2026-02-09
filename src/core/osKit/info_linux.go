@@ -4,7 +4,7 @@ import (
 	"context"
 	"strconv"
 
-	"github.com/richelieu-yang/chimera/v3/src/command/cmdKit"
+	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
 )
 
 // GetPidMax 获取: 系统的pid最大值（作为系统范围内 进程 和 线程 总数的限制）.

@@ -1,9 +1,10 @@
 package httpKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/conditionKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"net/http"
+
+	"github.com/richelieu042/chimera/v3/src/core/conditionKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // GetScheme 请求使用的Web协议.

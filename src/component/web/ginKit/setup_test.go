@@ -1,12 +1,13 @@
 package ginKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/config/viperKit"
-	"github.com/richelieu-yang/chimera/v3/src/consts"
-	"github.com/richelieu-yang/chimera/v3/src/core/pathKit"
-	"github.com/richelieu-yang/chimera/v3/src/log/console"
 	"testing"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/config/viperKit"
+	"github.com/richelieu042/chimera/v3/src/consts"
+	"github.com/richelieu042/chimera/v3/src/core/pathKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 func TestMustSetUp(t *testing.T) {

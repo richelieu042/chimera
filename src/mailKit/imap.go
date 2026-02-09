@@ -2,11 +2,12 @@ package mailKit
 
 import (
 	"crypto/tls"
+	"sync"
+
 	"github.com/emersion/go-imap"
 	id "github.com/emersion/go-imap-id"
 	"github.com/emersion/go-imap/client"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"sync"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
 type (

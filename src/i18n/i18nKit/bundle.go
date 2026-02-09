@@ -2,10 +2,10 @@ package i18nKit
 
 import (
 	"github.com/nicksnyder/go-i18n/v2/i18n"
-	"github.com/richelieu-yang/chimera/v3/src/config/propertiesKit"
-	"github.com/richelieu-yang/chimera/v3/src/config/tomlKit"
-	"github.com/richelieu-yang/chimera/v3/src/config/yaml/yamlKit"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
+	"github.com/richelieu042/chimera/v3/src/config/propertiesKit"
+	"github.com/richelieu042/chimera/v3/src/config/tomlKit"
+	"github.com/richelieu042/chimera/v3/src/config/yaml/yamlKit"
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 	"golang.org/x/text/language"
 )
 

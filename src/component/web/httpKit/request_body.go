@@ -3,12 +3,13 @@ package httpKit
 import (
 	"bufio"
 	"bytes"
-	"github.com/richelieu-yang/chimera/v3/src/core/errorKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/ioKit"
-	"github.com/richelieu-yang/chimera/v3/src/urlKit"
 	"io"
 	"net/http"
 	"strings"
+
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/ioKit"
+	"github.com/richelieu042/chimera/v3/src/urlKit"
 )
 
 var (

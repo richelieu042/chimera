@@ -1,9 +1,9 @@
 package mapKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/boolKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/intKit"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/boolKit"
+	"github.com/richelieu042/chimera/v3/src/core/intKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // Obtain

@@ -1,8 +1,9 @@
 package regexpKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
 	"regexp"
+
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // StringToRegexp

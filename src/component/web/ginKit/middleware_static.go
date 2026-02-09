@@ -2,9 +2,10 @@ package ginKit
 
 import (
 	"embed"
+
 	"github.com/gin-contrib/static"
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // NewStaticMiddleware

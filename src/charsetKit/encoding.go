@@ -1,12 +1,13 @@
 package charsetKit
 
 import (
+	"unicode/utf8"
+
 	"github.com/gogf/gf/v2/encoding/gcharset"
-	"github.com/richelieu-yang/chimera/v3/src/core/interfaceKit"
+	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/saintfish/chardet"
 	"golang.org/x/net/html/charset"
 	"golang.org/x/text/encoding"
-	"unicode/utf8"
 )
 
 // IsSupported 是否支持 指定字符集 ？

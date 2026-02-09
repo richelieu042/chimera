@@ -3,7 +3,7 @@ package jsonKit
 import (
 	"os"
 
-	"github.com/richelieu-yang/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 func Marshal(v interface{}) ([]byte, error) {

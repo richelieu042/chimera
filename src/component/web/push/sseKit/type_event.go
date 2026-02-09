@@ -2,9 +2,10 @@ package sseKit
 
 import (
 	"fmt"
-	"github.com/gin-contrib/sse"
-	"github.com/richelieu-yang/chimera/v3/src/urlKit"
 	"net/http"
+
+	"github.com/gin-contrib/sse"
+	"github.com/richelieu042/chimera/v3/src/urlKit"
 )
 
 type Event sse.Event

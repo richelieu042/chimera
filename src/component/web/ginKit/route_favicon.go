@@ -1,9 +1,10 @@
 package ginKit
 
 import (
-	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
 	"net/http"
+
+	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
 )
 
 func DefaultFavicon(engine *gin.Engine) {

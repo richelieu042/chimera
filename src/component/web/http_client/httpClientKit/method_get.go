@@ -1,10 +1,11 @@
 package httpClientKit
 
 import (
-	"github.com/richelieu-yang/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu-yang/chimera/v3/src/urlKit"
 	"io"
 	"net/http"
+
+	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
+	"github.com/richelieu042/chimera/v3/src/urlKit"
 )
 
 // Get Deprecated: Use req111Kit instead.

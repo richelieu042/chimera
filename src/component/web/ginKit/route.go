@@ -2,7 +2,7 @@ package ginKit
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu-yang/chimera/v3/src/core/sliceKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
 // BindHandlersToRoute

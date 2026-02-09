@@ -2,8 +2,9 @@ package rsaKit
 
 import (
 	"crypto/rsa"
+
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/richelieu-yang/chimera/v3/src/core/strKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // ParsePublicKeyFromPem 解析公钥.

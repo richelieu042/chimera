@@ -2,8 +2,9 @@ package gaodeKit
 
 import (
 	"fmt"
-	"github.com/richelieu-yang/chimera/v3/src/serialize/json/jsonKit"
 	"testing"
+
+	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 )
 
 func TestClient_GetIp(t *testing.T) {

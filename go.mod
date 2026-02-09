@@ -1,4 +1,4 @@
-module github.com/richelieu-yang/chimera/v3
+module github.com/richelieu042/chimera/v3
 
 go 1.25.7
 
