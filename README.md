@@ -7,7 +7,7 @@ Golang的工具库（Tools of Golang）
 
 ## 安装此依赖
 
-命令: go get github.com/richelieu-yang/chimera/v3
+命令: go get github.com/richelieu042/chimera/v3
 
 ## 配置文件（仅供参考）
 
