@@ -73,7 +73,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
 	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
-	github.com/nanmu42/gzip v1.2.0
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.1
 	github.com/oklog/ulid/v2 v2.1.1
@@ -332,7 +331,6 @@ require (
 	github.com/segmentio/encoding v0.5.3 // indirect
 	github.com/segmentio/fasthash v1.0.3 // indirect
 	github.com/shadowspore/fossil-delta v0.0.0-20241213113458-1d797d70cbe3 // indirect
-	github.com/signalsciences/ac v1.2.0 // indirect
 	github.com/sourcegraph/conc v0.3.1-0.20240121214520-5f936abd7ae8 // indirect
 	github.com/spaolacci/murmur3 v1.1.0 // indirect
 	github.com/spf13/pflag v1.0.10 // indirect
