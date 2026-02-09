@@ -14,4 +14,6 @@ PS:
 								(b) 内层的服务不使用gzip压缩.
 (2) Gzip通常不建议用来压缩图片.
 */
-var NewGzipMiddleware func(level int, options ...gzip.Option) gin.HandlerFunc = gzip.Gzip
+func NewGzipMiddleware(level int, options ...gzip.Option) gin.HandlerFunc {
+	return gzip.Gzip(level, options...)
+}

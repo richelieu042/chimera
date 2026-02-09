@@ -1,8 +1,9 @@
 package ginKit
 
 import (
-	"github.com/gin-gonic/gin"
 	"html/template"
+
+	"github.com/gin-gonic/gin"
 )
 
 // LoadHTMLFiles 加载（多个）html文件.

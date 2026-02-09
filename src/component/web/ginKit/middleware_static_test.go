@@ -2,8 +2,9 @@ package ginKit
 
 import (
 	"embed"
-	"github.com/gin-gonic/gin"
 	"testing"
+
+	"github.com/gin-gonic/gin"
 )
 
 func TestNewStaticMiddleware(t *testing.T) {
