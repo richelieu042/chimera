@@ -6,7 +6,7 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/sdk/resource"
-	semconv "go.opentelemetry.io/otel/semconv/v1.38.0"
+	semconv "go.opentelemetry.io/otel/semconv/v1.39.0"
 )
 
 func newDetailedResource(serviceName string, attributeMap map[string]string) (*resource.Resource, error) {
