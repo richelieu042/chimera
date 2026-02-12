@@ -1,9 +1,9 @@
 package floatKit
 
-func Float32(v float32) *float32 {
+func Float32Pointer(v float32) *float32 {
 	return &v
 }
 
-func Float64(v float64) *float64 {
+func Float64Pointer(v float64) *float64 {
 	return &v
 }

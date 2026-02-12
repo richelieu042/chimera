@@ -1,5 +1,5 @@
 package strKit
 
-func String(v string) *string {
+func StringPointer(v string) *string {
 	return &v
 }

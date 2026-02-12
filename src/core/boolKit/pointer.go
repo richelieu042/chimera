@@ -1,5 +1,5 @@
 package boolKit
 
-func Bool(v bool) *bool {
+func BoolPointer(v bool) *bool {
 	return &v
 }

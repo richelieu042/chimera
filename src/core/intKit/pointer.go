@@ -1,41 +1,41 @@
 package intKit
 
-func Int(v int) *int {
+func IntPointer(v int) *int {
 	return &v
 }
 
-func Int8(v int8) *int8 {
+func Int8Pointer(v int8) *int8 {
 	return &v
 }
 
-func Int16(v int16) *int16 {
+func Int16Pointer(v int16) *int16 {
 	return &v
 }
 
-func Int32(v int32) *int32 {
+func Int32Pointer(v int32) *int32 {
 	return &v
 }
 
-func Int64(v int64) *int64 {
+func Int64Pointer(v int64) *int64 {
 	return &v
 }
 
-func Uint(v uint) *uint {
+func UintPointer(v uint) *uint {
 	return &v
 }
 
-func Uint8(v uint8) *uint8 {
+func Uint8Pointer(v uint8) *uint8 {
 	return &v
 }
 
-func Uint16(v uint16) *uint16 {
+func Uint16Pointer(v uint16) *uint16 {
 	return &v
 }
 
-func Uint32(v uint32) *uint32 {
+func Uint32Pointer(v uint32) *uint32 {
 	return &v
 }
 
-func Uint64(v uint64) *uint64 {
+func Uint64Pointer(v uint64) *uint64 {
 	return &v
 }

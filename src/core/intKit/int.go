@@ -1,8 +1,9 @@
 package intKit
 
 import (
-	"github.com/spf13/cast"
 	"strconv"
+
+	"github.com/spf13/cast"
 )
 
 var (
