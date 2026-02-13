@@ -12,7 +12,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-func NewInstance(address string, cleanFlag, verbose bool) *Instance {
+func NewInstance(address string, cleanFlag, verbose bool) (*Instance, error) {
 	enc := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[ABD] "))
 	var level zapcore.Level
 	if verbose {
@@ -23,11 +23,16 @@ func NewInstance(address string, cleanFlag, verbose bool) *Instance {
 	core := zapKit.NewCore(enc, nil, level)
 	logger := zapKit.NewLogger(core)
 
-	return &Instance{
+	ins := &Instance{
 		address:   address,
 		cleanFlag: cleanFlag,
 		logger:    logger.Sugar(),
 	}
+
+	if err := ins.initialize(); err != nil {
+		return nil, err
+	}
+	return ins, nil
 }
 
 type Instance struct {
@@ -51,7 +56,7 @@ type Instance struct {
 	logger *zap.SugaredLogger
 }
 
-func (ins *Instance) Initialize() error {
+func (ins *Instance) initialize() error {
 	if err := ins.checkEnv(); err != nil {
 		return err
 	}
