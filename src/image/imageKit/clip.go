@@ -6,13 +6,13 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 )
 
-// ClipImage 裁剪图片.
+// Clip 裁剪图片.
 /*
 	@param img				原始图片实例（不能为nil！）
 	@param x, y				裁剪区域左上角坐标
 	@param width, height	裁剪区域的宽度和高度
 */
-func ClipImage(img image.Image, x, y, width, height int) (image.Image, error) {
+func Clip(img image.Image, x, y, width, height int) (image.Image, error) {
 	if img == nil {
 		return nil, errorKit.Newf("img is nil")
 	}

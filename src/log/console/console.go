@@ -17,7 +17,6 @@ var (
 
 var (
 	Debug   func(msg string, fields ...zap.Field)          = zapKit.Debug
-	Debugf  func(template string, args ...interface{})     = zapKit.Debugf
 	Debugw  func(msg string, keysAndValues ...interface{}) = zapKit.Debugw
 	Debugln func(args ...interface{})                      = zapKit.Debugln
 
@@ -26,17 +25,14 @@ var (
 	   @param fields 输出循序与 传参fields 顺序一致（并不会按字母排序）
 	*/
 	Info   func(msg string, fields ...zap.Field)          = zapKit.Info
-	Infof  func(template string, args ...interface{})     = zapKit.Infof
 	Infow  func(msg string, keysAndValues ...interface{}) = zapKit.Infow
 	Infoln func(args ...interface{})                      = zapKit.Infoln
 
 	Warn   func(msg string, fields ...zap.Field)          = zapKit.Warn
-	Warnf  func(template string, args ...interface{})     = zapKit.Warnf
 	Warnw  func(msg string, keysAndValues ...interface{}) = zapKit.Warnw
 	Warnln func(args ...interface{})                      = zapKit.Warnln
 
 	Error   func(msg string, fields ...zap.Field)          = zapKit.Error
-	Errorf  func(template string, args ...interface{})     = zapKit.Errorf
 	Errorw  func(msg string, keysAndValues ...interface{}) = zapKit.Errorw
 	Errorln func(args ...interface{})                      = zapKit.Errorln
 
@@ -46,12 +42,34 @@ var (
 	Panicln func(args ...interface{})                      = zapKit.Panicln
 
 	DPanic   func(msg string, fields ...zap.Field)          = zapKit.DPanic
-	Panicf   func(template string, args ...interface{})     = zapKit.Panicf
 	DPanicw  func(msg string, keysAndValues ...interface{}) = zapKit.DPanicw
 	DPanicln func(args ...interface{})                      = zapKit.DPanicln
 
 	Fatal   func(msg string, fields ...zap.Field)          = zapKit.Fatal
-	Fatalf  func(template string, args ...interface{})     = zapKit.Fatalf
 	Fatalw  func(msg string, keysAndValues ...interface{}) = zapKit.Fatalw
 	Fatalln func(args ...interface{})                      = zapKit.Fatalln
 )
+
+func Debugf(template string, args ...interface{}) {
+	zapKit.Debugf(template, args...)
+}
+
+func Infof(template string, args ...interface{}) {
+	zapKit.Infof(template, args...)
+}
+
+func Warnf(template string, args ...interface{}) {
+	zapKit.Warnf(template, args...)
+}
+
+func Errorf(template string, args ...interface{}) {
+	zapKit.Errorf(template, args...)
+}
+
+func Panicf(template string, args ...interface{}) {
+	zapKit.Panicf(template, args...)
+}
+
+func Fatalf(template string, args ...interface{}) {
+	zapKit.Fatalf(template, args...)
+}
