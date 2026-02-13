@@ -7,8 +7,12 @@ import (
 	"gocv.io/x/gocv"
 )
 
-// MatchTemplate 模板匹配 - 在源图中查找模板图的最佳匹配位置
+// MatchTemplate 模板匹配 - 在源图中查找模板图的最佳匹配位置（在大图中找小图）
 /*
+PS:
+（1）如果需要再大图中截取小图再进行模板匹配，务必使用 imageKit.ClipWithPath 而非通过桌面工具进行截图，
+	否则会导致：使用 gocv.TmCcoeffNormed 的情况下，maxVal 值会很小（即使肉眼可见的匹配）.
+
 @param srcPath      源图像文件路径（大图）
 @param templatePath 模板图像文件路径（小图）
 @param matchMode    匹配算法模式（推荐使用 gocv.TmCcoeffNormed）
@@ -25,6 +29,7 @@ import (
 @return err         错误信息
 */
 func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (maxVal float32, maxLoc image.Point, err error) {
+
 	// 读取源图像
 	srcImg := gocv.IMRead(srcPath, gocv.IMReadColor)
 	if srcImg.Empty() {
