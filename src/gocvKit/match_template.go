@@ -29,7 +29,6 @@ PS:
 @return err         错误信息
 */
 func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (maxVal float32, maxLoc image.Point, err error) {
-
 	// 读取源图像
 	srcImg := gocv.IMRead(srcPath, gocv.IMReadColor)
 	if srcImg.Empty() {
