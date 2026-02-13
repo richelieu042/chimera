@@ -12,9 +12,9 @@ import (
 @param srcPath      源图像文件路径（大图）
 @param templatePath 模板图像文件路径（小图）
 @param matchMode    匹配算法模式（推荐使用 gocv.TmCcoeffNormed）
-                    - TmSqdiff/TmSqdiffNormed: 平方差匹配（值越小越好）
-                    - TmCcorr/TmCcorrNormed: 相关性匹配（值越大越好）
                     - TmCcoeff/TmCcoeffNormed: 相关系数匹配（值越大越好，推荐）
+					- TmSqdiff/TmSqdiffNormed: 平方差匹配（值越小越好）
+                    - TmCcorr/TmCcorrNormed: 相关性匹配（值越大越好）
 @param grayArgs     可选参数，是否转换为灰度图处理（默认 false）
                     设为 true 可提高匹配速度并降低颜色干扰
 

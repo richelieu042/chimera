@@ -14,7 +14,7 @@ import (
 
 // Screenshot 截图
 /*
-	@param targetPath: 截图保存的路径
+	@param targetPath: 截图保存的路径（PNG格式）
 */
 func (ins *Instance) Screenshot(targetPath string) error {
 	ins.Lock()
@@ -22,6 +22,7 @@ func (ins *Instance) Screenshot(targetPath string) error {
 
 	/*
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
+		-p: 参数表示以 PNG 格式输出截图数据
 	*/
 	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "exec-out", "screencap", "-p")
 	if err != nil {
