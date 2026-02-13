@@ -42,20 +42,21 @@ func main() {
 		console.Infof("天数: [%.2f]", days)
 
 		{
-			x0 := 1094
-			y0 := 637
-			x1 := 1395
-			y1 := 894
-
-			err := imageKit.ClipWithPath(path, "bbb.png", x0, y0, x1-x0+1, y1-y0+1)
+			//x0 := 1094
+			//y0 := 637
+			//x1 := 1395
+			//y1 := 894
+			//
+			//err := imageKit.ClipWithPath(path, "bbb.png", x0, y0, x1-x0+1, y1-y0+1)
+			//if err != nil {
+			//	panic(err)
+			//}
+			//matchVal, maxLoc, err := gocvKit.MatchTemplate("bbb.png", "sail.png", gocv.TmCcoeffNormed, true)
+			matchVal, matchLoc, err := gocvKit.MatchTemplate(path, "sail.png", gocv.TmCcoeffNormed, true)
 			if err != nil {
 				panic(err)
 			}
-			maxVal, maxLoc, err := gocvKit.MatchTemplate("bbb.png", "sail.png", gocv.TmCcoeffNormed, true)
-			if err != nil {
-				panic(err)
-			}
-			console.Infof("maxVal: [%.2f], maxLoc: [%v]", maxVal, maxLoc)
+			console.Infof("matchVal: [%.2f], matchLoc: [%v]", matchVal, matchLoc)
 		}
 	}
 

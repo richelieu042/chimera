@@ -15,8 +15,8 @@ PS:
 
 @param srcPath      源图像文件路径（大图）
 @param templatePath 模板图像文件路径（小图）
-@param matchMode    匹配算法模式（推荐使用 gocv.TmCcoeffNormed）
-                    - TmCcoeff/TmCcoeffNormed: 相关系数匹配（值越大越好，推荐）
+@param matchMode    匹配算法模式（推荐使用: gocv.TmCcoeffNormed）
+                    - TmCcoeff/TmCcoeffNormed: 相关系数匹配（值越大越好）
 					- TmSqdiff/TmSqdiffNormed: 平方差匹配（值越小越好）
                     - TmCcorr/TmCcorrNormed: 相关性匹配（值越大越好）
 @param grayArgs     可选参数，是否转换为灰度图处理（默认 false）
@@ -28,7 +28,7 @@ PS:
 @return maxLoc      最佳匹配位置的左上角坐标点
 @return err         错误信息
 */
-func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (maxVal float32, maxLoc image.Point, err error) {
+func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (matchVal float32, matchLoc image.Point, err error) {
 	// 读取源图像
 	srcImg := gocv.IMRead(srcPath, gocv.IMReadColor)
 	if srcImg.Empty() {
@@ -91,9 +91,7 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	// 查找最佳匹配位置
 	// 对于 TmSqdiff 和 TmSqdiffNormed，最小值是最佳匹配
 	// 对于其他模式，最大值是最佳匹配
-	var minVal float32
-	var minLoc image.Point
-	minVal, maxVal, minLoc, maxLoc = gocv.MinMaxLoc(result)
+	minVal, maxVal, minLoc, maxLoc := gocv.MinMaxLoc(result)
 
 	// 根据匹配模式返回对应的最佳值和位置
 	switch matchMode {
