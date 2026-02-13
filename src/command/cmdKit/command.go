@@ -51,22 +51,22 @@ func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, er
 	return cmd.CombinedOutput()
 }
 
-func RunToString(ctx context.Context, trimFlag bool, name string, args ...string) (resp string, err error) {
+func RunToString(ctx context.Context, name string, args ...string) (resp string, err error) {
 	data, err := Run(ctx, name, args...)
 	resp = string(data)
-	if trimFlag {
-		// 一般最后会有一个'\n'
-		resp = strings.TrimSpace(resp)
-	}
+
+	// 一般最后会有一个'\n'
+	resp = strings.TrimSpace(resp)
+
 	return
 }
 
-func RunCombinedlyToString(ctx context.Context, trimFlag bool, name string, args ...string) (resp string, err error) {
+func RunCombinedlyToString(ctx context.Context, name string, args ...string) (resp string, err error) {
 	data, err := RunCombinedly(ctx, name, args...)
 	resp = string(data)
-	if trimFlag {
-		// 一般最后会有一个'\n'
-		resp = strings.TrimSpace(resp)
-	}
+
+	// 一般最后会有一个'\n'
+	resp = strings.TrimSpace(resp)
+
 	return
 }

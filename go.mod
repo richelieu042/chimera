@@ -63,7 +63,7 @@ require (
 	github.com/klauspost/compress v1.18.4
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260210071348-89852a70f0cd
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260212121150-44fd27f02786
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -123,7 +123,7 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.24.0
 	golang.org/x/crypto v0.48.0
-	golang.org/x/exp v0.0.0-20260211191109-2735e65f0518
+	golang.org/x/exp v0.0.0-20260212183809-81e46e3db34a
 	golang.org/x/image v0.36.0
 	golang.org/x/mobile v0.0.0-20260211191516-dcd2a3258864
 	golang.org/x/mod v0.33.0
@@ -135,7 +135,7 @@ require (
 	golang.org/x/text v0.34.0
 	golang.org/x/time v0.14.0
 	golang.org/x/tools v0.42.0
-	google.golang.org/grpc v1.78.0
+	google.golang.org/grpc v1.79.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
