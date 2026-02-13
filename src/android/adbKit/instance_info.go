@@ -14,7 +14,7 @@ func (ins *Instance) GetPhysicalSize() (width int, height int, err error) {
 	/*
 		执行命令：adb -s 127.0.0.1:5555 shell wm size
 	*/
-	str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "wm", "size")
+	str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "wm", "size")
 	if err != nil {
 		return 0, 0, errorKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", ins.address)
 	}

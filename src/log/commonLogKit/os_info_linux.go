@@ -125,7 +125,7 @@ func printOsInfo(logger Logger) {
 (2) 如果输出为 cgroup2fs，则表示系统使用的是 cgroup v2.
 */
 func printCgroupInfo(logger Logger) {
-	cgroupType, err := cmdKit.RunToString(context.TODO(), true, "bash", "-c", "stat -fc %T /sys/fs/cgroup/")
+	cgroupType, err := cmdKit.RunToString(context.TODO(), "bash", "-c", "stat -fc %T /sys/fs/cgroup/")
 	if err != nil {
 		logger.Warnf("Fail to get cgroup type, error: %s", err.Error())
 		return

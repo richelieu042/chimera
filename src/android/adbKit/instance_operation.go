@@ -46,7 +46,7 @@ func (ins *Instance) Screenshot(targetPath string) error {
 	命令：adb -s 127.0.0.1:5555 shell input tap <x> <y>
 */
 func (ins *Instance) Tap(x, y int) error {
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
 	if err != nil {
 		return err
 	}
@@ -67,7 +67,7 @@ func (ins *Instance) LongPress(x, y int, duration int) error {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
 		intKit.IntToString(duration),
 	)
 	if err != nil {
@@ -101,7 +101,7 @@ func (ins *Instance) Swipe(x1, y1, x2, y2 int, duration int) error {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "-s", ins.address, "shell", "input", "swipe",
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe",
 		intKit.IntToString(x1), intKit.IntToString(y1),
 		intKit.IntToString(x2), intKit.IntToString(y2),
 		intKit.IntToString(duration),

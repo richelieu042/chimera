@@ -59,27 +59,27 @@ func (ins *Instance) Initialize() error {
 	if ins.cleanFlag {
 		// 命令：pkill -f HD-Instance
 		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), true, "pkill", "-f", "HD-Instance")
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
 
 		// 命令：pkill -f adb
 		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), true, "pkill", "-f", "adb")
+		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
 
 		// 命令：adb kill-server
-		_, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "kill-server")
+		_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
 		}
 
 		// 命令：adb start-server
-		_, err = cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "start-server")
+		_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb start-server'")
 		}
 	}
 
 	// 命令：adb connect {ins.address}
-	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "connect", ins.address)
+	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", ins.address)
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", ins.address)
 	}
@@ -89,7 +89,7 @@ func (ins *Instance) Initialize() error {
 	ins.logger.Infof("Connect to [%s] successfully.", ins.address)
 
 	// 命令：adb devices
-	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "devices")
+	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to run 'adb devices'")
 	}
@@ -107,7 +107,7 @@ func (ins *Instance) checkEnv() error {
 
 	// adb 版本号
 	{
-		str, err := cmdKit.RunCombinedlyToString(context.TODO(), true, "adb", "version")
+		str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "version")
 		if err != nil {
 			return errorKit.Wrapf(err, "fail to run 'adb version'")
 		}

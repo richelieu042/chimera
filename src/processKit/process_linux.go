@@ -12,7 +12,7 @@ import (
 支持: 	Linux、Mac
 */
 func GetProcessCount() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), true, "sh", "-c", "ps auxw | wc -l")
+	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "ps auxw | wc -l")
 	if err != nil {
 		return 0, err
 	}
@@ -30,7 +30,7 @@ func GetProcessCount() (int, error) {
 不支持:	Mac
 */
 func GetProcessThreadCount() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), true, "sh", "-c", "ps -eLf | wc -l")
+	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "ps -eLf | wc -l")
 	if err != nil {
 		return 0, err
 	}
