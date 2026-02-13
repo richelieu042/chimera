@@ -8,7 +8,7 @@ import (
 
 // ClipImage 裁剪图片.
 /*
-	@param img				原始图片实例
+	@param img				原始图片实例（不能为nil！）
 	@param x, y				裁剪区域左上角坐标
 	@param width, height	裁剪区域的宽度和高度
 */
