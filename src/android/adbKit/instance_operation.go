@@ -14,7 +14,7 @@ import (
 
 // Screenshot 截图
 /*
-	@param targetPath: 截图保存的路径（PNG格式）
+	@param targetPath 截图保存的路径（PNG格式）
 */
 func (ins *Instance) Screenshot(targetPath string) error {
 	ins.Lock()
