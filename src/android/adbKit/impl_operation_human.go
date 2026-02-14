@@ -2,7 +2,7 @@ package adbKit
 
 import "github.com/richelieu042/chimera/v3/src/randomKit"
 
-func (impl *clientImpl) TapLikeAHumanBeing(x, y int, axisOffset int) error {
+func (impl *clientImpl) TapAsHumanBeings(x, y int, axisOffset int) error {
 	x = x + randomKit.Int(-axisOffset, axisOffset+1)
 	y = y + randomKit.Int(-axisOffset, axisOffset+1)
 
@@ -14,7 +14,7 @@ func (impl *clientImpl) TapLikeAHumanBeing(x, y int, axisOffset int) error {
 	@param duration 	持续时间（单位：ms）
 	@param timeOffset 	持续时间的偏移量（单位：ms）
 */
-func (impl *clientImpl) LongPressLikeAHumanBeing(x, y int, duration int, axisOffset, timeOffset int) error {
+func (impl *clientImpl) LongPressAsHumanBeings(x, y int, duration int, axisOffset, timeOffset int) error {
 	x = x + randomKit.Int(-axisOffset, axisOffset+1)
 	y = y + randomKit.Int(-axisOffset, axisOffset+1)
 
@@ -30,7 +30,7 @@ func (impl *clientImpl) LongPressLikeAHumanBeing(x, y int, duration int, axisOff
 	@param duration 	持续时间（单位：ms）
 	@param timeOffset 	持续时间的偏移量（单位：ms）
 */
-func (impl *clientImpl) SwipeLikeAHumanBeing(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error {
+func (impl *clientImpl) SwipeAsHumanBeings(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error {
 	x1 = x1 + randomKit.Int(-axisOffset, axisOffset+1)
 	y1 = y1 + randomKit.Int(-axisOffset, axisOffset+1)
 	x2 = x2 + randomKit.Int(-axisOffset, axisOffset+1)

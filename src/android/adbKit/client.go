@@ -5,11 +5,14 @@ type Client interface {
 
 	Screenshot(targetPath string) error
 
+	// Tap 点击.
 	Tap(x, y int) error
+	// LongPress 长按.
 	LongPress(x, y int, duration int) error
+	// Swipe 滑动.
 	Swipe(x1, y1, x2, y2 int, duration int) error
 
-	TapLikeAHumanBeing(x, y int, axisOffset int) error
-	LongPressLikeAHumanBeing(x, y int, duration int, axisOffset, timeOffset int) error
-	SwipeLikeAHumanBeing(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
+	TapAsHumanBeings(x, y int, axisOffset int) error
+	LongPressAsHumanBeings(x, y int, duration int, axisOffset, timeOffset int) error
+	SwipeAsHumanBeings(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
 }
