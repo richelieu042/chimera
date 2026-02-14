@@ -7,33 +7,8 @@ import (
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
-	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
 )
-
-func NewClient(address string, cleanFlag, verbose bool) (Client, error) {
-	enc := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[ABD] "))
-	var level zapcore.Level
-	if verbose {
-		level = zap.InfoLevel
-	} else {
-		level = zap.ErrorLevel
-	}
-	core := zapKit.NewCore(enc, nil, level)
-	logger := zapKit.NewLogger(core)
-
-	ins := &clientImpl{
-		address:   address,
-		cleanFlag: cleanFlag,
-		logger:    logger.Sugar(),
-	}
-
-	if err := ins.initialize(); err != nil {
-		return nil, err
-	}
-	return ins, nil
-}
 
 type clientImpl struct {
 	Client

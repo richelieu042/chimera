@@ -1,5 +1,9 @@
 package adbKit
 
+import (
+	"go.uber.org/zap"
+)
+
 type Client interface {
 	GetPhysicalSize() (width int, height int, err error)
 
@@ -15,4 +19,17 @@ type Client interface {
 	TapAsHumanBeings(x, y int, axisOffset int) error
 	LongPressAsHumanBeings(x, y int, duration int, axisOffset, timeOffset int) error
 	SwipeAsHumanBeings(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
+}
+
+func NewClient(address string, cleanFlag bool, logger *zap.SugaredLogger) (Client, error) {
+	ins := &clientImpl{
+		address:   address,
+		cleanFlag: cleanFlag,
+		logger:    logger,
+	}
+
+	if err := ins.initialize(); err != nil {
+		return nil, err
+	}
+	return ins, nil
 }
