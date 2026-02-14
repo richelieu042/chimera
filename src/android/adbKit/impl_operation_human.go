@@ -9,7 +9,7 @@ func (impl *clientImpl) TapAsHumanBeings(x, y int, axisOffset int) error {
 	return impl.Tap(x, y)
 }
 
-// LongPressLikeAHumanBeing
+// LongPressAsHumanBeings
 /*
 	@param duration 	持续时间（单位：ms）
 	@param timeOffset 	持续时间的偏移量（单位：ms）
@@ -25,7 +25,7 @@ func (impl *clientImpl) LongPressAsHumanBeings(x, y int, duration int, axisOffse
 	return impl.LongPress(x, y, duration)
 }
 
-// SwipeLikeAHumanBeing 像人一样滑动（每次的位置和时间都不一样）.
+// SwipeAsHumanBeings 像人一样滑动（每次的位置和时间都不一样）.
 /*
 	@param duration 	持续时间（单位：ms）
 	@param timeOffset 	持续时间的偏移量（单位：ms）
