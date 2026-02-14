@@ -5,6 +5,10 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
+func NewSimpleConsoleLogger() *zap.Logger {
+	return NewLogger(nil)
+}
+
 // NewLogger
 /*
 PS:

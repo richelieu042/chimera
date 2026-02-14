@@ -57,30 +57,19 @@ type Instance struct {
 }
 
 func (ins *Instance) initialize() error {
-	if err := ins.checkEnv(); err != nil {
+	/* (1) check */
+	adbPath, adbVersion, err := Check()
+	if err != nil {
 		return err
 	}
+	ins.logger.Info("Check adb environment successfully.", zap.String("path", adbPath), zap.String("version", adbVersion))
 
+	/* (2) clean */
 	if ins.cleanFlag {
-		// 命令：pkill -f HD-Instance
-		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
-
-		// 命令：pkill -f adb
-		// Richelieu: 此处返回的 err 不用管
-		_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
-
-		// 命令：adb kill-server
-		_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
-		if err != nil {
-			return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
+		if err := Clean(); err != nil {
+			return err
 		}
-
-		// 命令：adb start-server
-		_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
-		if err != nil {
-			return errorKit.Wrapf(err, "fail to run 'adb start-server'")
-		}
+		ins.logger.Info("Clean adb environment successfully.")
 	}
 
 	// 命令：adb connect {ins.address}
@@ -99,25 +88,6 @@ func (ins *Instance) initialize() error {
 		return errorKit.Wrapf(err, "fail to run 'adb devices'")
 	}
 	ins.logger.Infof("adb devices:\n%s", devices)
-
-	return nil
-}
-
-func (ins *Instance) checkEnv() error {
-	path, err := cmdKit.LookPath("adb")
-	if err != nil {
-		return errorKit.Wrapf(err, "fail to look path of adb")
-	}
-	ins.logger.Infof("adb path: [%s]", path)
-
-	// adb 版本号
-	{
-		str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "version")
-		if err != nil {
-			return errorKit.Wrapf(err, "fail to run 'adb version'")
-		}
-		ins.logger.Infof("adb version:\n%s", str)
-	}
 
 	return nil
 }
