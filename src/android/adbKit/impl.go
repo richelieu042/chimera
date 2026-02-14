@@ -12,7 +12,7 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-func NewInstance(address string, cleanFlag, verbose bool) (*Instance, error) {
+func NewClient(address string, cleanFlag, verbose bool) (Client, error) {
 	enc := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[ABD] "))
 	var level zapcore.Level
 	if verbose {
@@ -23,7 +23,7 @@ func NewInstance(address string, cleanFlag, verbose bool) (*Instance, error) {
 	core := zapKit.NewCore(enc, nil, level)
 	logger := zapKit.NewLogger(core)
 
-	ins := &Instance{
+	ins := &clientImpl{
 		address:   address,
 		cleanFlag: cleanFlag,
 		logger:    logger.Sugar(),
@@ -35,7 +35,9 @@ func NewInstance(address string, cleanFlag, verbose bool) (*Instance, error) {
 	return ins, nil
 }
 
-type Instance struct {
+type clientImpl struct {
+	Client
+
 	/*
 		截图的锁，防止并发冲突.
 		PS: 截图频率不要太高，建议至少要间隔500~1000ms。
@@ -56,38 +58,38 @@ type Instance struct {
 	logger *zap.SugaredLogger
 }
 
-func (ins *Instance) initialize() error {
+func (impl *clientImpl) initialize() error {
 	/* (1) check */
 	adbPath, adbVersion, err := Check()
 	if err != nil {
 		return err
 	}
-	ins.logger.Info("Check adb environment successfully.", zap.String("path", adbPath), zap.String("version", adbVersion))
+	impl.logger.Info("Check adb environment successfully.", zap.String("path", adbPath), zap.String("version", adbVersion))
 
 	/* (2) clean */
-	if ins.cleanFlag {
+	if impl.cleanFlag {
 		if err := Clean(); err != nil {
 			return err
 		}
-		ins.logger.Info("Clean adb environment successfully.")
+		impl.logger.Info("Clean adb environment successfully.")
 	}
 
-	// 命令：adb connect {ins.address}
-	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", ins.address)
+	// 命令：adb connect {impl.address}
+	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", impl.address)
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", ins.address)
+		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", impl.address)
 	}
 	if strKit.Index(strKit.ToLower(connectResp), "failed to") != -1 {
-		return errorKit.Newf("fail to connect to [%s], response: [%s]", ins.address, connectResp)
+		return errorKit.Newf("fail to connect to [%s], response: [%s]", impl.address, connectResp)
 	}
-	ins.logger.Infof("Connect to [%s] successfully.", ins.address)
+	impl.logger.Infof("Connect to [%s] successfully.", impl.address)
 
 	// 命令：adb devices
 	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
 	if err != nil {
 		return errorKit.Wrapf(err, "fail to run 'adb devices'")
 	}
-	ins.logger.Infof("adb devices:\n%s", devices)
+	impl.logger.Infof("adb devices:\n%s", devices)
 
 	return nil
 }

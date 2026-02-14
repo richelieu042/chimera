@@ -16,17 +16,17 @@ import (
 /*
 	@param targetPath 截图保存的路径（PNG格式）
 */
-func (ins *Instance) Screenshot(targetPath string) error {
-	ins.Lock()
-	defer ins.Unlock()
+func (impl *clientImpl) Screenshot(targetPath string) error {
+	impl.Lock()
+	defer impl.Unlock()
 
 	/*
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
 		-p: 参数表示以 PNG 格式输出截图数据
 	*/
-	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", ins.address, "exec-out", "screencap", "-p")
+	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", impl.address, "exec-out", "screencap", "-p")
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", ins.address)
+		return errorKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", impl.address)
 	}
 
 	// 尝试创建父目录
@@ -46,8 +46,8 @@ func (ins *Instance) Screenshot(targetPath string) error {
 /*
 	命令：adb -s 127.0.0.1:5555 shell input tap <x> <y>
 */
-func (ins *Instance) Tap(x, y int) error {
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
+func (impl *clientImpl) Tap(x, y int) error {
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
 	if err != nil {
 		return err
 	}
@@ -63,12 +63,12 @@ func (ins *Instance) Tap(x, y int) error {
 
 	@param duration: 持续时间（单位：ms）
 */
-func (ins *Instance) LongPress(x, y int, duration int) error {
+func (impl *clientImpl) LongPress(x, y int, duration int) error {
 	if duration <= 0 {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
 		intKit.IntToString(duration),
 	)
 	if err != nil {
@@ -97,12 +97,12 @@ func (ins *Instance) LongPress(x, y int, duration int) error {
 	e.g.3 	向右滑动
 		adb -s 127.0.0.1:5555 shell input swipe 100 500 900 500 300
 */
-func (ins *Instance) Swipe(x1, y1, x2, y2 int, duration int) error {
+func (impl *clientImpl) Swipe(x1, y1, x2, y2 int, duration int) error {
 	if duration <= 0 {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "input", "swipe",
+	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe",
 		intKit.IntToString(x1), intKit.IntToString(y1),
 		intKit.IntToString(x2), intKit.IntToString(y2),
 		intKit.IntToString(duration),

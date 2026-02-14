@@ -10,13 +10,13 @@ import (
 )
 
 // GetPhysicalSize 获取：分辨率（宽高、尺寸）.
-func (ins *Instance) GetPhysicalSize() (width int, height int, err error) {
+func (impl *clientImpl) GetPhysicalSize() (width int, height int, err error) {
 	/*
 		执行命令：adb -s 127.0.0.1:5555 shell wm size
 	*/
-	str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", ins.address, "shell", "wm", "size")
+	str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "wm", "size")
 	if err != nil {
-		return 0, 0, errorKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", ins.address)
+		return 0, 0, errorKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", impl.address)
 	}
 
 	/*

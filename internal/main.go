@@ -14,7 +14,7 @@ import (
 )
 
 func main() {
-	path := "666.png"
+	path := "3.png"
 
 	x0 := 748
 	y0 := 995

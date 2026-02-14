@@ -33,9 +33,9 @@ func Check() (path string, version string, err error) {
 !!!: 调用此函数前，需要先调用 Check.
 */
 func Clean() error {
-	// 命令：pkill -f HD-Instance
+	// 命令：pkill -f HD-clientImpl
 	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Instance")
+	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-clientImpl")
 
 	// 命令：pkill -f adb
 	// Richelieu: 此处返回的 err 不用管
