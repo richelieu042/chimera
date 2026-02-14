@@ -41,7 +41,9 @@ func (impl *clientImpl) initialize(logger *zap.SugaredLogger) error {
 	if err != nil {
 		return err
 	}
-	logger.Info("Check adb environment successfully.", zap.String("path", adbPath), zap.String("version", adbVersion))
+	logger.Infof("adb path: %s", adbPath)
+	logger.Infof("adb version: \n%s", adbVersion)
+	logger.Info("Check adb environment successfully.")
 
 	/* (2) clean */
 	if impl.cleanFlag {
