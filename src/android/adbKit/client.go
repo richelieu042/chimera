@@ -21,14 +21,17 @@ type Client interface {
 	SwipeAsHumanBeings(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
 }
 
+// NewClient
+/*
+@param logger: 可以为nil（默认：丢弃输出）
+*/
 func NewClient(address string, cleanFlag bool, logger *zap.SugaredLogger) (Client, error) {
 	ins := &clientImpl{
 		address:   address,
 		cleanFlag: cleanFlag,
-		logger:    logger,
 	}
 
-	if err := ins.initialize(); err != nil {
+	if err := ins.initialize(logger); err != nil {
 		return nil, err
 	}
 	return ins, nil
