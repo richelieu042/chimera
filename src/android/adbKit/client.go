@@ -5,6 +5,8 @@ import (
 )
 
 type Client interface {
+	GetAddress() string
+
 	GetPhysicalSize() (width int, height int, err error)
 
 	Screenshot(targetPath string) error

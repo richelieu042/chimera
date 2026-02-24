@@ -9,6 +9,10 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 )
 
+func (impl *clientImpl) GetAddress() string {
+	return impl.address
+}
+
 // GetPhysicalSize 获取：分辨率（宽高、尺寸）.
 func (impl *clientImpl) GetPhysicalSize() (width int, height int, err error) {
 	/*
