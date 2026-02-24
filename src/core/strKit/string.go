@@ -75,12 +75,21 @@ func Count(s, substr string) int {
 	return strings.Count(s, substr)
 }
 
+// Replace
+/*
+@param s	原始字符串
+@param old	要被替换的子串
+@param new	替换后的子串
+@param n	替换次数（-1 表示替换所有匹配项）
+*/
 func Replace(s, old, new string, n int) string {
 	return strings.Replace(s, old, new, n)
 }
 
 // ReplaceAll
 /*
+等价于 Replace 的 n = -1 的情况
+
 e.g.
 	("12321", "2", "0") => "10301"
 */
