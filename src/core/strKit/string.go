@@ -71,18 +71,26 @@ e.g.
 e.g.1 If substr is an empty string, Count returns 1 + the number of Unicode code points in s.
 strKit.Count("12345", "") 	=> 6
 */
-var Count func(s, substr string) int = strings.Count
+func Count(s, substr string) int {
+	return strings.Count(s, substr)
+}
 
-var Replace func(s, old, new string, n int) string = strings.Replace
+func Replace(s, old, new string, n int) string {
+	return strings.Replace(s, old, new, n)
+}
 
 // ReplaceAll
 /*
 e.g.
-("12321", "2", "0") => "10301"
+	("12321", "2", "0") => "10301"
 */
-var ReplaceAll func(s, old, new string) string = strings.ReplaceAll
+func ReplaceAll(s, old, new string) string {
+	return strings.ReplaceAll(s, old, new)
+}
 
-var Join func(elements []string, sep string) string = strings.Join
+func Join(elements []string, sep string) string {
+	return strings.Join(elements, sep)
+}
 
 // Split
 /*
