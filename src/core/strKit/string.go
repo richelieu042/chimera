@@ -81,6 +81,11 @@ func Count(s, substr string) int {
 @param old	要被替换的子串
 @param new	替换后的子串
 @param n	替换次数（-1 表示替换所有匹配项）
+
+e.g.
+	("abcdcba", "a", "0", 1)  => "0bcdcba"
+	("abcdcba", "a", "0", 2)  => "0bcdcb0"
+	("abcdcba", "a", "0", -1) => "0bcdcb0"
 */
 func Replace(s, old, new string, n int) string {
 	return strings.Replace(s, old, new, n)
