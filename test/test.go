@@ -8,9 +8,9 @@ import (
 )
 
 func stringTo6Digits(s string) string {
-	h := fnv.New32a()
+	h := fnv.New64a()
 	_, _ = h.Write([]byte(s))
-	num := h.Sum32() % 1000000      // 取模得到0~999999
+	num := h.Sum64() % 1000000      // 取模得到0~999999
 	return fmt.Sprintf("%06d", num) // 补零保证6位
 }
 
