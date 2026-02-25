@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-	"time"
+	"hash/fnv"
 
-	"github.com/richelieu042/chimera/v3/src/time/timeKit"
+	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
+func stringTo6Digits(s string) string {
+	h := fnv.New32a()
+	_, _ = h.Write([]byte(s))
+	num := h.Sum32() % 1000000      // 取模得到0~999999
+	return fmt.Sprintf("%06d", num) // 补零保证6位
+}
+
 func main() {
-	now := time.Now()
-	fmt.Println(timeKit.Format(now, "2006-01-02T15.04.05.000"))
-	fmt.Println(timeKit.Format(now, "2006-01-02T15.04"))
-	fmt.Println(timeKit.Format(now, "05.000"))
+	fmt.Println(stringTo6Digits("ylx")) // 例如输出: 082345
 
-	//fmt.Println(strKit.Replace("abcdcba", "a", "0", 1))  // "0bcdcba"
-	//fmt.Println(strKit.Replace("abcdcba", "a", "0", 2))  // "0bcdcb0"
-	//fmt.Println(strKit.Replace("abcdcba", "a", "0", -1)) // "0bcdcb0"
-
+	fmt.Println(strKit.StringToDigits("ylx", 6, ""))
 }
