@@ -48,6 +48,5 @@ func StringToDigits(s string, length int, salt string) string {
 	}
 
 	num := sum % mod
-
 	return fmt.Sprintf("%0*d", length, num)
 }
