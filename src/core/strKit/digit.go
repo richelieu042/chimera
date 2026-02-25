@@ -33,7 +33,11 @@ func StringToDigits(s string, length int, salt string) string {
 
 	h := fnvPool.Get().(hash.Hash64)
 	h.Reset()
-	_, _ = h.Write([]byte(salt + s))
+
+	if salt != "" {
+		_, _ = h.Write([]byte(salt))
+	}
+	_, _ = h.Write([]byte(s))
 
 	sum := h.Sum64()
 	fnvPool.Put(h)
@@ -44,5 +48,6 @@ func StringToDigits(s string, length int, salt string) string {
 	}
 
 	num := sum % mod
+
 	return fmt.Sprintf("%0*d", length, num)
 }
