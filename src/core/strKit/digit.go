@@ -17,6 +17,8 @@ var fnvPool = sync.Pool{
 
 // StringToDigits 将 字符串 映射为 指定长度的数字字符串.
 /*
+流程：字符串  →  哈希值(uint64)  →  取模  →  固定长度数字字符串
+
 @param length	返回字符串的长度，建议 6~10
 @param salt		[可选] 用于降低碰撞风险，好处：
 				（1）碰撞 = 不同的输入，得到相同的输出
