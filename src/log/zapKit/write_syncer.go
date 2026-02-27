@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/richelieu042/chimera/v3/src/core/ioKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"go.uber.org/zap/zapcore"
 )
 
@@ -18,25 +18,39 @@ var (
 
 // NewWriteSyncer io.Writer => （并发不安全的）zapcore.WriteSyncer
 /*
-   PS:
-   (1) os.File 结构体实现了 zapcore.WriteSyncer 接口;
-   (2) zapcore.WriteSyncer 接口是 io.Writer 接口的子类.
+PS:
+(1) os.File 结构体实现了 zapcore.WriteSyncer 接口;
+(2) zapcore.WriteSyncer 接口是 io.Writer 接口的子类.
 */
 func NewWriteSyncer(w io.Writer) zapcore.WriteSyncer {
-	return ioKit.NewWriteSyncer(w)
+	if w == nil {
+		return nil
+	}
+
+	return zapcore.AddSync(w)
 }
 
 // NewLockedWriteSyncer io.Writer => （并发安全的）zapcore.WriteSyncer
 /*
-   PS:
-   (1) os.File 结构体实现了 zapcore.WriteSyncer 接口;
-   (2) zapcore.WriteSyncer 接口是 io.Writer 接口的子类.
+PS:
+(1) os.File 结构体实现了 zapcore.WriteSyncer 接口;
+(2) zapcore.WriteSyncer 接口是 io.Writer 接口的子类.
 */
 func NewLockedWriteSyncer(w io.Writer) zapcore.WriteSyncer {
-	return ioKit.NewLockedWriteSyncer(w)
+	if w == nil {
+		return nil
+	}
+
+	ws := zapcore.AddSync(w)
+	return zapcore.Lock(ws)
 }
 
 // MultiWriteSyncer 类似于 io.MultiWriter.
 func MultiWriteSyncer(ws ...zapcore.WriteSyncer) zapcore.WriteSyncer {
-	return ioKit.MultiWriteSyncer(ws...)
+	ws = sliceKit.RemoveZeroValues(ws)
+	if len(ws) == 0 {
+		return nil
+	}
+
+	return zapcore.NewMultiWriteSyncer(ws...)
 }

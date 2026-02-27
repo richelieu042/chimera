@@ -10,7 +10,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/richelieu042/chimera/v3/src/appKit"
 	"github.com/richelieu042/chimera/v3/src/core/errorKit"
-	"github.com/richelieu042/chimera/v3/src/core/ioKit"
 	"github.com/richelieu042/chimera/v3/src/core/signalKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
@@ -66,10 +65,10 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 		gin.ForceConsoleColor()
 	}
 
-	// 默认: os.Stdout
-	gin.DefaultWriter = ioKit.LockedStdout
-	// 默认: os.Stderr
-	gin.DefaultErrorWriter = ioKit.LockedStderr
+	//// 默认: os.Stdout
+	//gin.DefaultWriter = ioKit.LockedStdout
+	//// 默认: os.Stderr
+	//gin.DefaultErrorWriter = ioKit.LockedStderr
 
 	engine := DefaultEngine()
 
