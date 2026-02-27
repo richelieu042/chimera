@@ -4,7 +4,6 @@ import (
 	"io"
 	"os"
 
-	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"go.uber.org/zap/zapcore"
 )
 
@@ -47,7 +46,6 @@ func NewLockedWriteSyncer(w io.Writer) zapcore.WriteSyncer {
 
 // MultiWriteSyncer 类似于 io.MultiWriter.
 func MultiWriteSyncer(ws ...zapcore.WriteSyncer) zapcore.WriteSyncer {
-	ws = sliceKit.RemoveZeroValues(ws)
 	if len(ws) == 0 {
 		return nil
 	}
