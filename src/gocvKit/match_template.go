@@ -7,7 +7,7 @@ import (
 	"gocv.io/x/gocv"
 )
 
-// MatchTemplate 模板匹配 - 在源图中查找模板图的最佳匹配位置（在大图中找小图）
+// MatchTemplate 模板匹配 - 在源图中查找模板图的“最佳”匹配位置（在大图中找小图）
 /*
 PS:
 （1）如果需要再大图中截取小图再进行模板匹配，务必使用 imageKit.ClipWithPath 而非通过桌面工具进行截图，
