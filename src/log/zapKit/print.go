@@ -24,7 +24,7 @@ func init() {
 
 func initializeLoggers() {
 	encoder := NewEncoder()
-	ws := LockedWriteSyncerStdout
+	ws := LockedStdout
 	core := NewCore(encoder, ws, defLevel)
 
 	l = NewLogger(core, WithCallerSkip(0))

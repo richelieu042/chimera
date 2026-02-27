@@ -15,7 +15,7 @@ type (
 
 		// ErrorOutput
 		/*
-			默认: LockedWriteSyncerStderr
+			默认: LockedStderr
 		*/
 		ErrorOutput zapcore.WriteSyncer
 
@@ -39,7 +39,7 @@ type (
 func loadOptions(options ...LoggerOption) *loggerOptions {
 	opts := &loggerOptions{
 		Development:   false,
-		ErrorOutput:   LockedWriteSyncerStderr,
+		ErrorOutput:   LockedStderr,
 		Caller:        true,
 		CallerSkip:    0,
 		AddStacktrace: zapcore.DPanicLevel, /* DPanic 及以上的日志输出，会附带堆栈信息 */

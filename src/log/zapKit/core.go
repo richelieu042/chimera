@@ -31,7 +31,7 @@ import (
 */
 func NewCore(enc zapcore.Encoder, writeSyncer zapcore.WriteSyncer, levelEnabler zapcore.LevelEnabler, initialFields ...zapcore.Field) zapcore.Core {
 	if writeSyncer == nil {
-		writeSyncer = LockedWriteSyncerStdout
+		writeSyncer = LockedStdout
 	}
 
 	core := zapcore.NewCore(enc, writeSyncer, levelEnabler)

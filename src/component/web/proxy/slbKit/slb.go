@@ -16,8 +16,9 @@ PS: 返回的*LoadBalancer实例，需要手动调用 Start 以启动.
 func NewLoadBalancer(logger *zap.Logger) (lb *LoadBalancer) {
 	if logger == nil {
 		encoder := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[SLB] "))
-		ws := zapKit.LockedWriteSyncerStdout
+		ws := zapKit.LockedStdout
 		core := zapKit.NewCore(encoder, ws, zapcore.DebugLevel)
+
 		logger = zapKit.NewLogger(core, zapKit.WithAddStacktrace(zapcore.DPanicLevel))
 	}
 

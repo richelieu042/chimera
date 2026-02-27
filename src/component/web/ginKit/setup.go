@@ -67,9 +67,9 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 	}
 
 	// 默认: os.Stdout
-	gin.DefaultWriter = ioKit.LockedWriteSyncerStdout
+	gin.DefaultWriter = ioKit.LockedStdout
 	// 默认: os.Stderr
-	gin.DefaultErrorWriter = ioKit.LockedWriteSyncerStderr
+	gin.DefaultErrorWriter = ioKit.LockedStderr
 
 	engine := DefaultEngine()
 

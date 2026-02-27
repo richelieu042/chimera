@@ -9,11 +9,11 @@ import (
 )
 
 var (
-	// LockedWriteSyncerStdout （加锁的）标准输出.
-	LockedWriteSyncerStdout = zapcore.Lock(os.Stdout)
+	// LockedStdout （加锁的）标准输出.
+	LockedStdout zapcore.WriteSyncer = zapcore.Lock(os.Stdout)
 
-	// LockedWriteSyncerStderr （加锁的）标准错误输出.
-	LockedWriteSyncerStderr = zapcore.Lock(os.Stderr)
+	// LockedStderr （加锁的）标准错误输出.
+	LockedStderr zapcore.WriteSyncer = zapcore.Lock(os.Stderr)
 )
 
 // NewWriteSyncer io.Writer => （并发不安全的）zapcore.WriteSyncer
@@ -41,14 +41,7 @@ func NewLockedWriteSyncer(w io.Writer) zapcore.WriteSyncer {
 		return nil
 	}
 
-	switch w {
-	case os.Stdout:
-		return LockedWriteSyncerStdout
-	case os.Stderr:
-		return LockedWriteSyncerStderr
-	default:
-		return zapcore.Lock(zapcore.AddSync(w))
-	}
+	return zapcore.Lock(zapcore.AddSync(w))
 }
 
 // MultiWriteSyncer 类似于 io.MultiWriter.
