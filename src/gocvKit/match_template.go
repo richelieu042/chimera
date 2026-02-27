@@ -84,11 +84,12 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	defer result.Close()
 
 	// 执行模板匹配
-	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat()); err != nil {
+	err = gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat())
+	if err != nil {
 		return 0, image.Point{}, errorKit.Wrapf(err, "failed to perform template matching")
 	}
 
-	// 查找最佳匹配位置
+	// 查找最佳匹配位置（其他所有匹配位置，无论分数是 0.99 还是 0.80，只要不是全局最大值，都会被直接丢掉）
 	// 对于 TmSqdiff 和 TmSqdiffNormed，最小值是最佳匹配
 	// 对于其他模式，最大值是最佳匹配
 	minVal, maxVal, minLoc, maxLoc := gocv.MinMaxLoc(result)
@@ -140,7 +141,7 @@ func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.Tem
 	return matched, matchVal, matchLoc, nil
 }
 
-// GetMatchRect 获取匹配区域的矩形范围
+// GetMatchRect 获取匹配区域的矩形范围.
 /*
 根据匹配位置和模板尺寸，计算出完整的匹配矩形区域
 
