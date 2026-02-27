@@ -8,7 +8,7 @@ import (
 
 var (
 	L    func() *zap.Logger        = zapKit.L
-	S    func() *zap.SugaredLogger = zapKit.S
+	S    func() *zap.SugaredLogger = zapKit.SL
 	Sync func()                    = zapKit.Sync
 
 	// SetDefaultLevel PS: 默认日志级别为 DEBUG .

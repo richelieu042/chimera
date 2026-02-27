@@ -8,9 +8,13 @@ import (
 )
 
 func main() {
+	// （1）简单error
 	err := redis.Nil
 	console.Error("出错了", zap.Error(err))
 
+	console.Info("---------")
+
+	// （2）带堆栈信息的error
 	console.Errorf("出错了1：%v", a())
 	console.Errorf("出错了2：%+v", a())
 }

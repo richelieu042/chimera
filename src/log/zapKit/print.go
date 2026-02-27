@@ -7,14 +7,15 @@ import (
 )
 
 var (
-	// defLevel 默认日志级别: DEBUG
-	defLevel = zap.DebugLevel
 	defMutex = new(gmutex.RWMutex)
 
-	l      *zap.Logger
-	s      *zap.SugaredLogger
-	innerL *zap.Logger
-	innerS *zap.SugaredLogger
+	// defLevel 默认日志级别: DEBUG
+	defLevel = zap.DebugLevel
+
+	l       *zap.Logger
+	sl      *zap.SugaredLogger
+	innerL  *zap.Logger
+	innerSL *zap.SugaredLogger
 )
 
 func init() {
@@ -27,9 +28,9 @@ func initializeLoggers() {
 	core := NewCore(encoder, ws, defLevel)
 
 	l = NewLogger(core, WithCallerSkip(0))
-	s = l.Sugar()
+	sl = l.Sugar()
 	innerL = NewLogger(core, WithCallerSkip(1))
-	innerS = innerL.Sugar()
+	innerSL = innerL.Sugar()
 }
 
 // SetDefaultLevel PS: 默认日志级别为 DEBUG .
@@ -53,12 +54,12 @@ func L() *zap.Logger {
 	return l
 }
 
-func S() *zap.SugaredLogger {
+func SL() *zap.SugaredLogger {
 	/* 读锁 */
 	defMutex.RLock()
 	defer defMutex.RUnlock()
 
-	return s
+	return sl
 }
 
 func getInnerL() *zap.Logger {
@@ -69,21 +70,21 @@ func getInnerL() *zap.Logger {
 	return innerL
 }
 
-func getInnerS() *zap.SugaredLogger {
+func getInnerSL() *zap.SugaredLogger {
 	/* 读锁 */
 	defMutex.RLock()
 	defer defMutex.RUnlock()
 
-	return innerS
+	return innerSL
 }
 
 func Sync() {
 	/* 写锁 */
 	defMutex.LockFunc(func() {
 		_ = l.Sync()
-		_ = s.Sync()
+		_ = sl.Sync()
 		_ = innerL.Sync()
-		_ = innerS.Sync()
+		_ = innerSL.Sync()
 	})
 }
 
