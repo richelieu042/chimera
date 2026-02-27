@@ -65,10 +65,8 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 		gin.ForceConsoleColor()
 	}
 
-	//// 默认: os.Stdout
-	//gin.DefaultWriter = ioKit.LockedStdout
-	//// 默认: os.Stderr
-	//gin.DefaultErrorWriter = ioKit.LockedStderr
+	// gin.DefaultWriter 默认: os.Stdout
+	//gin.DefaultErrorWriter 默认: os.Stderr
 
 	engine := DefaultEngine()
 
