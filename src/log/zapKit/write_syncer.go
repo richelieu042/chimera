@@ -34,10 +34,8 @@ func NewLockedWriteSyncer(w io.Writer) zapcore.WriteSyncer {
 	}
 
 	switch w {
-	case os.Stdout:
-		return os.Stdout
-	case os.Stderr:
-		return os.Stderr
+	case os.Stdout, os.Stderr:
+		return zapcore.AddSync(w)
 	default:
 		ws := zapcore.AddSync(w)
 		return zapcore.Lock(ws)
