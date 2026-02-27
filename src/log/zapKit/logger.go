@@ -27,7 +27,7 @@ e.g. case: core传nil，options不传
 	(6) [Logger] 有 Caller 且 CallerSkip == 0
 	(7) [Logger] Development == false，即生产模式
 	(8) [Logger] ErrorOutput 使用默认值: 并发安全地输出到os.Stderr
-	(9) [Logger] ERROR及以上级别 的日志输出，会附带堆栈信息(stack trace)
+	(9) [Logger] DPanicLevel 及以上级别的日志输出，会附带堆栈信息(stack trace)
 */
 func NewLogger(core zapcore.Core, options ...LoggerOption) (logger *zap.Logger) {
 	if core == nil {

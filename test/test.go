@@ -1,21 +1,20 @@
 package main
 
 import (
-	"fmt"
-	"hash/fnv"
-
-	"github.com/richelieu042/chimera/v3/src/core/strKit"
+	"github.com/redis/go-redis/v9"
+	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"go.uber.org/zap"
 )
 
-func stringTo6Digits(s string) string {
-	h := fnv.New64a()
-	_, _ = h.Write([]byte(s))
-	num := h.Sum64() % 1000000      // 取模得到0~999999
-	return fmt.Sprintf("%06d", num) // 补零保证6位
+func main() {
+	err := redis.Nil
+	console.Error("出错了", zap.Error(err))
+
+	console.Errorf("出错了1：%v", a())
+	console.Errorf("出错了2：%+v", a())
 }
 
-func main() {
-	fmt.Println(stringTo6Digits("ylx")) // 例如输出: 082345
-
-	fmt.Println(strKit.StringToDigits("ylx", 6, ""))
+func a() error {
+	return errorKit.Wrapf(redis.Nil, "wrap")
 }

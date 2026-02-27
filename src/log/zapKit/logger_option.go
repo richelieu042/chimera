@@ -42,7 +42,7 @@ func loadOptions(options ...LoggerOption) *loggerOptions {
 		ErrorOutput:   LockedWriteSyncerStderr,
 		Caller:        true,
 		CallerSkip:    0,
-		AddStacktrace: zapcore.ErrorLevel, /* Error及以上的日志输出，会附带堆栈信息 */
+		AddStacktrace: zapcore.DPanicLevel, /* DPanic 及以上的日志输出，会附带堆栈信息 */
 		Clock:         zapcore.DefaultClock,
 		Fields:        nil,
 		PanicHook:     nil,
