@@ -1,6 +1,8 @@
 package zapKit
 
 import (
+	"os"
+
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"go.uber.org/zap/zapcore"
 )
@@ -31,7 +33,8 @@ import (
 */
 func NewCore(enc zapcore.Encoder, writeSyncer zapcore.WriteSyncer, levelEnabler zapcore.LevelEnabler, initialFields ...zapcore.Field) zapcore.Core {
 	if writeSyncer == nil {
-		writeSyncer = LockedStdout
+		// 杜宇 os.Stdout，不加 Lock 也不会出现日志行内容错乱的问题
+		writeSyncer = os.Stdout
 	}
 
 	core := zapcore.NewCore(enc, writeSyncer, levelEnabler)

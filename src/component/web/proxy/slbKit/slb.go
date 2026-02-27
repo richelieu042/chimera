@@ -1,6 +1,8 @@
 package slbKit
 
 import (
+	"os"
+
 	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
 	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
@@ -16,7 +18,7 @@ PS: 返回的*LoadBalancer实例，需要手动调用 Start 以启动.
 func NewLoadBalancer(logger *zap.Logger) (lb *LoadBalancer) {
 	if logger == nil {
 		encoder := zapKit.NewEncoder(zapKit.WithEncoderMessagePrefix("[SLB] "))
-		ws := zapKit.LockedStdout
+		ws := os.Stdout
 		core := zapKit.NewCore(encoder, ws, zapcore.DebugLevel)
 
 		logger = zapKit.NewLogger(core, zapKit.WithAddStacktrace(zapcore.DPanicLevel))

@@ -1,6 +1,8 @@
 package zapKit
 
 import (
+	"os"
+
 	"github.com/gogf/gf/v2/os/gmutex"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -24,7 +26,7 @@ func init() {
 
 func initializeLoggers() {
 	encoder := NewEncoder()
-	ws := LockedStdout
+	ws := os.Stdout
 	core := NewCore(encoder, ws, defLevel)
 
 	l = NewLogger(core, WithCallerSkip(0))

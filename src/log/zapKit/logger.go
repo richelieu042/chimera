@@ -1,6 +1,8 @@
 package zapKit
 
 import (
+	"os"
+
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 )
@@ -32,7 +34,7 @@ e.g. case: core传nil，options不传
 func NewLogger(core zapcore.Core, options ...LoggerOption) (logger *zap.Logger) {
 	if core == nil {
 		encoder := NewEncoder()
-		ws := LockedStdout
+		ws := os.Stdout
 		core = NewCore(encoder, ws, zapcore.DebugLevel)
 	}
 

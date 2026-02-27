@@ -64,7 +64,7 @@ func TestNewLogger2(t *testing.T) {
 	{
 
 		enc := NewEncoder(WithEncoderOutputFormatConsole())
-		var ws = LockedStdout
+		var ws = os.Stdout
 		core2 = NewCore(enc, ws, zapcore.WarnLevel, zap.String("source", "1"))
 	}
 

@@ -1,6 +1,8 @@
 package zapKit
 
 import (
+	"os"
+
 	"go.uber.org/zap/zapcore"
 )
 
@@ -39,7 +41,7 @@ type (
 func loadOptions(options ...LoggerOption) *loggerOptions {
 	opts := &loggerOptions{
 		Development:   false,
-		ErrorOutput:   LockedStderr,
+		ErrorOutput:   os.Stderr,
 		Caller:        true,
 		CallerSkip:    0,
 		AddStacktrace: zapcore.DPanicLevel, /* DPanic 及以上的日志输出，会附带堆栈信息 */
