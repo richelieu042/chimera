@@ -84,8 +84,7 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	defer result.Close()
 
 	// 执行模板匹配
-	err = gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat())
-	if err != nil {
+	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat()); err != nil {
 		return 0, image.Point{}, errorKit.Wrapf(err, "failed to perform template matching")
 	}
 

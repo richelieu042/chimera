@@ -33,7 +33,7 @@ require (
 	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.115
 	github.com/go-playground/validator/v10 v10.30.1
-	github.com/go-redsync/redsync/v4 v4.15.0
+	github.com/go-redsync/redsync/v4 v4.16.0
 	github.com/go-viper/mapstructure/v2 v2.5.0
 	github.com/goccy/go-json v0.10.5
 	github.com/goccy/go-yaml v1.19.2
@@ -47,7 +47,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.33.3
+	github.com/hashicorp/consul/api v1.33.4
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.8.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -63,7 +63,7 @@ require (
 	github.com/klauspost/compress v1.18.4
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260224081213-ce92aabc1188
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260226062615-1a8d01d9679e
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -127,7 +127,7 @@ require (
 	golang.org/x/image v0.36.0
 	golang.org/x/mobile v0.0.0-20260217195705-b56b3793a9c4
 	golang.org/x/mod v0.33.0
-	golang.org/x/net v0.50.0
+	golang.org/x/net v0.51.0
 	golang.org/x/oauth2 v0.35.0
 	golang.org/x/sync v0.19.0
 	golang.org/x/sys v0.41.0
