@@ -20,7 +20,7 @@ func MustSetup(logPath string) {
 func Setup(logPath string) error {
 	if strKit.IsBlank(logPath) {
 		// (1) 输出到: 控制台
-		logger = console.S()
+		logger = zapKit.NewSimpleConsoleLogger().Sugar()
 	} else {
 		// (2) 输出到: 文件日志
 		enc := zapKit.NewEncoder()

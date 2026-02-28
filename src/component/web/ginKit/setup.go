@@ -4,11 +4,11 @@ import (
 	"context"
 	"errors"
 	"net/http"
+	"os"
 	"sync"
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/appKit"
 	"github.com/richelieu042/chimera/v3/src/core/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/signalKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
@@ -16,6 +16,7 @@ import (
 	"github.com/richelieu042/chimera/v3/src/netKit"
 	"github.com/richelieu042/chimera/v3/src/time/timeKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
+	"go.uber.org/zap"
 )
 
 // serviceInfo e.g."Agent-127.0.0.1:12345"
@@ -113,12 +114,12 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 			Addr:    netKit.JoinToHost(config.HostName, httpPort),
 			Handler: engine.Handler(),
 		}
-		console.Infof("Listening and serving HTTP on address(%s)", httpSrv.Addr)
+		console.Infof("Listening and serving HTTPS on [%s]...", httpSrv.Addr)
 
 		go func() {
 			err := httpSrv.ListenAndServe()
 			if err != nil && !errors.Is(err, http.ErrServerClosed) {
-				console.Fatalf("Fail to start http server with addr(%s), error: %+v", httpSrv.Addr, err)
+				console.Fatal("Fail to start http server.", zap.String("addr", httpSrv.Addr), zap.Error(err))
 			}
 		}()
 	}
@@ -131,12 +132,12 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 			Addr:    netKit.JoinToHost(config.HostName, httpsPort),
 			Handler: engine.Handler(),
 		}
-		console.Infof("Listening and serving HTTPS on [%s]", httpsSrv.Addr)
+		console.Infof("Listening and serving HTTPS on [%s]...", httpsSrv.Addr)
 
 		go func() {
 			err := httpsSrv.ListenAndServeTLS(sslConfig.CertFile, sslConfig.KeyFile)
 			if err != nil && !errors.Is(err, http.ErrServerClosed) {
-				console.Fatalf("Fail to start https server with addr(%s), error: %+v", httpsSrv.Addr, err)
+				console.Fatal("Fail to start https server.", zap.String("addr", httpsSrv.Addr), zap.Error(err))
 			}
 		}()
 	}
@@ -150,7 +151,7 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 			https://gin-gonic.com/zh-cn/docs/examples/graceful-restart-or-stop/
 			https://github.com/gin-gonic/examples/blob/master/graceful-shutdown/graceful-shutdown/notify-without-context/server.go
 	*/
-	appKit.RegisterExitHandler(func() {
+	signalKit.MonitorExitSignals(func(sig os.Signal) {
 		var wg sync.WaitGroup
 
 		ctx, cancel := context.WithTimeout(context.TODO(), timeKit.Second*5)
@@ -161,7 +162,7 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 				defer wg.Done()
 
 				if err := httpSrv.Shutdown(ctx); err != nil {
-					console.Errorf("Fail to shut down http server, error: %+v", err)
+					console.Error("Fail to shut down http server.", zap.Error(err))
 					return
 				}
 				console.Info("Manager to shut down http server.")
@@ -173,7 +174,7 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 				defer wg.Done()
 
 				if err := httpsSrv.Shutdown(ctx); err != nil {
-					console.Errorf("Fail to shut down https server, error: %+v", err)
+					console.Error("Fail to shut down https server.", zap.Error(err))
 					return
 				}
 				console.Info("Manager to shut down https server.")
@@ -181,6 +182,5 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 		}
 		wg.Wait()
 	})
-	signalKit.MonitorExitSignals()
 	return nil
 }

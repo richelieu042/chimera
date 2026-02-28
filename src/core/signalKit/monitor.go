@@ -5,7 +5,7 @@ import (
 	"os/signal"
 
 	"github.com/richelieu042/chimera/v3/src/log/console"
-	"github.com/richelieu042/chimera/v3/src/log/zapKit"
+	"go.uber.org/zap"
 )
 
 //var printOnce sync.Once
@@ -43,20 +43,34 @@ import (
 
 // MonitorExitSignals 同步地监听.
 /*
-@param callbacks 可以不传
+@param callbacks 可选
 
 PS:
 (1) 会 阻塞 调用此函数的goroutine;
 (2) 理论上，应该 由main goroutine调用此函数 && 此函数只能被调用1次.
 */
-func MonitorExitSignals() {
+func MonitorExitSignals(callbacks ...func(sig os.Signal)) {
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, ExitSignals...)
 
-	sig := <-ch
-	console.Warnf("Receive an exit signal(%s).", sig.String())
+	sig := <-ch // 会在此处阻塞，直至收到退出信号
+	console.Warn("Receive an exit signal.", zap.String("signal", sig.String()))
 
-	zapKit.Exit(1)
+	defer func() {
+		if r := recover(); r != nil {
+			console.Errorf("Recover from panic: %v", r)
+		}
+
+		console.Warn("Program is exiting...")
+		console.Sync()
+		os.Exit(1)
+	}()
+
+	for _, callback := range callbacks {
+		if callback != nil {
+			callback(sig)
+		}
+	}
 }
 
 //// runCallback 防止执行callback时发生 panic（参考了logrus中的runHandler）.

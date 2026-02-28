@@ -5,8 +5,6 @@ import (
 )
 
 func PrintBasicDetails() {
-	logger := S()
-	defer logger.Sync()
-
+	logger := getInnerSL()
 	commonLogKit.PrintBasicDetails(logger)
 }
