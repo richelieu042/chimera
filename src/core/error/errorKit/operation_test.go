@@ -3,9 +3,10 @@ package errorKit
 import (
 	"errors"
 	"fmt"
-	"github.com/redis/go-redis/v9"
 	"net"
 	"testing"
+
+	"github.com/redis/go-redis/v9"
 )
 
 func TestIs(t *testing.T) {
