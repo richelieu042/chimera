@@ -3,7 +3,7 @@ package otelKit
 import (
 	"context"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/sdk/resource"
 	semconv "go.opentelemetry.io/otel/semconv/v1.39.0"

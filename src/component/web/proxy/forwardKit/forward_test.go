@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 	"github.com/richelieu042/chimera/v3/src/log/logKit"
 	"github.com/richelieu042/chimera/v3/src/netKit"

@@ -5,7 +5,7 @@ import (
 
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/richelieu042/chimera/v3/src/copyKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"

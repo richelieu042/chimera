@@ -3,7 +3,7 @@ package imageKit
 import (
 	"image"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"golang.org/x/image/draw"
 )
 

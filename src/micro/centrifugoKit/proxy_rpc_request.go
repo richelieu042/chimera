@@ -2,7 +2,7 @@ package centrifugoKit
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/micro/centrifugoKit/proxyproto"
 )

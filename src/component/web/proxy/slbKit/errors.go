@@ -1,6 +1,6 @@
 package slbKit
 
-import "github.com/richelieu042/chimera/v3/src/core/errorKit"
+import "github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 
 var (
 	HaveNotBeenStartedError = errorKit.Newf("have not been started")

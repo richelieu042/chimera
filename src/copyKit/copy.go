@@ -4,7 +4,7 @@ import (
 	"github.com/duke-git/lancet/v2/convertor"
 	"github.com/gogf/gf/v2/util/gutil"
 	"github.com/jinzhu/copier"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 )
 
 // Copy 浅拷贝

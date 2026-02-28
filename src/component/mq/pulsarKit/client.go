@@ -3,7 +3,7 @@ package pulsarKit
 import (
 	"github.com/apache/pulsar-client-go/pulsar"
 	"github.com/apache/pulsar-client-go/pulsar/log"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/log/logrusKit"

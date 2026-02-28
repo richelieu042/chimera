@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/ioKit"
 	"github.com/richelieu042/chimera/v3/src/urlKit"
 )

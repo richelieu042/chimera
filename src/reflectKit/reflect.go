@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 )
 
 // GetNestedField 获取（层层嵌套的）字段

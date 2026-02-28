@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/raft"
 	raftboltdb "github.com/hashicorp/raft-boltdb"
 	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"github.com/richelieu042/chimera/v3/src/micro/raft/raftLogKit"

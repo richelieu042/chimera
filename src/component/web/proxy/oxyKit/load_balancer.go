@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/sirupsen/logrus"
 	"github.com/vulcand/oxy/v2/buffer"

@@ -3,7 +3,7 @@ package pushKit
 import (
 	"sync"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 

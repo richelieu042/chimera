@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/natefinch/lumberjack/v3"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/mathKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )

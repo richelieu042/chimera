@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/gogf/gf/v2/os/gfile"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 

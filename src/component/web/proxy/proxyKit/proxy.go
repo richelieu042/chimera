@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 )
 
 // Proxy 代理请求（反向代理，请求转发）.

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/richelieu042/chimera/v3/src/component/web/http_client/httpClientKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/serialize/json/jsonKit"
 	"github.com/richelieu042/chimera/v3/src/urlKit"

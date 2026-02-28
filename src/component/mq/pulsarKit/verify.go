@@ -7,7 +7,7 @@ import (
 
 	"github.com/apache/pulsar-client-go/pulsar"
 	"github.com/richelieu042/chimera/v3/src/core/conditionKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/pathKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"

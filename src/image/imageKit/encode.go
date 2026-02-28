@@ -7,7 +7,7 @@ import (
 	"image/png"
 	"io"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )

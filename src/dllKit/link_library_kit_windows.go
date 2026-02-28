@@ -3,7 +3,7 @@ package linkLibraryKit
 import (
 	"plugin"
 
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 )
 
 // LoadLinkLibrary 加载动态链接库（Linux、Mac）

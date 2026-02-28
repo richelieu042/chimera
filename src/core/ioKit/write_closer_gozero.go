@@ -1,7 +1,7 @@
 package ioKit
 
 //import (
-//	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+//	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 //	"github.com/richelieu042/chimera/v3/src/core/strKit"
 //	"github.com/zeromicro/go-zero/core/logx"
 //	"io"

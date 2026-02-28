@@ -9,7 +9,7 @@ import (
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/signalKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"

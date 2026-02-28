@@ -5,7 +5,7 @@ import (
 	"regexp"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 )
 

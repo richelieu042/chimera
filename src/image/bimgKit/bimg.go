@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/h2non/bimg"
-	"github.com/richelieu042/chimera/v3/src/core/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
