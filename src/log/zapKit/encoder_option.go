@@ -1,6 +1,10 @@
 package zapKit
 
-import "go.uber.org/zap/zapcore"
+import (
+	"strings"
+
+	"go.uber.org/zap/zapcore"
+)
 
 const (
 	// OutputFormatConsole 人类可读的多行输出
@@ -19,8 +23,9 @@ type (
 
 		MessagePrefix string
 
-		EncodeLevel zapcore.LevelEncoder
-		EncodeTime  zapcore.TimeEncoder
+		EncodeLevel  zapcore.LevelEncoder
+		EncodeTime   zapcore.TimeEncoder
+		EncodeCaller zapcore.CallerEncoder
 	}
 
 	EncoderOption func(opts *encoderOptions)
@@ -39,6 +44,15 @@ func loadEncoderOptions(options ...EncoderOption) *encoderOptions {
 		MessagePrefix: "",
 		EncodeLevel:   nil,
 		EncodeTime:    nil,
+		EncodeCaller: func(caller zapcore.EntryCaller, enc zapcore.PrimitiveArrayEncoder) {
+			// 让 caller 字段左对齐，提高可读性，参考：https://claude.ai/share/1358e58e-27f2-4305-b2fa-7c7fc8f6ae4a
+			const minLen = 30
+			s := caller.TrimmedPath()
+			if len(s) < minLen {
+				s = s + strings.Repeat(" ", minLen-len(s))
+			}
+			enc.AppendString(s)
+		},
 	}
 
 	for _, option := range options {

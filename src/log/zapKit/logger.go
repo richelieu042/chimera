@@ -22,20 +22,21 @@ PS:
 e.g. case: core传nil，options不传
 	(1) [Encoder] 人类可读的多行输出
 	(2) [Encoder] 时间格式: "2024-06-28T09:15:16.176+0800"
-	(3) [Encoder] 日志级别大写且有颜色
+	(3) [Encoder] 日志级别大写且有颜色(color)
 	(4) [Encoder] Message字段无前缀
-	(5) [Core] 仅有1个输出: 输出到控制台(并发安全地输出到os.Stdout)
-	(6) [Core] 仅有1个输出: 日志级别(level)为 DEBUG
-	(6) [Logger] 有 Caller 且 CallerSkip == 0
-	(7) [Logger] Development == false，即生产模式
-	(8) [Logger] ErrorOutput 使用默认值: 并发安全地输出到os.Stderr
-	(9) [Logger] DPanicLevel 及以上级别的日志输出，会附带堆栈信息(stack trace)
+	(5) [Encoder] caller 字段左对齐，最小长度为 30
+
+	(6) [Core] 仅有1个输出: 输出到控制台(并发安全地输出到os.Stdout)
+	(7) [Core] 仅有1个输出: 日志级别(level)为 DEBUG
+
+	(8) [Logger] 有 Caller 且 CallerSkip == 0
+	(9) [Logger] Development == false，即生产模式
+	(10) [Logger] ErrorOutput 使用默认值: 并发安全地输出到os.Stderr
+	(11) [Logger] DPanicLevel 及以上级别的日志输出，会附带堆栈信息(stack trace)
 */
 func NewLogger(core zapcore.Core, options ...LoggerOption) (logger *zap.Logger) {
 	if core == nil {
-		encoder := NewEncoder()
-		ws := os.Stdout
-		core = NewCore(encoder, ws, zapcore.DebugLevel)
+		core = NewCore(NewEncoder(), os.Stdout, zapcore.DebugLevel)
 	}
 
 	opts := loadOptions(options...)
