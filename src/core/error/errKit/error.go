@@ -21,15 +21,19 @@ var (
 	WrapWithDepth  func(depth int, err error, msg string) error                         = errors.WrapWithDepth
 	WrapWithDepthf func(depth int, err error, format string, args ...interface{}) error = errors.WrapWithDepthf
 
-	As  func(err error, target interface{}) bool = errors.As
-	As1 func(err error, target any) bool         = goerrors.As
-
 	// Is 判断错误是否匹配某个目标值.
 	/*
-		（1）用于检查错误链中是否包含某个特定的错误值（用 == 语义比较）。
-		（2）即使被包装，也能匹配到
+		（1）用于检查错误链中是否包含某个特定的错误值（用 == 语义比较）
+		（2）支持错误链（即使被包装，也能匹配到）
 	*/
 	Is func(err, target error) bool = goerrors.Is
+
+	// As 从错误链中提取某个类型的错误.
+	/*
+		用于检查错误链中是否存在某个特定类型的错误，并将其提取出来。
+	*/
+	As  func(err error, target interface{}) bool = errors.As
+	As1 func(err error, target any) bool         = goerrors.As
 
 	Unwrap     func(err error) error = errors.Unwrap
 	UnwrapOnce func(err error) error = errors.UnwrapOnce

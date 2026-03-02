@@ -54,10 +54,28 @@ func TestIs_1(t *testing.T) {
 	}
 }
 
-func TestAs(t *testing.T) {
-
+type validationError struct {
+	Field   string
+	Message string
 }
 
-func TestAs1(t *testing.T) {
+func (e *validationError) Error() string {
+	return fmt.Sprintf("validation failed on %s: %s", e.Field, e.Message)
+}
 
+func TestAs(t *testing.T) {
+	var err error = &validationError{
+		Field:   "name",
+		Message: "cannot be empty",
+	}
+	err = fmt.Errorf("validate: %w", err) // case 1: 用 %w 包装错误
+	//err = Wrap(err, "wrap") // case 2: 用 Wrap 包装错误
+
+	var ve *validationError
+
+	if As(err, &ve) {
+		//if As1(err, &ve) {
+		fmt.Println("字段:", ve.Field)   // 字段: name
+		fmt.Println("原因:", ve.Message) // 原因: cannot be empty
+	}
 }
