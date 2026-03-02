@@ -2,6 +2,7 @@ package errKit
 
 import (
 	"context"
+	goerrors "errors"
 
 	"github.com/cockroachdb/errors"
 )
@@ -12,7 +13,8 @@ var (
 	NewWithDepth  func(depth int, msg string) error                         = errors.NewWithDepth
 	NewWithDepthf func(depth int, format string, args ...interface{}) error = errors.NewWithDepthf
 
-	As func(err error, format string, args ...interface{}) error = errors.Wrapf
+	Is func(err, target error) bool             = goerrors.Is
+	As func(err error, target interface{}) bool = errors.As
 
 	Wrap           func(err error, msg string) error                                    = errors.Wrap
 	Wrapf          func(err error, format string, args ...interface{}) error            = errors.Wrapf
