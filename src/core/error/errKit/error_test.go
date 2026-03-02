@@ -73,8 +73,8 @@ func TestAs(t *testing.T) {
 
 	var ve *validationError
 
-	if As(err, &ve) {
-		//if As1(err, &ve) {
+	//if As(err, &ve) {
+	if As1(err, &ve) {
 		fmt.Println("字段:", ve.Field)   // 字段: name
 		fmt.Println("原因:", ve.Message) // 原因: cannot be empty
 	}
