@@ -1,0 +1,15 @@
+package console
+
+import (
+	"testing"
+
+	"github.com/redis/go-redis/v9"
+	"go.uber.org/zap"
+)
+
+func TestPrint(t *testing.T) {
+	Debug("DEBUG")
+	Info("INFO")
+	Warn("WARN")
+	Error("ERROR", zap.Error(redis.Nil))
+}
