@@ -5,7 +5,7 @@ import (
 	"sync"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"go.uber.org/zap"
 )
@@ -56,17 +56,17 @@ func (impl *clientImpl) initialize(logger *zap.SugaredLogger) error {
 	// 命令：adb connect {impl.address}
 	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", impl.address)
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb connect %s'", impl.address)
+		return errKit.Wrapf(err, "fail to run 'adb connect %s'", impl.address)
 	}
 	if strKit.Index(strKit.ToLower(connectResp), "failed to") != -1 {
-		return errorKit.Newf("fail to connect to [%s], response: [%s]", impl.address, connectResp)
+		return errKit.Newf("fail to connect to [%s], response: [%s]", impl.address, connectResp)
 	}
 	logger.Infof("Connect to [%s] successfully.", impl.address)
 
 	// 命令：adb devices
 	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb devices'")
+		return errKit.Wrapf(err, "fail to run 'adb devices'")
 	}
 	logger.Infof("adb devices:\n%s", devices)
 

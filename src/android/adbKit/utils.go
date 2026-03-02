@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 // Check 检查 adb 环境.
@@ -16,13 +16,13 @@ import (
 func Check() (path string, version string, err error) {
 	path, err = cmdKit.LookPath("adb")
 	if err != nil {
-		return "", "", errorKit.Wrapf(err, "fail to look path of adb")
+		return "", "", errKit.Wrapf(err, "fail to look path of adb")
 	}
 
 	// adb 版本号
 	version, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "version")
 	if err != nil {
-		return "", "", errorKit.Wrapf(err, "fail to run 'adb version'")
+		return "", "", errKit.Wrapf(err, "fail to run 'adb version'")
 	}
 
 	return
@@ -44,13 +44,13 @@ func Clean() error {
 	// 命令：adb kill-server
 	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb kill-server'")
+		return errKit.Wrapf(err, "fail to run 'adb kill-server'")
 	}
 
 	// 命令：adb start-server
 	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb start-server'")
+		return errKit.Wrapf(err, "fail to run 'adb start-server'")
 	}
 
 	return nil

@@ -5,7 +5,7 @@ import (
 	"os"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
@@ -26,17 +26,17 @@ func (impl *clientImpl) Screenshot(targetPath string) error {
 	*/
 	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", impl.address, "exec-out", "screencap", "-p")
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", impl.address)
+		return errKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", impl.address)
 	}
 
 	// 尝试创建父目录
 	if err := fileKit.MkParentDirs(targetPath); err != nil {
-		return errorKit.Wrapf(err, "fail to make parent dirs of [%s]", targetPath)
+		return errKit.Wrapf(err, "fail to make parent dirs of [%s]", targetPath)
 	}
 
 	err = os.WriteFile(targetPath, data, 0644)
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to write file [%s]", targetPath)
+		return errKit.Wrapf(err, "fail to write file [%s]", targetPath)
 	}
 
 	return nil
@@ -52,7 +52,7 @@ func (impl *clientImpl) Tap(x, y int) error {
 		return err
 	}
 	if strKit.IsNotEmpty(resp) {
-		return errorKit.Newf("fail to tap, response: %s", resp)
+		return errKit.Newf("fail to tap, response: %s", resp)
 	}
 	return nil
 }
@@ -75,7 +75,7 @@ func (impl *clientImpl) LongPress(x, y int, duration int) error {
 		return err
 	}
 	if strKit.IsNotEmpty(resp) {
-		return errorKit.Newf("fail to tap, response: %s", resp)
+		return errKit.Newf("fail to tap, response: %s", resp)
 	}
 	return nil
 }
@@ -111,7 +111,7 @@ func (impl *clientImpl) Swipe(x1, y1, x2, y2 int, duration int) error {
 		return err
 	}
 	if strKit.IsNotEmpty(resp) {
-		return errorKit.Newf("fail to tap, response: %s", resp)
+		return errKit.Newf("fail to tap, response: %s", resp)
 	}
 	return nil
 }

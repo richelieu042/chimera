@@ -5,7 +5,7 @@ import (
 	"regexp"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 )
 
@@ -20,7 +20,7 @@ func (impl *clientImpl) GetPhysicalSize() (width int, height int, err error) {
 	*/
 	str, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "wm", "size")
 	if err != nil {
-		return 0, 0, errorKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", impl.address)
+		return 0, 0, errKit.Wrapf(err, "fail to run 'adb -s %s shell wm size'", impl.address)
 	}
 
 	/*
@@ -32,15 +32,15 @@ func (impl *clientImpl) GetPhysicalSize() (width int, height int, err error) {
 	re := regexp.MustCompile(`(\d+)x(\d+)$`)
 	matches := re.FindStringSubmatch(str)
 	if matches == nil {
-		return 0, 0, errorKit.Newf("fail to get physical size from [%s]", str)
+		return 0, 0, errKit.Newf("fail to get physical size from [%s]", str)
 	}
 	width, err = intKit.StringToInt(matches[1])
 	if err != nil {
-		return 0, 0, errorKit.Wrapf(err, "fail to get width from [%s]", matches[1])
+		return 0, 0, errKit.Wrapf(err, "fail to get width from [%s]", matches[1])
 	}
 	height, err = intKit.StringToInt(matches[2])
 	if err != nil {
-		return 0, 0, errorKit.Wrapf(err, "fail to get height from [%s]", matches[2])
+		return 0, 0, errKit.Wrapf(err, "fail to get height from [%s]", matches[2])
 	}
 	return
 }
