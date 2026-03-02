@@ -8,7 +8,7 @@ import (
 )
 
 func TestPrint(t *testing.T) {
-	Debug("DEBUG")
+	Debug("DEBUG", zap.String("name", "ZhangSan"))
 	Info("INFO")
 	Warn("WARN")
 	Error("ERROR", zap.Error(redis.Nil))
