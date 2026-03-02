@@ -13,8 +13,9 @@ var (
 	NewWithDepth  func(depth int, msg string) error                         = errors.NewWithDepth
 	NewWithDepthf func(depth int, format string, args ...interface{}) error = errors.NewWithDepthf
 
-	Is func(err, target error) bool             = goerrors.Is
-	As func(err error, target interface{}) bool = errors.As
+	As  func(err error, target interface{}) bool = errors.As
+	As1 func(err error, target any) bool         = goerrors.As
+	Is  func(err, target error) bool             = goerrors.Is
 
 	Wrap           func(err error, msg string) error                                    = errors.Wrap
 	Wrapf          func(err error, format string, args ...interface{}) error            = errors.Wrapf
