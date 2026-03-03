@@ -13,7 +13,7 @@ require (
 	github.com/centrifugal/gocent/v3 v3.4.0
 	github.com/cockroachdb/errors v1.12.0
 	github.com/coocood/freecache v1.2.5
-	github.com/davidbyttow/govips/v2 v2.16.0
+	github.com/davidbyttow/govips/v2 v2.17.0
 	github.com/deckarep/golang-set/v2 v2.8.0
 	github.com/dromara/carbon/v2 v2.6.16
 	github.com/duke-git/lancet/v2 v2.3.8
@@ -34,7 +34,7 @@ require (
 	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.115
 	github.com/go-playground/validator/v10 v10.30.1
-	github.com/go-redsync/redsync/v4 v4.15.0
+	github.com/go-redsync/redsync/v4 v4.16.0
 	github.com/go-viper/mapstructure/v2 v2.5.0
 	github.com/goccy/go-json v0.10.5
 	github.com/goccy/go-yaml v1.19.2
