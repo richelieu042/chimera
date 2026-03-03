@@ -27,7 +27,7 @@ e.g. case: core传nil，options不传
 	(5) [Encoder] caller 字段左对齐，最小长度为 30
 
 	(6) [Core] 仅有1个输出: 输出到控制台(并发安全地输出到os.Stdout)
-	(7) [Core] 仅有1个输出: 日志级别(level)为 DEBUG
+	(7) [Core] 仅有1个输出: 日志级别(Level)为 DEBUG
 
 	(8) [Logger] 有 Caller 且 CallerSkip == 0
 	(9) [Logger] Development == false，即生产模式
