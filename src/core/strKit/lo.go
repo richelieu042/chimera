@@ -3,7 +3,7 @@ package strKit
 import "github.com/samber/lo"
 
 var (
-	// Elipse 将字符串截断为指定长度，并在截断后附加省略号.
+	// Ellipsis 将字符串截断为指定长度，并在截断后附加省略号.
 	/*
 		e.g.
 		("Richelieu", 0) => "..."
@@ -13,5 +13,5 @@ var (
 		("Richelieu", 4) => "R..."
 		("Richelieu", math.MaxInt) => "Richelieu"
 	*/
-	Elipse func(str string, length int) string = lo.Elipse
+	Ellipsis func(str string, length int) string = lo.Ellipsis
 )
