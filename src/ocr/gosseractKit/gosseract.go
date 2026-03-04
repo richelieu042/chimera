@@ -18,6 +18,12 @@ func GertText(imgPath string) (string, error) {
 	defer client.Close()
 
 	// 设置语言 (支持中英文)
+	/*
+		eng — 英文
+		chi_sim — 简体中文
+		chi_tra — 繁体中文
+		jpn — 日文
+	*/
 	if err := client.SetLanguage("chi_sim", "eng"); err != nil {
 		return "", err
 	}
