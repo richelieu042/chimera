@@ -112,13 +112,13 @@ require (
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.8
 	go.mongodb.org/mongo-driver/v2 v2.5.0
-	go.opentelemetry.io/otel v1.40.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.40.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.40.0
-	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.40.0
-	go.opentelemetry.io/otel/metric v1.40.0
-	go.opentelemetry.io/otel/sdk v1.40.0
-	go.opentelemetry.io/otel/trace v1.40.0
+	go.opentelemetry.io/otel v1.41.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.41.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.41.0
+	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp v1.41.0
+	go.opentelemetry.io/otel/metric v1.41.0
+	go.opentelemetry.io/otel/sdk v1.41.0
+	go.opentelemetry.io/otel/trace v1.41.0
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.1
 	gocv.io/x/gocv v0.43.0
@@ -262,7 +262,7 @@ require (
 	github.com/googleapis/enterprise-certificate-proxy v0.3.6 // indirect
 	github.com/googleapis/gax-go/v2 v2.14.1 // indirect
 	github.com/gravitational/trace v1.1.16-0.20220114165159-14a9a7dd6aaf // indirect
-	github.com/grpc-ecosystem/grpc-gateway/v2 v2.27.7 // indirect
+	github.com/grpc-ecosystem/grpc-gateway/v2 v2.28.0 // indirect
 	github.com/hack-pad/go-indexeddb v0.3.2 // indirect
 	github.com/hack-pad/safejs v0.1.0 // indirect
 	github.com/hamba/avro/v2 v2.29.0 // indirect
@@ -384,8 +384,8 @@ require (
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.230.0 // indirect
 	google.golang.org/genproto v0.0.0-20250303144028-a0af3efb3deb // indirect
-	google.golang.org/genproto/googleapis/api v0.0.0-20260128011058-8636f8732409 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260128011058-8636f8732409 // indirect
+	google.golang.org/genproto/googleapis/api v0.0.0-20260209200024-4cfbd4190f57 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260209200024-4cfbd4190f57 // indirect
 	gopkg.in/inf.v0 v0.9.1 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
