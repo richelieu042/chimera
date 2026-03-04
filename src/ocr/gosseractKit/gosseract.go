@@ -2,40 +2,47 @@ package gosseractKit
 
 import (
 	"github.com/otiai10/gosseract/v2"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
 // GertText
 /*
 !!!: 使用此函数，必须确保"CGO_ENABLED=1"，否则go run或go build会报错: undefined: gosseract.NewClient
+
+@param languages 	支持指定语言，默认英文（eng）
+					e.g.
+						eng — 英文
+						chi_sim — 简体中文
+						chi_tra — 繁体中文
+						jpn — 日文
+					e.g.1
+						如果图片中只有中文和数字的话，建议使用 ("chi_sim") 而非 ("chi_sim", "eng")，否则可能出问题（e.g.把识 "天" 别为 "%"）.
 */
-func GertText(imgPath string) (string, error) {
+func GertText(imgPath string, languages ...string) (string, error) {
 	if err := fileKit.AssertExistAndIsFile(imgPath); err != nil {
 		return "", err
+	}
+	if len(languages) == 0 {
+		languages = []string{"eng"}
 	}
 
 	client := gosseract.NewClient()
 	defer client.Close()
 
 	// 设置语言 (支持中英文)
-	/*
-		eng — 英文
-		chi_sim — 简体中文
-		chi_tra — 繁体中文
-		jpn — 日文
-	*/
-	if err := client.SetLanguage("chi_sim", "eng"); err != nil {
-		return "", err
+	if err := client.SetLanguage(languages...); err != nil {
+		return "", errKit.Wrap(err, "fail to set language")
 	}
 
 	// 设置PSM模式
 	// gosseract.PSM_AUTO: 自动检测布局
 	if err := client.SetPageSegMode(gosseract.PSM_AUTO); err != nil {
-		return "", err
+		return "", errKit.Wrap(err, "fail to set page seg mode")
 	}
 
 	if err := client.SetImage(imgPath); err != nil {
-		return "", err
+		return "", errKit.Wrap(err, "fail to set image")
 	}
 	return client.Text()
 }

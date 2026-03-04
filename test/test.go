@@ -8,4 +8,5 @@ import (
 
 func main() {
 	fmt.Println(gosseractKit.GertText("clipped.png"))
+	fmt.Println(gosseractKit.GertText("ccc.jpg"))
 }
