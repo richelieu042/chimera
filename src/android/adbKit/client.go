@@ -27,7 +27,7 @@ type Client interface {
 /*
 @param logger: 可以为nil（默认：丢弃输出）
 */
-func NewClient(address string, cleanFlag bool, logger *zap.SugaredLogger) (Client, error) {
+func NewClient(address string, cleanFlag bool, logger *zap.Logger) (Client, error) {
 	ins := &clientImpl{
 		address:   address,
 		cleanFlag: cleanFlag,

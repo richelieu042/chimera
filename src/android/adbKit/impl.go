@@ -31,9 +31,10 @@ type clientImpl struct {
 	cleanFlag bool
 }
 
-func (impl *clientImpl) initialize(logger *zap.SugaredLogger) error {
+func (impl *clientImpl) initialize(logger *zap.Logger) error {
 	if logger == nil {
-		logger = zap.NewNop().Sugar()
+		// 不输出
+		logger = zap.NewNop()
 	}
 
 	/* (1) check */
@@ -41,8 +42,8 @@ func (impl *clientImpl) initialize(logger *zap.SugaredLogger) error {
 	if err != nil {
 		return err
 	}
-	logger.Infof("adb path: %s", adbPath)
-	logger.Infof("adb version: \n%s", adbVersion)
+	logger.Sugar().Infof("adb path: %s", adbPath)
+	logger.Sugar().Infof("adb version: \n%s", adbVersion)
 	logger.Info("Check adb environment successfully.")
 
 	/* (2) clean */
@@ -61,14 +62,14 @@ func (impl *clientImpl) initialize(logger *zap.SugaredLogger) error {
 	if strKit.Index(strKit.ToLower(connectResp), "failed to") != -1 {
 		return errKit.Newf("fail to connect to [%s], response: [%s]", impl.address, connectResp)
 	}
-	logger.Infof("Connect to [%s] successfully.", impl.address)
+	logger.Info("Connect successfully.", zap.String("addr", impl.address))
 
 	// 命令：adb devices
 	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run 'adb devices'")
 	}
-	logger.Infof("adb devices:\n%s", devices)
+	logger.Sugar().Infof("adb devices:\n%s", devices)
 
 	return nil
 }
