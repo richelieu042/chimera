@@ -30,12 +30,12 @@ func GertText(imgPath string, languages ...string) (string, error) {
 	client := gosseract.NewClient()
 	defer client.Close()
 
-	// 设置语言 (支持中英文)
+	// （1）设置语言
 	if err := client.SetLanguage(languages...); err != nil {
 		return "", errKit.Wrap(err, "fail to set language")
 	}
 
-	// 设置PSM模式
+	// （2）设置PSM（页面分割模式）
 	// gosseract.PSM_AUTO: 自动检测布局
 	if err := client.SetPageSegMode(gosseract.PSM_AUTO); err != nil {
 		return "", errKit.Wrap(err, "fail to set page seg mode")
