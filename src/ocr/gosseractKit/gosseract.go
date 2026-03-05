@@ -3,8 +3,39 @@ package gosseractKit
 import (
 	"github.com/otiai10/gosseract/v2"
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
+	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
+
+// newClient
+/*
+	!!!: err == nil 的情况下，调用完此函数后，应该立即跟上: defer client.Close()
+*/
+func newClient(languages ...string) (client *gosseract.Client, err error) {
+	if len(languages) == 0 {
+		languages = []string{"eng"}
+	}
+
+	client = gosseract.NewClient()
+	defer func() {
+		if err != nil {
+			client.Close()
+		}
+	}()
+
+	// （1）设置语言
+	if err := client.SetLanguage(languages...); err != nil {
+		return client, errKit.Wrap(err, "fail to set language")
+	}
+
+	// （2）设置PSM（页面分割模式）
+	// gosseract.PSM_AUTO: 自动检测布局
+	if err := client.SetPageSegMode(gosseract.PSM_AUTO); err != nil {
+		return client, errKit.Wrap(err, "fail to set page seg mode")
+	}
+
+	return
+}
 
 // GertText
 /*
@@ -23,25 +54,32 @@ func GertText(imgPath string, languages ...string) (string, error) {
 	if err := fileKit.AssertExistAndIsFile(imgPath); err != nil {
 		return "", err
 	}
-	if len(languages) == 0 {
-		languages = []string{"eng"}
-	}
 
-	client := gosseract.NewClient()
+	client, err := newClient(languages...)
+	if err != nil {
+		return "", err
+	}
 	defer client.Close()
 
-	// （1）设置语言
-	if err := client.SetLanguage(languages...); err != nil {
-		return "", errKit.Wrap(err, "fail to set language")
-	}
-
-	// （2）设置PSM（页面分割模式）
-	// gosseract.PSM_AUTO: 自动检测布局
-	if err := client.SetPageSegMode(gosseract.PSM_AUTO); err != nil {
-		return "", errKit.Wrap(err, "fail to set page seg mode")
-	}
-
 	if err := client.SetImage(imgPath); err != nil {
+		return "", errKit.Wrap(err, "fail to set image")
+	}
+	return client.Text()
+}
+
+// GertTextFromBytes 从 "图片的二进制数据" 中获取文字.
+func GertTextFromBytes(bytes []byte, languages ...string) (string, error) {
+	if err := sliceKit.AssertNotEmpty(bytes, "bytes"); err != nil {
+		return "", err
+	}
+
+	client, err := newClient(languages...)
+	if err != nil {
+		return "", err
+	}
+	defer client.Close()
+
+	if err := client.SetImageFromBytes(bytes); err != nil {
 		return "", errKit.Wrap(err, "fail to set image")
 	}
 	return client.Text()
