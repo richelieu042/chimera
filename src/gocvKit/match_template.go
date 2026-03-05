@@ -3,7 +3,7 @@ package gocvKit
 import (
 	"image"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"gocv.io/x/gocv"
 )
 
@@ -32,20 +32,20 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	// 读取源图像
 	srcImg := gocv.IMRead(srcPath, gocv.IMReadColor)
 	if srcImg.Empty() {
-		return 0, image.Point{}, errorKit.Newf("failed to read source image: %s", srcPath)
+		return 0, image.Point{}, errKit.Newf("failed to read source image: %s", srcPath)
 	}
 	defer srcImg.Close()
 
 	// 读取模板图像
 	tmplImg := gocv.IMRead(templatePath, gocv.IMReadColor)
 	if tmplImg.Empty() {
-		return 0, image.Point{}, errorKit.Newf("failed to read template image: %s", templatePath)
+		return 0, image.Point{}, errKit.Newf("failed to read template image: %s", templatePath)
 	}
 	defer tmplImg.Close()
 
 	// 验证模板尺寸不能大于源图
 	if tmplImg.Rows() > srcImg.Rows() || tmplImg.Cols() > srcImg.Cols() {
-		return 0, image.Point{}, errorKit.Newf(
+		return 0, image.Point{}, errKit.Newf(
 			"template size (%dx%d) cannot be larger than source size (%dx%d)",
 			tmplImg.Cols(), tmplImg.Rows(), srcImg.Cols(), srcImg.Rows(),
 		)
@@ -64,14 +64,14 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 		img = gocv.NewMat()
 		defer img.Close()
 		if err := gocv.CvtColor(srcImg, &img, gocv.ColorBGRToGray); err != nil {
-			return 0, image.Point{}, errorKit.Wrapf(err, "failed to convert source image to grayscale")
+			return 0, image.Point{}, errKit.Wrapf(err, "failed to convert source image to grayscale")
 		}
 
 		// 转换模板图为灰度图
 		tmpl = gocv.NewMat()
 		defer tmpl.Close()
 		if err := gocv.CvtColor(tmplImg, &tmpl, gocv.ColorBGRToGray); err != nil {
-			return 0, image.Point{}, errorKit.Wrapf(err, "failed to convert template image to grayscale")
+			return 0, image.Point{}, errKit.Wrapf(err, "failed to convert template image to grayscale")
 		}
 	} else {
 		// 直接使用彩色图像
@@ -85,7 +85,7 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 
 	// 执行模板匹配
 	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat()); err != nil {
-		return 0, image.Point{}, errorKit.Wrapf(err, "failed to perform template matching")
+		return 0, image.Point{}, errKit.Wrapf(err, "failed to perform template matching")
 	}
 
 	// 查找最佳匹配位置（其他所有匹配位置，无论分数是 0.99 还是 0.80，只要不是全局最大值，都会被直接丢掉）
@@ -152,7 +152,7 @@ func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.Tem
 func GetMatchRect(matchLoc image.Point, templatePath string) (rect image.Rectangle, err error) {
 	tmpl := gocv.IMRead(templatePath, gocv.IMReadColor)
 	if tmpl.Empty() {
-		return image.Rectangle{}, errorKit.Newf("failed to read template image: %s", templatePath)
+		return image.Rectangle{}, errKit.Newf("failed to read template image: %s", templatePath)
 	}
 	defer tmpl.Close()
 
