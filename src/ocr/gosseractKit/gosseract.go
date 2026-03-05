@@ -68,6 +68,9 @@ func GertText(imgPath string, languages ...string) (string, error) {
 }
 
 // GertTextFromBytes 从 "图片的二进制数据" 中获取文字.
+/*
+@param bytes 图片的二进制数据
+*/
 func GertTextFromBytes(bytes []byte, languages ...string) (string, error) {
 	if err := sliceKit.AssertNotEmpty(bytes, "bytes"); err != nil {
 		return "", err
