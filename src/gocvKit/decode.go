@@ -26,7 +26,7 @@ func DecodeFromPath(path string) (gocv.Mat, error) {
 
 	img := gocv.IMRead(path, gocv.IMReadColor)
 	if img.Empty() {
-		return gocv.NewMat(), errKit.Simple("read: mat is empty")
+		return img, errKit.Simple("read: mat is empty")
 	}
 	return img, nil
 }

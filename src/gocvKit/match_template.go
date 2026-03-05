@@ -29,34 +29,32 @@ PS:
 @return err         错误信息
 */
 func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (matchVal float32, matchLoc image.Point, err error) {
-	// 读取源图像
-	srcImg := gocv.IMRead(srcPath, gocv.IMReadColor)
-	if srcImg.Empty() {
-		return 0, image.Point{}, errKit.Newf("failed to read source image: %s", srcPath)
-	}
+	// （1）读取源图像
+	srcImg, err := DecodeFromPath(srcPath)
 	defer srcImg.Close()
-
-	// 读取模板图像
-	tmplImg := gocv.IMRead(templatePath, gocv.IMReadColor)
-	if tmplImg.Empty() {
-		return 0, image.Point{}, errKit.Newf("failed to read template image: %s", templatePath)
+	if err != nil {
+		return 0, image.Point{}, errKit.Wrapf(err, "failed to read source image")
 	}
+
+	// （2）读取模板图像
+	tmplImg, err := DecodeFromPath(templatePath)
 	defer tmplImg.Close()
-
-	// 验证模板尺寸不能大于源图
-	if tmplImg.Rows() > srcImg.Rows() || tmplImg.Cols() > srcImg.Cols() {
-		return 0, image.Point{}, errKit.Newf(
-			"template size (%dx%d) cannot be larger than source size (%dx%d)",
-			tmplImg.Cols(), tmplImg.Rows(), srcImg.Cols(), srcImg.Rows(),
-		)
+	if err != nil {
+		return 0, image.Point{}, errKit.Wrapf(err, "failed to read template image")
 	}
 
-	// 确定是否需要灰度转换
+	// (3)验证模板尺寸不能大于源图
+	if tmplImg.Cols() > srcImg.Cols() || tmplImg.Rows() > srcImg.Rows() {
+		err := errKit.Newf("template size (%dx%d) cannot be larger than source size (%dx%d)",
+			tmplImg.Cols(), tmplImg.Rows(), srcImg.Cols(), srcImg.Rows())
+		return 0, image.Point{}, err
+	}
+
+	// （4）确定是否需要灰度转换
 	var grayFlag bool
 	if len(grayArgs) > 0 {
 		grayFlag = grayArgs[0]
 	}
-
 	// 准备用于匹配的图像
 	var img, tmpl gocv.Mat
 	if grayFlag {
@@ -64,14 +62,14 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 		img = gocv.NewMat()
 		defer img.Close()
 		if err := gocv.CvtColor(srcImg, &img, gocv.ColorBGRToGray); err != nil {
-			return 0, image.Point{}, errKit.Wrapf(err, "failed to convert source image to grayscale")
+			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert source image to grayscale")
 		}
 
 		// 转换模板图为灰度图
 		tmpl = gocv.NewMat()
 		defer tmpl.Close()
 		if err := gocv.CvtColor(tmplImg, &tmpl, gocv.ColorBGRToGray); err != nil {
-			return 0, image.Point{}, errKit.Wrapf(err, "failed to convert template image to grayscale")
+			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert template image to grayscale")
 		}
 	} else {
 		// 直接使用彩色图像
