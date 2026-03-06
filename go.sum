@@ -946,6 +946,8 @@ github.com/linxGnu/grocksdb v1.10.7 h1:fCi4qvZWo04VgFwGWmO8HQJgUVounJBy+C2TMVPU/
 github.com/linxGnu/grocksdb v1.10.7/go.mod h1:OLQKZwiKwaJiAVCsOzWKvwiLwfZ5Vz8Md5TYR7t7pM8=
 github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260303055354-ca665cfd2e35 h1:VTbRXj8+wqypPyZ7EfIq+OPnRdJqPihAUkOLRsEK3go=
 github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260303055354-ca665cfd2e35/go.mod h1:+mNMTBuDMdEGhWzoQgc6kBdqeaQpWh5ba8zqmp2MxCU=
+github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260305062425-8adec5a3c8c3 h1:WDB0YYPMtrIfh2Iz18oTE8Omx39WEXYpDGA3Hh3Jnec=
+github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260305062425-8adec5a3c8c3/go.mod h1:+mNMTBuDMdEGhWzoQgc6kBdqeaQpWh5ba8zqmp2MxCU=
 github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d h1:qSmEGTgjkESUX5kPMSGJ4pcBUtYVDdkNzMrjQyvRvp0=
 github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d/go.mod h1:x7SghIWwLVcJObXbjK7S2ENsT1cAcdJcPl7dRaSFog0=
 github.com/liuzl/da v0.0.0-20180704015230-14771aad5b1d h1:hTRDIpJ1FjS9ULJuEzu69n3qTgc18eI+ztw/pJv47hs=
