@@ -1,6 +1,6 @@
 module github.com/richelieu042/chimera/v3
 
-go 1.26.0
+go 1.26.1
 
 require (
 	fyne.io/fyne/v2 v2.7.3
@@ -16,7 +16,7 @@ require (
 	github.com/davidbyttow/govips/v2 v2.17.0
 	github.com/deckarep/golang-set/v2 v2.8.0
 	github.com/dromara/carbon/v2 v2.6.16
-	github.com/duke-git/lancet/v2 v2.3.8
+	github.com/duke-git/lancet/v2 v2.3.9
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.18.2
@@ -32,7 +32,7 @@ require (
 	github.com/gin-gonic/gin v1.11.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
-	github.com/go-pay/gopay v1.5.115
+	github.com/go-pay/gopay v1.5.116
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/go-redsync/redsync/v4 v4.16.0
 	github.com/go-viper/mapstructure/v2 v2.5.0
@@ -64,7 +64,7 @@ require (
 	github.com/klauspost/compress v1.18.4
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260305062425-8adec5a3c8c3
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260307033039-1a29562c2dda
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -79,10 +79,10 @@ require (
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
-	github.com/panjf2000/ants/v2 v2.11.5
+	github.com/panjf2000/ants/v2 v2.11.6
 	github.com/pdfcpu/pdfcpu v0.11.1
 	github.com/pelletier/go-toml/v2 v2.2.4
-	github.com/pierrec/lz4/v4 v4.1.25
+	github.com/pierrec/lz4/v4 v4.1.26
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5700.1
 	github.com/redis/go-redis/v9 v9.18.0
@@ -122,14 +122,14 @@ require (
 	go.uber.org/atomic v1.11.0
 	go.uber.org/zap v1.27.1
 	gocv.io/x/gocv v0.43.0
-	golang.org/x/arch v0.24.0
+	golang.org/x/arch v0.25.0
 	golang.org/x/crypto v0.48.0
 	golang.org/x/exp v0.0.0-20260218203240-3dfff04db8fa
 	golang.org/x/image v0.36.0
 	golang.org/x/mobile v0.0.0-20260217195705-b56b3793a9c4
 	golang.org/x/mod v0.33.0
 	golang.org/x/net v0.51.0
-	golang.org/x/oauth2 v0.35.0
+	golang.org/x/oauth2 v0.36.0
 	golang.org/x/sync v0.19.0
 	golang.org/x/sys v0.41.0
 	golang.org/x/term v0.40.0
