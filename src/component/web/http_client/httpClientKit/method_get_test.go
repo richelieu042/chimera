@@ -1,10 +1,9 @@
-package requestKit
+package httpClientKit
 
 import (
 	"fmt"
-	"testing"
-
 	"github.com/sirupsen/logrus"
+	"testing"
 )
 
 func TestGet(t *testing.T) {

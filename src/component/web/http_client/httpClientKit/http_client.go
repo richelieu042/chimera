@@ -1,4 +1,4 @@
-package requestKit
+package httpClientKit
 
 import (
 	"crypto/tls"
