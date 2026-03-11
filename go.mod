@@ -29,7 +29,7 @@ require (
 	github.com/gin-contrib/size v1.0.2
 	github.com/gin-contrib/sse v1.1.0
 	github.com/gin-contrib/static v1.1.5
-	github.com/gin-gonic/gin v1.12.0
+	github.com/gin-gonic/gin v1.11.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.116
@@ -327,7 +327,7 @@ require (
 	github.com/prometheus/procfs v0.16.1 // indirect
 	github.com/quagmt/udecimal v1.9.0 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
-	github.com/quic-go/quic-go v0.59.0 // indirect
+	github.com/quic-go/quic-go v0.57.1 // indirect
 	github.com/refraction-networking/utls v1.8.1 // indirect
 	github.com/richardlehane/mscfb v1.0.6 // indirect
 	github.com/richardlehane/msoleps v1.0.6 // indirect
@@ -355,7 +355,7 @@ require (
 	github.com/tklauser/go-sysconf v0.3.16 // indirect
 	github.com/tklauser/numcpus v0.11.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
-	github.com/ugorji/go/codec v1.3.1 // indirect
+	github.com/ugorji/go/codec v1.3.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fastrand v1.1.0 // indirect
 	github.com/vulcand/predicate v1.2.0 // indirect
