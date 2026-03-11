@@ -1,4 +1,4 @@
-package httpClientKit
+package requestKit
 
 import (
 	"net/http"

@@ -5,7 +5,7 @@ import (
 	"os"
 	"regexp"
 
-	"github.com/richelieu042/chimera/v3/src/component/web/http_client/httpClientKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/http_client/requestKit"
 	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
@@ -35,7 +35,7 @@ func GetImageBase64(imagePath string) (string, error) {
 */
 func GetWebImageBase64(url string) (string, error) {
 	// 先获取网络图片的内容
-	_, imageData, err := httpClientKit.Get(url)
+	_, imageData, err := requestKit.Get(url)
 	if err != nil {
 		return "", err
 	}
