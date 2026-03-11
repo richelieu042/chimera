@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/centrifugal/gocent/v3"
-	"github.com/richelieu042/chimera/v3/src/component/web/http_client/httpClientKit"
+	"github.com/richelieu042/chimera/v3/src/component/web/http_client/requestKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/randomKit"
@@ -30,7 +30,7 @@ func NewHttpClient(addrs []string, apiKey string, httpClient *http.Client) (*goc
 	}
 	// httpClient
 	if httpClient == nil {
-		httpClient = httpClientKit.DefaultHttpClient
+		httpClient = requestKit.DefaultHttpClient
 	}
 
 	/* (1) 一个地址 */
