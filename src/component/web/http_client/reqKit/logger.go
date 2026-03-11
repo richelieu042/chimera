@@ -1,9 +1,10 @@
 package reqKit
 
 import (
-	"github.com/imroc/req/v3"
 	"io"
 	"log"
+
+	"github.com/imroc/req/v3"
 )
 
 var (
