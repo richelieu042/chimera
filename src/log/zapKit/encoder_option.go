@@ -46,10 +46,9 @@ func loadEncoderOptions(options ...EncoderOption) *encoderOptions {
 		EncodeTime:    nil,
 		EncodeCaller: func(caller zapcore.EntryCaller, enc zapcore.PrimitiveArrayEncoder) {
 			// 让 caller 字段左对齐，提高可读性，参考：https://claude.ai/share/1358e58e-27f2-4305-b2fa-7c7fc8f6ae4a
-			const minLen = 30
 			s := caller.TrimmedPath()
-			if len(s) < minLen {
-				s = s + strings.Repeat(" ", minLen-len(s))
+			if len(s) < minCallerLen {
+				s = s + strings.Repeat(" ", minCallerLen-len(s))
 			}
 			enc.AppendString(s)
 		},
