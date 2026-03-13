@@ -27,7 +27,7 @@ tasks:
 
   prepare:
     cmds:
-      - go install mvdan.cc/garble@latest
+      #      - go install mvdan.cc/garble@latest
       - go mod tidy
 
   build-serial:
@@ -46,6 +46,7 @@ tasks:
     deps:
       - task: windows-386
       - task: windows-amd64
+      - task: windows-amd64-noavx
       - task: darwin-arm64
       - task: linux-amd64
       - task: linux-amd64-noavx

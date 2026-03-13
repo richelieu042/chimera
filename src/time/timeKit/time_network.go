@@ -2,20 +2,15 @@ package timeKit
 
 import (
 	"context"
-	"sync"
+	"net/http"
 	"time"
 
-	"github.com/imroc/req/v3"
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
-/*
-PS: 腾讯的时间不准.
-*/
 var sources = []string{
 	"https://www.google.com",
-	//"https://www.tencent.com",
 	"https://github.com",
 	"https://www.bilibili.com",
 	"https://www.baidu.com",
@@ -25,32 +20,17 @@ var sources = []string{
 	"https://www.yozosoft.com",
 }
 
-var (
-	defaultReqClientOnce sync.Once
-
-	// Deprecated: 仅供内部使用 && 不要直接使用，想用就调用 getDefaultReqClient()
-	defaultReqClient *req.Client
-)
-
-func getDefaultReqClient() *req.Client {
-	defaultReqClientOnce.Do(func() {
-		defaultReqClient = req.C().
-			ImpersonateChrome().
-			SetTimeout(time.Second * 30).
-			EnableInsecureSkipVerify()
-	})
-
-	return defaultReqClient
-}
-
 // GetNetworkTime
 /*
 !!!: 方法体内不要直接使用 reqKit，以防import cycle.
 
 @param ctx 	(1) 不能为nil
-			(2) 建议附带timeout
+			(2) 建议附带timeout！！！
+@return time.Time 	获取到的网络时间
+		string		网络时间的来源
+		error		错误
 */
-func GetNetworkTime(ctx context.Context) (t time.Time, source string, err error) {
+func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
@@ -59,13 +39,11 @@ func GetNetworkTime(ctx context.Context) (t time.Time, source string, err error)
 	ch := make(chan *bean, len(sources))
 	for _, source := range sources {
 		go func(url string) {
-			t, err = GetNetworkTimeByUrl(ctx, url)
+			t, err := GetNetworkTimeByUrl(ctx, url)
 			if err != nil {
-				//fmt.Printf("fail to get network time from url(%s), error: %s\n", url, err)
 				return
 			}
 
-			//fmt.Printf("get network time, source: %s, time: %s\n", url, t)
 			ch <- &bean{
 				source: url,
 				time:   t,
@@ -77,8 +55,7 @@ func GetNetworkTime(ctx context.Context) (t time.Time, source string, err error)
 	case b := <-ch:
 		return b.time, b.source, nil
 	case <-ctx.Done():
-		err = ctx.Err()
-		return
+		return time.Time{}, "", ctx.Err()
 	}
 }
 
@@ -86,22 +63,30 @@ func GetNetworkTime(ctx context.Context) (t time.Time, source string, err error)
 /*
 !!!: 方法体内不要直接使用 reqKit，以防import cycle.
 */
-func GetNetworkTimeByUrl(ctx context.Context, url string) (t time.Time, err error) {
-	resp := getDefaultReqClient().Get(url).Do(ctx)
-	if resp.Err != nil {
-		err = resp.Err
-		return
+func GetNetworkTimeByUrl(ctx context.Context, url string) (time.Time, error) {
+	// 创建请求，并绑定 context
+	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
+	if err != nil {
+		return time.Time{}, errKit.Wrapf(err, "fail to new http request")
 	}
 
-	str := resp.GetHeader(httpKit.HeaderDate)
-	if str == "" {
-		err = errorKit.Newf("empty header: %s", httpKit.HeaderDate)
-		return
-	}
-	t, err = Parse(FormatRFC1123, str)
+	// 可自定义客户端
+	client := &http.Client{}
+
+	// 发送请求
+	resp, err := client.Do(req)
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to prase with FormatRFC1123")
-		return
+		return time.Time{}, errKit.Wrapf(err, "fail to send http request")
 	}
-	return
+	defer resp.Body.Close()
+
+	value := resp.Header.Get(httpKit.HeaderDate)
+	if value == "" {
+		return time.Time{}, errKit.New("value of header is empty")
+	}
+	t, err := Parse(FormatRFC1123, value)
+	if err != nil {
+		return time.Time{}, errKit.Wrap(err, "fail to parse value of header")
+	}
+	return t, nil
 }
