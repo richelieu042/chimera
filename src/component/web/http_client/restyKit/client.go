@@ -37,6 +37,10 @@ func getDefClient() *resty.Client {
 	return defClient
 }
 
+// Get
+/*
+@param queryParams 可以为 nil
+*/
 func Get(utl string, queryParams map[string]string) (int, string, error) {
 	client := getDefClient()
 
