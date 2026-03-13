@@ -34,6 +34,7 @@ tasks:
     cmds:
       - task: windows-386
       - task: windows-amd64
+      - task: windows-amd64-noavx
       - task: darwin-arm64
       - task: linux-amd64
       - task: linux-amd64-noavx
