@@ -35,6 +35,7 @@ require (
 	github.com/go-pay/gopay v1.5.116
 	github.com/go-playground/validator/v10 v10.30.1
 	github.com/go-redsync/redsync/v4 v4.16.0
+	github.com/go-resty/resty/v2 v2.17.2
 	github.com/go-viper/mapstructure/v2 v2.5.0
 	github.com/goccy/go-json v0.10.6
 	github.com/goccy/go-yaml v1.19.2
@@ -241,7 +242,6 @@ require (
 	github.com/go-ole/go-ole v1.2.6 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
-	github.com/go-resty/resty/v2 v2.17.2 // indirect
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
 	github.com/go-text/render v0.2.0 // indirect
