@@ -37,7 +37,6 @@
 **/_test.db
 /chimera-*
 
-
 # 忽略所有以 _test 开头的文件和目录
 _test*
 _test*/
