@@ -7,26 +7,48 @@ import (
 	"gocv.io/x/gocv"
 )
 
-func Decode(imgData []byte) (gocv.Mat, error) {
-	if err := sliceKit.AssertNotEmpty(imgData, "imgData"); err != nil {
-		return gocv.NewMat(), err
+// Decode 图片（二进制数据） => gocv.Mat
+func Decode(imgData []byte) (mat gocv.Mat, err error) {
+	if err = sliceKit.AssertNotEmpty(imgData, "imgData"); err != nil {
+		return
 	}
 
-	return gocv.IMDecode(imgData, gocv.IMReadColor)
+	defer func() {
+		if err != nil {
+			mat.Close()
+		}
+	}()
+
+	mat, err = gocv.IMDecode(imgData, gocv.IMReadColor)
+	if err != nil {
+		return
+	}
+	if mat.Empty() {
+		err = errKit.New("mat is empty")
+		return
+	}
+	return mat, nil
 }
 
-// DecodeFromPath
+// DecodeFromPath 图片（路径） => gocv.Mat
 /*
 @param path 图片路径
 */
-func DecodeFromPath(path string) (gocv.Mat, error) {
-	if err := fileKit.AssertExistAndIsFile(path); err != nil {
-		return gocv.NewMat(), err
+func DecodeFromPath(path string) (mat gocv.Mat, err error) {
+	if err = fileKit.AssertExistAndIsFile(path); err != nil {
+		return
 	}
 
-	img := gocv.IMRead(path, gocv.IMReadColor)
-	if img.Empty() {
-		return img, errKit.Simple("read: mat is empty")
+	defer func() {
+		if err != nil {
+			mat.Close()
+		}
+	}()
+
+	mat = gocv.IMRead(path, gocv.IMReadColor)
+	if mat.Empty() {
+		err = errKit.New("mat is empty")
+		return
 	}
-	return img, nil
+	return mat, nil
 }

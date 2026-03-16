@@ -1,25 +1,23 @@
 package gocvKit
 
 import (
-	"fmt"
-
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"gocv.io/x/gocv"
 )
 
-// Encode gocv.Mat => 图片二进制数据
+// Encode gocv.Mat => 图片（二进制数据）
 /*
 @param format	".jpg" | ".png" | ".bmp" 等
 */
 func Encode(mat gocv.Mat, format string) ([]byte, error) {
 	if mat.Empty() {
-		return nil, fmt.Errorf("mat is empty")
+		return nil, errKit.New("mat is empty")
 	}
 
 	buf, err := gocv.IMEncode(gocv.FileExt(format), mat)
 	if err != nil {
-		return nil, fmt.Errorf("encode failed: %w", err)
+		return nil, errKit.Wrap(err, "encode failed")
 	}
 	defer buf.Close()
 
@@ -31,7 +29,7 @@ func Encode(mat gocv.Mat, format string) ([]byte, error) {
 	return data, nil
 }
 
-// EncodeToPath gocv.Mat => 图片文件
+// EncodeToPath gocv.Mat => 图片（文件路径）
 func EncodeToPath(mat gocv.Mat, path string) error {
 	if err := fileKit.MkParentDirs(path); err != nil {
 		return err
@@ -40,7 +38,7 @@ func EncodeToPath(mat gocv.Mat, path string) error {
 	// 直接保存
 	ok := gocv.IMWrite(path, mat)
 	if !ok {
-		return errKit.Simple("encode: fail to write")
+		return errKit.New("fail to write")
 	}
 	return nil
 }

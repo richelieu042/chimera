@@ -37,16 +37,16 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	}
 
 	// （2）读取模板图像
-	tmplImg, err := DecodeFromPath(templatePath)
-	defer tmplImg.Close()
+	templImg, err := DecodeFromPath(templatePath)
+	defer templImg.Close()
 	if err != nil {
 		return 0, image.Point{}, errKit.Wrapf(err, "failed to read template image")
 	}
 
 	// (3)验证模板尺寸不能大于源图
-	if tmplImg.Cols() > srcImg.Cols() || tmplImg.Rows() > srcImg.Rows() {
+	if templImg.Cols() > srcImg.Cols() || templImg.Rows() > srcImg.Rows() {
 		err := errKit.Newf("template size (%dx%d) cannot be larger than source size (%dx%d)",
-			tmplImg.Cols(), tmplImg.Rows(), srcImg.Cols(), srcImg.Rows())
+			templImg.Cols(), templImg.Rows(), srcImg.Cols(), srcImg.Rows())
 		return 0, image.Point{}, err
 	}
 
@@ -56,21 +56,21 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 		grayFlag = grayArgs[0]
 	}
 	// 准备用于匹配的图像
-	var img, tmpl gocv.Mat
+	var img, templ gocv.Mat
 	if grayFlag {
 		// （1）转换源图为灰度图
 		img, err = ToGrayscale(srcImg)
-		defer img.Close()
 		if err != nil {
 			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert source image to grayscale")
 		}
+		defer img.Close()
 
 		// （2）转换模板图为灰度图
-		tmpl, err = ToGrayscale(tmplImg)
-		defer tmpl.Close()
+		templ, err = ToGrayscale(templImg)
 		if err != nil {
 			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert template image to grayscale")
 		}
+		defer templ.Close()
 
 		//// 转换源图为灰度图
 		//img = gocv.NewMat()
@@ -80,15 +80,15 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 		//}
 		//
 		//// 转换模板图为灰度图
-		//tmpl = gocv.NewMat()
-		//defer tmpl.Close()
-		//if err := gocv.CvtColor(tmplImg, &tmpl, gocv.ColorBGRToGray); err != nil {
+		//templ = gocv.NewMat()
+		//defer templ.Close()
+		//if err := gocv.CvtColor(templImg, &templ, gocv.ColorBGRToGray); err != nil {
 		//	return 0, image.Point{}, errKit.Wrapf(err, "fail to convert template image to grayscale")
 		//}
 	} else {
 		// 直接使用彩色图像
 		img = srcImg
-		tmpl = tmplImg
+		templ = templImg
 	}
 
 	result := gocv.NewMat() // 创建结果矩阵
@@ -96,7 +96,7 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	mask := gocv.NewMat()
 	defer mask.Close()
 	// 执行模板匹配
-	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, mask); err != nil {
+	if err := gocv.MatchTemplate(img, templ, &result, matchMode, mask); err != nil {
 		return 0, image.Point{}, errKit.Wrapf(err, "failed to perform template matching")
 	}
 

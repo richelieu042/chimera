@@ -1,24 +1,17 @@
 package main
 
 import (
-	"image"
+	"fmt"
 
-	"github.com/richelieu042/chimera/v3/src/image/imageKit"
+	"gocv.io/x/gocv"
 )
 
 func main() {
-	path := "/Users/richelieu/Desktop/screenshot 2.png"
-	point0 := &image.Point{
-		X: 1657,
-		Y: 65,
-	}
-	point1 := &image.Point{
-		X: 1754,
-		Y: 163,
-	}
+	var mat gocv.Mat
 
-	err := imageKit.ClipWithPath(path, "ccc.png", point0.X, point0.Y, point1.X-point0.X, point1.Y-point0.Y)
-	if err != nil {
-		panic(err)
+	fmt.Println("-")
+	if err := mat.Close(); err != nil {
+		fmt.Println(err)
 	}
+	fmt.Println("-")
 }
