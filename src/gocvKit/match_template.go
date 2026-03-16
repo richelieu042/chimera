@@ -21,7 +21,6 @@ PS:
                     	- TmCcorr/TmCcorrNormed: 相关性匹配（值越大越好）
 @param grayArgs     可选参数，是否转换为灰度图处理（默认 false）
                     设为 true 可提高匹配速度并降低颜色干扰
-
 @return maxVal      最大匹配值（相似度分数）
                     - 归一化模式（Normed）：范围 [-1, 1] 或 [0, 1]
                     - 非归一化模式：取值范围取决于图像内容
