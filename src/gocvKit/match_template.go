@@ -96,18 +96,19 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	minVal, maxVal, minLoc, maxLoc := gocv.MinMaxLoc(result)
 
 	// 根据匹配模式返回对应的最佳值和位置
+	var matchLoc image.Point
 	switch matchMode {
 	case gocv.TmSqdiff, gocv.TmSqdiffNormed:
 		// 平方差模式：值越小越好
-		loc := minLoc
-		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Rows())
-		return minVal, matchRect, nil
+		matchVal = minVal
+		matchLoc = minLoc
 	default:
 		// 其他模式：值越大越好
-		loc := maxLoc
-		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Rows())
-		return maxVal, matchRect, nil
+		matchVal = maxVal
+		matchLoc = maxLoc
 	}
+	matchRect = image.Rect(matchLoc.X, matchLoc.Y, matchLoc.X+templ.Cols(), matchLoc.Y+templ.Rows())
+	return
 }
 
 // MatchTemplateWithThreshold 带阈值的模板匹配
