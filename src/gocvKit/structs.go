@@ -10,9 +10,6 @@ type (
 
 func NewPoint(x, y int) *Point {
 	return &Point{
-		Point: image.Point{
-			X: x,
-			Y: y,
-		},
+		Point: image.Point{X: x, Y: y},
 	}
 }
