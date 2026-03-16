@@ -101,12 +101,12 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	case gocv.TmSqdiff, gocv.TmSqdiffNormed:
 		// 平方差模式：值越小越好
 		loc := minLoc
-		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Cols())
+		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Rows())
 		return minVal, matchRect, nil
 	default:
 		// 其他模式：值越大越好
 		loc := maxLoc
-		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Cols())
+		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Rows())
 		return maxVal, matchRect, nil
 	}
 }
