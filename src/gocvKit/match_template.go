@@ -77,12 +77,12 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 		tmpl = tmplImg
 	}
 
-	// 创建结果矩阵
-	result := gocv.NewMat()
+	result := gocv.NewMat() // 创建结果矩阵
 	defer result.Close()
-
+	mask := gocv.NewMat()
+	defer mask.Close()
 	// 执行模板匹配
-	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, gocv.NewMat()); err != nil {
+	if err := gocv.MatchTemplate(img, tmpl, &result, matchMode, mask); err != nil {
 		return 0, image.Point{}, errKit.Wrapf(err, "failed to perform template matching")
 	}
 
