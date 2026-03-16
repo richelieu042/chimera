@@ -8,6 +8,9 @@ import (
 )
 
 // Decode 图片（二进制数据） => gocv.Mat
+/*
+	!!!: 如果返回的 err == nil，使用完后需要：手动关闭返回的 mat（建议在调用的下一行加上defer close）.
+*/
 func Decode(imgData []byte) (mat gocv.Mat, err error) {
 	if err = sliceKit.AssertNotEmpty(imgData, "imgData"); err != nil {
 		return
@@ -32,7 +35,9 @@ func Decode(imgData []byte) (mat gocv.Mat, err error) {
 
 // DecodeFromPath 图片（路径） => gocv.Mat
 /*
-@param path 图片路径
+	!!!: 如果返回的 err == nil，使用完后需要：手动关闭返回的 mat（建议在调用的下一行加上defer close）.
+
+	@param path 图片路径
 */
 func DecodeFromPath(path string) (mat gocv.Mat, err error) {
 	if err = fileKit.AssertExistAndIsFile(path); err != nil {
