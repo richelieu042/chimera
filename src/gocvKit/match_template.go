@@ -153,9 +153,9 @@ func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.Tem
 @return err         错误信息
 */
 func GetMatchRect(matchLoc image.Point, templatePath string) (rect image.Rectangle, err error) {
-	tmpl := gocv.IMRead(templatePath, gocv.IMReadColor)
-	if tmpl.Empty() {
-		return image.Rectangle{}, errKit.Newf("failed to read template image: %s", templatePath)
+	tmpl, err := DecodeFromPath(templatePath)
+	if err != nil {
+		return
 	}
 	defer tmpl.Close()
 
@@ -166,6 +166,5 @@ func GetMatchRect(matchLoc image.Point, templatePath string) (rect image.Rectang
 		matchLoc.X+tmpl.Cols(),
 		matchLoc.Y+tmpl.Rows(),
 	)
-
-	return rect, nil
+	return
 }
