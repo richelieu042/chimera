@@ -58,19 +58,33 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	// 准备用于匹配的图像
 	var img, tmpl gocv.Mat
 	if grayFlag {
-		// 转换源图为灰度图
-		img = gocv.NewMat()
+		// （1）转换源图为灰度图
+		img, err = ToGrayscale(srcImg)
 		defer img.Close()
-		if err := gocv.CvtColor(srcImg, &img, gocv.ColorBGRToGray); err != nil {
+		if err != nil {
 			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert source image to grayscale")
 		}
 
-		// 转换模板图为灰度图
-		tmpl = gocv.NewMat()
+		// （2）转换模板图为灰度图
+		tmpl, err = ToGrayscale(tmplImg)
 		defer tmpl.Close()
-		if err := gocv.CvtColor(tmplImg, &tmpl, gocv.ColorBGRToGray); err != nil {
+		if err != nil {
 			return 0, image.Point{}, errKit.Wrapf(err, "fail to convert template image to grayscale")
 		}
+
+		//// 转换源图为灰度图
+		//img = gocv.NewMat()
+		//defer img.Close()
+		//if err := gocv.CvtColor(srcImg, &img, gocv.ColorBGRToGray); err != nil {
+		//	return 0, image.Point{}, errKit.Wrapf(err, "fail to convert source image to grayscale")
+		//}
+		//
+		//// 转换模板图为灰度图
+		//tmpl = gocv.NewMat()
+		//defer tmpl.Close()
+		//if err := gocv.CvtColor(tmplImg, &tmpl, gocv.ColorBGRToGray); err != nil {
+		//	return 0, image.Point{}, errKit.Wrapf(err, "fail to convert template image to grayscale")
+		//}
 	} else {
 		// 直接使用彩色图像
 		img = srcImg
