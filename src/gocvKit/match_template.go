@@ -31,17 +31,17 @@ PS:
 func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (matchVal float32, matchLoc image.Point, err error) {
 	// （1）读取源图像
 	srcImg, err := DecodeFromPath(srcPath)
-	defer srcImg.Close()
 	if err != nil {
 		return 0, image.Point{}, errKit.Wrapf(err, "failed to read source image")
 	}
+	defer srcImg.Close()
 
 	// （2）读取模板图像
 	templImg, err := DecodeFromPath(templatePath)
-	defer templImg.Close()
 	if err != nil {
 		return 0, image.Point{}, errKit.Wrapf(err, "failed to read template image")
 	}
+	defer templImg.Close()
 
 	// (3)验证模板尺寸不能大于源图
 	if templImg.Cols() > srcImg.Cols() || templImg.Rows() > srcImg.Rows() {
