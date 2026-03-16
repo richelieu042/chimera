@@ -28,7 +28,7 @@ PS:
 @return maxLoc      最佳匹配位置的左上角坐标点
 @return err         错误信息
 */
-func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (matchVal float32, matchLoc image.Point, err error) {
+func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, grayArgs ...bool) (matchVal float32, matchRect image.Rectangle, err error) {
 	// （1）读取源图像
 	srcImg, err := DecodeFromPath(srcPath)
 	if err != nil {
@@ -100,10 +100,14 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 	switch matchMode {
 	case gocv.TmSqdiff, gocv.TmSqdiffNormed:
 		// 平方差模式：值越小越好
-		return minVal, minLoc, nil
+		loc := minLoc
+		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Cols())
+		return minVal, matchRect, nil
 	default:
 		// 其他模式：值越大越好
-		return maxVal, maxLoc, nil
+		loc := maxLoc
+		matchRect = image.Rect(loc.X, loc.Y, loc.X+templ.Cols(), loc.Y+templ.Cols())
+		return maxVal, matchRect, nil
 	}
 }
 
@@ -124,10 +128,10 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 @return matchLoc    匹配位置
 @return err         错误信息
 */
-func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, threshold float32, grayArgs ...bool) (matched bool, matchVal float32, matchLoc image.Point, err error) {
-	matchVal, matchLoc, err = MatchTemplate(srcPath, templatePath, matchMode, grayArgs...)
+func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, threshold float32, grayArgs ...bool) (matched bool, matchVal float32, rect image.Rectangle, err error) {
+	matchVal, rect, err = MatchTemplate(srcPath, templatePath, matchMode, grayArgs...)
 	if err != nil {
-		return false, 0, image.Point{}, err
+		return
 	}
 
 	// 根据匹配模式判断是否超过阈值
@@ -139,32 +143,5 @@ func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.Tem
 		// 其他模式：值越大越好，需要大于阈值
 		matched = matchVal > threshold
 	}
-
-	return matched, matchVal, matchLoc, nil
-}
-
-// GetMatchRect 获取匹配区域的矩形范围.
-/*
-根据匹配位置和模板尺寸，计算出完整的匹配矩形区域
-
-@param matchLoc     匹配位置（左上角坐标）
-@param templatePath 模板图像路径（用于获取模板尺寸）
-@return rect        匹配区域的矩形（可用于绘制标记）
-@return err         错误信息
-*/
-func GetMatchRect(matchLoc image.Point, templatePath string) (rect image.Rectangle, err error) {
-	tmpl, err := DecodeFromPath(templatePath)
-	if err != nil {
-		return
-	}
-	defer tmpl.Close()
-
-	// 计算矩形区域：从匹配点到 (匹配点 + 模板尺寸)
-	rect = image.Rect(
-		matchLoc.X,
-		matchLoc.Y,
-		matchLoc.X+tmpl.Cols(),
-		matchLoc.Y+tmpl.Rows(),
-	)
-	return
+	return matched, matchVal, rect, nil
 }
