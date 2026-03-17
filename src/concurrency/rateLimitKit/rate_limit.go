@@ -25,6 +25,15 @@ func NewUberLimiter(rate int, opts ...ratelimit.Option) ratelimit.Limiter {
 	Token bucket 实现，功能更全，支持 burst、context 取消等，但 API 稍复杂一些。
 
 	Wait 和 WaitN: https://claude.ai/share/e814de8e-c2b0-4555-a288-cd841f0ccdbf
+
+	传参详见：https://claude.ai/share/84354eb3-a586-48d7-8fa9-09e0a34643bb
+	@param r rate.Limit 本质是 float64，表示每秒允许的事件数。
+				e.g.
+					rate.Every(100 * time.Millisecond) // 每100ms一个 → 10/s
+					rate.Every(time.Second)            // 每秒一个 → 1/s
+					rate.Limit(5)                      // 直接指定 5/s
+					rate.Inf                           // 无限制（不限速）
+	@param b 令牌桶（token bucket）的最大容量，即允许的瞬时突发事件数。
 */
 func NewLimiter(r rate.Limit, b int) *rate.Limiter {
 	return rate.NewLimiter(r, b)

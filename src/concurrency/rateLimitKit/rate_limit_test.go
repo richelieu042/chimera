@@ -69,7 +69,6 @@ func TestNewLimiter(t *testing.T) {
 	flag := log.Ldate | log.Ltime | log.Lmicroseconds | log.Lshortfile
 	l := log.New(os.Stdout, "", flag)
 
-	// Every(500ms) = 2 RPS，burst=1 表示不允许突发
 	limiter := NewLimiter(rate.Every(500*time.Millisecond), 1)
 
 	limiter.Wait(context.Background())
