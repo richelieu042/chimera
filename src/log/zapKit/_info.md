@@ -1,6 +1,6 @@
 ## 注意点
 
-- 为了防止import cycle，不要引用 console包.
+- 为了防止import cycle，不要引用 console 包.
 
 ## 参考
 

@@ -36,7 +36,8 @@ e.g. case: core传nil，options不传
 */
 func NewLogger(core zapcore.Core, options ...LoggerOption) (logger *zap.Logger) {
 	if core == nil {
-		core = NewCore(NewEncoder(), os.Stdout, zapcore.DebugLevel)
+		enc := NewEncoder()
+		core = NewCore(enc, os.Stdout, zapcore.DebugLevel)
 	}
 
 	opts := loadOptions(options...)
