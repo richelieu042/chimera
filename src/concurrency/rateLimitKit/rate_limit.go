@@ -23,6 +23,8 @@ func NewUberLimiter(rate int, opts ...ratelimit.Option) ratelimit.Limiter {
 // NewLimiter 方案2（如果需要 ctx 取消，推荐使用此方案）
 /*
 	Token bucket 实现，功能更全，支持 burst、context 取消等，但 API 稍复杂一些。
+
+	Wait 和 WaitN: https://claude.ai/share/e814de8e-c2b0-4555-a288-cd841f0ccdbf
 */
 func NewLimiter(r rate.Limit, b int) *rate.Limiter {
 	return rate.NewLimiter(r, b)
