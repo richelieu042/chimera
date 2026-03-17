@@ -13,6 +13,8 @@ import (
 		ratelimit.New(2)                                      // 2次/秒
 		ratelimit.New(2, ratelimit.Per(time.Second))          // 同上，显式指定
 		ratelimit.New(1, ratelimit.Per(500*time.Millisecond)) // 更直观
+
+	@param opts 推荐使用 ratelimit.WithoutSlack，禁用 slack（松弛），严格保证每两次 Take() 之间的间隔不小于 1/rate，无论之前空闲了多久
 */
 func NewUberLimiter(rate int, opts ...ratelimit.Option) ratelimit.Limiter {
 	return ratelimit.New(rate, opts...)

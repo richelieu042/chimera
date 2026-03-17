@@ -1,12 +1,14 @@
 package rateLimitKit
 
 import (
+	"context"
 	"log"
 	"os"
 	"testing"
 	"time"
 
 	"go.uber.org/ratelimit"
+	"golang.org/x/time/rate"
 )
 
 func TestNewUberLimiter(t *testing.T) {
@@ -43,6 +45,7 @@ func TestNewUberLimiter1(t *testing.T) {
 	l.Println("3") // 等待 ~500ms（slack 耗尽）
 }
 
+// WithoutSlack 的例子
 func TestNewUberLimiter2(t *testing.T) {
 	flag := log.Ldate | log.Ltime | log.Lmicroseconds | log.Lshortfile
 	l := log.New(os.Stdout, "", flag)
@@ -60,4 +63,19 @@ func TestNewUberLimiter2(t *testing.T) {
 	l.Println("2") // 等待 ~500ms（严格间隔，slack 不起作用）
 	limiter.Take()
 	l.Println("3") // // 等待 ~500ms
+}
+
+func TestNewLimiter(t *testing.T) {
+	flag := log.Ldate | log.Ltime | log.Lmicroseconds | log.Lshortfile
+	l := log.New(os.Stdout, "", flag)
+
+	// Every(500ms) = 2 RPS，burst=1 表示不允许突发
+	limiter := NewLimiter(rate.Every(500*time.Millisecond), 1)
+
+	limiter.Wait(context.Background())
+	l.Println("1")
+	limiter.Wait(context.Background())
+	l.Println("2")
+	limiter.Wait(context.Background())
+	l.Println("3")
 }
