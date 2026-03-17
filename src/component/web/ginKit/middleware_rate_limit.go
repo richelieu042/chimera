@@ -1,10 +1,11 @@
-package rateLimitKit
+package ginKit
 
 import (
 	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/concurrency/rateLimitKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"golang.org/x/time/rate"
 )
@@ -19,7 +20,7 @@ PS: 传参说明详见 NewLimiter.
 @param forbiddenText 	被限流时，响应给前端的内容（状态码固定为 403）
 */
 func NewGinMiddleware(r rate.Limit, b int, forbiddenText string) gin.HandlerFunc {
-	limiter := NewLimiter(r, b)
+	limiter := rateLimitKit.NewLimiter(r, b)
 
 	if strKit.IsEmpty(forbiddenText) {
 		forbiddenText = fmt.Sprintf("Exceed rate limiter(r: %f, b: %d).", r, b)

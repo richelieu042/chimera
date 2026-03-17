@@ -8,7 +8,6 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
-	"github.com/richelieu042/chimera/v3/src/micro/rateLimitKit"
 	"golang.org/x/time/rate"
 )
 
@@ -83,7 +82,7 @@ func attachMiddlewares(engine *gin.Engine, config MiddlewareConfig, opts *ginOpt
 			forbiddenText = fmt.Sprintf("[%s] %s", serviceInfo, forbiddenText)
 		}
 
-		middleware := rateLimitKit.NewGinMiddleware(rate.Limit(rlConfig.R), rlConfig.B, forbiddenText)
+		middleware := NewGinMiddleware(rate.Limit(rlConfig.R), rlConfig.B, forbiddenText)
 		engine.Use(middleware)
 	}
 
