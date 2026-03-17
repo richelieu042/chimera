@@ -120,6 +120,7 @@ require (
 	go.opentelemetry.io/otel/sdk v1.42.0
 	go.opentelemetry.io/otel/trace v1.42.0
 	go.uber.org/atomic v1.11.0
+	go.uber.org/ratelimit v0.3.1
 	go.uber.org/zap v1.27.1
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.25.0
@@ -192,6 +193,7 @@ require (
 	github.com/apache/arrow/go/v15 v15.0.2 // indirect
 	github.com/ardielle/ardielle-go v1.5.2 // indirect
 	github.com/armon/go-metrics v0.4.1 // indirect
+	github.com/benbjohnson/clock v1.3.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/bits-and-blooms/bitset v1.12.0 // indirect
 	github.com/boltdb/bolt v1.3.1 // indirect
