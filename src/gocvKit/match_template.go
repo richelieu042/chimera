@@ -128,8 +128,8 @@ func MatchTemplate(srcPath, templatePath string, matchMode gocv.TemplateMatchMod
 @return matchLoc    匹配位置
 @return err         错误信息
 */
-func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, threshold float32, grayArgs ...bool) (matched bool, matchVal float32, rect image.Rectangle, err error) {
-	matchVal, rect, err = MatchTemplate(srcPath, templatePath, matchMode, grayArgs...)
+func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.TemplateMatchMode, threshold float32, grayArgs ...bool) (matched bool, matchVal float32, matchRect image.Rectangle, err error) {
+	matchVal, matchRect, err = MatchTemplate(srcPath, templatePath, matchMode, grayArgs...)
 	if err != nil {
 		return
 	}
@@ -143,5 +143,5 @@ func MatchTemplateWithThreshold(srcPath, templatePath string, matchMode gocv.Tem
 		// 其他模式：值越大越好，需要大于阈值
 		matched = matchVal > threshold
 	}
-	return matched, matchVal, rect, nil
+	return matched, matchVal, matchRect, nil
 }
