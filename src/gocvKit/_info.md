@@ -1,3 +1,8 @@
+## 必要条件！！！
+
+- Go配置：CGO_ENABLED='1'
+- https://github.com/hybridgroup/gocv?tab=readme-ov-file#how-to-install
+
 ## 参考
 
 - [GitHub](https://github.com/hybridgroup/gocv)
