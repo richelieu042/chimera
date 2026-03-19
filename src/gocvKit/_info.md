@@ -1,3 +1,7 @@
+## 参考
+
+- [GitHub](https://github.com/hybridgroup/gocv)
+
 ## 关闭 gocv.Mat 实例
 
 var img gocv.Mat 只是声明了零值 Mat（相当于 gocv.Mat{}），没有调用任何分配 C 内存的函数，所以没有需要释放的资源。
