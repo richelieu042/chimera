@@ -14,7 +14,9 @@ import (
 
 // Screenshot 截图
 /*
-	@param targetPath 截图保存的路径（PNG格式）
+PS: 如果连接的是非本地安卓模拟器，耗时将会比较长（约2s，网络波动的话耗时会更长）.
+
+@param targetPath 截图保存的路径（PNG格式）
 */
 func (impl *clientImpl) Screenshot(targetPath string) error {
 	impl.Lock()
