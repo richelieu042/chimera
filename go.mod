@@ -62,7 +62,7 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.18.4
+	github.com/klauspost/compress v1.18.5
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260313013624-04e51e218220
@@ -80,7 +80,7 @@ require (
 	github.com/oklog/ulid/v2 v2.1.1
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
-	github.com/panjf2000/ants/v2 v2.11.6
+	github.com/panjf2000/ants/v2 v2.12.0
 	github.com/pdfcpu/pdfcpu v0.11.1
 	github.com/pelletier/go-toml/v2 v2.2.4
 	github.com/pierrec/lz4/v4 v4.1.26
@@ -111,7 +111,7 @@ require (
 	github.com/xuri/excelize/v2 v2.10.1
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
-	go.etcd.io/etcd/client/v3 v3.6.8
+	go.etcd.io/etcd/client/v3 v3.6.9
 	go.mongodb.org/mongo-driver/v2 v2.5.0
 	go.opentelemetry.io/otel v1.42.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.42.0
@@ -379,8 +379,8 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.8 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.6.8 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.9 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.9 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect
