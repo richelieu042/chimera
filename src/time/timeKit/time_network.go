@@ -25,19 +25,22 @@ var sources = []string{
 /*
 !!!: 方法体内不要直接使用 reqKit，以防import cycle.
 
-@param ctx 不能为nil
+@param timeout 超时时间
 @return time.Time 	获取到的网络时间
 		string		网络时间的来源
 		error		错误
 */
-func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
+func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
 	}
 
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
+	defer cancel()
+
 	client := &http.Client{
-		Timeout: 10 * time.Second,
+		Timeout: timeout,
 	}
 
 	ch := make(chan *bean, len(sources))
