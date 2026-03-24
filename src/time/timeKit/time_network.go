@@ -36,9 +36,7 @@ func GetNetworkTime(c context.Context) (time.Time, string, error) {
 	}
 
 	ch := make(chan *bean, len(sources))
-	client := &http.Client{
-		Timeout: time.Second * 10,
-	}
+	client := &http.Client{}
 	ctx, cancel := context.WithCancel(c)
 	defer cancel()
 
