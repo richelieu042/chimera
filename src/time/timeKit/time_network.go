@@ -29,7 +29,7 @@ PS: 方法体内不要直接使用 reqKit，以防import cycle.
 		string		网络时间的来源
 		error		错误
 */
-func GetNetworkTime(c context.Context) (time.Time, string, error) {
+func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
@@ -37,7 +37,7 @@ func GetNetworkTime(c context.Context) (time.Time, string, error) {
 
 	ch := make(chan *bean, len(sources))
 	client := &http.Client{}
-	ctx, cancel := context.WithCancel(c)
+	ctx1, cancel := context.WithCancel(ctx)
 	defer cancel()
 
 	var wg sync.WaitGroup
@@ -46,7 +46,7 @@ func GetNetworkTime(c context.Context) (time.Time, string, error) {
 		go func(url string) {
 			defer wg.Done()
 
-			t, err := getNetworkTimeByUrl(ctx, client, url)
+			t, err := getNetworkTimeByUrl(ctx1, client, url)
 			if err != nil {
 				return
 			}
@@ -68,8 +68,8 @@ func GetNetworkTime(c context.Context) (time.Time, string, error) {
 			return time.Time{}, "", errKit.New("all network time sources failed")
 		}
 		return b.time, b.source, nil
-	case <-ctx.Done():
-		return time.Time{}, "", ctx.Err()
+	case <-ctx1.Done():
+		return time.Time{}, "", ctx1.Err()
 	}
 }
 
