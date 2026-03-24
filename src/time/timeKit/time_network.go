@@ -83,7 +83,7 @@ func getNetworkTimeByUrl(ctx context.Context, url string) (t time.Time, err erro
 		err = errKit.New("value of header is empty")
 		return
 	}
-	t, err = Parse(FormatRFC1123, value)
+	t, err = Parse(http.TimeFormat, value)
 	if err != nil {
 		err = errKit.Wrap(err, "fail to parse value of header")
 		return
