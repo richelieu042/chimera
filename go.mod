@@ -50,7 +50,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.33.4
+	github.com/hashicorp/consul/api v1.33.5
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.8.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -65,7 +65,7 @@ require (
 	github.com/klauspost/compress v1.18.5
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260313013624-04e51e218220
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260323125519-8a7b0882169b
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -127,7 +127,7 @@ require (
 	golang.org/x/arch v0.25.0
 	golang.org/x/crypto v0.49.0
 	golang.org/x/exp v0.0.0-20260312153236-7ab1446f8b90
-	golang.org/x/image v0.37.0
+	golang.org/x/image v0.38.0
 	golang.org/x/mobile v0.0.0-20260312152759-81488f6aeb60
 	golang.org/x/mod v0.34.0
 	golang.org/x/net v0.52.0
