@@ -37,10 +37,11 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		time   time.Time
 	}
 
-	client := &http.Client{}
-
 	ch := make(chan *bean, len(sources))
 
+	client := &http.Client{
+		Timeout: 10 * time.Second, // 兜底超时
+	}
 	var wg sync.WaitGroup
 	for _, source := range sources {
 		wg.Add(1)
