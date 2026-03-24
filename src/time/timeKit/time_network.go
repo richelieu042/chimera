@@ -31,12 +31,14 @@ PS: 方法体内不要直接使用 reqKit，以防import cycle.
 */
 func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	type bean struct {
-		source string
-		time   time.Time
+		Source string
+		Time   time.Time
 	}
 
 	ch := make(chan *bean, len(sources))
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: time.Second * 10,
+	}
 	/*
 		Go 的 context 取消是单向向下传播的：
 		（1）父 ctx 取消 → 子 ctx1 自动取消 ✅
@@ -56,8 +58,8 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 				return
 			}
 			ch <- &bean{
-				source: url,
-				time:   t,
+				Source: url,
+				Time:   t,
 			}
 		}(source)
 	}
@@ -70,14 +72,14 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	select {
 	case b, ok := <-ch:
 		if !ok {
-			return time.Time{}, "", errKit.New("all network time sources failed")
+			return time.Time{}, "", errKit.New("all network Time sources failed")
 		}
-		return b.time, b.source, nil
+		return b.Time, b.Source, nil
 	case <-ctx1.Done():
 		select {
 		case b, ok := <-ch:
 			if ok {
-				return b.time, b.source, nil
+				return b.Time, b.Source, nil
 			}
 		default:
 		}
