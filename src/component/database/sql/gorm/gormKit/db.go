@@ -28,7 +28,7 @@ func NewDB(dialector gorm.Dialector, opts ...gorm.Option) (*gorm.DB, error) {
 	if err := interfaceKit.AssertNotNil(dialector, "dialector"); err != nil {
 		return nil, err
 	}
-	opts = polyfillOpts()
+	opts = polyfillOpts(opts...)
 
 	db, err := gorm.Open(dialector, opts...)
 	if err != nil {
