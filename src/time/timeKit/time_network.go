@@ -60,6 +60,7 @@ func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 
 	select {
 	case b := <-ch:
+		cancel()
 		return b.time, b.source, nil
 	case <-ctx.Done():
 		return time.Time{}, "", ctx.Err()
