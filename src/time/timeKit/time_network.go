@@ -4,6 +4,7 @@ import (
 	"context"
 	"io"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
@@ -42,10 +43,11 @@ func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 	client := &http.Client{
 		Timeout: timeout,
 	}
-
-	ch := make(chan *bean, len(sources))
+	var wg sync.WaitGroup
 	for _, source := range sources {
+		wg.Add(1)
 		go func(url string) {
+			defer wg.Done()
 			t, err := getNetworkTimeByUrl(ctx, client, url)
 			if err != nil {
 				return
@@ -57,6 +59,11 @@ func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 			}
 		}(source)
 	}
+
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
 
 	select {
 	case b := <-ch:
