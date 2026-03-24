@@ -10,7 +10,8 @@ import (
 // MatchTemplate 模板匹配 - 在源图中查找模板图的“最佳”匹配位置（在大图中找小图）
 /*
 PS:
-（1）如果需要再大图中截取小图再进行模板匹配，务必使用 imageKit.ClipWithPath 而非通过桌面工具进行截图，
+（1）高并发：只要每个 goroutine 持有独立的 Mat 对象，CPU 路径下并发调用 gocv.MatchTemplate 是安全的。
+（2）如果需要再大图中截取小图再进行模板匹配，务必使用 imageKit.ClipWithPath 而非通过桌面工具进行截图，
 	否则会导致：使用 gocv.TmCcoeffNormed 的情况下，maxVal 值会很小（即使肉眼可见的匹配）.
 
 @param srcPath      源图像文件路径（大图）
