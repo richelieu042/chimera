@@ -37,6 +37,11 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 
 	ch := make(chan *bean, len(sources))
 	client := &http.Client{}
+	/*
+		Go 的 context 取消是单向向下传播的：
+		（1）父 ctx 取消 → 子 ctx1 自动取消 ✅
+		（2）子 ctx1 取消（调用 cancel()）→ 父 ctx 不受影响 ✅
+	*/
 	ctx1, cancel := context.WithCancel(ctx)
 	defer cancel()
 
