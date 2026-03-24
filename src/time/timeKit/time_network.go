@@ -23,22 +23,23 @@ var sources = []string{
 
 // GetNetworkTime
 /*
-!!!: 方法体内不要直接使用 reqKit，以防import cycle.
+PS: 方法体内不要直接使用 reqKit，以防import cycle.
 
-@param ctx 不能为nil
 @return time.Time 	获取到的网络时间
 		string		网络时间的来源
 		error		错误
 */
-func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
+func GetNetworkTime(c context.Context) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
 	}
 
 	ch := make(chan *bean, len(sources))
-	client := &http.Client{}
-	ctx, cancel := context.WithTimeout(context.TODO(), timeout)
+	client := &http.Client{
+		Timeout: time.Second * 10,
+	}
+	ctx, cancel := context.WithCancel(c)
 	defer cancel()
 
 	var wg sync.WaitGroup
