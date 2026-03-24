@@ -69,6 +69,13 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		}
 		return b.time, b.source, nil
 	case <-ctx1.Done():
+		select {
+		case b, ok := <-ch:
+			if ok {
+				return b.time, b.source, nil
+			}
+		default:
+		}
 		return time.Time{}, "", ctx1.Err()
 	}
 }
