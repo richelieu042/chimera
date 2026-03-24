@@ -26,22 +26,21 @@ var sources = []string{
 /*
 !!!: 方法体内不要直接使用 reqKit，以防import cycle.
 
-@param timeout 超时时间
+@param ctx 不能为nil
 @return time.Time 	获取到的网络时间
 		string		网络时间的来源
 		error		错误
 */
-func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
+func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
 	}
 
-	ctx, cancel := context.WithTimeout(context.Background(), timeout)
-	defer cancel()
+	ch := make(chan *bean, len(sources))
 
 	client := &http.Client{
-		Timeout: timeout,
+		Timeout: 10 * time.Second, // 兜底超时
 	}
 	var wg sync.WaitGroup
 	for _, source := range sources {
@@ -66,8 +65,10 @@ func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 	}()
 
 	select {
-	case b := <-ch:
-		cancel()
+	case b, ok := <-ch:
+		if !ok {
+			return time.Time{}, "", errKit.New("all network time sources failed")
+		}
 		return b.time, b.source, nil
 	case <-ctx.Done():
 		return time.Time{}, "", ctx.Err()
