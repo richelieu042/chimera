@@ -2,6 +2,7 @@ package timeKit
 
 import (
 	"context"
+	"io"
 	"net/http"
 	"time"
 
@@ -24,8 +25,7 @@ var sources = []string{
 /*
 !!!: 方法体内不要直接使用 reqKit，以防import cycle.
 
-@param ctx 	(1) 不能为nil
-			(2) 建议附带timeout！！！
+@param ctx 不能为nil
 @return time.Time 	获取到的网络时间
 		string		网络时间的来源
 		error		错误
@@ -36,10 +36,14 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		time   time.Time
 	}
 
+	client := &http.Client{
+		Timeout: 10 * time.Second,
+	}
+
 	ch := make(chan *bean, len(sources))
 	for _, source := range sources {
 		go func(url string) {
-			t, err := getNetworkTimeByUrl(ctx, url)
+			t, err := getNetworkTimeByUrl(ctx, client, url)
 			if err != nil {
 				return
 			}
@@ -59,7 +63,7 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	}
 }
 
-func getNetworkTimeByUrl(ctx context.Context, url string) (t time.Time, err error) {
+func getNetworkTimeByUrl(ctx context.Context, client *http.Client, url string) (t time.Time, err error) {
 	// 创建请求，并绑定 context
 	req, err := http.NewRequestWithContext(ctx, "GET", url, nil)
 	if err != nil {
@@ -67,16 +71,20 @@ func getNetworkTimeByUrl(ctx context.Context, url string) (t time.Time, err erro
 		return
 	}
 
-	// 可自定义客户端
-	client := &http.Client{}
-
 	// 发送请求
 	resp, err := client.Do(req)
 	if err != nil {
 		err = errKit.Wrapf(err, "fail to send http request")
 		return
 	}
-	defer resp.Body.Close()
+	defer func() {
+		/*
+			为什么不直接用 defer resp.Body.Close() ？
+			函数目的是取 Date 响应头，状态码理论上不影响结果，但如果对端返回了 4xx/5xx，resp.Body 里可能有较大的 error body，而代码里 defer resp.Body.Close() 但从未读取 body，可能导致底层 TCP 连接无法复用（Transport 要求 body 被完全读取才能归还连接）
+		*/
+		io.Copy(io.Discard, resp.Body)
+		resp.Body.Close()
+	}()
 
 	value := resp.Header.Get(httpKit.HeaderDate)
 	if value == "" {
