@@ -4,6 +4,7 @@ import (
 	"context"
 	"io"
 	"net/http"
+	"sync"
 	"time"
 
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
@@ -41,8 +42,12 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 	}
 
 	ch := make(chan *bean, len(sources))
+
+	var wg sync.WaitGroup
 	for _, source := range sources {
+		wg.Add(1)
 		go func(url string) {
+			defer wg.Done()
 			t, err := getNetworkTimeByUrl(ctx, client, url)
 			if err != nil {
 				return
@@ -55,8 +60,16 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		}(source)
 	}
 
+	go func() {
+		wg.Wait()
+		close(ch)
+	}()
+
 	select {
-	case b := <-ch:
+	case b, ok := <-ch:
+		if !ok {
+			return time.Time{}, "", errKit.New("all network time sources failed")
+		}
 		return b.time, b.source, nil
 	case <-ctx.Done():
 		return time.Time{}, "", ctx.Err()
