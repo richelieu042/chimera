@@ -36,10 +36,6 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		time   time.Time
 	}
 
-	// 保证函数内部有超时，防止所有请求失败且ctx无deadline时select永久阻塞
-	ctx, cancel := context.WithTimeout(ctx, 15*time.Second)
-	defer cancel()
-
 	client := &http.Client{
 		Timeout: 10 * time.Second,
 	}
