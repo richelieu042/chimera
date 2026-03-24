@@ -47,3 +47,5 @@ _test*/
 _playwright-deps
 _temp
 __output__
+
+.claude
