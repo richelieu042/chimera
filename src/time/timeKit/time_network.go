@@ -2,7 +2,6 @@ package timeKit
 
 import (
 	"context"
-	"io"
 	"net/http"
 	"sync"
 	"time"
@@ -31,27 +30,27 @@ var sources = []string{
 		string		网络时间的来源
 		error		错误
 */
-func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
+func GetNetworkTime(timeout time.Duration) (time.Time, string, error) {
 	type bean struct {
 		source string
 		time   time.Time
 	}
 
 	ch := make(chan *bean, len(sources))
+	client := &http.Client{}
+	ctx, cancel := context.WithTimeout(context.TODO(), timeout)
+	defer cancel()
 
-	client := &http.Client{
-		Timeout: 10 * time.Second, // 兜底超时
-	}
 	var wg sync.WaitGroup
 	for _, source := range sources {
 		wg.Add(1)
 		go func(url string) {
 			defer wg.Done()
+
 			t, err := getNetworkTimeByUrl(ctx, client, url)
 			if err != nil {
 				return
 			}
-
 			ch <- &bean{
 				source: url,
 				time:   t,
@@ -90,12 +89,7 @@ func getNetworkTimeByUrl(ctx context.Context, client *http.Client, url string) (
 		return
 	}
 	defer func() {
-		/*
-			为什么不直接用 defer resp.Body.Close() ？
-			函数目的是取 Date 响应头，状态码理论上不影响结果，但如果对端返回了 4xx/5xx，resp.Body 里可能有较大的 error body，而代码里 defer resp.Body.Close() 但从未读取 body，可能导致底层 TCP 连接无法复用（Transport 要求 body 被完全读取才能归还连接）
-		*/
-		io.Copy(io.Discard, resp.Body)
-		resp.Body.Close()
+		_ = resp.Body.Close()
 	}()
 
 	value := resp.Header.Get(httpKit.HeaderDate)
