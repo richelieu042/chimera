@@ -37,9 +37,7 @@ func GetNetworkTime(ctx context.Context) (time.Time, string, error) {
 		time   time.Time
 	}
 
-	client := &http.Client{
-		Timeout: 10 * time.Second,
-	}
+	client := &http.Client{}
 
 	ch := make(chan *bean, len(sources))
 
