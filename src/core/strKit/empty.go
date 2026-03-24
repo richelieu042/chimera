@@ -50,13 +50,10 @@ func IsAllNotEmpty(strings ...string) bool {
 @param trimArgs 是否先对 传参str 进行trim处理？（默认：false，不处理）
 */
 func EmptyToDefault(str, def string, trimArgs ...bool) string {
-	var trimFlag bool
-	if trimArgs != nil {
+	trimFlag := false
+	if len(trimArgs) > 0 {
 		trimFlag = trimArgs[0]
-	} else {
-		trimFlag = false
 	}
-
 	if trimFlag {
 		str = TrimSpace(str)
 	}
