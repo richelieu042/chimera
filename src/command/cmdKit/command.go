@@ -32,41 +32,41 @@ func NewCommand(ctx context.Context, name string, args []string, options ...CmdO
 能从 err 中获取 stderr 的情况：	只有当命令以非零退出码结束时，Output() 才会返回 *ExitError，此时可以从中获取 stderr
 无法从 err 中获取 stderr 的情况：	如果命令成功执行（退出码为 0），即使有 stderr 输出，Output() 也会返回 err = nil，stderr 内容会丢失
 */
-func Run(ctx context.Context, name string, args ...string) ([]byte, error) {
+func Run(ctx context.Context, name string, args ...string) ([]byte, *exec.Cmd, error) {
 	if ctx == nil {
 		ctx = context.TODO()
 	}
 
 	cmd := exec.CommandContext(ctx, name, args...)
-	return cmd.Output()
+	data, err := cmd.Output()
+	return data, cmd, err
 }
 
 // RunCombinedly 执行命令（会阻塞直到命令结束） - stdout 和 stderr 都在 output 中，两者的内容会合并到一起返回
-func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, error) {
+func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, *exec.Cmd, error) {
 	if ctx == nil {
 		ctx = context.TODO()
 	}
 
 	cmd := exec.CommandContext(ctx, name, args...)
-	return cmd.CombinedOutput()
+	data, err := cmd.CombinedOutput()
+	return data, cmd, err
 }
 
-func RunToString(ctx context.Context, name string, args ...string) (resp string, err error) {
-	data, err := Run(ctx, name, args...)
-	resp = string(data)
+func RunToString(ctx context.Context, name string, args ...string) (string, *exec.Cmd, error) {
+	data, cmd, err := Run(ctx, name, args...)
 
-	// 一般最后会有一个'\n'
-	resp = strings.TrimSpace(resp)
+	resp := string(data)
+	resp = strings.TrimSpace(resp) // 一般最后会有一个'\n'
 
-	return
+	return resp, cmd, err
 }
 
-func RunCombinedlyToString(ctx context.Context, name string, args ...string) (resp string, err error) {
-	data, err := RunCombinedly(ctx, name, args...)
-	resp = string(data)
+func RunCombinedlyToString(ctx context.Context, name string, args ...string) (string, *exec.Cmd, error) {
+	data, cmd, err := RunCombinedly(ctx, name, args...)
 
-	// 一般最后会有一个'\n'
-	resp = strings.TrimSpace(resp)
+	resp := string(data)
+	resp = strings.TrimSpace(resp) // 一般最后会有一个'\n'
 
-	return
+	return resp, cmd, err
 }

@@ -26,9 +26,9 @@ func (impl *clientImpl) Screenshot(targetPath string) error {
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
 		-p: 参数表示以 PNG 格式输出截图数据
 	*/
-	data, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", impl.address, "exec-out", "screencap", "-p")
+	data, cmd, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", impl.address, "exec-out", "screencap", "-p")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run 'adb -s %s exec-out screencap -p'", impl.address)
+		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}
 
 	// 尝试创建父目录
@@ -49,7 +49,7 @@ func (impl *clientImpl) Screenshot(targetPath string) error {
 	命令：adb -s 127.0.0.1:5555 shell input tap <x> <y>
 */
 func (impl *clientImpl) Tap(x, y int) error {
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
+	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
 	if err != nil {
 		return err
 	}
@@ -70,7 +70,7 @@ func (impl *clientImpl) LongPress(x, y int, duration int) error {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
+	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
 		intKit.IntToString(duration),
 	)
 	if err != nil {
@@ -104,7 +104,7 @@ func (impl *clientImpl) Swipe(x1, y1, x2, y2 int, duration int) error {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe",
+	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe",
 		intKit.IntToString(x1), intKit.IntToString(y1),
 		intKit.IntToString(x2), intKit.IntToString(y2),
 		intKit.IntToString(duration),

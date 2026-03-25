@@ -49,19 +49,19 @@ func (impl *clientImpl) initialize(logger *zap.Logger) error {
 	}
 
 	// 命令：adb connect {impl.address}
-	connectResp, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", impl.address)
+	connectResp, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", impl.address)
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run 'adb connect %s'", impl.address)
+		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}
 	if strKit.Index(strKit.ToLower(connectResp), "failed to") != -1 {
-		return errKit.Newf("fail to connect to [%s], response: [%s]", impl.address, connectResp)
+		return errKit.Newf("command(%s) fails, response: [%s]", cmd.String(), connectResp)
 	}
 	logger.Info("Connect successfully.", zap.String("addr", impl.address))
 
 	// 命令：adb devices
-	devices, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
+	devices, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run 'adb devices'")
+		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}
 	logger.Sugar().Infof("adb devices:\n%s", devices)
 
