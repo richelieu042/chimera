@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
+	"github.com/richelieu042/chimera/v3/src/android/adbKit"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 )
 
 func main() {
-	i := atomicKit.NewInt32(3)
-
-	i.Dec()
-
-	fmt.Println(i.Load())
+	c, err := adbKit.NewClient("192.168.60.205:16384", true, zapKit.NewSimpleConsoleLogger())
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(c)
 }

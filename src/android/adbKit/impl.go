@@ -32,11 +32,6 @@ type clientImpl struct {
 }
 
 func (impl *clientImpl) initialize(logger *zap.Logger) error {
-	if logger == nil {
-		// 不输出
-		logger = zap.NewNop()
-	}
-
 	/* (1) check */
 	adbPath, adbVersion, err := Check()
 	if err != nil {
@@ -44,7 +39,6 @@ func (impl *clientImpl) initialize(logger *zap.Logger) error {
 	}
 	logger.Sugar().Infof("adb path: %s", adbPath)
 	logger.Sugar().Infof("adb version: \n%s", adbVersion)
-	logger.Info("Check adb environment successfully.")
 
 	/* (2) clean */
 	if impl.cleanFlag {

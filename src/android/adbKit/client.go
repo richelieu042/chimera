@@ -28,11 +28,14 @@ type Client interface {
 @param logger: 可以为nil（默认：丢弃输出）
 */
 func NewClient(address string, cleanFlag bool, logger *zap.Logger) (Client, error) {
+	if logger == nil {
+		logger = zap.NewNop() // 不输出
+	}
+
 	ins := &clientImpl{
 		address:   address,
 		cleanFlag: cleanFlag,
 	}
-
 	if err := ins.initialize(logger); err != nil {
 		return nil, err
 	}

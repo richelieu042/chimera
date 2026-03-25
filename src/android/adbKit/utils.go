@@ -2,6 +2,7 @@ package adbKit
 
 import (
 	"context"
+	"os/exec"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
@@ -43,14 +44,22 @@ func Clean(logger *zap.Logger) error {
 	// Richelieu: 此处返回的 err 不用管
 	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
 	if err != nil {
-		logger.Sugar().Warnf("fail to run 'pkill -f HD-Adb', error: %+v", err)
+		// pkill 返回 exit status 1 表示没有匹配的进程，不是真正的错误
+		if exitErr, ok := err.(*exec.ExitError); ok {
+			if exitErr.ExitCode() == 1 {
+				err = nil // 没有找到进程，忽略
+			}
+		}
+		if err != nil {
+			return errKit.Wrapf(err, "fail to run 'pkill -f HD-Adb'")
+		}
 	}
 
 	// （2）命令：pkill -f adb
 	// Richelieu: 此处返回的 err 不用管
 	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
 	if err != nil {
-		logger.Sugar().Warnf("fail to run 'pkill -f adb', error: %+v", err)
+		return errKit.Wrapf(err, "fail to run 'pkill -f adb'")
 	}
 
 	// （3）命令：adb kill-server
