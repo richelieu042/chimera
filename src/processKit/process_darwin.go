@@ -11,7 +11,7 @@ import (
 
 // GetProcessCount 获取: (瞬时的值)系统中所有进程的数量.
 func GetProcessCount() (int, error) {
-	data, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ps auxw | wc -l")
+	data, _, err := cmdKit.RunCombinedly(context.TODO(), "sh", "-c", "ps auxw | wc -l")
 	if err != nil {
 		return 0, err
 	}

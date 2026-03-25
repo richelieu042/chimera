@@ -32,7 +32,7 @@ func SetMachineTime(ctx context.Context, t time.Time, rootPassword string) error
 		script = fmt.Sprintf(`echo "%s" | sudo -S date %s`, rootPassword, timeStr)
 	}
 
-	_, err := cmdKit.RunCombinedly(ctx, "sh", "-c", script)
+	_, _, err := cmdKit.RunCombinedly(ctx, "sh", "-c", script)
 	return err
 }
 
