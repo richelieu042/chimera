@@ -35,7 +35,7 @@ func Check() (path string, version string, err error) {
 func Clean() error {
 	// 命令：pkill -f HD-clientImpl
 	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-clientImpl")
+	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
 
 	// 命令：pkill -f adb
 	// Richelieu: 此处返回的 err 不用管
