@@ -5,6 +5,7 @@ import (
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
+	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 	"go.uber.org/zap"
 )
 
@@ -34,6 +35,10 @@ func Check() (path string, version string, err error) {
 !!!: 调用此函数前，需要先调用 Check.
 */
 func Clean(logger *zap.Logger) error {
+	if logger == nil {
+		logger = zapKit.NewNopLogger() // 不记录
+	}
+
 	// （1）命令：pkill -f HD-Adb
 	// Richelieu: 此处返回的 err 不用管
 	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
