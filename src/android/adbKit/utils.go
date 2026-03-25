@@ -33,21 +33,27 @@ func Check() (path string, version string, err error) {
 !!!: 调用此函数前，需要先调用 Check.
 */
 func Clean() error {
-	// 命令：pkill -f HD-clientImpl
+	// （1）命令：pkill -f HD-Adb
 	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
+	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
+	if err != nil {
+		return errKit.Wrapf(err, "fail to run 'pkill -f HD-Adb'")
+	}
 
-	// 命令：pkill -f adb
+	// （2）命令：pkill -f adb
 	// Richelieu: 此处返回的 err 不用管
-	_, _ = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
+	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
+	if err != nil {
+		return errKit.Wrapf(err, "fail to run 'pkill -f adb'")
+	}
 
-	// 命令：adb kill-server
-	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
+	// （3）命令：adb kill-server
+	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run 'adb kill-server'")
 	}
 
-	// 命令：adb start-server
+	// （4）命令：adb start-server
 	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run 'adb start-server'")
