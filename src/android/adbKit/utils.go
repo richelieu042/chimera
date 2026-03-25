@@ -59,7 +59,15 @@ func Clean(logger *zap.Logger) error {
 	// （2）命令：pkill -f adb
 	resp, cmd, err = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run '%s'", cmd)
+		// pkill 返回 exit status 1 表示没有匹配的进程，不是真正的错误
+		if exitErr, ok := errors.AsType[*exec.ExitError](err); ok {
+			if exitErr.ExitCode() == 1 {
+				err = nil // 没有找到进程，忽略
+			}
+		}
+		if err != nil {
+			return errKit.Wrapf(err, "fail to run '%s'", cmd)
+		}
 	}
 	logger.Sugar().Debugf("%s:\n%s", cmd, resp)
 
