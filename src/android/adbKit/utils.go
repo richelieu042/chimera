@@ -5,6 +5,7 @@ import (
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
+	"go.uber.org/zap"
 )
 
 // Check 检查 adb 环境.
@@ -32,19 +33,19 @@ func Check() (path string, version string, err error) {
 /*
 !!!: 调用此函数前，需要先调用 Check.
 */
-func Clean() error {
+func Clean(logger *zap.Logger) error {
 	// （1）命令：pkill -f HD-Adb
 	// Richelieu: 此处返回的 err 不用管
 	_, err := cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run 'pkill -f HD-Adb'")
+		logger.Sugar().Warnf("fail to run 'pkill -f HD-Adb', error: %+v", err)
 	}
 
 	// （2）命令：pkill -f adb
 	// Richelieu: 此处返回的 err 不用管
 	_, err = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run 'pkill -f adb'")
+		logger.Sugar().Warnf("fail to run 'pkill -f adb', error: %+v", err)
 	}
 
 	// （3）命令：adb kill-server

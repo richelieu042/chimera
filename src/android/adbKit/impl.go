@@ -48,7 +48,7 @@ func (impl *clientImpl) initialize(logger *zap.Logger) error {
 
 	/* (2) clean */
 	if impl.cleanFlag {
-		if err := Clean(); err != nil {
+		if err := Clean(logger); err != nil {
 			return err
 		}
 		logger.Info("Clean adb environment successfully.")
