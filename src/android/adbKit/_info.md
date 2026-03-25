@@ -9,6 +9,6 @@ GoLand 的权限，而 GoLand 可能没有局域网访问权限。
 
 cd /Users/richelieu/GolandProjects/chimera && go run test/test.go
 
-如果终端运行成功，就确认是 GoLand 的权限问题。
+如果终端运行成功（前提是终端有"本地网络"的权限），就确认是 GoLand 的权限问题。
 
 然后去 系统设置 → 隐私与安全性 → 本地网络，看看 GoLand 是否在列表里，没有的话需要授权。
