@@ -4,6 +4,7 @@
 
 - [go-resty/resty](https://github.com/go-resty/resty)
 - [imroc/req](https://github.com/imroc/req)
+- [valyala/fasthttp](https://github.com/valyala/fasthttp)
 
 ### 技术选型
 
