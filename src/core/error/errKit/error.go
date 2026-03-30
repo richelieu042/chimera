@@ -11,15 +11,11 @@ var (
 	// Simple 创建一个简单的错误（不包含堆栈信息）.
 	Simple func(text string) error = goerrors.New
 
-	New           func(msg string) error                                    = errors.New
-	Newf          func(format string, args ...interface{}) error            = errors.Newf
-	NewWithDepth  func(depth int, msg string) error                         = errors.NewWithDepth
-	NewWithDepthf func(depth int, format string, args ...interface{}) error = errors.NewWithDepthf
+	New          func(msg string) error            = errors.New
+	NewWithDepth func(depth int, msg string) error = errors.NewWithDepth
 
-	Wrap           func(err error, msg string) error                                    = errors.Wrap
-	Wrapf          func(err error, format string, args ...interface{}) error            = errors.Wrapf
-	WrapWithDepth  func(depth int, err error, msg string) error                         = errors.WrapWithDepth
-	WrapWithDepthf func(depth int, err error, format string, args ...interface{}) error = errors.WrapWithDepthf
+	Wrap          func(err error, msg string) error            = errors.Wrap
+	WrapWithDepth func(depth int, err error, msg string) error = errors.WrapWithDepth
 
 	Unwrap     func(err error) error = errors.Unwrap
 	UnwrapOnce func(err error) error = errors.UnwrapOnce
@@ -28,6 +24,22 @@ var (
 	EncodeError func(ctx context.Context, err error) errors.EncodedError = errors.EncodeError
 	DecodeError func(ctx context.Context, enc errors.EncodedError) error = errors.DecodeError
 )
+
+func Newf(format string, args ...interface{}) error {
+	return errors.NewWithDepthf(1, format, args...)
+}
+
+func NewfWithDepth(depth int, format string, args ...interface{}) error {
+	return errors.NewWithDepthf(depth+1, format, args...)
+}
+
+func Wrapf(err error, format string, args ...interface{}) error {
+	return errors.WrapWithDepthf(1, err, format, args...)
+}
+
+func WrapfWithDepth(depth int, err error, format string, args ...interface{}) error {
+	return errors.WrapWithDepthf(depth+1, err, format, args...)
+}
 
 var (
 	// Is 判断错误是否匹配某个目标值.

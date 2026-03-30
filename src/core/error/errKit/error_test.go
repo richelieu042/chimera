@@ -9,7 +9,15 @@ import (
 )
 
 func TestNew(t *testing.T) {
-	err := New("ccc")
+	err := New("ccc %d")
+
+	fmt.Printf("err: %v\n", err)
+	fmt.Println("------")
+	fmt.Printf("err: %+v\n", err)
+}
+
+func TestNewf(t *testing.T) {
+	err := Newf("hello %s", "world")
 
 	fmt.Printf("err: %v\n", err)
 	fmt.Println("------")
