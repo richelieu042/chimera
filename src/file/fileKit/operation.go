@@ -2,7 +2,6 @@ package fileKit
 
 import (
 	"os"
-	"path/filepath"
 	"time"
 
 	"github.com/gogf/gf/v2/os/gfile"
@@ -14,18 +13,6 @@ var (
 
 	// CutAndPaste 剪贴.
 	CutAndPaste func(src string, dst string) (err error) = gfile.Move
-
-	// RemoveFile 删除文件.
-	RemoveFile func(path string) (err error) = gfile.RemoveFile
-
-	// RemoveAll 删除文件（或目录）.
-	/*
-		PS: 如果是目录且内部有文件或目录，也会一并删除.
-	*/
-	RemoveAll func(path string) (err error) = gfile.RemoveAll
-
-	// Delete 删除文件（或目录）.
-	Delete func(path string) (err error) = RemoveAll
 
 	// Truncate 更改文件大小的函数.
 	/*
@@ -41,32 +28,6 @@ var (
 	*/
 	Truncate func(path string, size int) (err error) = gfile.Truncate
 )
-
-// EmptyDir 清空目录：删掉目录中的文件和子目录（递归），但该目录本身不会被删掉.
-/*
-@param dirPath 可以不存在（此时将返回nil）
-*/
-func EmptyDir(dirPath string) error {
-	if !Exists(dirPath) {
-		return nil
-	}
-	if err := AssertExistAndIsDir(dirPath); err != nil {
-		return err
-	}
-
-	// 遍历目录
-	dirEntries, err := os.ReadDir(dirPath)
-	if err != nil {
-		return err
-	}
-	for _, dirEntry := range dirEntries {
-		path := filepath.Join(dirPath, dirEntry.Name())
-		if err := RemoveAll(path); err != nil {
-			return err
-		}
-	}
-	return nil
-}
 
 // SetModificationTime 修改文件（或目录）的修改时间
 /*

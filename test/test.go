@@ -1,17 +1,15 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/richelieu042/chimera/v3/src/android/adbKit"
-	"github.com/richelieu042/chimera/v3/src/log/zapKit"
-)
+import "github.com/gin-gonic/gin"
 
 func main() {
-	//c, err := adbKit.NewClient("127.0.0.1:5555", true, zapKit.NewSimpleConsoleLogger())
-	c, err := adbKit.NewClient("192.168.60.205:16384", true, zapKit.NewSimpleConsoleLogger())
-	if err != nil {
+	engine := gin.Default()
+
+	engine.Any("/x", func(ctx *gin.Context) {
+		ctx.String(200, "xixi")
+	})
+
+	if err := engine.Run(":8080"); err != nil {
 		panic(err)
 	}
-	fmt.Println(c)
 }
