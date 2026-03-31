@@ -26,10 +26,14 @@ gin:
   middleware:
     gzip:
       # gzip的压缩级别
-      # -1:   默认压缩
-      # 0:    不压缩(默认值)
-      # 1~9:  不同的压缩级别（越大压缩比越高，但越慢越耗服务器性能）
+      #   -1:   默认压缩
+      #   0:    不压缩(默认值)
+      #   1~9:  不同的压缩级别（越大压缩比越高，但越慢越耗服务器性能）
       level: 1
+      # 单位: bytes
+      # 为什么通常选 1k（1024 字节）？
+      #   小于 1KB 的响应：压缩收益很小（甚至可能更大），但 CPU 仍然要付出压缩开销
+      #   大于 1KB：压缩收益明显（HTML / JSON / CSS / JS）
       minLength: 1024
       excludedExtensions: [ ".png", ".gif", ".jpeg", ".jpg", ".webp" ]
       # e.g.
@@ -55,11 +59,11 @@ gin:
       # (2) 支持域名匹配
       origins:
         - "*.baidu.com"
-#        - "https://*.baidu.com"
-#        - "https://*.baidu.com"
-#        - "https://*.github.com"
-#        - "https://facebook.com"
-#        - "http://192.168.9.141:8080"
+    #        - "https://*.baidu.com"
+    #        - "https://*.baidu.com"
+    #        - "https://*.github.com"
+    #        - "https://facebook.com"
+    #        - "http://192.168.9.141:8080"
     # 限流器（令牌桶算法）
     rateLimiter:
       # 每秒生成的令牌数
