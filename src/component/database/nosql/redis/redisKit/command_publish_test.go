@@ -2,6 +2,7 @@ package redisKit
 
 import (
 	"context"
+	"fmt"
 	"strconv"
 	"sync"
 	"testing"
@@ -23,7 +24,7 @@ func TestClient_Publish(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		console.Infof("working dir: %s", wd)
+		fmt.Printf("working dir: %s\n", wd)
 	}
 
 	type config struct {
@@ -107,7 +108,7 @@ func TestSubscribeExpired(t *testing.T) {
 		if err != nil {
 			panic(err)
 		}
-		console.Infof("working dir: %s", wd)
+		fmt.Printf("working dir: %s\n", wd)
 	}
 
 	type config struct {

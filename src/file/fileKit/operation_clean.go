@@ -9,9 +9,6 @@ import (
 	"go.uber.org/zap"
 )
 
-// Predicate 判断文件是否应该被删除的回调函数类型
-type Predicate func(info os.FileInfo) bool
-
 // Clean 递归清理路径下满足所有 predicate 条件的文件，并删除空目录.
 /*
 @param path 		文件或目录的路径（如果不存在，将返回nil）
@@ -90,23 +87,12 @@ func cleanFile(logger *zap.Logger, filePath string, info os.FileInfo, predicates
 	return nil
 }
 
+// Predicate 判断文件是否应该被删除的回调函数类型
+type Predicate func(info os.FileInfo) bool
+
 // OlderThanModTime 内置 predicate：文件修改时间超过指定时长
 func OlderThanModTime(d time.Duration) Predicate {
 	return func(info os.FileInfo) bool {
 		return time.Since(info.ModTime()) >= d
-	}
-}
-
-// SizeSmallerThan 内置 predicate：文件大小小于指定字节数
-func SizeSmallerThan(bytes int64) Predicate {
-	return func(info os.FileInfo) bool {
-		return info.Size() < bytes
-	}
-}
-
-// SizeLargerThan 内置 predicate：文件大小大于指定字节数
-func SizeLargerThan(bytes int64) Predicate {
-	return func(info os.FileInfo) bool {
-		return info.Size() > bytes
 	}
 }

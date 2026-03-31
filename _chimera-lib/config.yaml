@@ -30,6 +30,7 @@ gin:
       # 0:    不压缩(默认值)
       # 1~9:  不同的压缩级别（越大压缩比越高，但越慢越耗服务器性能）
       level: 1
+      minLength: 1024
       excludedExtensions: [ ".png", ".gif", ".jpeg", ".jpg", ".webp" ]
       # e.g.
       # 配置为 "/api.do"，(1) 能通过: http://127.0.0.1/api.do

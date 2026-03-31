@@ -43,18 +43,26 @@ func attachMiddlewares(engine *gin.Engine, config MiddlewareConfig, opts *ginOpt
 		(1) 必须在 recoveryMiddleware 前面，为了万无一失还是放在 最前面 吧；
 		(2) gzip会使得响应头中的 Content-Length 不生效.
 	*/
-	gc := config.Gzip
-	if gc != nil && gc.Level != gzip.NoCompression {
-		if sliceKit.IsEmpty(gc.ExcludedExtensions) {
+	gzipConfig := config.Gzip
+	if gzipConfig != nil && gzipConfig.Level != gzip.NoCompression {
+		if sliceKit.IsEmpty(gzipConfig.ExcludedExtensions) {
 			// 默认值
-			gc.ExcludedExtensions = []string{".png", ".gif", ".jpeg", ".jpg", ".webp"}
+			gzipConfig.ExcludedExtensions = []string{".png", ".gif", ".jpeg", ".jpg", ".webp"}
 		}
 
-		gzipMiddleware := NewGzipMiddleware(gc.Level,
-			gzip.WithExcludedExtensions(gc.ExcludedExtensions),
-			gzip.WithExcludedPaths(gc.ExcludedPaths),
-			gzip.WithExcludedPathsRegexs(gc.ExcludedPathsRegexps),
-		)
+		minLength := gzipConfig.MinLength
+		if minLength <= 0 {
+			minLength = 0
+		}
+
+		options := []gzip.Option{
+			gzip.WithExcludedExtensions(gzipConfig.ExcludedExtensions),
+			gzip.WithExcludedPaths(gzipConfig.ExcludedPaths),
+			gzip.WithExcludedPathsRegexs(gzipConfig.ExcludedPathsRegexps),
+			gzip.WithMinLength(minLength),
+		}
+		gzipMiddleware := NewGzipMiddleware(gzipConfig.Level, options...)
+
 		engine.Use(gzipMiddleware)
 	}
 
