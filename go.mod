@@ -23,12 +23,12 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.9.0
 	github.com/gabriel-vasile/mimetype v1.4.13
-	github.com/gin-contrib/cors v1.7.6
-	github.com/gin-contrib/gzip v1.2.5
-	github.com/gin-contrib/pprof v1.5.3
+	github.com/gin-contrib/cors v1.7.7
+	github.com/gin-contrib/gzip v1.2.6
+	github.com/gin-contrib/pprof v1.5.4
 	github.com/gin-contrib/size v1.0.2
-	github.com/gin-contrib/sse v1.1.0
-	github.com/gin-contrib/static v1.1.5
+	github.com/gin-contrib/sse v1.1.1
+	github.com/gin-contrib/static v1.1.6
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
@@ -52,7 +52,7 @@ require (
 	github.com/h2non/bimg v1.1.9
 	github.com/hashicorp/consul/api v1.33.7
 	github.com/hashicorp/go-hclog v1.6.3
-	github.com/hashicorp/go-version v1.8.0
+	github.com/hashicorp/go-version v1.9.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb v0.0.0-20251103221153-05f9dd7a5148
