@@ -6,8 +6,7 @@ import (
 	"time"
 
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
-	
- "go.uber.org/zap"
+	"go.uber.org/zap"
 )
 
 // Clean 递归清理路径下满足所有 predicate 条件的文件，并删除空目录.
