@@ -5,7 +5,7 @@ go 1.26.1
 require (
 	fyne.io/fyne/v2 v2.7.3
 	github.com/alwindoss/morse v1.0.1
-	github.com/andybalholm/brotli v1.2.0
+	github.com/andybalholm/brotli v1.2.1
 	github.com/apache/pulsar-client-go v0.18.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.3
 	github.com/bytedance/sonic v1.15.0

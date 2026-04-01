@@ -323,8 +323,8 @@ github.com/aliyun/credentials-go v1.4.3 h1:N3iHyvHRMyOwY1+0qBLSf3hb5JFiOujVSVuEp
 github.com/aliyun/credentials-go v1.4.3/go.mod h1:Jm6d+xIgwJVLVWT561vy67ZRP4lPTQxMbEYRuT2Ti1U=
 github.com/alwindoss/morse v1.0.1 h1:PkUh5m1UHMcZ1Upvl7CmSIBMxdEBejWoQ4rQQtgJsCQ=
 github.com/alwindoss/morse v1.0.1/go.mod h1:qAqJOep3jEpIpiLgqSGgLk5Zh4BZKsyzMQHuAwVPMXc=
-github.com/andybalholm/brotli v1.2.0 h1:ukwgCxwYrmACq68yiUqwIWnGY0cTPox/M94sVwToPjQ=
-github.com/andybalholm/brotli v1.2.0/go.mod h1:rzTDkvFWvIrjDXZHkuS16NPggd91W3kUSvPlQ1pLaKY=
+github.com/andybalholm/brotli v1.2.1 h1:R+f5xP285VArJDRgowrfb9DqL18yVK0gKAW/F+eTWro=
+github.com/andybalholm/brotli v1.2.1/go.mod h1:rzTDkvFWvIrjDXZHkuS16NPggd91W3kUSvPlQ1pLaKY=
 github.com/andybalholm/cascadia v1.3.3 h1:AG2YHrzJIm4BZ19iwJ/DAua6Btl3IwJX+VI4kktS1LM=
 github.com/andybalholm/cascadia v1.3.3/go.mod h1:xNd9bqTn98Ln4DwST8/nG+H0yuB8Hmgu1YHNnWw0GeA=
 github.com/antchfx/htmlquery v1.3.5 h1:aYthDDClnG2a2xePf6tys/UyyM/kRcsFRm+ifhFKoU0=
