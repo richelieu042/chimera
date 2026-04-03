@@ -1,15 +1,28 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"os"
+
+	"github.com/richelieu042/chimera/v3/src/file/fileKit"
+	"github.com/richelieu042/chimera/v3/src/log/console"
+	"github.com/richelieu042/chimera/v3/src/time/timeKit"
+	"go.uber.org/zap"
+)
 
 func main() {
-	engine := gin.Default()
+	path := "/Users/richelieu/Downloads"
 
-	engine.Any("/x", func(ctx *gin.Context) {
-		ctx.String(200, "xixi")
-	})
-
-	if err := engine.Run(":8080"); err != nil {
+	info, err := os.Stat(path)
+	if err != nil {
 		panic(err)
 	}
+
+	console.Debug("ModTime", zap.String("time", timeKit.Format(info.ModTime(), timeKit.FormatCommon)))
+
+	t, ok := fileKit.GetBirthTime(info)
+	if !ok {
+		panic("GetBirthTime failed")
+	}
+	console.Debug("BirthTime", zap.String("time", timeKit.Format(t, timeKit.FormatCommon)))
+
 }

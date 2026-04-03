@@ -13,7 +13,7 @@ require (
 	github.com/centrifugal/gocent/v3 v3.4.0
 	github.com/cockroachdb/errors v1.12.0
 	github.com/coocood/freecache v1.2.7
-	github.com/davidbyttow/govips/v2 v2.17.0
+	github.com/davidbyttow/govips/v2 v2.18.0
 	github.com/deckarep/golang-set/v2 v2.8.0
 	github.com/dromara/carbon/v2 v2.6.16
 	github.com/duke-git/lancet/v2 v2.3.9
@@ -32,7 +32,7 @@ require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
-	github.com/go-pay/gopay v1.5.116
+	github.com/go-pay/gopay v1.5.117
 	github.com/go-playground/validator/v10 v10.30.2
 	github.com/go-redsync/redsync/v4 v4.16.0
 	github.com/go-resty/resty/v2 v2.17.2
@@ -57,15 +57,15 @@ require (
 	github.com/hashicorp/raft v1.7.3
 	github.com/hashicorp/raft-boltdb v0.0.0-20251103221153-05f9dd7a5148
 	github.com/hibiken/asynq v0.26.0
-	github.com/itchyny/gojq v0.12.18
-	github.com/jedib0t/go-pretty/v6 v6.7.8
+	github.com/itchyny/gojq v0.12.19
+	github.com/jedib0t/go-pretty/v6 v6.7.9
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.5
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.7
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260323125519-8a7b0882169b
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260403042024-02f6b31894df
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -93,7 +93,7 @@ require (
 	github.com/rs/xid v1.6.0
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/samber/lo v1.53.0
-	github.com/shirou/gopsutil/v4 v4.26.2
+	github.com/shirou/gopsutil/v4 v4.26.3
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.4
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
@@ -111,7 +111,7 @@ require (
 	github.com/xuri/excelize/v2 v2.10.1
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
-	go.etcd.io/etcd/client/v3 v3.6.9
+	go.etcd.io/etcd/client/v3 v3.6.10
 	go.mongodb.org/mongo-driver/v2 v2.5.0
 	go.opentelemetry.io/otel v1.42.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.42.0
@@ -138,7 +138,7 @@ require (
 	golang.org/x/text v0.35.0
 	golang.org/x/time v0.15.0
 	golang.org/x/tools v0.43.0
-	google.golang.org/grpc v1.79.3
+	google.golang.org/grpc v1.80.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -288,7 +288,7 @@ require (
 	github.com/hhrutter/pkcs7 v0.2.0 // indirect
 	github.com/hhrutter/tiff v1.0.2 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
-	github.com/itchyny/timefmt-go v0.1.7 // indirect
+	github.com/itchyny/timefmt-go v0.1.8 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/pgx/v5 v5.6.0 // indirect
@@ -379,8 +379,8 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.0.2 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.9 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.6.9 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.10 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.10 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.60.0 // indirect

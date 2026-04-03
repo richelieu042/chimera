@@ -3,14 +3,19 @@ package fileKit
 import (
 	"os"
 	"path/filepath"
-	"time"
 
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"go.uber.org/zap"
 )
 
+// Predicate 判断文件是否应该被删除的回调函数类型
+type Predicate func(path string, info os.FileInfo) bool
+
 // Clean 递归清理路径下满足所有 predicate 条件的文件，并删除空目录.
 /*
+!!!: 目录的修改时间 ModTime 比较特殊，会因为其内部的操作改变而改变的，
+	e.g.	在目录内部：新增文件/目录、删除文件/目录、重命名文件 / 目录（同一目录下）、移动文件（跨目录）...
+
 @param path 		文件或目录的路径（如果不存在，将返回nil）
 @param predicates	（1）所有 predicate 返回 true 时才删除文件或空目录（AND 逻辑）
 					（2）如果不传，将整个删除
@@ -72,7 +77,7 @@ func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) 
 			return errKit.Wrapf(err, "fail to stat dir(%s)", dirPath)
 		}
 
-		if !canDelete(info, predicates) {
+		if !canDelete(dirPath, info, predicates) {
 			return nil // predicates 不允许删除
 		}
 
@@ -86,7 +91,7 @@ func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) 
 }
 
 func cleanFile(logger *zap.Logger, filePath string, info os.FileInfo, predicates []Predicate) error {
-	if !canDelete(info, predicates) {
+	if !canDelete(filePath, info, predicates) {
 		return nil // predicates 不允许删除
 	}
 
@@ -98,21 +103,14 @@ func cleanFile(logger *zap.Logger, filePath string, info os.FileInfo, predicates
 	return nil
 }
 
-func canDelete(info os.FileInfo, predicates []Predicate) bool {
+/*
+@param path 文件(或空目录)的路径
+*/
+func canDelete(path string, info os.FileInfo, predicates []Predicate) bool {
 	for _, predicate := range predicates {
-		if !predicate(info) {
+		if !predicate(path, info) {
 			return false
 		}
 	}
 	return true
-}
-
-// Predicate 判断文件是否应该被删除的回调函数类型
-type Predicate func(info os.FileInfo) bool
-
-// OlderThanModTime 内置 predicate：文件修改时间超过指定时长
-func OlderThanModTime(d time.Duration) Predicate {
-	return func(info os.FileInfo) bool {
-		return time.Since(info.ModTime()) >= d
-	}
 }
