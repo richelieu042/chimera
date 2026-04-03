@@ -94,7 +94,8 @@ func cleanFile(filePath string, info os.FileInfo, predicates []Predicate) error 
 		return nil // predicates 不允许删除
 	}
 
-	if err := os.Remove(filePath); err != nil {
+	// 安全删除一个可能不存在的文件
+	if err := os.Remove(filePath); err != nil && !os.IsNotExist(err) {
 		return errKit.Wrapf(err, "fail to remove file(%s)", filePath)
 	}
 
