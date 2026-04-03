@@ -4,19 +4,36 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gogf/gf/v2/os/gfile"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
-var (
-	// RemoveFile 删除文件.
-	RemoveFile func(path string) (err error) = gfile.RemoveFile
+// Remove 删除单个文件或空目录.
+/*
+@param path 	（1）目标不存在 → 返回错误
+				（2）目录非空 → 返回错误
+*/
+func Remove(path string) (err error) {
+	//return gfile.RemoveFile(path)
 
-	// RemoveAll 删除文件（或目录）.
-	/*
-		PS: 如果是目录且内部有文件或目录，也会一并删除.
-	*/
-	RemoveAll func(path string) (err error) = gfile.RemoveAll
-)
+	if err = os.Remove(path); err != nil {
+		err = errKit.Wrapf(err, `os.Remove failed for path "%s"`, path)
+	}
+	return
+}
+
+// RemoveAll 递归删除文件、空目录或非空目录，类似 rm -rf.
+/*
+@param path 	（1）目标不存在 → 不报错，返回 nil
+				（2）路径为空字符串 → 不做任何操作
+*/
+func RemoveAll(path string) (err error) {
+	//return gfile.RemoveAll(path)
+
+	if err = os.RemoveAll(path); err != nil {
+		err = errKit.Wrapf(err, `os.RemoveAll failed for path "%s"`, path)
+	}
+	return
+}
 
 // EmptyDir 清空目录：删掉目录中的文件和子目录（递归），但该目录本身不会被删掉.
 /*

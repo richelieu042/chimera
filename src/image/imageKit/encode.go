@@ -54,7 +54,7 @@ func EncodeToPath(path string, img image.Image) (err error) {
 
 		// 失败的情况下，毁尸灭迹（把生成的目标文件删了）
 		if err != nil {
-			_ = fileKit.RemoveFile(path)
+			_ = fileKit.Remove(path)
 		}
 	}()
 

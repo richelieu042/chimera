@@ -46,7 +46,7 @@ aas
 
 	// Richelieu: 过一会再删，防止打开后内容为空
 	time.Sleep(time.Second * 3)
-	_ = fileKit.RemoveFile(path)
+	_ = fileKit.Remove(path)
 }
 
 // 打开目录.
