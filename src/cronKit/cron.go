@@ -42,7 +42,7 @@ e.g.1
 "@every 1h30m"			从启动（调用Run() || Start()）开始，每 1.5h 执行一次
 */
 func NewCron() *cron.Cron {
-	// cron.WithSeconds(): 带"秒"
+	// cron.WithSeconds(): 带"秒"，6位
 	return cron.New(cron.WithSeconds())
 }
 
