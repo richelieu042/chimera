@@ -49,12 +49,7 @@ func Create(filePath string) (*os.File, error) {
 }
 
 // CreateInAppendMode 创建文件（读写权限、文件不存在就创建、追加模式）.
-/*
-TODO: perm 权限可自定义，看后续 gfile 后不会完善.
-*/
 func CreateInAppendMode(filePath string) (*os.File, error) {
-	//return gfile.Create(filePath)
-
 	if err := AssertNotExistOrIsFile(filePath); err != nil {
 		return nil, err
 	}
