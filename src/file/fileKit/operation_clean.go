@@ -20,6 +20,10 @@ func Clean(log *zap.Logger, path string, predicates ...Predicate) error {
 		log = zap.NewNop() // 丢弃输出
 	}
 
+	if len(predicates) == 0 {
+		return RemoveAll(path)
+	}
+
 	info, err := os.Stat(path)
 	if err != nil {
 		if os.IsNotExist(err) {
