@@ -10,8 +10,9 @@ import (
 // NewFileLogger
 /*
 PS:
-（1）仅输出到文件；
-（2）不要调用 fileKit，以免 import cycle.
+（1）不再使用返回的 Logger 时，记得手动调用 Close() ！！！
+（2）仅输出到文件；
+（3）不要调用 fileKit，以免 import cycle.
 
 @param filePath 日志文件路径
 */

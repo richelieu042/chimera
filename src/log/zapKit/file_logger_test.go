@@ -13,6 +13,8 @@ func TestNewFileLogger(t *testing.T) {
 	if err != nil {
 		panic(err)
 	}
+	defer l.Close()
+
 	l.Debug("Debug")
 	l.Info("Info")
 	l.Warn("Warn")
