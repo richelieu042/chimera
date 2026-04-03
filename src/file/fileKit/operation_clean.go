@@ -7,7 +7,7 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
-// Predicate 判断文件是否应该被删除的回调函数类型
+// Predicate 判断文件（or空目录）是否应该被删除的回调函数类型
 type Predicate func(path string, info os.FileInfo) bool
 
 // Clean 递归清理路径下满足所有 predicate 条件的文件，并删除空目录.
@@ -16,7 +16,7 @@ type Predicate func(path string, info os.FileInfo) bool
 
 @param path 		文件或目录的路径（如果不存在，将返回nil）
 @param predicates	（1）所有 predicate 返回 true 时才删除文件或空目录（AND 逻辑）
-					（2）如果不传，将整个删除
+					（2）如果不传，将整个删除 path 对应的文件或目录
 */
 func Clean(path string, predicates ...Predicate) error {
 	if len(predicates) == 0 {
