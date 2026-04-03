@@ -40,8 +40,8 @@ e.g.1 Mac
 func MkDirsWithPerm(perm os.FileMode, dirPaths ...string) error {
 	for _, dirPath := range dirPaths {
 		// os.MkdirAll() 的第一个传参:
-		// (1) 如果为""会返回error(mkdir : no such file or directory)
-		// (2) 如果为多个空格，返回的error为nil（并不会创建目录）
+		// 	(1) 如果为""会返回error(mkdir : no such file or directory)
+		// 	(2) 如果为多个空格，返回的error为nil（并不会创建目录）
 		if strKit.IsEmpty(dirPath) {
 			continue
 		}
