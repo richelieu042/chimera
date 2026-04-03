@@ -5,7 +5,6 @@ import (
 	"path/filepath"
 
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
-	"go.uber.org/zap"
 )
 
 // Predicate 判断文件是否应该被删除的回调函数类型
@@ -20,11 +19,7 @@ type Predicate func(path string, info os.FileInfo) bool
 @param predicates	（1）所有 predicate 返回 true 时才删除文件或空目录（AND 逻辑）
 					（2）如果不传，将整个删除
 */
-func Clean(log *zap.Logger, path string, predicates ...Predicate) error {
-	if log == nil {
-		log = zap.NewNop() // 丢弃输出
-	}
-
+func Clean(path string, predicates ...Predicate) error {
 	if len(predicates) == 0 {
 		return RemoveAll(path)
 	}
@@ -38,12 +33,12 @@ func Clean(log *zap.Logger, path string, predicates ...Predicate) error {
 	}
 
 	if info.IsDir() {
-		return cleanDirectory(log, path, predicates)
+		return cleanDirectory(path, predicates)
 	}
-	return cleanFile(log, path, info, predicates)
+	return cleanFile(path, info, predicates)
 }
 
-func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) error {
+func cleanDirectory(dirPath string, predicates []Predicate) error {
 	entries, err := os.ReadDir(dirPath)
 	if err != nil {
 		return errKit.Wrapf(err, "fail to read dir(%s)", dirPath)
@@ -52,7 +47,7 @@ func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) 
 	for _, entry := range entries {
 		entryPath := filepath.Join(dirPath, entry.Name())
 		if entry.IsDir() {
-			if err := cleanDirectory(logger, entryPath, predicates); err != nil {
+			if err := cleanDirectory(entryPath, predicates); err != nil {
 				return err
 			}
 		} else {
@@ -60,7 +55,7 @@ func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) 
 			if err != nil {
 				return errKit.Wrapf(err, "fail to get info of entry(%s)", entryPath)
 			}
-			if err := cleanFile(logger, entryPath, info, predicates); err != nil {
+			if err := cleanFile(entryPath, info, predicates); err != nil {
 				return err
 			}
 		}
@@ -84,13 +79,14 @@ func cleanDirectory(logger *zap.Logger, dirPath string, predicates []Predicate) 
 		if err := os.Remove(dirPath); err != nil {
 			return errKit.Wrapf(err, "fail to remove dir(%s)", dirPath)
 		}
-		logger.Debug("removed empty dir", zap.String("path", dirPath))
+
+		/* 成功删除：空目录 */
 	}
 
 	return nil
 }
 
-func cleanFile(logger *zap.Logger, filePath string, info os.FileInfo, predicates []Predicate) error {
+func cleanFile(filePath string, info os.FileInfo, predicates []Predicate) error {
 	if !canDelete(filePath, info, predicates) {
 		return nil // predicates 不允许删除
 	}
@@ -98,8 +94,8 @@ func cleanFile(logger *zap.Logger, filePath string, info os.FileInfo, predicates
 	if err := os.Remove(filePath); err != nil {
 		return errKit.Wrapf(err, "fail to remove file(%s)", filePath)
 	}
-	logger.Debug("removed file", zap.String("path", filePath))
 
+	/* 成功删除：文件 */
 	return nil
 }
 
