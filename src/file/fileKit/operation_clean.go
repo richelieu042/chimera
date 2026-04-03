@@ -75,11 +75,7 @@ func cleanDirectory(dirPath string, predicates []Predicate) error {
 			return nil // predicates 不允许删除
 		}
 
-		/*
-			Richelieu: 此处不能用 os.Remove，原因：如果那时目录下还有文件（e.g. macOS的.DS_Store），会删除失败，返回 error
-		*/
-		//if err := os.Remove(dirPath); err != nil {
-		if err := os.RemoveAll(dirPath); err != nil {
+		if err := RemoveAll(dirPath); err != nil {
 			return errKit.Wrapf(err, "fail to remove dir(%s)", dirPath)
 		}
 
@@ -95,7 +91,7 @@ func cleanFile(filePath string, info os.FileInfo, predicates []Predicate) error 
 	}
 
 	// 安全删除一个可能不存在的文件
-	if err := os.Remove(filePath); err != nil && !os.IsNotExist(err) {
+	if err := Remove(filePath); err != nil && !os.IsNotExist(err) {
 		return errKit.Wrapf(err, "fail to remove file(%s)", filePath)
 	}
 
