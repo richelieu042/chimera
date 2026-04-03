@@ -14,8 +14,7 @@ import (
 @param path 	（1）目标不存在 → 返回错误，可以通过 os.IsNotExist(err) 判断出
 				（2）目录非空 → 返回错误
 
-e.g.
-// 安全删除一个可能不存在的文件
+e.g. 安全删除一个可能不存在的文件
 if err := os.Remove("tmp.txt"); err != nil && !os.IsNotExist(err) {
 	log.Fatal(err)
 }
@@ -36,8 +35,7 @@ func Remove(path string) (err error) {
 @param path 	（1）目标不存在 → 不报错，返回 nil
 				（2）路径为空字符串 → 不做任何操作
 
-e.g.
-// 清理整个临时目录（无论是否存在）
+e.g. 清理整个临时目录（无论是否存在）
 if err := os.RemoveAll("./tmp"); err != nil {
     log.Fatal(err)
 }
