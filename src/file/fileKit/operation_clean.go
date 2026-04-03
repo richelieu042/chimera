@@ -61,11 +61,11 @@ func cleanDirectory(dirPath string, predicates []Predicate) error {
 	}
 
 	// 子项处理完毕后，若目录为空则经过 predicates 判断后再删除
-	remaining, err := os.ReadDir(dirPath)
+	ok, err := IsDirEmpty(dirPath)
 	if err != nil {
-		return errKit.Wrapf(err, "fail to re-read dir(%s)", dirPath)
+		return errKit.Wrapf(err, "fail to judge if dir(%s) is empty", dirPath)
 	}
-	if len(remaining) == 0 {
+	if ok {
 		info, err := os.Stat(dirPath)
 		if err != nil {
 			return errKit.Wrapf(err, "fail to stat dir(%s)", dirPath)
