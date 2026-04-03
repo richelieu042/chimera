@@ -12,8 +12,7 @@ type Predicate func(path string, info os.FileInfo) bool
 
 // Clean 递归清理路径下满足所有 predicate 条件的文件，并删除空目录.
 /*
-!!!: 目录的修改时间 ModTime 比较特殊，会因为其内部的操作改变而改变的，
-	e.g.	在目录内部：新增文件/目录、删除文件/目录、重命名文件 / 目录（同一目录下）、移动文件（跨目录）...
+!!!: 目录的修改时间 ModTime 比较特殊，会因为其内部的操作改变而改变的，e.g. 新增文件/目录、删除文件/目录、重命名文件 / 目录（同一目录下）、移动文件（跨目录）...
 
 @param path 		文件或目录的路径（如果不存在，将返回nil）
 @param predicates	（1）所有 predicate 返回 true 时才删除文件或空目录（AND 逻辑）
