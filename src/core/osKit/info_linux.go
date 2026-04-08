@@ -19,7 +19,7 @@ cat /proc/sys/kernel/pid_max
 sysctl kernel.pid_max
 */
 func GetPidMax() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/pid_max")
+	str, _, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/pid_max")
 	if err != nil {
 		return 0, err
 	}
@@ -38,7 +38,7 @@ cat /proc/sys/kernel/threads-max
 sysctl kernel.threads-max
 */
 func GetThreadsMax() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/threads-max")
+	str, _, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/kernel/threads-max")
 	if err != nil {
 		return 0, err
 	}
@@ -59,7 +59,7 @@ cat /proc/sys/vm/max_map_count
 sysctl vm.max_map_count
 */
 func GetMaxMapCount() (int, error) {
-	str, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/vm/max_map_count")
+	str, _, err := cmdKit.RunToString(context.TODO(), "sh", "-c", "cat /proc/sys/vm/max_map_count")
 	if err != nil {
 		return 0, err
 	}

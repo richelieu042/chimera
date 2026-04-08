@@ -21,7 +21,7 @@ func GetIPv4Region(ipv4 string) (string, error) {
 	}
 
 	// 每个 ipv4 数据段的 region 信息都固定了格式：国家|区域|省份|城市|ISP，只有中国的数据绝大部分精确到了城市，其他国家部分数据只能定位到国家，后前的选项全部是0。
-	return ipv4Searcher.SearchByStr(ipv4)
+	return ipv4Searcher.Search(ipv4)
 }
 
 func GetIPv6Region(ipv6 string) (string, error) {
@@ -30,5 +30,5 @@ func GetIPv6Region(ipv6 string) (string, error) {
 	}
 
 	// 每个 ipv6 数据段的 region 信息都固定了格式：国家|区域|省份|城市|ISP，只有中国的数据绝大部分精确到了城市，其他国家部分数据只能定位到国家，后前的选项全部是0。
-	return ipv6Searcher.SearchByStr(ipv6)
+	return ipv6Searcher.Search(ipv6)
 }
