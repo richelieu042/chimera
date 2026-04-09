@@ -2,17 +2,21 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/richelieu042/chimera/v3/src/config/viperKit"
+	"regexp"
+	"strconv"
 )
 
 func main() {
-	path := "/Users/richelieu/Downloads/message.properties"
+	fmt.Println(getDays("阿是擦上次   1.5天期望的   2天"))
+}
 
-	m := map[string]string{}
-	v, err := viperKit.UnmarshalFromFile(path, nil, &m)
-	if err != nil {
-		panic(err)
+// getDays 提取字符串中"天"前面的数字（严格匹配）
+func getDays(s string) (float64, error) {
+	re := regexp.MustCompile(`(\d+\.?\d*)天`)
+	match := re.FindStringSubmatch(s)
+
+	if len(match) > 1 {
+		return strconv.ParseFloat(match[1], 64)
 	}
-	fmt.Println(v)
+	return 0, fmt.Errorf("invalid string: %s", s)
 }
