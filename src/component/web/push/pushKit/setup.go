@@ -19,7 +19,7 @@ var (
 
 func MustSetUp(antPool *ants.Pool, logger *logrus.Logger) {
 	if err := Setup(antPool, logger); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

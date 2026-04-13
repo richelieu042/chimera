@@ -19,7 +19,7 @@ PS: Pulsar服务中途挂掉的话，恢复后，Consumer实例、Producer实例
 */
 func MustSetUp(pulsarConfig *Config, verifyConfig *VerifyConfig) {
 	if err := SetUp(pulsarConfig, verifyConfig); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

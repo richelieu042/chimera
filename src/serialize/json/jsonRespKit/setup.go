@@ -16,7 +16,7 @@ Deprecated: Use i18nRespKit instead.
 */
 func MustSetUp(respProvider RespProvider, options ...Option) {
 	if err := SetUp(respProvider, options...); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

@@ -13,7 +13,7 @@ var logger *zap.SugaredLogger
 
 func MustSetup(logPath string) {
 	if err := Setup(logPath); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

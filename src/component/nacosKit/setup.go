@@ -23,7 +23,7 @@ var (
 func MustSetUp(config *Config, options ...constant.ClientOption) {
 	err := SetUp(config, options...)
 	if err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

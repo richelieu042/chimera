@@ -14,7 +14,7 @@ var innerClient *api.Client
 
 func MustSetUp(config *api.Config) {
 	if err := SetUp(config); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

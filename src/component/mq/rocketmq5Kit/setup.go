@@ -15,7 +15,7 @@ var config *Config
 
 func MustSetUp(c *Config, clientLogPath string, verifyConfig *VerifyConfig) {
 	if err := SetUp(c, clientLogPath, verifyConfig); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

@@ -20,7 +20,7 @@ var (
 func MustSetUp(ipv4XdbPath, ipv6XdbPath string) {
 	err := SetUp(ipv4XdbPath, ipv6XdbPath)
 	if err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

@@ -20,7 +20,7 @@ var setupOnce sync.Once
 
 func MustSetUp(config *Config, logPath string) {
 	if err := setUp(config, logPath); err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

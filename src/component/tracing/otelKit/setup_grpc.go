@@ -18,7 +18,7 @@ import (
 func MustSetUpWithGrpc(grpcEndpoint, serviceName string, attributeMap map[string]string, opts ...otlptracegrpc.Option) {
 	err := SetUpWithGrpc(grpcEndpoint, serviceName, attributeMap, opts...)
 	if err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

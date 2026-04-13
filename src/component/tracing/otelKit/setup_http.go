@@ -14,7 +14,7 @@ import (
 func MustSetUpWithHttp(httpEndpoint, serviceName string, attributeMap map[string]string, opts ...otlptracehttp.Option) {
 	err := SetUpWithHttp(httpEndpoint, serviceName, attributeMap, opts...)
 	if err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 

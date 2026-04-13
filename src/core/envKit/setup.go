@@ -7,7 +7,7 @@ import (
 func MustSetUp(envFilePaths ...string) {
 	err := SetUp(envFilePaths...)
 	if err != nil {
-		console.Fatalf("Fail to set up, error: %s", err.Error())
+		console.Fatalf("Fail to set up, error: %+v", err)
 	}
 }
 
