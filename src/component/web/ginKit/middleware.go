@@ -3,7 +3,8 @@ package ginKit
 import (
 	"fmt"
 
-	"github.com/gin-contrib/gzip"
+	gzip "github.com/richelieu042/gin-gzip-middleware"
+	//"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
