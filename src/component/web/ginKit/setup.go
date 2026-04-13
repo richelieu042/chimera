@@ -25,7 +25,7 @@ var serviceInfo = ""
 func MustSetUp(config *Config, businessLogic func(engine *gin.Engine) error, options ...GinOption) {
 	err := SetUp(config, businessLogic, options...)
 	if err != nil {
-		console.Fatalf("Fail to setup, error: %s", err)
+		console.Fatalf("Fail to setup, error: %+v", err)
 	}
 }
 

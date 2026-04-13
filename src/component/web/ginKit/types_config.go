@@ -62,7 +62,7 @@ type (
 	}
 
 	GzipConfig struct {
-		Level int `json:"level" yaml:"level" validate:"min=-1,max=9"`
+		Level int `json:"level" yaml:"level" validate:"min=-2,max=9"`
 
 		//MinLength int `json:"minLength" yaml:"minLength" validate:"gt=0"`
 		MinLength int `json:"minLength" yaml:"minLength"`
