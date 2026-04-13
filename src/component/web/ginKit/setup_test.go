@@ -5,6 +5,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
+	"github.com/richelieu042/chimera/v3/src/component/web/proxy/forwardKit"
 	"github.com/richelieu042/chimera/v3/src/config/viperKit"
 	"github.com/richelieu042/chimera/v3/src/consts"
 	"github.com/richelieu042/chimera/v3/src/core/pathKit"
@@ -33,8 +34,32 @@ func TestMustSetUp(t *testing.T) {
 
 	MustSetUp(c.Gin, func(engine *gin.Engine) error {
 		engine.Any("/test", func(ctx *gin.Context) {
-			ctx.String(200, "ok")
+			//ctx.String(200, "ok")
+
+			ctx.JSON(200,
+				map[string]string{
+					"ok": "111",
+				})
+
 			return
+		})
+
+		engine.Any("/small", func(ctx *gin.Context) {
+			if err := forwardKit.ForwardToSingleHost(ctx.Writer, ctx.Request, "http://127.0.0.1:81", nil); err != nil {
+				ctx.JSON(502,
+					map[string]string{
+						"error": err.Error(),
+					})
+			}
+		})
+
+		engine.Any("/big", func(ctx *gin.Context) {
+			if err := forwardKit.ForwardToSingleHost(ctx.Writer, ctx.Request, "http://127.0.0.1:81", nil); err != nil {
+				ctx.JSON(502,
+					map[string]string{
+						"error": err.Error(),
+					})
+			}
 		})
 
 		return nil
