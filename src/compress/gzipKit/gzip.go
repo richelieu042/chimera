@@ -1,8 +1,9 @@
 package gzipKit
 
 import (
-	"github.com/gogf/gf/v2/encoding/gcompress"
 	"io"
+
+	"github.com/gogf/gf/v2/encoding/gcompress"
 )
 
 //import "github.com/zeromicro/go-zero/core/codec"

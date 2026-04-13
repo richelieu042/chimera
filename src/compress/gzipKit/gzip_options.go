@@ -2,6 +2,7 @@ package gzipKit
 
 import (
 	"compress/gzip"
+
 	"github.com/gogf/gf/v2/encoding/gcompress"
 )
 
