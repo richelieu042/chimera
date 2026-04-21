@@ -6,6 +6,15 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 )
 
+// ClipWithPoints
+/*
+@param p0 左上角的点
+@param p1 右下角的点
+*/
+func ClipWithPoints(img image.Image, p0, p1 image.Point) (image.Image, error) {
+	return Clip(img, p0.X, p0.Y, p1.X-p0.X, p1.Y-p0.Y)
+}
+
 // Clip 裁剪图片.
 /*
 	@param img				原始图片实例（不能为nil！）
