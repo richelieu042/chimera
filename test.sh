@@ -12,4 +12,5 @@ echo "T_DOWNLOAD_URL: [${T_DOWNLOAD_URL}]"
 
 sleep 5
 
+
 wget -O ${T_ZIP_PATH} ${T_DOWNLOAD_URL} && rm -rf /usr/local/go && tar -zxvf ${T_ZIP_PATH} -C /usr/local && rm -rf ${T_ZIP_PATH}
