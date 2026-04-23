@@ -51,7 +51,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.34.1
+	github.com/hashicorp/consul/api v1.34.2
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.9.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -59,14 +59,14 @@ require (
 	github.com/hashicorp/raft-boltdb v0.0.0-20251103221153-05f9dd7a5148
 	github.com/hibiken/asynq v0.26.0
 	github.com/itchyny/gojq v0.12.19
-	github.com/jedib0t/go-pretty/v6 v6.7.9
+	github.com/jedib0t/go-pretty/v6 v6.7.10
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
 	github.com/klauspost/compress v1.18.5
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260419022313-1d9ffabfebf5
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260422082955-a603a75ab791
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -82,7 +82,7 @@ require (
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.12.0
-	github.com/pdfcpu/pdfcpu v0.11.1
+	github.com/pdfcpu/pdfcpu v0.12.0
 	github.com/pelletier/go-toml/v2 v2.3.0
 	github.com/pierrec/lz4/v4 v4.1.26
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
@@ -214,8 +214,7 @@ require (
 	github.com/centrifugal/protocol v0.17.0 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/clbanning/mxj/v2 v2.7.0 // indirect
-	github.com/clipperhouse/stringish v0.1.1 // indirect
-	github.com/clipperhouse/uax29/v2 v2.3.0 // indirect
+	github.com/clipperhouse/uax29/v2 v2.7.0 // indirect
 	github.com/cloudwego/base64x v0.1.6 // indirect
 	github.com/cockroachdb/logtags v0.0.0-20230118201751-21c54148d20b // indirect
 	github.com/cockroachdb/redact v1.1.5 // indirect
@@ -287,8 +286,8 @@ require (
 	github.com/hashicorp/golang-lru v0.5.4 // indirect
 	github.com/hashicorp/serf v0.10.1 // indirect
 	github.com/hhrutter/lzw v1.0.0 // indirect
-	github.com/hhrutter/pkcs7 v0.2.0 // indirect
-	github.com/hhrutter/tiff v1.0.2 // indirect
+	github.com/hhrutter/pkcs7 v0.2.2 // indirect
+	github.com/hhrutter/tiff v1.0.3 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/itchyny/timefmt-go v0.1.8 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
@@ -314,7 +313,7 @@ require (
 	github.com/maruel/rs v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.20 // indirect
-	github.com/mattn/go-runewidth v0.0.19 // indirect
+	github.com/mattn/go-runewidth v0.0.23 // indirect
 	github.com/mattn/go-sqlite3 v1.14.22 // indirect
 	github.com/maypok86/otter v1.2.4 // indirect
 	github.com/microsoft/go-mssqldb v1.8.2 // indirect
