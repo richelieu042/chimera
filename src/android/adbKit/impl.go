@@ -31,9 +31,9 @@ type clientImpl struct {
 	cleanFlag bool
 }
 
-func (impl *clientImpl) initialize(logger *zap.Logger) error {
+func (impl *clientImpl) initialize(ctx context.Context, logger *zap.Logger) error {
 	/* (1) check */
-	adbPath, adbVersion, err := Check()
+	adbPath, adbVersion, err := Check(ctx)
 	if err != nil {
 		return err
 	}
@@ -42,14 +42,14 @@ func (impl *clientImpl) initialize(logger *zap.Logger) error {
 
 	/* (2) clean */
 	if impl.cleanFlag {
-		if err := Clean(logger); err != nil {
+		if err := Clean(ctx, logger); err != nil {
 			return err
 		}
 		logger.Info("Clean adb environment successfully.")
 	}
 
 	// 命令：adb connect {impl.address}
-	connectResp, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "connect", impl.address)
+	connectResp, cmd, err := cmdKit.RunCombinedlyToString(ctx, "adb", "connect", impl.address)
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}
@@ -59,7 +59,7 @@ func (impl *clientImpl) initialize(logger *zap.Logger) error {
 	logger.Info("Connect successfully.", zap.String("addr", impl.address))
 
 	// 命令：adb devices
-	devices, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "devices")
+	devices, cmd, err := cmdKit.RunCombinedlyToString(ctx, "adb", "devices")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}

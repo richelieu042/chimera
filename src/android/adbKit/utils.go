@@ -17,14 +17,14 @@ import (
 @return path: adb可执行文件的绝对路径
 @return version: adb版本号
 */
-func Check() (path string, version string, err error) {
+func Check(ctx context.Context) (path string, version string, err error) {
 	path, err = cmdKit.LookPath("adb")
 	if err != nil {
 		return "", "", errKit.Wrapf(err, "fail to look path of adb")
 	}
 
 	// adb 版本号
-	version, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "version")
+	version, cmd, err := cmdKit.RunCombinedlyToString(ctx, "adb", "version")
 	if err != nil {
 		return "", "", errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}
@@ -36,13 +36,13 @@ func Check() (path string, version string, err error) {
 /*
 !!!: 调用此函数前，需要先调用 Check.
 */
-func Clean(logger *zap.Logger) error {
+func Clean(ctx context.Context, logger *zap.Logger) error {
 	if logger == nil {
 		logger = zapKit.NewNopLogger() // 不记录
 	}
 
 	// （1）命令：pkill -f HD-Adb
-	resp, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "HD-Adb")
+	resp, cmd, err := cmdKit.RunCombinedlyToString(ctx, "pkill", "-f", "HD-Adb")
 	if err != nil {
 		// pkill 返回 exit status 1 表示没有匹配的进程，不是真正的错误
 		if exitErr, ok := errors.AsType[*exec.ExitError](err); ok {
@@ -57,7 +57,7 @@ func Clean(logger *zap.Logger) error {
 	logger.Sugar().Debugf("%s:\n%s", cmd, resp)
 
 	// （2）命令：pkill -f adb
-	resp, cmd, err = cmdKit.RunCombinedlyToString(context.TODO(), "pkill", "-f", "adb")
+	resp, cmd, err = cmdKit.RunCombinedlyToString(ctx, "pkill", "-f", "adb")
 	if err != nil {
 		// pkill 返回 exit status 1 表示没有匹配的进程，不是真正的错误
 		if exitErr, ok := errors.AsType[*exec.ExitError](err); ok {
@@ -72,14 +72,14 @@ func Clean(logger *zap.Logger) error {
 	logger.Sugar().Debugf("%s:\n%s", cmd, resp)
 
 	// （3）命令：adb kill-server
-	resp, cmd, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "kill-server")
+	resp, cmd, err = cmdKit.RunCombinedlyToString(ctx, "adb", "kill-server")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run '%s'", cmd)
 	}
 	logger.Sugar().Debugf("%s:\n%s", cmd, resp)
 
 	// （4）命令：adb start-server
-	resp, cmd, err = cmdKit.RunCombinedlyToString(context.TODO(), "adb", "start-server")
+	resp, cmd, err = cmdKit.RunCombinedlyToString(ctx, "adb", "start-server")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run '%s'", cmd)
 	}

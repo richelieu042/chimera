@@ -14,11 +14,11 @@ func (impl *clientImpl) GetAddress() string {
 }
 
 // GetPhysicalSize 获取：分辨率（宽高、尺寸）.
-func (impl *clientImpl) GetPhysicalSize() (width int, height int, err error) {
+func (impl *clientImpl) GetPhysicalSize(ctx context.Context) (width int, height int, err error) {
 	/*
 		执行命令：adb -s 127.0.0.1:5555 shell wm size
 	*/
-	str, cmd, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "wm", "size")
+	str, cmd, err := cmdKit.RunCombinedlyToString(ctx, "adb", "-s", impl.address, "shell", "wm", "size")
 	if err != nil {
 		return 0, 0, errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}

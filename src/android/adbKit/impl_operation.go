@@ -26,9 +26,9 @@ func (impl *clientImpl) Screenshot(ctx context.Context, targetPath string) error
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
 		-p: 参数表示以 PNG 格式输出截图数据
 	*/
-	data, cmd, err := cmdKit.RunCombinedly(ctx, "adb", "-s", impl.address, "exec-out", "screencap", "-p")
+	data, _, err := cmdKit.RunCombinedly(ctx, "adb", "-s", impl.address, "exec-out", "screencap", "-p")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
+		return err
 	}
 
 	// 尝试创建父目录
@@ -48,8 +48,8 @@ func (impl *clientImpl) Screenshot(ctx context.Context, targetPath string) error
 /*
 	命令：adb -s 127.0.0.1:5555 shell input tap <x> <y>
 */
-func (impl *clientImpl) Tap(x, y int) error {
-	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
+func (impl *clientImpl) Tap(ctx context.Context, x, y int) error {
+	resp, _, err := cmdKit.RunCombinedlyToString(ctx, "adb", "-s", impl.address, "shell", "input", "tap", intKit.IntToString(x), intKit.IntToString(y))
 	if err != nil {
 		return err
 	}
@@ -65,12 +65,12 @@ func (impl *clientImpl) Tap(x, y int) error {
 
 	@param duration: 持续时间（单位：ms）
 */
-func (impl *clientImpl) LongPress(x, y int, duration int) error {
+func (impl *clientImpl) LongPress(ctx context.Context, x, y int, duration int) error {
 	if duration <= 0 {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
+	resp, _, err := cmdKit.RunCombinedlyToString(ctx, "adb", "-s", impl.address, "shell", "input", "swipe", intKit.IntToString(x), intKit.IntToString(y), intKit.IntToString(x), intKit.IntToString(y),
 		intKit.IntToString(duration),
 	)
 	if err != nil {
@@ -99,12 +99,12 @@ func (impl *clientImpl) LongPress(x, y int, duration int) error {
 	e.g.3 	向右滑动
 		adb -s 127.0.0.1:5555 shell input swipe 100 500 900 500 300
 */
-func (impl *clientImpl) Swipe(x1, y1, x2, y2 int, duration int) error {
+func (impl *clientImpl) Swipe(ctx context.Context, x1, y1, x2, y2 int, duration int) error {
 	if duration <= 0 {
 		duration = randomKit.Int(300, 401) // 默认: 300-400ms
 	}
 
-	resp, _, err := cmdKit.RunCombinedlyToString(context.TODO(), "adb", "-s", impl.address, "shell", "input", "swipe",
+	resp, _, err := cmdKit.RunCombinedlyToString(ctx, "adb", "-s", impl.address, "shell", "input", "swipe",
 		intKit.IntToString(x1), intKit.IntToString(y1),
 		intKit.IntToString(x2), intKit.IntToString(y2),
 		intKit.IntToString(duration),

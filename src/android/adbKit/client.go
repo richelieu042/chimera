@@ -1,33 +1,35 @@
 package adbKit
 
 import (
+	"context"
+
 	"go.uber.org/zap"
 )
 
 type Client interface {
 	GetAddress() string
 
-	GetPhysicalSize() (width int, height int, err error)
+	GetPhysicalSize(ctx context.Context) (width int, height int, err error)
 
-	Screenshot(targetPath string) error
+	Screenshot(ctx context.Context, targetPath string) error
 
 	// Tap 点击.
-	Tap(x, y int) error
+	Tap(ctx context.Context, x, y int) error
 	// LongPress 长按.
-	LongPress(x, y int, duration int) error
+	LongPress(ctx context.Context, x, y int, duration int) error
 	// Swipe 滑动.
-	Swipe(x1, y1, x2, y2 int, duration int) error
+	Swipe(ctx context.Context, x1, y1, x2, y2 int, duration int) error
 
-	TapAsHumanBeings(x, y int, axisOffset int) error
-	LongPressAsHumanBeings(x, y int, duration int, axisOffset, timeOffset int) error
-	SwipeAsHumanBeings(x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
+	TapAsHumanBeings(ctx context.Context, x, y int, axisOffset int) error
+	LongPressAsHumanBeings(ctx context.Context, x, y int, duration int, axisOffset, timeOffset int) error
+	SwipeAsHumanBeings(ctx context.Context, x1, y1, x2, y2 int, duration int, axisOffset, timeOffset int) error
 }
 
 // NewClient
 /*
 @param logger: 可以为nil（默认：丢弃输出）
 */
-func NewClient(address string, cleanFlag bool, logger *zap.Logger) (Client, error) {
+func NewClient(ctx context.Context, address string, cleanFlag bool, logger *zap.Logger) (Client, error) {
 	if logger == nil {
 		logger = zap.NewNop() // 不输出
 	}
@@ -36,7 +38,7 @@ func NewClient(address string, cleanFlag bool, logger *zap.Logger) (Client, erro
 		address:   address,
 		cleanFlag: cleanFlag,
 	}
-	if err := ins.initialize(logger); err != nil {
+	if err := ins.initialize(ctx, logger); err != nil {
 		return nil, err
 	}
 	return ins, nil
