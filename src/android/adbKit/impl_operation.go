@@ -18,7 +18,7 @@ PS: 如果连接的是非本地安卓模拟器，耗时将会比较长（约2s�
 
 @param targetPath 截图保存的路径（PNG格式）
 */
-func (impl *clientImpl) Screenshot(targetPath string) error {
+func (impl *clientImpl) Screenshot(ctx context.Context, targetPath string) error {
 	impl.Lock()
 	defer impl.Unlock()
 
@@ -26,7 +26,7 @@ func (impl *clientImpl) Screenshot(targetPath string) error {
 		执行命令：adb -s 127.0.0.1:5555 exec-out screencap -p
 		-p: 参数表示以 PNG 格式输出截图数据
 	*/
-	data, cmd, err := cmdKit.RunCombinedly(context.TODO(), "adb", "-s", impl.address, "exec-out", "screencap", "-p")
+	data, cmd, err := cmdKit.RunCombinedly(ctx, "adb", "-s", impl.address, "exec-out", "screencap", "-p")
 	if err != nil {
 		return errKit.Wrapf(err, "fail to run '%s'", cmd.String())
 	}

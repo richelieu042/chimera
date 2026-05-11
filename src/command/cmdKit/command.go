@@ -33,22 +33,16 @@ func NewCommand(ctx context.Context, name string, args []string, options ...CmdO
 无法从 err 中获取 stderr 的情况：	如果命令成功执行（退出码为 0），即使有 stderr 输出，Output() 也会返回 err = nil，stderr 内容会丢失
 */
 func Run(ctx context.Context, name string, args ...string) ([]byte, *exec.Cmd, error) {
-	if ctx == nil {
-		ctx = context.TODO()
-	}
-
 	cmd := exec.CommandContext(ctx, name, args...)
+
 	data, err := cmd.Output()
 	return data, cmd, err
 }
 
 // RunCombinedly 执行命令（会阻塞直到命令结束） - stdout 和 stderr 都在 output 中，两者的内容会合并到一起返回
 func RunCombinedly(ctx context.Context, name string, args ...string) ([]byte, *exec.Cmd, error) {
-	if ctx == nil {
-		ctx = context.TODO()
-	}
-
 	cmd := exec.CommandContext(ctx, name, args...)
+
 	data, err := cmd.CombinedOutput()
 	return data, cmd, err
 }
