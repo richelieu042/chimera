@@ -3,7 +3,7 @@ module github.com/richelieu042/chimera/v3
 go 1.26.3
 
 require (
-	fyne.io/fyne/v2 v2.7.3
+	fyne.io/fyne/v2 v2.7.4
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.1
 	github.com/apache/pulsar-client-go v0.19.0
@@ -41,7 +41,7 @@ require (
 	github.com/goccy/go-json v0.10.6
 	github.com/goccy/go-yaml v1.19.2
 	github.com/gocolly/colly/v2 v2.3.0
-	github.com/gogf/gf/v2 v2.10.0
+	github.com/gogf/gf/v2 v2.10.2
 	github.com/golang-jwt/jwt/v5 v5.3.1
 	github.com/google/go-cmp v0.7.0
 	github.com/google/uuid v1.6.0
@@ -66,7 +66,7 @@ require (
 	github.com/klauspost/compress v1.18.6
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260509115213-59cf54710765
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260516030638-f4fcd5e900a9
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -82,13 +82,13 @@ require (
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.12.0
-	github.com/pdfcpu/pdfcpu v0.12.0
+	github.com/pdfcpu/pdfcpu v0.12.1
 	github.com/pelletier/go-toml/v2 v2.3.1
 	github.com/pierrec/lz4/v4 v4.1.26
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5700.1
 	github.com/redis/go-redis/v9 v9.19.0
-	github.com/redis/rueidis v1.0.74
+	github.com/redis/rueidis v1.0.75
 	github.com/richelieu042/gin-gzip-middleware v1.3.2
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -130,7 +130,7 @@ require (
 	golang.org/x/crypto v0.51.0
 	golang.org/x/exp v0.0.0-20260508232706-74f9aab9d74a
 	golang.org/x/image v0.40.0
-	golang.org/x/mobile v0.0.0-20260508232728-bebd421c7fa8
+	golang.org/x/mobile v0.0.0-20260514233045-7de0a8fa7f4d
 	golang.org/x/mod v0.36.0
 	golang.org/x/net v0.54.0
 	golang.org/x/oauth2 v0.36.0
@@ -140,7 +140,7 @@ require (
 	golang.org/x/text v0.37.0
 	golang.org/x/time v0.15.0
 	golang.org/x/tools v0.45.0
-	google.golang.org/grpc v1.81.0
+	google.golang.org/grpc v1.81.1
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -162,7 +162,7 @@ require (
 	cloud.google.com/go/iam v1.4.1 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.7.0 // indirect
 	filippo.io/edwards25519 v1.1.0 // indirect
-	fyne.io/systray v1.12.0 // indirect
+	fyne.io/systray v1.12.1 // indirect
 	github.com/AthenZ/athenz v1.12.13 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
 	github.com/ClickHouse/ch-go v0.61.5 // indirect
@@ -252,8 +252,8 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/go-sql-driver/mysql v1.8.1 // indirect
 	github.com/go-stack/stack v1.8.1 // indirect
-	github.com/go-text/render v0.2.0 // indirect
-	github.com/go-text/typesetting v0.3.3 // indirect
+	github.com/go-text/render v0.2.1 // indirect
+	github.com/go-text/typesetting v0.3.4 // indirect
 	github.com/gobwas/glob v0.2.3 // indirect
 	github.com/godbus/dbus/v5 v5.1.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
