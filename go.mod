@@ -32,7 +32,7 @@ require (
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
 	github.com/go-pay/gopay v1.5.118
-	github.com/go-playground/validator/v10 v10.30.2
+	github.com/go-playground/validator/v10 v10.30.3
 	github.com/go-redsync/redsync/v4 v4.16.0
 	github.com/go-resty/resty/v2 v2.17.2
 	github.com/go-viper/encoding/ini v0.1.1
@@ -66,7 +66,7 @@ require (
 	github.com/klauspost/compress v1.18.6
 	github.com/klauspost/cpuid/v2 v2.3.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260524121429-fac3d0376a7c
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260530042244-d638015592ac
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -84,7 +84,7 @@ require (
 	github.com/panjf2000/ants/v2 v2.12.1
 	github.com/pdfcpu/pdfcpu v0.12.1
 	github.com/pelletier/go-toml/v2 v2.3.1
-	github.com/pierrec/lz4/v4 v4.1.26
+	github.com/pierrec/lz4/v4 v4.1.27
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5700.1
 	github.com/redis/go-redis/v9 v9.20.0
@@ -128,9 +128,9 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.27.0
 	golang.org/x/crypto v0.52.0
-	golang.org/x/exp v0.0.0-20260528193900-50dc527dd6c7
+	golang.org/x/exp v0.0.0-20260529124908-c761662dc8c9
 	golang.org/x/image v0.41.0
-	golang.org/x/mobile v0.0.0-20260520154334-0e4426e1883d
+	golang.org/x/mobile v0.0.0-20260529142300-ecb4cd65260a
 	golang.org/x/mod v0.36.0
 	golang.org/x/net v0.55.0
 	golang.org/x/oauth2 v0.36.0
