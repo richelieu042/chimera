@@ -4,7 +4,7 @@ import (
 	"time"
 )
 
-// Parse 类型转换: string => time.Time
+// Parse 作用: string => time.Time
 /*
 PS: time.Parse使用 time.UTC 作为loc.
 
