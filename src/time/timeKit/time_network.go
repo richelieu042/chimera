@@ -105,15 +105,24 @@ func getNetworkTimeByUrl(ctx context.Context, client *http.Client, url string) (
 		_ = resp.Body.Close()
 	}()
 
-	value := resp.Header.Get(httpKit.HeaderDate)
+	/*
+		time.ParseInLocation 对 HTTP时间格式 无效，解析结果的时区是错误的。
+	*/
+	header := httpKit.HeaderDate
+	value := resp.Header.Get(header)
 	if value == "" {
-		err = errKit.New("value of header is empty")
+		err = errKit.Newf("value of header(%s) is empty", header)
 		return
 	}
-	t, err = Parse(http.TimeFormat, value)
+
+	t, err = http.ParseTime(value)
 	if err != nil {
 		err = errKit.Wrap(err, "fail to parse value of header")
 		return
 	}
+
+	// 转换为当前时区
+	t = t.In(time.Local)
+
 	return
 }

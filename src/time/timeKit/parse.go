@@ -6,20 +6,23 @@ import (
 
 // Parse 类型转换: string => time.Time
 /*
-PS:
-(1) 为什么不直接使用 time.Parse()？
-	因为time.Parse使用 time.UTC 作为loc，会有时差.
-(2) 本函数使用 time.Local 作为loc.
+PS: time.Parse使用 time.UTC 作为loc.
 
-@param layout 	时间格式
-@param str 		要解析的时间字符串
-
-e.g.
-(timeKit.FormatDate, "2016-08-08")
+@param format 	时间格式
+@param timeStr	要解析的时间字符串
 */
 func Parse[F ~string](format F, timeStr string) (time.Time, error) {
-	loc := time.Local
-	return time.ParseInLocation(string(format), timeStr, loc)
+	return time.Parse(string(format), timeStr)
+}
+
+// ParseInLocal
+/*
+PS: 如果 timeStr 中有时区，建议先使用 Parse 解析，再 .Local() 转换.
+
+@param loc time.Local || time.UTC
+*/
+func ParseInLocal[F ~string](format F, timeStr string) (time.Time, error) {
+	return time.ParseInLocation(string(format), timeStr, time.Local)
 }
 
 // ParseInLocation
