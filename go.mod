@@ -6,7 +6,7 @@ require (
 	fyne.io/fyne/v2 v2.7.4
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.1
-	github.com/apache/pulsar-client-go v0.19.0
+	github.com/apache/pulsar-client-go v0.20.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.3
 	github.com/bytedance/sonic v1.15.2
 	github.com/centrifugal/centrifuge v0.38.0
@@ -114,7 +114,7 @@ require (
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.12
-	go.mongodb.org/mongo-driver/v2 v2.6.0
+	go.mongodb.org/mongo-driver/v2 v2.6.1
 	go.opentelemetry.io/otel v1.44.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.44.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.44.0
