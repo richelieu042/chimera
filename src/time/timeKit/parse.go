@@ -17,7 +17,7 @@ func Parse[F ~string](format F, timeStr string) (time.Time, error) {
 
 // ParseInLocal
 /*
-PS: 如果 timeStr 中有时区，建议先使用 Parse 解析，再 .Local() 转换.
+PS: 如果 timeStr 中有时区，必须先使用 Parse 解析，再 .Local() 转换.
 
 @param loc time.Local || time.UTC
 */
