@@ -7,7 +7,7 @@ require (
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.1
 	github.com/apache/pulsar-client-go v0.20.0
-	github.com/apache/rocketmq-clients/golang/v5 v5.1.3
+	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
 	github.com/bytedance/sonic v1.15.2
 	github.com/centrifugal/centrifuge v0.38.0
 	github.com/centrifugal/gocent/v3 v3.4.0
@@ -83,7 +83,7 @@ require (
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.12.1
 	github.com/pdfcpu/pdfcpu v0.13.0
-	github.com/pelletier/go-toml/v2 v2.3.1
+	github.com/pelletier/go-toml/v2 v2.4.0
 	github.com/pierrec/lz4/v4 v4.1.27
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5700.1
@@ -114,7 +114,7 @@ require (
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
 	go.etcd.io/etcd/client/v3 v3.6.12
-	go.mongodb.org/mongo-driver/v2 v2.6.1
+	go.mongodb.org/mongo-driver/v2 v2.7.0
 	go.opentelemetry.io/otel v1.44.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.44.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.44.0
