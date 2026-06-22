@@ -44,9 +44,11 @@ func GetMachineAvailableMemory() (uint64, error) {
 
 // GetMachineUsedPercent 获取（当前瞬间的）服务器已使用内存百分比.
 /*
-	计算公式: UsedPercent = (Total - Available) / Total × 100
-
 	PS: 很具有参考性.
+
+	计算公式:
+		ret.Used = ret.Total - ret.Available
+		ret.UsedPercent = float64(ret.Used) / float64(ret.Total) * 100.0
 */
 func GetMachineUsedPercent() (float64, error) {
 	stat, err := GetMachineMemoryStat()
