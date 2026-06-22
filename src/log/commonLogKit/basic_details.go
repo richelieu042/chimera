@@ -136,15 +136,15 @@ func printTimeDetails(logger Logger, ch chan struct{}) {
 }
 
 func printMemoryDetails(logger Logger) {
-	stats, err := memoryKit.GetMachineMemoryStat()
+	stat, err := memoryKit.GetMachineMemoryStat()
 	if err != nil {
 		logger.Errorf("[CHIMERA, MEMORY] fail to get machine memory stats, error: %s", err.Error())
 		return
 	}
 	str := fmt.Sprintf("total: %s, available: %s, used percent: %.2f%%",
-		dataSizeKit.ToReadableIecString(float64(stats.Total)),
-		dataSizeKit.ToReadableIecString(float64(stats.Available)),
-		stats.UsedPercent,
+		dataSizeKit.ToReadableIecString(float64(stat.Total)),
+		dataSizeKit.ToReadableIecString(float64(stat.Available)),
+		stat.UsedPercent,
 	)
 	logger.Infof("[CHIMERA, MEMORY] machine memory stats: [%s]", str)
 }
