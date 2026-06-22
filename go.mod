@@ -11,7 +11,7 @@ require (
 	github.com/bytedance/sonic v1.15.2
 	github.com/centrifugal/centrifuge v0.38.0
 	github.com/centrifugal/gocent/v3 v3.4.0
-	github.com/cockroachdb/errors v1.13.0
+	github.com/cockroachdb/errors v1.14.0
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.18.0
 	github.com/deckarep/golang-set/v2 v2.9.0
@@ -88,7 +88,7 @@ require (
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/playwright-community/playwright-go v0.5700.1
 	github.com/redis/go-redis/v9 v9.20.1
-	github.com/redis/rueidis v1.0.75
+	github.com/redis/rueidis v1.0.76
 	github.com/richelieu042/gin-gzip-middleware v1.3.2
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -129,7 +129,7 @@ require (
 	golang.org/x/arch v0.28.0
 	golang.org/x/crypto v0.53.0
 	golang.org/x/exp v0.0.0-20260611194520-c48552f49976
-	golang.org/x/image v0.42.0
+	golang.org/x/image v0.43.0
 	golang.org/x/mobile v0.0.0-20260611195102-4dd8f1dbf5d2
 	golang.org/x/mod v0.37.0
 	golang.org/x/net v0.56.0
