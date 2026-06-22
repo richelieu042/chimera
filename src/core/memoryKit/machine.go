@@ -1,8 +1,12 @@
 package memoryKit
 
-import "github.com/shirou/gopsutil/v4/mem"
+import (
+	"context"
 
-// GetMachineMemoryStats 获取（当前瞬间的）服务器内存状态.
+	"github.com/shirou/gopsutil/v4/mem"
+)
+
+// GetMachineMemoryStat 获取（当前瞬间的）服务器内存状态.
 /*
 PS:
 (1) Total = Available + Used（？？？存疑，yozo有台Linux不符合）
@@ -18,12 +22,34 @@ mem.VirtualMemoryStat 结构体的字段:
 (4) UsedPercent	内存使用百分比
 (5) Free		空闲状态的内存
 */
-var GetMachineMemoryStats func() (*mem.VirtualMemoryStat, error) = mem.VirtualMemory
+func GetMachineMemoryStat() (*mem.VirtualMemoryStat, error) {
+	return mem.VirtualMemory()
+}
 
-func GetAvailableMachineMemory() (uint64, error) {
-	stat, err := GetMachineMemoryStats()
+func GetMachineMemoryStatWithContext(ctx context.Context) (*mem.VirtualMemoryStat, error) {
+	return mem.VirtualMemoryWithContext(ctx)
+}
+
+// GetMachineAvailableMemory 获取（当前瞬间的）服务器可用内存.
+/*
+	PS: 很具有参考性.
+*/
+func GetMachineAvailableMemory() (uint64, error) {
+	stat, err := GetMachineMemoryStat()
 	if err != nil {
 		return 0, err
 	}
 	return stat.Available, nil
+}
+
+// GetMachineUsedPercent 获取（当前瞬间的）服务器已使用内存百分比.
+/*
+	PS: 很具有参考性.
+*/
+func GetMachineUsedPercent() (float64, error) {
+	stat, err := GetMachineMemoryStat()
+	if err != nil {
+		return 0, err
+	}
+	return stat.UsedPercent, nil
 }

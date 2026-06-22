@@ -185,7 +185,7 @@ func GetStats() *Stats {
 
 		// memory
 		{
-			stats, err := memoryKit.GetMachineMemoryStats()
+			stats, err := memoryKit.GetMachineMemoryStat()
 			if err != nil {
 				machineStats.Memory.Error = err.Error()
 			} else {

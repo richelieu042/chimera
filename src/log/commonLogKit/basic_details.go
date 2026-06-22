@@ -136,7 +136,7 @@ func printTimeDetails(logger Logger, ch chan struct{}) {
 }
 
 func printMemoryDetails(logger Logger) {
-	stats, err := memoryKit.GetMachineMemoryStats()
+	stats, err := memoryKit.GetMachineMemoryStat()
 	if err != nil {
 		logger.Errorf("[CHIMERA, MEMORY] fail to get machine memory stats, error: %s", err.Error())
 		return
