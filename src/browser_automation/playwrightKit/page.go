@@ -1,8 +1,6 @@
 package playwrightKit
 
-import (
-	"github.com/playwright-community/playwright-go"
-)
+import "github.com/mxschmitt/playwright-go"
 
 // GetBrowserContextPages
 /*
