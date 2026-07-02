@@ -63,10 +63,10 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.18.6
-	github.com/klauspost/cpuid/v2 v2.3.0
+	github.com/klauspost/compress v1.19.0
+	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260628021248-ba96deaecf4e
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260630140118-a99989343ebd
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -95,7 +95,7 @@ require (
 	github.com/rs/xid v1.6.0
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/samber/lo v1.53.0
-	github.com/shirou/gopsutil/v4 v4.26.5
+	github.com/shirou/gopsutil/v4 v4.26.6
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.9.4
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
@@ -109,11 +109,11 @@ require (
 	github.com/tidwall/gjson v1.19.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
 	github.com/unidoc/unioffice v1.39.0
-	github.com/vulcand/oxy/v2 v2.1.1
+	github.com/vulcand/oxy/v2 v2.2.0
 	github.com/xuri/excelize/v2 v2.10.1
 	github.com/yeqown/go-qrcode/v2 v2.2.5
 	github.com/yeqown/go-qrcode/writer/standard v1.3.0
-	go.etcd.io/etcd/client/v3 v3.6.12
+	go.etcd.io/etcd/client/v3 v3.6.13
 	go.mongodb.org/mongo-driver/v2 v2.7.0
 	go.opentelemetry.io/otel v1.44.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.44.0
@@ -140,7 +140,7 @@ require (
 	golang.org/x/text v0.38.0
 	golang.org/x/time v0.15.0
 	golang.org/x/tools v0.47.0
-	google.golang.org/grpc v1.81.1
+	google.golang.org/grpc v1.82.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/bigquery v1.2.0
@@ -378,8 +378,8 @@ require (
 	github.com/yuin/goldmark v1.7.8 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
-	go.etcd.io/etcd/api/v3 v3.6.12 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.6.12 // indirect
+	go.etcd.io/etcd/api/v3 v3.6.13 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.6.13 // indirect
 	go.mongodb.org/mongo-driver v1.17.4 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
