@@ -59,7 +59,7 @@ require (
 	github.com/hashicorp/raft-boltdb v0.0.0-20260625132022-4f4a8eaa21e3
 	github.com/hibiken/asynq v0.26.0
 	github.com/itchyny/gojq v0.12.19
-	github.com/jedib0t/go-pretty/v6 v6.8.2
+	github.com/jedib0t/go-pretty/v6 v6.8.3
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
@@ -70,7 +70,7 @@ require (
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.8.10
 	github.com/matoous/go-nanoid/v2 v2.1.0
-	github.com/medama-io/go-useragent v1.2.3
+	github.com/medama-io/go-useragent v1.2.4
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
@@ -128,7 +128,7 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.29.0
 	golang.org/x/crypto v0.54.0
-	golang.org/x/exp v0.0.0-20260709172345-9ea1abe57597
+	golang.org/x/exp v0.0.0-20260718201538-764159d718ef
 	golang.org/x/image v0.44.0
 	golang.org/x/mobile v0.0.0-20260709172247-6129f5bee9d5
 	golang.org/x/mod v0.38.0
