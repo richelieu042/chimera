@@ -6,7 +6,7 @@
 - [imroc/req](https://github.com/imroc/req)
 - [valyala/fasthttp](https://github.com/valyala/fasthttp)
 
-### 技术选型
+### 技术选型（推荐：go-resty/resty）
 
 ![img.png](img.png)
 
@@ -15,5 +15,3 @@
 valyala/fasthttp: 可以用作 http客户端 || Web服务器端.
 
 - [valyala/fasthttp](https://github.com/valyala/fasthttp)
-
-
