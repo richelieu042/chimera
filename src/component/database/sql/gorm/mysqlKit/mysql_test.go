@@ -3,9 +3,10 @@ package mysqlKit
 import (
 	"errors"
 	"fmt"
-	"gorm.io/gorm"
 	"log"
 	"testing"
+
+	"gorm.io/gorm"
 )
 
 func TestNewGormDB(t *testing.T) {
