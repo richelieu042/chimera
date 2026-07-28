@@ -129,7 +129,7 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.29.0
 	golang.org/x/crypto v0.54.0
-	golang.org/x/exp v0.0.0-20260718201538-764159d718ef
+	golang.org/x/exp v0.0.0-20260727155853-b88d891fe743
 	golang.org/x/image v0.44.0
 	golang.org/x/mobile v0.0.0-20260709172247-6129f5bee9d5
 	golang.org/x/mod v0.38.0
