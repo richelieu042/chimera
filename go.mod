@@ -67,7 +67,7 @@ require (
 	github.com/klauspost/compress v1.19.1
 	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260804011412-fd6ba88df97f
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260804014539-f87da02040c7
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.11
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -86,7 +86,7 @@ require (
 	github.com/panjf2000/ants/v2 v2.12.1
 	github.com/pdfcpu/pdfcpu v0.14.0
 	github.com/pelletier/go-toml/v2 v2.4.3
-	github.com/pierrec/lz4/v4 v4.1.27
+	github.com/pierrec/lz4/v4 v4.1.28
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/redis/go-redis/v9 v9.22.0
 	github.com/redis/rueidis v1.0.76
@@ -112,8 +112,8 @@ require (
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.2.0
 	github.com/xuri/excelize/v2 v2.11.0
-	github.com/yeqown/go-qrcode/v2 v2.2.5
-	github.com/yeqown/go-qrcode/writer/standard v1.3.0
+	github.com/yeqown/go-qrcode/v2 v2.3.0
+	github.com/yeqown/go-qrcode/writer/standard v1.4.0
 	go.etcd.io/etcd/client/v3 v3.7.1
 	go.mongodb.org/mongo-driver/v2 v2.8.0
 	go.opentelemetry.io/otel v1.45.0
@@ -144,7 +144,7 @@ require (
 	google.golang.org/grpc v1.83.0
 	google.golang.org/protobuf v1.36.11
 	gopkg.in/yaml.v3 v3.0.1
-	gorm.io/driver/bigquery v1.2.0
+	gorm.io/driver/bigquery v1.2.1
 	gorm.io/driver/clickhouse v0.7.0
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/driver/postgres v1.6.2
