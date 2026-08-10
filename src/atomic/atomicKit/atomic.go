@@ -3,7 +3,6 @@ package atomicKit
 import (
 	"time"
 	"unsafe"
-
 	"go.uber.org/atomic"
 )
 
