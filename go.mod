@@ -15,7 +15,7 @@ require (
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.18.0
 	github.com/deckarep/golang-set/v2 v2.9.0
-	github.com/dromara/carbon/v2 v2.6.16
+	github.com/dromara/carbon/v2 v2.6.17
 	github.com/duke-git/lancet/v2 v2.3.9
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -64,10 +64,10 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.19.1
+	github.com/klauspost/compress v1.19.2
 	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260804014539-f87da02040c7
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260809012320-907400bb3023
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.11
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -127,7 +127,7 @@ require (
 	go.uber.org/ratelimit v0.3.1
 	go.uber.org/zap v1.28.0
 	gocv.io/x/gocv v0.43.0
-	golang.org/x/arch v0.29.0
+	golang.org/x/arch v0.30.0
 	golang.org/x/crypto v0.54.0
 	golang.org/x/exp v0.0.0-20260727155853-b88d891fe743
 	golang.org/x/image v0.44.0
