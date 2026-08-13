@@ -76,7 +76,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
-	github.com/mxschmitt/playwright-go v0.6100.0
+	github.com/mxschmitt/playwright-go v0.6201.0
 	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.1
@@ -84,7 +84,7 @@ require (
 	github.com/olahol/melody v1.4.0
 	github.com/otiai10/gosseract/v2 v2.4.1
 	github.com/panjf2000/ants/v2 v2.12.1
-	github.com/pdfcpu/pdfcpu v0.14.0
+	github.com/pdfcpu/pdfcpu v0.15.0
 	github.com/pelletier/go-toml/v2 v2.4.3
 	github.com/pierrec/lz4/v4 v4.1.28
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
@@ -128,17 +128,17 @@ require (
 	go.uber.org/zap v1.28.0
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.30.0
-	golang.org/x/crypto v0.54.0
-	golang.org/x/exp v0.0.0-20260810151157-a8b543ca52da
-	golang.org/x/image v0.44.0
-	golang.org/x/mobile v0.0.0-20260803200217-62cee1672c8e
+	golang.org/x/crypto v0.55.0
+	golang.org/x/exp v0.0.0-20260812173653-3d80eb74bc5b
+	golang.org/x/image v0.45.0
+	golang.org/x/mobile v0.0.0-20260812174124-2f419b2fb945
 	golang.org/x/mod v0.39.0
-	golang.org/x/net v0.57.0
+	golang.org/x/net v0.58.0
 	golang.org/x/oauth2 v0.36.0
 	golang.org/x/sync v0.22.0
 	golang.org/x/sys v0.47.0
 	golang.org/x/term v0.45.0
-	golang.org/x/text v0.40.0
+	golang.org/x/text v0.41.0
 	golang.org/x/time v0.15.0
 	golang.org/x/tools v0.48.0
 	google.golang.org/grpc v1.83.0
