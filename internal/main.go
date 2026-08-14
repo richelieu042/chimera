@@ -1,6 +1,8 @@
 package main
 
-import "github.com/richelieu042/chimera/v3/src/image/imageKit"
+import (
+	"github.com/richelieu042/chimera/v3/src/image/imageKit"
+)
 
 func main() {
 	p0 := imageKit.Pt(1415, 504)
