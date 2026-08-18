@@ -1,5 +1,6 @@
 ## pdfcpu/pdfcpu
 
+- [pdfcpu：Go语言最强大的PDF处理工具](https://mp.weixin.qq.com/s/UVD7L2bMSvl7QWMYaknZmw)
 - [github](https://github.com/pdfcpu/pdfcpu)
 - [pdfcpu命令说明](https://pdfcpu.io/core/merge)
 
