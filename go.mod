@@ -67,7 +67,7 @@ require (
 	github.com/klauspost/compress v1.19.2
 	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260810050043-e05f0cb75ffd
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260814054437-800d19424237
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.11
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -76,7 +76,7 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
-	github.com/mxschmitt/playwright-go v0.6201.0
+	github.com/mxschmitt/playwright-go v0.6201.1
 	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
 	github.com/natefinch/lumberjack/v3 v3.0.0-alpha
 	github.com/nicksnyder/go-i18n/v2 v2.6.1
@@ -89,7 +89,7 @@ require (
 	github.com/pierrec/lz4/v4 v4.1.28
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
 	github.com/redis/go-redis/v9 v9.22.0
-	github.com/redis/rueidis v1.0.76
+	github.com/redis/rueidis v1.0.77
 	github.com/richelieu042/gin-gzip-middleware v1.3.2
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/robfig/cron/v3 v3.0.1
@@ -105,7 +105,7 @@ require (
 	github.com/spf13/cast v1.10.0
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	github.com/stretchr/testify v1.11.1
+	github.com/stretchr/testify v1.12.0
 	github.com/tidwall/buntdb v1.3.2
 	github.com/tidwall/gjson v1.19.0
 	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
@@ -131,7 +131,7 @@ require (
 	golang.org/x/crypto v0.55.0
 	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297
 	golang.org/x/image v0.45.0
-	golang.org/x/mobile v0.0.0-20260813181013-1960c775504c
+	golang.org/x/mobile v0.0.0-20260816165457-f98cc9b3c733
 	golang.org/x/mod v0.40.0
 	golang.org/x/net v0.58.0
 	golang.org/x/oauth2 v0.36.0
@@ -222,7 +222,6 @@ require (
 	github.com/cockroachdb/redact v1.1.5 // indirect
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/coreos/go-systemd/v22 v22.7.0 // indirect
-	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dchest/siphash v1.2.3 // indirect
 	github.com/deckarep/golang-set v1.7.1 // indirect
 	github.com/dolthub/maphash v0.1.0 // indirect
@@ -245,7 +244,6 @@ require (
 	github.com/go-faster/errors v0.7.1 // indirect
 	github.com/go-gl/gl v0.0.0-20260331235117-4566fea9a276 // indirect
 	github.com/go-gl/glfw/v3.4/glfw v0.1.0-pre.1.0.20260707082822-2a407d02d01a // indirect
-	github.com/go-jose/go-jose/v3 v3.0.5 // indirect
 	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
@@ -329,7 +327,6 @@ require (
 	github.com/pierrec/lz4 v2.6.1+incompatible // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
-	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/prometheus/client_golang v1.23.2 // indirect
 	github.com/prometheus/client_model v0.6.2 // indirect
