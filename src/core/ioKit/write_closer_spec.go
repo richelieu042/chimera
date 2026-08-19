@@ -39,14 +39,14 @@ func NewDailyWriteCloser(filePath string, options ...LumberJackOption) (io.Write
 PS:
 (1) 可能存在情况，Rotate()后，生成的旧日志文件大小为0B.
 */
-func NewRotatableWriteCloserWithSpec(filePath string, spec string, options ...LumberJackOption) (io.WriteCloser, error) {
+func NewRotatableWriteCloserWithSpec(filePath string, cronSpec string, options ...LumberJackOption) (io.WriteCloser, error) {
 	// math.MaxInt64: 8.0 EiB
 	wc, err := NewLumberJackWriteCloser(filePath, math.MaxInt64, options...)
 	if err != nil {
 		return nil, err
 	}
 
-	c, _, err := cronKit.NewCronWithTask(spec, func() {
+	c, _, err := cronKit.NewCronWithTask(cronSpec, func() {
 		text := fmt.Sprintf("[%s] Rotate by cron.\n", strKit.ToUpper(consts.ProjectName))
 		_, _ = wc.Write([]byte(text))
 		if err := wc.Rotate(); err != nil {
