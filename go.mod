@@ -1,6 +1,6 @@
 module github.com/richelieu042/chimera/v3
 
-go 1.26.7
+go 1.27.0
 
 require (
 	fyne.io/fyne/v2 v2.8.0
@@ -31,7 +31,7 @@ require (
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.5.4
-	github.com/go-pay/gopay v1.5.122
+	github.com/go-pay/gopay v1.5.123
 	github.com/go-playground/validator/v10 v10.30.3
 	github.com/go-redsync/redsync/v4 v4.17.0
 	github.com/go-resty/resty/v2 v2.17.2
@@ -128,9 +128,9 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.30.0
 	golang.org/x/crypto v0.55.0
-	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297
+	golang.org/x/exp v0.0.0-20260820142414-ca536658362e
 	golang.org/x/image v0.45.0
-	golang.org/x/mobile v0.0.0-20260819173332-ba33198847ac
+	golang.org/x/mobile v0.0.0-20260821190718-4776eadac327
 	golang.org/x/mod v0.40.0
 	golang.org/x/net v0.58.0
 	golang.org/x/oauth2 v0.36.0
