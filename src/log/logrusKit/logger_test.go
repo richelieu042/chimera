@@ -4,7 +4,6 @@ import (
 	"testing"
 
 	"github.com/richelieu042/chimera/v3/src/core/ioKit"
-	"github.com/richelieu042/chimera/v3/src/dataSizeKit"
 )
 
 func TestNewLogger(t *testing.T) {
@@ -19,7 +18,7 @@ func TestNewLogger1(t *testing.T) {
 
 	/* 输出到文件(rotatable) */
 	path := "_test.log"
-	writer, err := ioKit.NewLumberJackWriteCloser(path, int64(10*dataSizeKit.MiB))
+	writer, err := ioKit.NewLumberjackWriteCloser(path)
 	if err != nil {
 		panic(err)
 	}
