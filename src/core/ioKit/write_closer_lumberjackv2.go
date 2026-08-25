@@ -14,7 +14,6 @@ type (
 		maxBackups int
 		localTime  bool
 		compress   bool
-		console    bool
 	}
 
 	LumberjackOption func(opts *lumberjackOptions)
@@ -50,15 +49,11 @@ func WithCompress(compress bool) LumberjackOption {
 	}
 }
 
-// WithConsole Deprecated: 暂不使用
-func WithConsole(console bool) LumberjackOption {
-	return func(opts *lumberjackOptions) {
-		opts.console = console
-	}
-}
-
 func loadOptions(options ...LumberjackOption) *lumberjackOptions {
-	opts := &lumberjackOptions{}
+	opts := &lumberjackOptions{
+		localTime: true,
+		compress:  true,
+	}
 	for _, option := range options {
 		option(opts)
 	}
@@ -98,9 +93,6 @@ func NewLumberjackWriteCloser(filePath string, options ...LumberjackOption) (*lu
 		LocalTime:  opts.localTime,
 		Compress:   opts.compress,
 	}
-	//if opts.console {
-	//	writeCloser = MultiWriteCloser(writeCloser, NopCloserToWriter(os.Stdout))
-	//}
 	return writeCloser, nil
 }
 
