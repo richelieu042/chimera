@@ -27,6 +27,8 @@ func (dwc *DailyWriteCloser) Close() error {
 
 // NewDailyWriteCloser 每天凌晨0点，执行Rotate().
 /*
+Deprecated: 推荐使用timberjack: lumberjack 的改进版本，增加了基于时间的旋转功能、定时旋转的机制，以及可选的压缩功能（如 GZIP 或 ZSTD 压缩）.
+
 @param options 可选配置，参考 NewLumberJackWriteCloser()
 */
 func NewDailyWriteCloser(filePath string, options ...LumberjackOption) (io.WriteCloser, error) {
@@ -35,6 +37,8 @@ func NewDailyWriteCloser(filePath string, options ...LumberjackOption) (io.Write
 
 // NewRotatableWriteCloserWithSpec 满足条件（spec），执行Rotate().
 /*
+Deprecated: 推荐使用timberjack: lumberjack 的改进版本，增加了基于时间的旋转功能、定时旋转的机制，以及可选的压缩功能（如 GZIP 或 ZSTD 压缩）.
+
 PS:
 (1) 可能存在情况，Rotate()后，生成的旧日志文件大小为0B.
 */
