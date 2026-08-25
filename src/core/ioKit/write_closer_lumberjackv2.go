@@ -19,12 +19,14 @@ type (
 	LumberjackOption func(opts *lumberjackOptions)
 )
 
+// WithMaxSize 单位: MB
 func WithMaxSize(maxSize int) LumberjackOption {
 	return func(opts *lumberjackOptions) {
 		opts.maxSize = maxSize
 	}
 }
 
+// WithMaxAge 单位: days
 func WithMaxAge(maxAge int) LumberjackOption {
 	return func(opts *lumberjackOptions) {
 		opts.maxAge = maxAge

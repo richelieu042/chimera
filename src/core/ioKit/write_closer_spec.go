@@ -3,7 +3,6 @@ package ioKit
 import (
 	"fmt"
 	"io"
-	"math"
 
 	"github.com/richelieu042/chimera/v3/src/consts"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
@@ -31,7 +30,7 @@ func (dwc *DailyWriteCloser) Close() error {
 @param options 可选配置，参考 NewLumberJackWriteCloser()
 */
 func NewDailyWriteCloser(filePath string, options ...LumberjackOption) (io.WriteCloser, error) {
-	return NewRotatableWriteCloserWithSpec(filePath, "0 0 0 * * *", options...)
+	return NewRotatableWriteCloserWithSpec("0 0 0 * * *", filePath, options...)
 }
 
 // NewRotatableWriteCloserWithSpec 满足条件（spec），执行Rotate().
@@ -39,10 +38,8 @@ func NewDailyWriteCloser(filePath string, options ...LumberjackOption) (io.Write
 PS:
 (1) 可能存在情况，Rotate()后，生成的旧日志文件大小为0B.
 */
-func NewRotatableWriteCloserWithSpec(filePath string, cronSpec string, options ...LumberjackOption) (io.WriteCloser, error) {
-	options = append(options, WithMaxSize(math.MaxInt64)) // math.MaxInt64: 8.0 EiB
+func NewRotatableWriteCloserWithSpec(cronSpec string, filePath string, options ...LumberjackOption) (io.WriteCloser, error) {
 	wc, err := NewLumberjackWriteCloser(filePath, options...)
-	//wc, err := NewLumberJackWriteCloser(filePath, math.MaxInt64, options...)
 	if err != nil {
 		return nil, err
 	}
@@ -59,8 +56,7 @@ func NewRotatableWriteCloserWithSpec(filePath string, cronSpec string, options .
 	if err != nil {
 		return nil, err
 	}
-	// Start() 不阻塞
-	c.Start()
+	c.Start() // Start() 不阻塞
 
 	return &DailyWriteCloser{
 		writeCloser: wc,
