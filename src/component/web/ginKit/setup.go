@@ -157,28 +157,22 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 		ctx, cancel := context.WithTimeout(context.TODO(), timeKit.Second*5)
 		defer cancel()
 		if httpSrv != nil {
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
-
+			wg.Go(func() {
 				if err := httpSrv.Shutdown(ctx); err != nil {
 					console.Error("Fail to shut down http server.", zap.Error(err))
 					return
 				}
 				console.Info("Manager to shut down http server.")
-			}()
+			})
 		}
 		if httpsSrv != nil {
-			wg.Add(1)
-			go func() {
-				defer wg.Done()
-
+			wg.Go(func() {
 				if err := httpsSrv.Shutdown(ctx); err != nil {
 					console.Error("Fail to shut down https server.", zap.Error(err))
 					return
 				}
 				console.Info("Manager to shut down https server.")
-			}()
+			})
 		}
 		wg.Wait()
 	})

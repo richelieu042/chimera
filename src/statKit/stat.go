@@ -113,10 +113,7 @@ func GetStats() *Stats {
 	var wg sync.WaitGroup
 
 	/* program */
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-
+	wg.Go(func() {
 		programStats.PID = os.Getpid()
 		programStats.GoroutineCount = runtime.NumGoroutine()
 
@@ -134,27 +131,21 @@ func GetStats() *Stats {
 		} else {
 			programStats.CpuUsagePercent = mathKit.Round(usagePercent, 2)
 		}
-	}()
+	})
 
 	/* machine */
 	// (1) CPU
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-
+	wg.Go(func() {
 		usagePercent, err := cpuKit.GetUsagePercent()
 		if err != nil {
 			machineStats.CpuUsagePercentError = err
 		} else {
 			machineStats.CpuUsagePercent = mathKit.Round(usagePercent, 2)
 		}
-	}()
+	})
 
 	// (2) disk
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-
+	wg.Go(func() {
 		stats, err := diskKit.GetDiskUsageStats()
 		if err != nil {
 			machineStats.DiskUsagePercentError = err
@@ -162,13 +153,10 @@ func GetStats() *Stats {
 			machineStats.DiskPath = stats.Path
 			machineStats.DiskUsagePercent = mathKit.Round(stats.UsedPercent, 2)
 		}
-	}()
+	})
 
 	// (3) others
-	wg.Add(1)
-	go func() {
-		defer wg.Done()
-
+	wg.Go(func() {
 		processCount, err := processKit.GetProcessCount()
 		if err != nil {
 			machineStats.ProcessCountError = err
@@ -221,7 +209,7 @@ func GetStats() *Stats {
 		} else {
 			machineStats.MaxMapCount = tmp
 		}
-	}()
+	})
 
 	wg.Wait()
 	return rst
