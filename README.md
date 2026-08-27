@@ -21,3 +21,5 @@ nilaway ./...
 ## 定期更新
 
 - otelKit/resource.go
+
+![image](https://ping0.cc/img1)
