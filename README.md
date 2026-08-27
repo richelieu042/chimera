@@ -1,3 +1,5 @@
+![image](https://ping0.cc/img1)
+
 # richelieu-yang/chimera
 
 Golang的工具库（Tools of Golang）
@@ -21,5 +23,3 @@ nilaway ./...
 ## 定期更新
 
 - otelKit/resource.go
-
-![image](https://ping0.cc/img1)
