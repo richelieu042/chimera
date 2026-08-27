@@ -8,7 +8,6 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/cpuKit"
 	"github.com/richelieu042/chimera/v3/src/core/mathKit"
 	"github.com/richelieu042/chimera/v3/src/core/memoryKit"
-	"github.com/richelieu042/chimera/v3/src/core/osKit"
 	"github.com/richelieu042/chimera/v3/src/dataSizeKit"
 	"github.com/richelieu042/chimera/v3/src/diskKit"
 	"github.com/richelieu042/chimera/v3/src/processKit"
@@ -34,6 +33,9 @@ type (
 	}
 
 	MachineStats struct {
+		Load      string `json:"load"`
+		LoadError error  `json:"loadError,omitempty"`
+
 		CpuUsagePercent      float64 `json:"cpuUsagePercent"`
 		CpuUsagePercentError error   `json:"cpuUsagePercentError,omitempty"`
 
@@ -49,14 +51,14 @@ type (
 		ProcessThreadCount      int   `json:"processThreadCount,omitempty"`
 		ProcessThreadCountError error `json:"processThreadCountError,omitempty"`
 
-		MaxProcessThreadCountByUser      int    `json:"maxProcessThreadCountByUser,omitempty"`
-		MaxProcessThreadCountByUserError string `json:"maxProcessThreadCountByUserError,omitempty"`
-		PidMax                           int    `json:"pidMax,omitempty"`
-		PidMaxError                      string `json:"pidMaxError,omitempty"`
-		ThreadsMax                       int    `json:"threadsMax,omitempty"`
-		ThreadsMaxError                  string `json:"threadsMaxError,omitempty"`
-		MaxMapCount                      int    `json:"maxMapCount,omitempty"`
-		MaxMapCountError                 string `json:"maxMapCountError,omitempty"`
+		//MaxProcessThreadCountByUser      int    `json:"maxProcessThreadCountByUser,omitempty"`
+		//MaxProcessThreadCountByUserError string `json:"maxProcessThreadCountByUserError,omitempty"`
+		//PidMax                           int    `json:"pidMax,omitempty"`
+		//PidMaxError                      string `json:"pidMaxError,omitempty"`
+		//ThreadsMax                       int    `json:"threadsMax,omitempty"`
+		//ThreadsMaxError                  string `json:"threadsMaxError,omitempty"`
+		//MaxMapCount                      int    `json:"maxMapCount,omitempty"`
+		//MaxMapCountError                 string `json:"maxMapCountError,omitempty"`
 
 		Memory *MachineMemoryStats `json:"memory"`
 	}
@@ -136,6 +138,13 @@ func GetStats() *Stats {
 	/* machine */
 	// (1) CPU
 	wg.Go(func() {
+		loadStr, err := cpuKit.GetLoadString()
+		if err != nil {
+			machineStats.LoadError = err
+		} else {
+			machineStats.Load = loadStr
+		}
+
 		usagePercent, err := cpuKit.GetUsagePercent()
 		if err != nil {
 			machineStats.CpuUsagePercentError = err
@@ -185,30 +194,30 @@ func GetStats() *Stats {
 			}
 		}
 
-		// ulimit -u
-		if tmp, err := osKit.GetMaxProcessThreadCountByUser(); err != nil {
-			machineStats.MaxProcessThreadCountByUserError = err.Error()
-		} else {
-			machineStats.MaxProcessThreadCountByUser = tmp
-		}
-		// kernel.pid_max
-		if tmp, err := osKit.GetPidMax(); err != nil {
-			machineStats.PidMaxError = err.Error()
-		} else {
-			machineStats.PidMax = tmp
-		}
-		// kernel.threads-max
-		if tmp, err := osKit.GetThreadsMax(); err != nil {
-			machineStats.ThreadsMaxError = err.Error()
-		} else {
-			machineStats.ThreadsMax = tmp
-		}
-		// vm.max_map_count
-		if tmp, err := osKit.GetMaxMapCount(); err != nil {
-			machineStats.MaxMapCountError = err.Error()
-		} else {
-			machineStats.MaxMapCount = tmp
-		}
+		//// ulimit -u
+		//if tmp, err := osKit.GetMaxProcessThreadCountByUser(); err != nil {
+		//	machineStats.MaxProcessThreadCountByUserError = err.Error()
+		//} else {
+		//	machineStats.MaxProcessThreadCountByUser = tmp
+		//}
+		//// kernel.pid_max
+		//if tmp, err := osKit.GetPidMax(); err != nil {
+		//	machineStats.PidMaxError = err.Error()
+		//} else {
+		//	machineStats.PidMax = tmp
+		//}
+		//// kernel.threads-max
+		//if tmp, err := osKit.GetThreadsMax(); err != nil {
+		//	machineStats.ThreadsMaxError = err.Error()
+		//} else {
+		//	machineStats.ThreadsMax = tmp
+		//}
+		//// vm.max_map_count
+		//if tmp, err := osKit.GetMaxMapCount(); err != nil {
+		//	machineStats.MaxMapCountError = err.Error()
+		//} else {
+		//	machineStats.MaxMapCount = tmp
+		//}
 	})
 
 	wg.Wait()

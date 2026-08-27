@@ -1,8 +1,9 @@
 package cpuKit
 
 import (
-	"github.com/klauspost/cpuid/v2"
 	"runtime"
+
+	"github.com/klauspost/cpuid/v2"
 )
 
 // GetCpuNumber returns the number of logical CPUs usable by the current process.
