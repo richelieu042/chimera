@@ -5,7 +5,7 @@ go 1.27.0
 require (
 	fyne.io/fyne/v2 v2.8.1
 	github.com/alwindoss/morse v1.0.1
-	github.com/andybalholm/brotli v1.2.2
+	github.com/andybalholm/brotli v1.2.3
 	github.com/apache/pulsar-client-go v0.21.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
 	github.com/bytedance/sonic v1.15.3
@@ -67,7 +67,7 @@ require (
 	github.com/klauspost/compress v1.19.2
 	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260814054437-800d19424237
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260828044614-268430d02355
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.11
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -114,7 +114,7 @@ require (
 	github.com/yeqown/go-qrcode/v2 v2.3.0
 	github.com/yeqown/go-qrcode/writer/standard v1.4.0
 	go.etcd.io/etcd/client/v3 v3.7.1
-	go.mongodb.org/mongo-driver/v2 v2.8.1
+	go.mongodb.org/mongo-driver/v2 v2.8.2
 	go.opentelemetry.io/otel v1.46.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.46.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.46.0
