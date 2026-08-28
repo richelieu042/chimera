@@ -133,7 +133,7 @@ func TestSubscribeExpired(t *testing.T) {
 
 	{
 		flag := atomicKit.NewBool(false)
-		id := idKit.NewULID()
+		id := idKit.NewUlid()
 
 		/* pubSub使用方法1 */
 		//go func() {

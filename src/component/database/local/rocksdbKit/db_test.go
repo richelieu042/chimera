@@ -13,7 +13,7 @@ PS: 想直接在IDE中Run或Debug，建议配置Go Modules: CGO_CFLAGS=-I/opt/ho
 */
 func TestOpenDB(t *testing.T) {
 	dirPath := "_testDir"
-	id := idKit.NewULID()
+	id := idKit.NewUlid()
 	keyStr := []byte("key")
 	valueStr := []byte(id)
 	logrus.Infof("id: [%s]", id)

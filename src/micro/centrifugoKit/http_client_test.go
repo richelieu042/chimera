@@ -16,7 +16,7 @@ func TestNewClient(t *testing.T) {
 	//addrs := []string{"http://localhost:8000/apiii"}
 
 	m := map[string]interface{}{
-		"msg": "hellO" + idKit.NewUUID(),
+		"msg": "hellO" + idKit.NewUuid(),
 	}
 	jsonStr, err := jsonKit.MarshalToString(m)
 	if err != nil {

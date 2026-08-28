@@ -40,7 +40,7 @@ func NewConfigClient(options ...constant.ClientOption) (config_client.IConfigCli
 	}
 
 	/* verify */
-	tmp := fmt.Sprintf("%s_%s", consts.ProjectName, idKit.NewULID())
+	tmp := fmt.Sprintf("%s_%s", consts.ProjectName, idKit.NewUlid())
 	_, err = client.GetConfig(vo.ConfigParam{
 		DataId: tmp,
 		Group:  tmp,
@@ -80,7 +80,7 @@ func NewNamingClient(options ...constant.ClientOption) (naming_client.INamingCli
 	}
 
 	/* verify */
-	serviceName := fmt.Sprintf("%s_%s", consts.ProjectName, idKit.NewULID())
+	serviceName := fmt.Sprintf("%s_%s", consts.ProjectName, idKit.NewUlid())
 	_, err = client.SelectOneHealthyInstance(vo.SelectOneHealthInstanceParam{
 		ServiceName: serviceName,
 	})

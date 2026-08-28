@@ -47,7 +47,7 @@ func TestRedisStore(t *testing.T) {
 		SameSite: http.SameSiteDefaultMode,
 	}
 	keyGen := func() (string, error) {
-		return idKit.NewULID(), nil
+		return idKit.NewUlid(), nil
 	}
 	store, err := NewRedisStore(context.TODO(), client, redisKeyPrefix, keyGen, opts, timeKit.Minute*10)
 	if err != nil {

@@ -20,7 +20,7 @@ func TestOpen(t *testing.T) {
 	defer db.Close()
 
 	key := "key"
-	value := idKit.NewULID()
+	value := idKit.NewUlid()
 
 	// (1) To set a value you must open a read/write transaction:
 	err = db.Update(func(tx *buntdb.Tx) error {

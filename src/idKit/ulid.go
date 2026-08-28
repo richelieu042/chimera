@@ -1,11 +1,12 @@
 package idKit
 
 import (
-	"github.com/oklog/ulid/v2"
 	"io"
+
+	"github.com/oklog/ulid/v2"
 )
 
-// NewULID ULID（不建议用作分布式唯一id，小概率会重复）
+// NewUlid ULID（不建议用作分布式唯一id，小概率会重复）
 /*
 PS:
 (1) 重复概率非常低，但不建议用作分布式唯一id（可以用作本地唯一id）.
@@ -18,11 +19,11 @@ PS:
 e.g.
 () => "01GMSRXRWJPYSQQZ5Z6T832CSZ"
 */
-func NewULID() string {
+func NewUlid() string {
 	return ulid.Make().String()
 }
 
-func NewCustomizedULID(ms uint64, entropy io.Reader) (string, error) {
+func NewCustomizedUlid(ms uint64, entropy io.Reader) (string, error) {
 	//entropy := rand.Sign(rand.NewSource(time.Now().UnixNano()))
 	//ms := ulid.Timestamp(time.Now())
 
