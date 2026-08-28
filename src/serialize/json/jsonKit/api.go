@@ -12,15 +12,15 @@ var (
 
 type (
 	API interface {
-		Marshal(v interface{}) ([]byte, error)
+		Marshal(v any) ([]byte, error)
 
-		MarshalIndent(v interface{}, prefix, indent string) ([]byte, error)
+		MarshalIndent(v any, prefix, indent string) ([]byte, error)
 
-		MarshalToString(v interface{}) (string, error)
+		MarshalToString(v any) (string, error)
 
-		Unmarshal(data []byte, v interface{}) error
+		Unmarshal(data []byte, v any) error
 
-		UnmarshalFromString(str string, v interface{}) error
+		UnmarshalFromString(str string, v any) error
 	}
 )
 
