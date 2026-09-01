@@ -5,6 +5,6 @@ import (
 )
 
 func PrintBasicDetails() {
-	logger := getInnerSL()
+	logger := GetSL()
 	commonLogKit.PrintBasicDetails(logger)
 }

@@ -40,7 +40,8 @@ func initialize() {
 	innerSL = innerL.Sugar()
 }
 
-func getL() *zap.Logger {
+// GetL 供外部使用（skip为0）
+func GetL() *zap.Logger {
 	/* 读锁 */
 	mutex.RLock()
 	defer mutex.RUnlock()
@@ -48,7 +49,8 @@ func getL() *zap.Logger {
 	return l
 }
 
-func getSL() *zap.SugaredLogger {
+// GetSL 供外部使用（skip为0）
+func GetSL() *zap.SugaredLogger {
 	/* 读锁 */
 	mutex.RLock()
 	defer mutex.RUnlock()
@@ -56,6 +58,7 @@ func getSL() *zap.SugaredLogger {
 	return sl
 }
 
+// getInnerL 供内部使用（skip为1）
 func getInnerL() *zap.Logger {
 	/* 读锁 */
 	mutex.RLock()
@@ -64,6 +67,7 @@ func getInnerL() *zap.Logger {
 	return innerL
 }
 
+// getInnerSL 供内部使用（skip为1）
 func getInnerSL() *zap.SugaredLogger {
 	/* 读锁 */
 	mutex.RLock()
