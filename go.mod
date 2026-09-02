@@ -30,7 +30,7 @@ require (
 	github.com/gin-contrib/static v1.1.6
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
-	github.com/go-oauth2/oauth2/v4 v4.5.4
+	github.com/go-oauth2/oauth2/v4 v4.6.0
 	github.com/go-pay/gopay v1.5.123
 	github.com/go-playground/validator/v10 v10.30.3
 	github.com/go-redsync/redsync/v4 v4.17.0
@@ -67,7 +67,7 @@ require (
 	github.com/klauspost/compress v1.19.2
 	github.com/klauspost/cpuid/v2 v2.4.0
 	github.com/linxGnu/grocksdb v1.10.8
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260828044614-268430d02355
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260901011515-c1a1fc7d5941
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.11
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -95,7 +95,7 @@ require (
 	github.com/rs/xid v1.6.0
 	github.com/saintfish/chardet v0.0.0-20230101081208-5e3ef4b5456d
 	github.com/samber/lo v1.53.0
-	github.com/shirou/gopsutil/v4 v4.26.7
+	github.com/shirou/gopsutil/v4 v4.26.8
 	github.com/shopspring/decimal v1.4.0
 	github.com/sirupsen/logrus v1.10.2
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e
