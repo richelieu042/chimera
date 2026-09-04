@@ -17,6 +17,11 @@ func HasFeature(id cpuid.FeatureID) bool {
 	return cpuid.CPU.Has(id)
 }
 
+// AnyOfFeature CPU是否支持任意一个指令集？（OR逻辑）
+func AnyOfFeature(ids ...cpuid.FeatureID) bool {
+	return cpuid.CPU.AnyOf(ids...)
+}
+
 // InVirtualMachine 是否在虚拟机中？
 var InVirtualMachine func() bool = cpuid.CPU.VM
 

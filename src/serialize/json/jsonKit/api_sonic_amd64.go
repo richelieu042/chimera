@@ -17,8 +17,11 @@ func init() {
 	stdApi = sonic.ConfigStd
 
 	// 并非 amd64 CPU 就行了，还需要支持 avx指令集 等.（e.g.yozo某台amd64内网机就不行）
-	if !cpuKit.HasFeature(cpuid.AVX) {
+	if !cpuKit.AnyOfFeature(cpuid.AVX, cpuid.AVX2) {
 		text := fmt.Sprintf("AVX isn't supported with os(%s) and arch(%s)", osKit.OS, osKit.ARCH)
 		panic(text)
 	}
+
+	// 只要支持 AVX 或 AVX2 其中之一，sonic 就能跑（内部会自动挑更快的那套）
+	// AVX2 是 AVX 的超集，支持 AVX2 的 CPU 一定支持 AVX
 }
