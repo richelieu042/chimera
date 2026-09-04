@@ -9,6 +9,7 @@ import (
 
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-gonic/gin/codec/json"
 	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
 	"github.com/richelieu042/chimera/v3/src/core/signalKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
@@ -40,6 +41,9 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 	if err := validateKit.Struct(config); err != nil {
 		return err
 	}
+
+	// 输出 gin 内部使用的json包，理应和 jsonKit 中的一致
+	console.Infof("json package of gin: [%s]", json.Package)
 
 	opts := loadOptions(options...)
 	serviceInfo = opts.ServiceInfo
