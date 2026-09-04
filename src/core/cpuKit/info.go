@@ -6,24 +6,10 @@ import (
 	"github.com/klauspost/cpuid/v2"
 )
 
-// GetCpuNumber returns the number of logical CPUs usable by the current process.
-var GetCpuNumber func() int = runtime.NumCPU
-
-// HasFeature CPU是否支持特定指令集？
-/*
-@param id e.g. cpuid.AVX
-*/
-func HasFeature(id cpuid.FeatureID) bool {
-	return cpuid.CPU.Has(id)
+// NumCPU 当前进程实际可用的逻辑核心数，主要用于：要设置并发度、GOMAXPROCS、goroutine 池大小
+func NumCPU() int {
+	return runtime.NumCPU()
 }
-
-// AnyOfFeature CPU是否支持任意一个指令集？（OR逻辑）
-func AnyOfFeature(ids ...cpuid.FeatureID) bool {
-	return cpuid.CPU.AnyOf(ids...)
-}
-
-// InVirtualMachine 是否在虚拟机中？
-var InVirtualMachine func() bool = cpuid.CPU.VM
 
 func GetVendorID() cpuid.Vendor {
 	return cpuid.CPU.VendorID
@@ -59,7 +45,7 @@ func GetLogicalCores() int {
 
 // GetFeatureSet 获取CPU支持的指令集s.
 /*
-Linux命令: cat /proc/cpuinfo
+	Linux命令: cat /proc/cpuinfo
 */
 var GetFeatureSet func() []string = cpuid.CPU.FeatureSet
 

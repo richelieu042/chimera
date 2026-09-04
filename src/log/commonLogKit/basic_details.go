@@ -166,18 +166,17 @@ func printDiskDetails(logger Logger) {
 }
 
 func printCpuDetails(logger Logger) {
-	logger.Infof("[CHIMERA, CPU] in a virtual machine? [%t]", cpuKit.InVirtualMachine())
-	logger.Infof("[CHIMERA, CPU] vendor id: [%s]", cpuKit.GetVendorID())
-	logger.Infof("[CHIMERA, CPU] vendor string: [%s]", cpuKit.GetVendorString())
 	logger.Infof("[CHIMERA, CPU] brand name: [%s]", cpuKit.GetBrandName())
-	logger.Infof("[CHIMERA, CPU] CPU number: [%d]", cpuKit.GetCpuNumber())
+
+	logger.Infof("[CHIMERA, CPU] NumCPU: [%d]", cpuKit.NumCPU())
+	logger.Infof("[CHIMERA, CPU] physical cores: [%d]", cpuKit.GetPhysicalCores())
+	logger.Infof("[CHIMERA, CPU] threads per core: [%d]", cpuKit.GetThreadsPerCore())
+	logger.Infof("[CHIMERA, CPU] logical cores: [%d]", cpuKit.GetLogicalCores())
+
+	logger.Infof("[CHIMERA, CPU] family: [%d]", cpuKit.GetFamily())
+	logger.Infof("[CHIMERA, CPU] model: [%d]", cpuKit.GetModel())
+	logger.Infof("[CHIMERA, CPU] vendor id: [%s]", cpuKit.GetVendorID())
+
 	logger.Infof("[CHIMERA, CPU] features: [%s]", sliceKit.Join(cpuKit.GetFeatureSet(), ","))
 	logger.Infof("[CHIMERA, CPU] frequency: [%d]hz", cpuKit.GetFrequency())
-
-	usage, err := cpuKit.GetUsagePercent()
-	if err != nil {
-		logger.Warnf("[CHIMERA, CPU] fail to get uasge percent, error: %s", err.Error())
-	} else {
-		logger.Infof("[CHIMERA, CPU] uasge percent: [%.2f]%%", usage)
-	}
 }
