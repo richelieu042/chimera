@@ -9,7 +9,7 @@ require (
 	github.com/apache/pulsar-client-go v0.21.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
 	github.com/bytedance/sonic v1.15.4
-	github.com/centrifugal/centrifuge v0.39.0
+	github.com/centrifugal/centrifuge v0.39.1
 	github.com/centrifugal/gocent/v3 v3.4.0
 	github.com/cockroachdb/errors v1.14.0
 	github.com/coocood/freecache v1.2.7
@@ -326,8 +326,8 @@ require (
 	github.com/planetscale/vtprotobuf v0.6.1-0.20240319094008-0393e58bdf10 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/prometheus/client_golang v1.24.1 // indirect
-	github.com/prometheus/client_model v0.6.2 // indirect
-	github.com/prometheus/common v0.70.1 // indirect
+	github.com/prometheus/client_model v0.6.3 // indirect
+	github.com/prometheus/common v0.71.0 // indirect
 	github.com/prometheus/procfs v0.22.0 // indirect
 	github.com/quagmt/udecimal v1.10.1 // indirect
 	github.com/quic-go/qpack v0.6.0 // indirect
