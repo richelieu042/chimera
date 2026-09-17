@@ -1,8 +1,9 @@
 package consulKit
 
 import (
-	"github.com/hashicorp/consul/api"
 	"testing"
+
+	"github.com/hashicorp/consul/api"
 )
 
 func TestNewClient(t *testing.T) {
