@@ -14,7 +14,7 @@ require (
 	github.com/cockroachdb/errors v1.14.0
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.18.0
-	github.com/deckarep/golang-set/v2 v2.9.0
+	github.com/deckarep/golang-set/v3 v3.0.0
 	github.com/dromara/carbon/v2 v2.6.17
 	github.com/duke-git/lancet/v2 v2.3.9
 	github.com/emersion/go-imap v1.2.1
@@ -224,6 +224,7 @@ require (
 	github.com/coreos/go-systemd/v22 v22.7.0 // indirect
 	github.com/dchest/siphash v1.2.3 // indirect
 	github.com/deckarep/golang-set v1.7.1 // indirect
+	github.com/deckarep/golang-set/v2 v2.9.0 // indirect
 	github.com/ebitengine/purego v0.10.2 // indirect
 	github.com/emersion/go-sasl v0.0.0-20200509203442-7bfe0ed36a21 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
