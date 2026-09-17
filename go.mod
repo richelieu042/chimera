@@ -69,7 +69,7 @@ require (
 	github.com/linxGnu/grocksdb v1.11.1
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20260901011515-c1a1fc7d5941
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
-	github.com/magiconair/properties v1.18.11
+	github.com/magiconair/properties v1.18.12
 	github.com/matoous/go-nanoid/v2 v2.1.0
 	github.com/medama-io/go-useragent v1.2.4
 	github.com/mitchellh/go-homedir v1.1.0
