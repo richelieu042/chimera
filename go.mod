@@ -3,6 +3,7 @@ module github.com/richelieu042/chimera/v3
 go 1.27.1
 
 require (
+	filippo.io/edwards25519 v1.2.0
 	fyne.io/fyne/v2 v2.8.1
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.4
@@ -163,7 +164,6 @@ require (
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.5.3 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.7.0 // indirect
-	filippo.io/edwards25519 v1.1.0 // indirect
 	fyne.io/systray v1.12.3-0.20260810170012-af4e8e793ec4 // indirect
 	github.com/AthenZ/athenz v1.12.13 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
