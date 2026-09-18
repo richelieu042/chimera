@@ -27,24 +27,6 @@ import (
 )
 
 func init() {
-	///* golang.org/x/ */
-	//{
-	//	var _ x86asm.Arg
-	//	var _ *cast5.Cipher
-	//	var _ *bind.Generator
-	//	var _ *modfile.Comment
-	//	var _ jws.Signer
-	//	var _ *errgroup.Group
-	//	var _ *execabs.Error
-	//	var _ *term.Terminal
-	//	var _ *blog.Doc
-	//	var _ slog.Handler
-	//	var _ *tiff.Options
-	//	var _ proxy.Dialer
-	//	var _ *currency.Amount
-	//	var _ *rate.Limit
-	//}
-
 	/* otel */
 	{
 		var _ = otlptrace.Version()
@@ -57,9 +39,4 @@ func init() {
 		var _ *grpc.ConnectParams
 		var _ *protojson.UnmarshalOptions
 	}
-
-	///* github.com/ulikunitz/xz v0.5.10 是脆弱的 */
-	//{
-	//	var _ xz.Writer
-	//}
 }
