@@ -20,6 +20,8 @@ import (
 	"golang.org/x/tools/blog"
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/encoding/protojson"
+
+	_ "github.com/hashicorp/serf/serf"
 )
 
 func init() {
