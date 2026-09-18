@@ -1,11 +1,11 @@
 package third
 
 import (
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace"
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
-	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
-	"google.golang.org/grpc"
-	"google.golang.org/protobuf/encoding/protojson"
+	_ "go.opentelemetry.io/otel/exporters/otlp/otlptrace"
+	_ "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
+	_ "go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracehttp"
+	_ "google.golang.org/grpc"
+	_ "google.golang.org/protobuf/encoding/protojson"
 
 	_ "golang.org/x/arch/x86/x86asm"
 	_ "golang.org/x/crypto/cast5"
@@ -25,18 +25,3 @@ import (
 	_ "filippo.io/edwards25519"        // 处理v1.1.0的漏洞
 	_ "github.com/hashicorp/serf/serf" // 处理hashicorp系依赖的内部依赖问题
 )
-
-func init() {
-	/* otel */
-	{
-		var _ = otlptrace.Version()
-		var _ = otlptracehttp.NewClient
-		var _ = otlptracegrpc.NewClient
-	}
-
-	/* grpc && protobuf */
-	{
-		var _ *grpc.ConnectParams
-		var _ *protojson.UnmarshalOptions
-	}
-}
