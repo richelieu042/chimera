@@ -24,11 +24,11 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.10.1
 	github.com/gabriel-vasile/mimetype v1.4.15
-	github.com/gin-contrib/cors v1.7.8
-	github.com/gin-contrib/pprof v1.5.5
+	github.com/gin-contrib/cors v1.7.9
+	github.com/gin-contrib/pprof v1.5.6
 	github.com/gin-contrib/size v1.0.2
 	github.com/gin-contrib/sse v1.1.2
-	github.com/gin-contrib/static v1.1.7
+	github.com/gin-contrib/static v1.1.8
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.6.0
@@ -115,7 +115,7 @@ require (
 	github.com/xuri/excelize/v2 v2.11.0
 	github.com/yeqown/go-qrcode/v2 v2.3.0
 	github.com/yeqown/go-qrcode/writer/standard v1.4.0
-	go.etcd.io/etcd/client/v3 v3.7.1
+	go.etcd.io/etcd/client/v3 v3.7.2
 	go.mongodb.org/mongo-driver/v2 v2.9.1
 	go.opentelemetry.io/otel v1.46.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.46.0
@@ -380,8 +380,8 @@ require (
 	github.com/yuin/goldmark v1.8.2 // indirect
 	github.com/yusufpapurcu/wmi v1.2.4 // indirect
 	github.com/zeebo/xxh3 v1.1.0 // indirect
-	go.etcd.io/etcd/api/v3 v3.7.1 // indirect
-	go.etcd.io/etcd/client/pkg/v3 v3.7.1 // indirect
+	go.etcd.io/etcd/api/v3 v3.7.2 // indirect
+	go.etcd.io/etcd/client/pkg/v3 v3.7.2 // indirect
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/auto/sdk v1.2.1 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.70.0 // indirect
