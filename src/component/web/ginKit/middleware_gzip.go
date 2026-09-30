@@ -1,9 +1,9 @@
 package ginKit
 
 import (
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	//"github.com/gin-contrib/gzip"
-	gzip "github.com/richelieu042/gin-gzip-middleware"
+	//gzip "github.com/richelieu042/gin-gzip-middleware"
 )
 
 // NewGzipMiddleware

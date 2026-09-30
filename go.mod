@@ -23,6 +23,7 @@ require (
 	github.com/fsnotify/fsnotify v1.10.1
 	github.com/gabriel-vasile/mimetype v1.4.15
 	github.com/gin-contrib/cors v1.7.9
+	github.com/gin-contrib/gzip v1.2.8
 	github.com/gin-contrib/pprof v1.5.6
 	github.com/gin-contrib/size v1.0.2
 	github.com/gin-contrib/sse v1.1.2
