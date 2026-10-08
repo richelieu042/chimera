@@ -3,7 +3,7 @@ package pushKit
 import (
 	"sync"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
@@ -36,7 +36,7 @@ func PushToAll(data []byte, exceptBsids []string) (err error) {
 			if submitErr := submitPush(&wg, func() {
 				_ = channel.Push(data)
 			}); submitErr != nil {
-				err = errorKit.Wrapf(submitErr, "fail to submit push task to all")
+				err = errKit.Wrapf(submitErr, "fail to submit push task")
 				break
 			}
 		}
@@ -55,7 +55,7 @@ func PushToBsid(data []byte, bsid string) (err error) {
 	bsidMap.RLockFunc(func() {
 		channel := bsidMap.Map[bsid]
 		if channel == nil {
-			err = errorKit.Wrapf(NoSuitableChannelError, "fail to push to bsid(%s)", bsid)
+			err = errKit.Wrapf(NoSuitableChannelError, "fail to push to bsid(%s)", bsid)
 			return
 		}
 		err = channel.Push(data)
@@ -72,7 +72,7 @@ func PushToUser(data []byte, user string, exceptBsids []string) (err error) {
 	userMap.RLockFunc(func() {
 		userSet := userMap.Map[user]
 		if userSet == nil {
-			err = errorKit.Wrapf(NoSuitableChannelError, "fail to push to user(%s)", user)
+			err = errKit.Wrapf(NoSuitableChannelError, "fail to push to user(%s)", user)
 			return
 		}
 
@@ -87,7 +87,7 @@ func PushToUser(data []byte, user string, exceptBsids []string) (err error) {
 				if submitErr := submitPush(&wg, func() {
 					_ = channel.Push(data)
 				}); submitErr != nil {
-					err = errorKit.Wrapf(submitErr, "fail to submit push task for user(%s)", user)
+					err = errKit.Wrapf(submitErr, "fail to submit push task for user(%s)", user)
 					return true // 中断循环
 				}
 				return false // 不中断循环
@@ -107,7 +107,7 @@ func PushToGroup(data []byte, group string, exceptBsids []string) (err error) {
 	groupMap.RLockFunc(func() {
 		groupSet := groupMap.Map[group]
 		if groupSet == nil {
-			err = errorKit.Wrapf(NoSuitableChannelError, "fail to push to group(%s)", group)
+			err = errKit.Wrapf(NoSuitableChannelError, "fail to push to group(%s)", group)
 			return
 		}
 
@@ -122,7 +122,7 @@ func PushToGroup(data []byte, group string, exceptBsids []string) (err error) {
 				if submitErr := submitPush(&wg, func() {
 					_ = channel.Push(data)
 				}); submitErr != nil {
-					err = errorKit.Wrapf(submitErr, "fail to submit push task for group(%s)", group)
+					err = errKit.Wrapf(submitErr, "fail to submit push task for group(%s)", group)
 					return true // 中断循环
 				}
 				return false // 不中断循环

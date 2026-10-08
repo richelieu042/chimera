@@ -3,7 +3,7 @@ package pushKit
 import (
 	"github.com/panjf2000/ants/v2"
 	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
@@ -41,13 +41,13 @@ func Setup(antPool *ants.Pool, logger *logrus.Logger) (err error) {
 		return err
 	}
 	if antPool.IsClosed() {
-		return errorKit.Newf("antPool has already been closed")
+		return errKit.Newf("antPool has already been closed")
 	}
 	capacity := antPool.Cap()
 	if capacity > 0 {
 		tag := "gte=100"
 		if err := validateKit.Var(capacity, tag); err != nil {
-			return errorKit.Wrapf(err, "capacity(%d) of antPool is invalid(tag: %s) when it's greater than zero", capacity, tag)
+			return errKit.Wrapf(err, "capacity(%d) of antPool is invalid(tag: %s) when it's greater than zero", capacity, tag)
 		}
 	}
 	pushPool = antPool

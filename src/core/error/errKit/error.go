@@ -25,18 +25,18 @@ var (
 	DecodeError func(ctx context.Context, enc errors.EncodedError) error = errors.DecodeError
 )
 
-func Newf(format string, args ...interface{}) error {
+func Newf(format string, args ...any) error {
 	return errors.NewWithDepthf(1, format, args...)
 }
 
-func NewfWithDepth(depth int, format string, args ...interface{}) error {
+func NewfWithDepth(depth int, format string, args ...any) error {
 	return errors.NewWithDepthf(depth+1, format, args...)
 }
 
-func Wrapf(err error, format string, args ...interface{}) error {
+func Wrapf(err error, format string, args ...any) error {
 	return errors.WrapWithDepthf(1, err, format, args...)
 }
 
-func WrapfWithDepth(depth int, err error, format string, args ...interface{}) error {
+func WrapfWithDepth(depth int, err error, format string, args ...any) error {
 	return errors.WrapWithDepthf(depth+1, err, format, args...)
 }
