@@ -56,10 +56,6 @@ PS: 返回值如果为true，应当调用 Listeners.OnClose().
 		false:	设置失败（因为已经被设置关闭）
 */
 func (channel *BaseChannel) SetClosed() (flag bool) {
-	if channel.Closed {
-		return
-	}
-
 	/* 写锁 */
 	channel.LockFunc(func() {
 		if channel.Closed {

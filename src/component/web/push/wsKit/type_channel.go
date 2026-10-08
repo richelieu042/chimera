@@ -59,10 +59,6 @@ func (channel *WsChannel) PushMessage(messageType *MessageType, data []byte) (er
 		}
 	}
 
-	if channel.Closed {
-		return pushKit.ChannelClosedError
-	}
-
 	abortFlag := false
 
 	/* 写锁 */

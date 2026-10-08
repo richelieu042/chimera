@@ -57,9 +57,6 @@ func (channel *SseChannel) PushMessage(msgType *messageType, data []byte) (err e
 		Data: str,
 	}
 
-	if channel.Closed {
-		return pushKit.ChannelClosedError
-	}
 	/* 写锁 */
 	channel.LockFunc(func() {
 		if channel.Closed {
