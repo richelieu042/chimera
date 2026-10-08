@@ -63,6 +63,9 @@ func CloseByUser(user string, reason string) {
 	/* 读锁 */
 	userMap.RLockFunc(func() {
 		userSet := userMap.Map[user]
+		if userSet == nil {
+			return
+		}
 
 		/* 读锁 */
 		userSet.RLockFunc(func() {
@@ -84,6 +87,9 @@ func CloseByGroup(group string, reason string) {
 	/* 读锁 */
 	groupMap.RLockFunc(func() {
 		groupSet := groupMap.Map[group]
+		if groupSet == nil {
+			return
+		}
 
 		/* 读锁 */
 		groupSet.RLockFunc(func() {
