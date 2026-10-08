@@ -51,10 +51,7 @@ func attachMiddlewares(engine *gin.Engine, config MiddlewareConfig, opts *ginOpt
 			gzipConfig.ExcludedExtensions = []string{".png", ".gif", ".jpeg", ".jpg", ".webp"}
 		}
 
-		minLength := gzipConfig.MinLength
-		if minLength <= 0 {
-			minLength = 0
-		}
+		minLength := max(gzipConfig.MinLength, 0)
 
 		options := []gzip.Option{
 			gzip.WithExcludedExtensions(gzipConfig.ExcludedExtensions),
