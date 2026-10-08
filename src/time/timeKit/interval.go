@@ -2,8 +2,9 @@ package timeKit
 
 import (
 	"context"
-	"github.com/gogf/gf/v2/os/gmutex"
 	"time"
+
+	"github.com/gogf/gf/v2/os/gmutex"
 )
 
 // Interval
@@ -33,7 +34,7 @@ PS:
 (2) 如果有任务正在执行，会等它先执行完.
 */
 func (i *Interval) Stop() {
-	if i == nil || i.stopped {
+	if i == nil {
 		return
 	}
 
