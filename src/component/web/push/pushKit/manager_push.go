@@ -7,6 +7,19 @@ import (
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
+// 解决问题：协程池提交失败会永久阻塞
+func submitPush(wg *sync.WaitGroup, task func()) error {
+	wg.Add(1)
+	if err := pushPool.Submit(func() {
+		defer wg.Done()
+		task()
+	}); err != nil {
+		wg.Done()
+		return err
+	}
+	return nil
+}
+
 func PushToAll(data []byte, exceptBsids []string) (err error) {
 	if err = CheckSetup(); err != nil {
 		return err
@@ -20,18 +33,17 @@ func PushToAll(data []byte, exceptBsids []string) (err error) {
 				continue
 			}
 
-			// for range + goroutine，必须使用 "同名变量覆盖v:=v"
-			c := channel
-			wg.Add(1)
-			_ = pushPool.Submit(func() {
-				defer wg.Done()
-				_ = c.Push(data)
-			})
+			if submitErr := submitPush(&wg, func() {
+				_ = channel.Push(data)
+			}); submitErr != nil {
+				err = errorKit.Wrapf(submitErr, "fail to submit push task to all")
+				break
+			}
 		}
 		wg.Wait()
 	})
 
-	return nil
+	return err
 }
 
 func PushToBsid(data []byte, bsid string) (err error) {
@@ -72,12 +84,12 @@ func PushToUser(data []byte, user string, exceptBsids []string) (err error) {
 					return false // 不中断循环
 				}
 
-				// 由于使用 Set.Each() 进行遍历，此处无需使用 "同名变量覆盖v:=v"
-				wg.Add(1)
-				_ = pushPool.Submit(func() {
-					defer wg.Done()
+				if submitErr := submitPush(&wg, func() {
 					_ = channel.Push(data)
-				})
+				}); submitErr != nil {
+					err = errorKit.Wrapf(submitErr, "fail to submit push task for user(%s)", user)
+					return true // 中断循环
+				}
 				return false // 不中断循环
 			})
 			wg.Wait()
@@ -107,12 +119,12 @@ func PushToGroup(data []byte, group string, exceptBsids []string) (err error) {
 					return false // 不中断循环
 				}
 
-				// 由于使用 Set.Each() 进行遍历，此处无需使用 "同名变量覆盖v:=v"
-				wg.Add(1)
-				_ = pushPool.Submit(func() {
-					defer wg.Done()
+				if submitErr := submitPush(&wg, func() {
 					_ = channel.Push(data)
-				})
+				}); submitErr != nil {
+					err = errorKit.Wrapf(submitErr, "fail to submit push task for group(%s)", group)
+					return true // 中断循环
+				}
 				return false // 不中断循环
 			})
 			wg.Wait()
