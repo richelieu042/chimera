@@ -3,6 +3,7 @@
 package randomKit
 
 import (
+	"math"
 	"math/rand/v2"
 
 	"github.com/duke-git/lancet/v2/mathutil"
@@ -40,11 +41,24 @@ func RandFloat(min, max float64, precision int) float64 {
 /*
 	TODO: 看后续 duke-git/lancet(目前v2.3.1) 会不会加条件编译.
 
+	@param n         请求的元素数量；超过指定范围和精度可生成的唯一值数量时，按可生成数量返回
 	@param precision 精度（小数点后保留几位）
 	@return (1) 切片内的元素范围: [min, max)
 			(2) 切片内的元素不会重复
 */
 func RandFloatSlice(n int, min, max float64, precision int) []float64 {
+	if max < min {
+		min, max = max, min
+	}
+
+	maxLength := int((max - min) * math.Pow10(precision))
+	if maxLength == 0 {
+		maxLength = 1
+	}
+	if n > maxLength {
+		n = maxLength
+	}
+
 	nums := make([]float64, n)
 	used := make(map[float64]struct{}, n)
 	for i := 0; i < n; {
