@@ -19,15 +19,16 @@ e.g.
 	fmt.Println(interfaceKit.IsNil(src2)) // true
 	fmt.Println(interfaceKit.IsNil(src3)) // true
 */
-func IsNil(obj interface{}) bool {
-	//v := reflect.ValueOf(obj)
-	//if v.Kind() == reflect.Ptr {
-	//	// obj的类型：指针
-	//	return v.IsNil()
-	//}
-	//// obj的类型：非指针
-	//return obj == nil
+func IsNil(obj any) bool {
+	if obj == nil {
+		return true
+	}
 
-	// golang中nil的判断 https://blog.csdn.net/weixin_44579563/article/details/129583860
-	return obj == nil || reflect.ValueOf(obj).IsNil()
+	value := reflect.ValueOf(obj)
+	switch value.Kind() {
+	case reflect.Chan, reflect.Func, reflect.Interface, reflect.Map, reflect.Pointer, reflect.Slice, reflect.UnsafePointer:
+		return value.IsNil()
+	default:
+		return false
+	}
 }
