@@ -17,6 +17,9 @@ func ToPng(src, dest string) error {
 	}
 
 	srcImage, _, err := DecodeFromPath(src)
+	if err != nil {
+		return err
+	}
 	destFile, err := os.Create(dest)
 	if err != nil {
 		return err
