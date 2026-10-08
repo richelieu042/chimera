@@ -3,7 +3,7 @@ package imageKit
 import (
 	"image"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 // ClipWithPoints
@@ -23,19 +23,19 @@ func ClipWithPoints(img image.Image, p0, p1 image.Point) (image.Image, error) {
 */
 func Clip(img image.Image, x, y, width, height int) (image.Image, error) {
 	if img == nil {
-		return nil, errorKit.Newf("img is nil")
+		return nil, errKit.Newf("img is nil")
 	}
 
 	// 检查裁剪区域是否在图片范围内
 	bounds := img.Bounds()
 	if x < bounds.Min.X || y < bounds.Min.Y ||
 		x+width > bounds.Max.X || y+height > bounds.Max.Y {
-		return nil, errorKit.Newf("clip area out of bounds")
+		return nil, errKit.Newf("clip area out of bounds")
 	}
 
 	// 检查宽度和高度是否有效
 	if width <= 0 || height <= 0 {
-		return nil, errorKit.Newf("invalid crop dimensions: width=%d, height=%d", width, height)
+		return nil, errKit.Newf("invalid crop dimensions: width=%d, height=%d", width, height)
 	}
 
 	// 定义裁剪区域

@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/baggage"
@@ -31,7 +31,7 @@ func ExtractFromRequest(r *http.Request) (remoteSpanCtx context.Context, err err
 
 	defer func() {
 		if err != nil {
-			err = errorKit.Wrapf(err, "fail to extract from request")
+			err = errKit.Wrapf(err, "fail to extract from request")
 		}
 	}()
 

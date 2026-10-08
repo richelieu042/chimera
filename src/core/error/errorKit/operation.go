@@ -9,7 +9,7 @@ import (
 var (
 	// Is 作用: 传参err 的错误链中，是否存在和 传参target 匹配的error实例？(reports whether any error in err's tree matches target.)
 	/*
-		Deprecated: Use errors.Is() instead.
+		Deprecated: use errKit.Is instead.
 
 		PS: 支持第三方依赖 "github.com/gogf/gf/v2/errors/gerror".
 
@@ -19,7 +19,7 @@ var (
 
 	// As
 	/*
-		Deprecated: Use errors.As() instead.
+		Deprecated: use errKit.As instead.
 
 		!!!:
 		对于传参target，
@@ -39,20 +39,32 @@ var (
 	As func(err error, target any) bool = errors.As
 
 	// Equal 错误比较
+	//
+	// Deprecated: use errKit.Is instead.
 	Equal func(err, target error) bool = gerror.Equal
 
 	// HasStack 判断错误是否带堆栈
+	//
+	// Deprecated: use the errKit package instead.
 	HasStack func(err error) bool = gerror.HasStack
 
 	// Stack 获取堆栈信息
+	//
+	// Deprecated: use the errKit package instead.
 	Stack func(err error) string = gerror.Stack
 
 	// Current 获取当前error
+	//
+	// Deprecated: use the errKit package instead.
 	Current func(err error) error = gerror.Current
 
 	// Unwrap 获取层级错误的下一级错误error接口对象(当下一层级不存在时，返回nil)
+	//
+	// Deprecated: use errKit.Unwrap instead.
 	Unwrap func(err error) error = gerror.Unwrap
 
 	// Cause 获取根错误error
+	//
+	// Deprecated: use errKit.UnwrapAll instead.
 	Cause func(err error) error = gerror.Cause
 )

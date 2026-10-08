@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/h2non/bimg"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/mapKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
@@ -29,7 +29,7 @@ func GetImageType(path string) (bimg.ImageType, error) {
 	extName = strKit.ToLower(extName)
 	imageType, ok := bimgMapper[extName]
 	if !ok {
-		return bimg.UNKNOWN, errorKit.Newf("extName(%s) of dest is invalid", extName)
+		return bimg.UNKNOWN, errKit.Newf("extName(%s) of dest is invalid", extName)
 	}
 	return imageType, nil
 }
@@ -75,7 +75,7 @@ func Convert(src, dest string) error {
 		return err
 	}
 	if !bimg.IsTypeSupportedSave(imageType) {
-		return errorKit.Newf("imageType(%d, %s) isn't supported to save by current libvips compilation",
+		return errKit.Newf("imageType(%d, %s) isn't supported to save by current libvips compilation",
 			imageType, mapKit.Get(bimg.ImageTypes, imageType))
 	}
 

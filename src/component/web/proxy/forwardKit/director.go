@@ -3,7 +3,7 @@ package forwardKit
 import (
 	"net/http"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/urlKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
@@ -14,7 +14,7 @@ import (
 */
 func NewDirector(targetHost string, options ...DirectorOption) (director func(req *http.Request), err error) {
 	if err = validateKit.Var(targetHost, "hostname|ipv4|hostname_port"); err != nil {
-		err = errorKit.Newf("invalid targetHost(%s)", targetHost)
+		err = errKit.Newf("invalid targetHost(%s)", targetHost)
 		return
 	}
 

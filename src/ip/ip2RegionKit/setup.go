@@ -2,13 +2,13 @@ package ip2RegionKit
 
 import (
 	"github.com/lionsoul2014/ip2region/binding/golang/xdb"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
-var NotSetupError = errorKit.Newf("haven’t been set up correctly")
+var NotSetupError = errKit.Newf("haven’t been set up correctly")
 
 // 缓存整个xdb数据的情况下，searcher对象可以安全用于并发
 var (

@@ -8,7 +8,7 @@ import (
 	"encoding/base64"
 	"encoding/pem"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -25,7 +25,7 @@ func EncryptPrivatePEM(pemData []byte, format KeyFormat, password string) ([]byt
 
 	block, _ := pem.Decode(pemData)
 	if block == nil {
-		return nil, errorKit.Newf("fail to decode pem because block is nil")
+		return nil, errKit.Newf("fail to decode pem because block is nil")
 	}
 
 	der := block.Bytes
@@ -70,7 +70,7 @@ func encryptPrivateKey(privateKey interface{}, format KeyFormat, password string
 				return nil, err
 			}
 		default:
-			return nil, errorKit.Newf("invalid format(%v)", format)
+			return nil, errKit.Newf("invalid format(%v)", format)
 		}
 		block, err := x509.EncryptPEMBlock(rand.Reader, "PRIVATE KEY", raw, []byte(password), x509.PEMCipherAES256)
 		if err != nil {
@@ -78,7 +78,7 @@ func encryptPrivateKey(privateKey interface{}, format KeyFormat, password string
 		}
 		return block, nil
 	default:
-		return nil, errorKit.Newf("Invalid key type. It must be *ecdsa.PrivateKey or *rsa.PrivateKey")
+		return nil, errKit.Newf("Invalid key type. It must be *ecdsa.PrivateKey or *rsa.PrivateKey")
 	}
 }
 
@@ -95,10 +95,10 @@ func DecryptPrivatePEM(pemData []byte, format KeyFormat, password string) ([]byt
 
 	block, _ := pem.Decode(pemData)
 	if block == nil {
-		return nil, errorKit.Newf("fail to decode pem because block is nil")
+		return nil, errKit.Newf("fail to decode pem because block is nil")
 	}
 	if !x509.IsEncryptedPEMBlock(block) {
-		return nil, errorKit.Newf("fail to decode pem because it's not a decrypted pem")
+		return nil, errKit.Newf("fail to decode pem because it's not a decrypted pem")
 	}
 	der, err := x509.DecryptPEMBlock(block, []byte(password))
 	if err != nil {
@@ -126,16 +126,16 @@ func DecryptPrivatePEM(pemData []byte, format KeyFormat, password string) ([]byt
 				return nil, err
 			}
 		default:
-			return nil, errorKit.Newf("invalid format(%v)", format)
+			return nil, errKit.Newf("invalid format(%v)", format)
 		}
 	default:
-		return nil, errorKit.Newf("Invalid key type. It must be *ecdsa.PrivateKey or *rsa.PrivateKey")
+		return nil, errKit.Newf("Invalid key type. It must be *ecdsa.PrivateKey or *rsa.PrivateKey")
 	}
 
 	rawBase64 := base64.StdEncoding.EncodeToString(raw)
 	derBase64 := base64.StdEncoding.EncodeToString(der)
 	if rawBase64 != derBase64 {
-		return nil, errorKit.Newf("invalid PEM: raw does not match with der")
+		return nil, errKit.Newf("invalid PEM: raw does not match with der")
 	}
 	block = &pem.Block{
 		Type:  block.Type,
@@ -153,11 +153,11 @@ func derToPrivateKey(der []byte) (key interface{}, err error) {
 		case *rsa.PrivateKey, *ecdsa.PrivateKey:
 			return
 		default:
-			return nil, errorKit.Newf("Found unknown private key type")
+			return nil, errKit.Newf("Found unknown private key type")
 		}
 	}
 	if key, err = x509.ParseECPrivateKey(der); err == nil {
 		return
 	}
-	return nil, errorKit.Newf("Invalid key type. The DER must contain an rsa.PrivateKey or ecdsa.PrivateKey")
+	return nil, errKit.Newf("Invalid key type. The DER must contain an rsa.PrivateKey or ecdsa.PrivateKey")
 }

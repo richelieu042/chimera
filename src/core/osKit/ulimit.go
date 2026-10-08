@@ -7,7 +7,7 @@ import (
 	"strconv"
 
 	"github.com/richelieu042/chimera/v3/src/command/cmdKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
@@ -42,7 +42,7 @@ func GetMaxOpenFiles() (int, error) {
 
 	i, err := intKit.StringToInt(str)
 	if err != nil {
-		return 0, errorKit.Newf("result(%s) isn't a number", str)
+		return 0, errKit.Newf("result(%s) isn't a number", str)
 	}
 	return i, nil
 
@@ -58,7 +58,7 @@ func GetMaxOpenFiles() (int, error) {
 	//str := strKit.TrimSpace(out.String())
 	//value, err := strconv.Atoi(str)
 	//if err != nil {
-	//	return 0, errorKit.Newf("result(%s) of command(%s) isn't a number", str, cmd.String())
+	//	return 0, errKit.Newf("result(%s) of command(%s) isn't a number", str, cmd.String())
 	//}
 	//return value, nil
 }
@@ -79,7 +79,7 @@ func GetMaxProcessThreadCountByUser() (int, error) {
 
 	i, err := intKit.StringToInt(str)
 	if err != nil {
-		return 0, errorKit.Newf("result(%s) isn't a number", str)
+		return 0, errKit.Newf("result(%s) isn't a number", str)
 	}
 	return i, nil
 }
@@ -98,7 +98,7 @@ func GetCoreFileSize() (string, error) {
 	}
 	i, err := intKit.StringToInt(str)
 	if err != nil {
-		return "", errorKit.Newf("result(%s) isn't a number", str)
+		return "", errKit.Newf("result(%s) isn't a number", str)
 	}
 	return strconv.Itoa(i), nil
 }

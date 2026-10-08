@@ -11,7 +11,7 @@ import (
 	"github.com/hashicorp/raft"
 	raftboltdb "github.com/hashicorp/raft-boltdb"
 	"github.com/richelieu042/chimera/v3/src/atomic/atomicKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"github.com/richelieu042/chimera/v3/src/micro/raft/raftLogKit"
@@ -44,10 +44,10 @@ PS: 将 传参addr 作为id，所以传参中无id.
 */
 func NewRaftNodeAndBootstrapCluster(addr string, nodeAddrs []string, dir string, fsm raft.FSM, logger hclog.Logger) (*RaftNode, error) {
 	if err := validateKit.Var(addr, "hostname_port"); err != nil {
-		return nil, errorKit.Wrapf(err, "param nodeAddr(%s) is invalid", addr)
+		return nil, errKit.Wrapf(err, "param nodeAddr(%s) is invalid", addr)
 	}
 	if err := validateKit.Var(nodeAddrs, "unique,gte=3,dive,hostname_port"); err != nil {
-		return nil, errorKit.Wrapf(err, "param nodeAddrs(%s) is invalid", nodeAddrs)
+		return nil, errKit.Wrapf(err, "param nodeAddrs(%s) is invalid", nodeAddrs)
 	}
 
 	if err := fileKit.AssertNotExistOrIsDir(dir); err != nil {
@@ -62,10 +62,10 @@ func NewRaftNodeAndBootstrapCluster(addr string, nodeAddrs []string, dir string,
 	}
 	snapshot, err := fsm.Snapshot()
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to get snapshot")
+		return nil, errKit.Wrapf(err, "fail to get snapshot")
 	}
 	if snapshot == nil {
-		return nil, errorKit.Newf("snapshot == nil")
+		return nil, errKit.Newf("snapshot == nil")
 	}
 	if logger == nil {
 		logger = raftLogKit.NewLogger(&hclog.LoggerOptions{

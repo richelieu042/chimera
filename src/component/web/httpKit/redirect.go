@@ -3,7 +3,7 @@ package httpKit
 import (
 	"net/http"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -34,7 +34,7 @@ func Redirect(w http.ResponseWriter, r *http.Request, url string, code int) erro
 
 	// Richelieu: 参考了 gin v1.10.0 中的 render.Redirect.Render()，对 code 进行了限制
 	if (code < http.StatusMultipleChoices || code > http.StatusPermanentRedirect) && code != http.StatusCreated {
-		return errorKit.Newf("can't redirect with status code(%d)", code)
+		return errKit.Newf("can't redirect with status code(%d)", code)
 	}
 
 	http.Redirect(w, r, url, code)

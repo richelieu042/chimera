@@ -3,7 +3,7 @@ package gormKit
 import (
 	"time"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"gorm.io/gorm"
 )
@@ -42,7 +42,7 @@ func NewDB(dialector gorm.Dialector, opts ...gorm.Option) (*gorm.DB, error) {
 
 	/* (1) ping */
 	if err := sqlDB.Ping(); err != nil {
-		return nil, errorKit.Wrapf(err, "fail to ping")
+		return nil, errKit.Wrapf(err, "fail to ping")
 	}
 
 	/* (2) 连接池（pool）的默认配置，后续可以按照业务需求进行更改 */

@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/urlKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
@@ -124,7 +124,7 @@ func (opts *proxyOptions) proxy(w http.ResponseWriter, r *http.Request, targetHo
 
 	/* check targetHost */
 	if err = validateKit.Var(targetHost, "hostname_port"); err != nil {
-		err = errorKit.Wrapf(err, "invalid targetHost(%s)", targetHost)
+		err = errKit.Wrapf(err, "invalid targetHost(%s)", targetHost)
 		return
 	}
 
@@ -133,7 +133,7 @@ func (opts *proxyOptions) proxy(w http.ResponseWriter, r *http.Request, targetHo
 	switch scheme {
 	case "https", "http":
 	default:
-		return errorKit.Newf("invalid scheme(%s)", scheme)
+		return errKit.Newf("invalid scheme(%s)", scheme)
 	}
 
 	/* polyfill header */
@@ -185,7 +185,7 @@ func (opts *proxyOptions) proxy(w http.ResponseWriter, r *http.Request, targetHo
 				err = err1
 				return
 			}
-			err = errorKit.Newf("recover from %v", obj)
+			err = errKit.Newf("recover from %v", obj)
 		}
 	}()
 

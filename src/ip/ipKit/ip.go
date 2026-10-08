@@ -35,7 +35,7 @@ var (
 //		}
 //	}
 //	if ips == nil {
-//		return nil, errorKit.Sign("fail to get local ips")
+//		return nil, errKit.Newf("fail to get local ips")
 //	}
 //	return ips, nil
 //}

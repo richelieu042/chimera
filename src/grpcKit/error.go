@@ -1,7 +1,7 @@
 package grpcKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 )
@@ -16,7 +16,7 @@ func IsDeadlineExceededError(err error) bool {
 	}
 
 	// 防止多层error嵌套
-	err = errorKit.Cause(err)
+	err = errKit.UnwrapAll(err)
 
 	if s, ok := status.FromError(err); ok {
 		if s.Code() == codes.DeadlineExceeded {

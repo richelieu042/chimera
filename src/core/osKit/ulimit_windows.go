@@ -1,19 +1,19 @@
 package osKit
 
-import "github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+import "github.com/richelieu042/chimera/v3/src/core/error/errKit"
 
 func GetUlimitInfo() (string, error) {
-	return "", errorKit.Newf("not yet realized")
+	return "", errKit.Newf("not yet realized")
 }
 
 func GetMaxOpenFiles() (int, error) {
-	return 0, errorKit.Newf("not yet realized")
+	return 0, errKit.Newf("not yet realized")
 }
 
 func GetMaxProcessThreadCountByUser() (int, error) {
-	return 0, errorKit.Newf("not yet realized")
+	return 0, errKit.Newf("not yet realized")
 }
 
 func GetCoreFileSize() (string, error) {
-	return "", errorKit.Newf("not yet realized")
+	return "", errKit.Newf("not yet realized")
 }

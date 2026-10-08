@@ -3,7 +3,7 @@ package redisKit
 import (
 	"context"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -19,10 +19,10 @@ import (
 func (client *Client) XGroupCreate(ctx context.Context, stream, group, start string) error {
 	resp, err := client.universalClient.XGroupCreate(ctx, stream, group, start).Result()
 	if err != nil {
-		return errorKit.Wrapf(err, "fail with stream(%s), group(%s) and start(%s)", stream, group, start)
+		return errKit.Wrapf(err, "fail with stream(%s), group(%s) and start(%s)", stream, group, start)
 	}
 	if !strKit.EqualsIgnoreCase(resp, "OK") {
-		return errorKit.Newf("invalid resp(%s)", resp)
+		return errKit.Newf("invalid resp(%s)", resp)
 	}
 	return nil
 }
@@ -46,10 +46,10 @@ PS:
 func (client *Client) XGroupCreateMkStream(ctx context.Context, stream, group, start string) error {
 	resp, err := client.universalClient.XGroupCreateMkStream(ctx, stream, group, start).Result()
 	if err != nil {
-		return errorKit.Wrapf(err, "fail with stream(%s), group(%s) and start(%s)", stream, group, start)
+		return errKit.Wrapf(err, "fail with stream(%s), group(%s) and start(%s)", stream, group, start)
 	}
 	if !strKit.EqualsIgnoreCase(resp, "OK") {
-		return errorKit.Newf("invalid resp(%s)", resp)
+		return errKit.Newf("invalid resp(%s)", resp)
 	}
 	return nil
 }

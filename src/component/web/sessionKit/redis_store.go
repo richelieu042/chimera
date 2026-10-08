@@ -11,7 +11,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/randomKit"
 	"github.com/richelieu042/chimera/v3/src/serialize/gobKit"
@@ -205,11 +205,11 @@ func (s *RedisStore) save(ctx context.Context, session *sessions.Session) error 
 			// 重复了，需要重新生成 session.ID
 			id, err := s.keyGen()
 			if err != nil {
-				return errorKit.Newf("fail to regenerate session id")
+				return errKit.Newf("fail to regenerate session id")
 			}
 			session.ID = id + "_" + strconv.Itoa(randomKit.Int(0, 123456))
 		}
-		return errorKit.Newf("multiple repetition")
+		return errKit.Newf("multiple repetition")
 	}
 	return s.client.Set(ctx, s.keyPrefix+session.ID, b, expiration).Err()
 }

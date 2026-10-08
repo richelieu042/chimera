@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
@@ -31,14 +31,14 @@ func SetUp(pulsarConfig *Config, verifyConfig *VerifyConfig) (err error) {
 	}()
 
 	if err = validateKit.Struct(pulsarConfig); err != nil {
-		err = errorKit.Wrapf(err, "Fail to verify")
+		err = errKit.Wrapf(err, "Fail to verify")
 		return
 	}
 	config = pulsarConfig
 
 	// verify
 	if err = verify(verifyConfig); err != nil {
-		err = errorKit.Wrapf(err, "Fail to verify")
+		err = errKit.Wrapf(err, "Fail to verify")
 		return
 	}
 

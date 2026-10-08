@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 type (
@@ -50,7 +50,7 @@ func NewProducerOriginally(ctx context.Context, addresses []string, options puls
 	}
 	defer func() {
 		if err != nil {
-			err = errorKit.Wrapf(err, "fail to new producer")
+			err = errKit.Wrapf(err, "fail to new producer")
 		}
 	}()
 
@@ -68,7 +68,7 @@ func NewProducerOriginally(ctx context.Context, addresses []string, options puls
 
 		rst.Producer, err = rst.Client.CreateProducer(options)
 		if err != nil {
-			err = errorKit.Wrapf(err, "client fails to create producer")
+			err = errKit.Wrapf(err, "client fails to create producer")
 			errCh <- err
 			return
 		}

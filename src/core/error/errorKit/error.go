@@ -7,6 +7,8 @@ import (
 
 var (
 	// Simplef 使用 err.Error() 或 "%v" 时，不会附带调用此函数的调用方的名称和文件信息.
+	//
+	// Deprecated: use errKit.Simple instead.
 	Simplef = gerror.Newf
 )
 
@@ -14,6 +16,8 @@ var (
 /*
 @param format !!!: 类似于fmt.Errorf()，	(1) 不应该首字母大写;
 										(2) 不应该以标点符号结尾.
+
+Deprecated: use errKit.Newf instead.
 */
 func Newf(format string, args ...interface{}) error {
 	skip := 1
@@ -25,6 +29,8 @@ func Newf(format string, args ...interface{}) error {
 	@param skip (1) >=0
 				(2) 0: 等价于 Newf || Newf
 				(2) 1: 跳过1层（e.g. assert工具类）
+
+Deprecated: use errKit.NewfWithDepth instead.
 */
 func NewfWithSkip(skip int, format string, args ...interface{}) error {
 	skip++
@@ -35,6 +41,8 @@ func NewfWithSkip(skip int, format string, args ...interface{}) error {
 /*
 @param format !!!: 类似于fmt.Errorf()，	(1) 不应该首字母大写;
 										(2) 不应该以标点符号结尾.
+
+Deprecated: use errKit.Wrapf instead.
 */
 func Wrapf(err error, format string, args ...interface{}) error {
 	skip := 1

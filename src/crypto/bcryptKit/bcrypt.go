@@ -1,7 +1,7 @@
 package bcryptKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -19,7 +19,7 @@ func GenerateFromPassword(password []byte, costArgs ...int) (hashedPassword []by
 	if costArgs != nil {
 		cost = costArgs[0]
 		if cost < bcrypt.MinCost || cost > bcrypt.MaxCost {
-			err = errorKit.Newf("cost(%d) out of range([%d, %d])", cost, bcrypt.MinCost, bcrypt.MaxCost)
+			err = errKit.Newf("cost(%d) out of range([%d, %d])", cost, bcrypt.MinCost, bcrypt.MaxCost)
 			return
 		}
 	} else {

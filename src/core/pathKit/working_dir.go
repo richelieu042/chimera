@@ -5,7 +5,7 @@ import (
 
 	"github.com/gogf/gf/v2/os/gfile"
 	"github.com/richelieu042/chimera/v3/src/consts"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"github.com/sirupsen/logrus"
@@ -46,7 +46,7 @@ func ReviseWorkingDirInTestMode(projectName string) (string, error) {
 	wd := GetWorkingDir()
 	index := strKit.Index(wd, projectName)
 	if index == -1 {
-		return "", errorKit.Newf("invalid projectName(%s)", projectName)
+		return "", errKit.Newf("invalid projectName(%s)", projectName)
 	}
 	wd1 := strKit.SubBefore(wd, index+len(projectName))
 	if err := ChangeWorkingDir(wd1); err != nil {

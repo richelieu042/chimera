@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 	"github.com/richelieu042/chimera/v3/src/log/logKit"
 	"github.com/richelieu042/chimera/v3/src/netKit"
@@ -59,7 +59,7 @@ func TestForwardToHostComplexly(t *testing.T) {
 	engine := gin.Default()
 	modifyResponse := func(resp *http.Response) error {
 		if resp.StatusCode != 200 {
-			return errorKit.Simplef("invalid status(%s)", resp.Status)
+			return errKit.Simple("invalid status(%s)", resp.Status)
 		}
 		return nil
 	}

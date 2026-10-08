@@ -5,7 +5,7 @@ import (
 	"time"
 
 	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 )
 
@@ -29,10 +29,10 @@ func NewProducer() (rmq_client.Producer, error) {
 		Credentials: config.Credentials,
 	})
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "Fail to new producer")
+		return nil, errKit.Wrapf(err, "Fail to new producer")
 	}
 	if err := producer.Start(); err != nil {
-		return nil, errorKit.Wrapf(err, "Fail to start producer")
+		return nil, errKit.Wrapf(err, "Fail to start producer")
 	}
 	return producer, nil
 }

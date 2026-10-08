@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
@@ -26,7 +26,7 @@ func NewSingleHostReverseProxyWithUrl(urlStr string) (*httputil.ReverseProxy, er
 
 	u, err := url.Parse(urlStr)
 	if err != nil {
-		return nil, errorKit.Newf("invalid urlStr(%s)", urlStr)
+		return nil, errKit.Newf("invalid urlStr(%s)", urlStr)
 	}
 	return NewSingleHostReverseProxy(u)
 }

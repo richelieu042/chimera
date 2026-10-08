@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
 	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/sirupsen/logrus"
 )
@@ -44,7 +44,7 @@ func (p *wsProcessor) Process(w http.ResponseWriter, r *http.Request) {
 	// Upgrade（升级为WebSocket协议）
 	conn, err := p.upgrader.Upgrade(w, r, w.Header())
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to upgrade")
+		err = errKit.Wrapf(err, "fail to upgrade")
 		p.listeners.OnFailure(w, r, err.Error())
 		return
 	}
@@ -53,12 +53,12 @@ func (p *wsProcessor) Process(w http.ResponseWriter, r *http.Request) {
 
 	channel, err := p.newChannel(r, conn, make(chan string, 1))
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to new channel")
+		err = errKit.Wrapf(err, "fail to new channel")
 		p.listeners.OnFailure(w, r, err.Error())
 		return
 	}
 	if err := channel.Initialize(); err != nil {
-		err = errorKit.Wrapf(err, "fail to initialize channel")
+		err = errKit.Wrapf(err, "fail to initialize channel")
 		p.listeners.OnFailure(w, r, err.Error())
 		return
 	}
@@ -117,7 +117,7 @@ func (p *wsProcessor) Process(w http.ResponseWriter, r *http.Request) {
 func (p *wsProcessor) newChannel(r *http.Request, conn *websocket.Conn, closeCh chan string) (pushKit.Channel, error) {
 	id, err := p.idGenerator()
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to generate id")
+		return nil, errKit.Wrapf(err, "fail to generate id")
 	}
 	if err := strKit.AssertNotEmpty(id, "id"); err != nil {
 		return nil, err

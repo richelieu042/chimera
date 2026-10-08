@@ -4,7 +4,7 @@ import (
 	"github.com/duke-git/lancet/v2/convertor"
 	"github.com/gogf/gf/v2/util/gutil"
 	"github.com/jinzhu/copier"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 // Copy 浅拷贝
@@ -74,6 +74,6 @@ func DeepCopy1[T any](src T) (dest T, err error) {
 	if dest, ok = obj.(T); ok {
 		return
 	}
-	err = errorKit.Newf("Fail to deep copy because types of src(%T) and dest(%T) are different.", src, dest)
+	err = errKit.Newf("Fail to deep copy because types of src(%T) and dest(%T) are different.", src, dest)
 	return
 }

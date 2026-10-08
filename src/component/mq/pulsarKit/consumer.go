@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"github.com/apache/pulsar-client-go/pulsar"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 type (
@@ -42,7 +42,7 @@ func NewConsumerOriginally(ctx context.Context, addresses []string, options puls
 	}
 	defer func() {
 		if err != nil {
-			err = errorKit.Wrapf(err, "fail to new consumer")
+			err = errKit.Wrapf(err, "fail to new consumer")
 		}
 	}()
 
@@ -60,7 +60,7 @@ func NewConsumerOriginally(ctx context.Context, addresses []string, options puls
 
 		rst.Consumer, err = rst.Client.Subscribe(options)
 		if err != nil {
-			err = errorKit.Wrapf(err, "client fails to subscribe with topic(%s), subscriptionName(%s) and type(%s)",
+			err = errKit.Wrapf(err, "client fails to subscribe with topic(%s), subscriptionName(%s) and type(%s)",
 				options.Topic, options.SubscriptionName, options.Type)
 			errCh <- err
 			return

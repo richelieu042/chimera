@@ -7,7 +7,7 @@ import (
 	"github.com/emersion/go-imap"
 	id "github.com/emersion/go-imap-id"
 	"github.com/emersion/go-imap/client"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 type (
@@ -52,7 +52,7 @@ func newImapClient(config *ImapConfig) (c *client.Client, err error) {
 		}
 	}()
 	if config == nil {
-		err = errorKit.Newf("config == nil")
+		err = errKit.Newf("config == nil")
 		return
 	}
 

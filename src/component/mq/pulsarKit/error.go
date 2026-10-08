@@ -1,7 +1,7 @@
 package pulsarKit
 
-import "github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+import "github.com/richelieu042/chimera/v3/src/core/error/errKit"
 
 var (
-	NotSetupError = errorKit.Newf("haven’t been set up correctly")
+	NotSetupError = errKit.Newf("haven’t been set up correctly")
 )

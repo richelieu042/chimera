@@ -1,7 +1,7 @@
 package sliceKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/samber/lo"
 )
 import lop "github.com/samber/lo/parallel"
@@ -33,7 +33,7 @@ func ConvertElementTypeE[T any, R any](collection []T, converter func(item T, in
 	for i, item := range collection {
 		result[i], err = converter(item, i)
 		if err != nil {
-			return nil, errorKit.Wrapf(err, "fail to convert element(index: %d, value: %v)", i, item)
+			return nil, errKit.Wrapf(err, "fail to convert element(index: %d, value: %v)", i, item)
 		}
 	}
 

@@ -6,7 +6,7 @@ import (
 	"regexp"
 
 	"github.com/richelieu042/chimera/v3/src/component/web/http_client/requestKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
@@ -52,7 +52,7 @@ func EncodeToBase64String(data []byte) (string, error) {
 		base64Str := fmt.Sprintf("data:%s;base64,%s", mimeType, base64Kit.EncodeToString(data))
 		return base64Str, nil
 	default:
-		return "", errorKit.Newf("mimeType(%s) isn't supported currently", mimeType)
+		return "", errKit.Newf("mimeType(%s) isn't supported currently", mimeType)
 	}
 }
 

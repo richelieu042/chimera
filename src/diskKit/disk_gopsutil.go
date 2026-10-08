@@ -48,5 +48,5 @@ func GetDiskUsageStatsByPath(path string) (*DiskUsageStats, error) {
 	//	}
 	//	return (*DiskUsageStats)(usageStat), nil
 	//}
-	//return nil, errorKit.Newf("fail to get disk usageStat with parts(length: %d)", len(parts))
+	//return nil, errKit.Newf("fail to get disk usageStat with parts(length: %d)", len(parts))
 }

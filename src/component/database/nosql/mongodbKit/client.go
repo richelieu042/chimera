@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"go.mongodb.org/mongo-driver/v2/mongo"
 	"go.mongodb.org/mongo-driver/v2/mongo/options"
 	"go.mongodb.org/mongo-driver/v2/mongo/readpref"
@@ -33,7 +33,7 @@ func NewClientSimply(uri string) (*mongo.Client, error) {
 func NewClient(opts ...*options.ClientOptions) (*mongo.Client, error) {
 	client, err := mongo.Connect(opts...)
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to connect")
+		return nil, errKit.Wrapf(err, "fail to connect")
 	}
 
 	// 检查连接是否成功
@@ -41,7 +41,7 @@ func NewClient(opts ...*options.ClientOptions) (*mongo.Client, error) {
 	defer cancel()
 	if err := client.Ping(ctx1, readpref.Primary()); err != nil {
 		_ = client.Disconnect(context.TODO())
-		return nil, errorKit.Wrapf(err, "fail to ping")
+		return nil, errKit.Wrapf(err, "fail to ping")
 	}
 
 	return client, nil

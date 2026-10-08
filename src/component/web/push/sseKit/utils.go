@@ -3,7 +3,7 @@ package sseKit
 import (
 	"net/http"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 // IsSseSupported
@@ -13,11 +13,11 @@ import (
 func IsSseSupported(w http.ResponseWriter, r *http.Request) error {
 	if _, ok := w.(http.Flusher); !ok {
 		// 不支持: 流信息（streaming）
-		return errorKit.Newf("http.Flusher(Streaming) isn't supported")
+		return errKit.Newf("http.Flusher(Streaming) isn't supported")
 	}
 	//if _, ok := w.(http.CloseNotifier); !ok {
 	//	// 不支持: 监听关闭
-	//	return errorKit.Newf("http.CloseNotifier isn't supported!")
+	//	return errKit.Newf("http.CloseNotifier isn't supported!")
 	//}
 	return nil
 }

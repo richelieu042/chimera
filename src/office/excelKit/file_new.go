@@ -1,7 +1,7 @@
 package excelKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"github.com/xuri/excelize/v2"
 )
@@ -33,7 +33,7 @@ func NewFileWithPath(filePath string, opts ...excelize.Options) (*excelize.File,
 	f := NewFile()
 	if err := f.SaveAs(filePath, opts...); err != nil {
 		_ = f.Close()
-		return nil, errorKit.Wrapf(err, "fail to save as")
+		return nil, errKit.Wrapf(err, "fail to save as")
 	}
 	return f, nil
 }

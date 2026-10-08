@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -19,7 +19,7 @@ import (
 */
 func GetCertificateInfo(url string) (*x509.Certificate, error) {
 	if !strKit.StartWith(url, "https://") {
-		return nil, errorKit.Newf("invalid url(%s)", url)
+		return nil, errKit.Newf("invalid url(%s)", url)
 	}
 
 	client := &http.Client{
@@ -39,7 +39,7 @@ func GetCertificateInfo(url string) (*x509.Certificate, error) {
 
 	certs := resp.TLS.PeerCertificates
 	if len(certs) == 0 {
-		return nil, errorKit.Newf("length of certs is zero")
+		return nil, errKit.Newf("length of certs is zero")
 	}
 	return certs[0], nil
 }

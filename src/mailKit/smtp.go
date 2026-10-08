@@ -8,7 +8,7 @@ import (
 
 	"github.com/jordan-wright/email"
 	"github.com/richelieu042/chimera/v3/src/consts"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -42,13 +42,13 @@ func InitializeSmtp(config *SmtpConfig, count int) error {
 	defer smtpLock.Unlock()
 
 	if config == nil {
-		return errorKit.Newf("config == nil")
+		return errKit.Newf("config == nil")
 	}
 	config.NickName = strKit.EmptyToDefault(config.NickName, consts.ProjectName, true)
 	defaultFrom = fmt.Sprintf("%s <%s>", config.NickName, config.Account)
 
 	if count <= 0 {
-		return errorKit.Newf("count(%d) is invalid", count)
+		return errKit.Newf("count(%d) is invalid", count)
 	}
 
 	auth := smtp.PlainAuth("", config.Account, config.Password, config.Host)
@@ -89,10 +89,10 @@ func SendMail(mail *email.Email) error {
 	defer smtpLock.RUnlock()
 
 	if smtpPool == nil {
-		return errorKit.Newf("smtp pool hasn't been initialized")
+		return errKit.Newf("smtp pool hasn't been initialized")
 	}
 	if mail == nil {
-		return errorKit.Newf("mail == nil")
+		return errKit.Newf("mail == nil")
 	}
 	mail.From = strKit.EmptyToDefault(mail.From, defaultFrom, true)
 	return smtpPool.Send(mail, time.Second*6)

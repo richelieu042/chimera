@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/richelieu042/chimera/v3/src/component/web/httpKit"
 	"github.com/richelieu042/chimera/v3/src/component/web/push/pushKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -35,12 +35,12 @@ func (p *sseProcessor) Process(w http.ResponseWriter, r *http.Request) {
 
 	channel, err := p.newChannel(w, r, make(chan string, 1))
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to new channel")
+		err = errKit.Wrapf(err, "fail to new channel")
 		p.listeners.OnFailure(w, r, err.Error())
 		return
 	}
 	if err := channel.Initialize(); err != nil {
-		err = errorKit.Wrapf(err, "fail to initialize channel")
+		err = errKit.Wrapf(err, "fail to initialize channel")
 		p.listeners.OnFailure(w, r, err.Error())
 		return
 	}
@@ -67,7 +67,7 @@ func (p *sseProcessor) Process(w http.ResponseWriter, r *http.Request) {
 func (p *sseProcessor) newChannel(w http.ResponseWriter, r *http.Request, closeCh chan string) (pushKit.Channel, error) {
 	id, err := p.idGenerator()
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to generate id")
+		return nil, errKit.Wrapf(err, "fail to generate id")
 	}
 	if err := strKit.AssertNotEmpty(id, "id"); err != nil {
 		return nil, err

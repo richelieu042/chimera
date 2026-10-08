@@ -5,7 +5,7 @@ import (
 	"strings"
 
 	"github.com/mxschmitt/playwright-go"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
@@ -45,7 +45,7 @@ func LaunchBrowser(browserName string, driverDir string, installFlag bool,
 	switch browserName {
 	case BrowserNameChromium, BrowserNameFirefox, BrowserNameWebkit:
 	default:
-		err = errorKit.Newf("invalid browserName(%s)", browserName)
+		err = errKit.Newf("invalid browserName(%s)", browserName)
 		return
 	}
 
@@ -61,13 +61,13 @@ func LaunchBrowser(browserName string, driverDir string, installFlag bool,
 	if installFlag {
 		err = playwright.Install(runOptions)
 		if err != nil {
-			err = errorKit.Wrapf(err, "fail to install dependencies")
+			err = errKit.Wrapf(err, "fail to install dependencies")
 			return
 		}
 	}
 	pw, err = playwright.Run(runOptions)
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to run playwright")
+		err = errKit.Wrapf(err, "fail to run playwright")
 		return
 	}
 
@@ -84,11 +84,11 @@ func LaunchBrowser(browserName string, driverDir string, installFlag bool,
 		browser, err = pw.WebKit.Launch(tmp...)
 	default:
 		// Richelieu: 理论上代码不会走到此处
-		err = errorKit.Newf("invalid browserName(%s)", browserName)
+		err = errKit.Newf("invalid browserName(%s)", browserName)
 		return
 	}
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to launch browser(%s)", browserName)
+		err = errKit.Wrapf(err, "fail to launch browser(%s)", browserName)
 	}
 	return
 }

@@ -3,7 +3,7 @@ package pulsarKit
 import (
 	"github.com/apache/pulsar-client-go/pulsar"
 	"github.com/apache/pulsar-client-go/pulsar/log"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/log/logrusKit"
@@ -48,7 +48,7 @@ func NewClient(addresses []string, logPath string) (pulsar.Client, error) {
 		Logger: logger,
 	})
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to new client")
+		err = errKit.Wrapf(err, "fail to new client")
 		return nil, err
 	}
 

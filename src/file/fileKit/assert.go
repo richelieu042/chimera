@@ -1,7 +1,7 @@
 package fileKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/funcKit"
 )
@@ -13,13 +13,13 @@ import (
 func AssertExist(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -35,13 +35,13 @@ func AssertExist(path string) error {
 func AssertNotExistOrIsFile(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if Exists(path) && IsDir(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) exists but it is a directory", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) exists but it is a directory", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -57,13 +57,13 @@ func AssertNotExistOrIsFile(path string) error {
 func AssertNotExistOrIsDir(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if Exists(path) && IsFile(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) exists but it is a file", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) exists but it is a file", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -75,16 +75,16 @@ func AssertNotExistOrIsDir(path string) error {
 func AssertExistAndIsFile(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	if IsDir(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) exists but it is a directory", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) exists but it is a directory", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -96,16 +96,16 @@ func AssertExistAndIsFile(path string) error {
 func AssertExistAndIsDir(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	if IsFile(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) exists but it is a file", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) exists but it is a file", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -113,19 +113,19 @@ func AssertExistAndIsDir(path string) error {
 func AssertReadableAndWritable(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	if !IsReadable(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) isn't readable", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) isn't readable", funcKit.GetFuncName(1), path)
 	}
 	if !IsWritable(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) isn't writable", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) isn't writable", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -133,16 +133,16 @@ func AssertReadableAndWritable(path string) error {
 func AssertReadable(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	if !IsReadable(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) isn't readable", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) isn't readable", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }
@@ -150,16 +150,16 @@ func AssertReadable(path string) error {
 func AssertWritable(path string) error {
 	if strKit.IsBlank(path) {
 		if path == "" {
-			return errorKit.NewfWithSkip(1, "[%s] path is empty", funcKit.GetFuncName(1))
+			return errKit.NewfWithDepth(1, "[%s] path is empty", funcKit.GetFuncName(1))
 		}
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) is blank", funcKit.GetFuncName(1), path)
 	}
 
 	if !Exists(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) doesn't exist", funcKit.GetFuncName(1), path)
 	}
 	if !IsWritable(path) {
-		return errorKit.NewfWithSkip(1, "[%s] path(%s) isn't writable", funcKit.GetFuncName(1), path)
+		return errKit.NewfWithDepth(1, "[%s] path(%s) isn't writable", funcKit.GetFuncName(1), path)
 	}
 	return nil
 }

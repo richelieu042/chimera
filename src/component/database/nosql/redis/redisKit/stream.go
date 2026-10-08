@@ -6,7 +6,7 @@ import (
 
 	"github.com/redis/go-redis/v9"
 	"github.com/richelieu042/chimera/v3/src/consts"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/idKit"
 )
 
@@ -33,7 +33,7 @@ func (client *Client) IsStreamSupported(ctx context.Context) error {
 		},
 	})
 	if err != nil {
-		return errorKit.Wrapf(err, "redis stream isn't supported")
+		return errKit.Wrapf(err, "redis stream isn't supported")
 	}
 	return nil
 }

@@ -2,7 +2,7 @@ package i18nKit
 
 import (
 	"github.com/nicksnyder/go-i18n/v2/i18n"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"golang.org/x/text/language"
@@ -23,12 +23,12 @@ func Associate(bundle *i18n.Bundle, messageFile *i18n.MessageFile, languageCodes
 
 	for i, languageCode := range languageCodes {
 		if strKit.IsEmpty(languageCode) {
-			err = errorKit.Newf("languageCode(index: %d, value: %s) is invalid", i, languageCode)
+			err = errKit.Newf("languageCode(index: %d, value: %s) is invalid", i, languageCode)
 			return
 		}
 		tag := language.Make(languageCode)
 		if err = bundle.AddMessages(tag, messageFile.Messages...); err != nil {
-			err = errorKit.Wrapf(err, "AddMessages() fails with languageCode(index: %d, value: %s)", i, languageCode)
+			err = errKit.Wrapf(err, "AddMessages() fails with languageCode(index: %d, value: %s)", i, languageCode)
 			return
 		}
 	}

@@ -61,7 +61,7 @@ func MkParentDirs(path string) error {
 //		}
 //
 //		if err := os.MkdirAll(dirPath, perm); err != nil {
-//			err = errorKit.Wrapf(err, `fail with dirPath(%s) and perm(%s)`, dirPath, perm)
+//			err = errKit.Wrapf(err, `fail with dirPath(%s) and perm(%s)`, dirPath, perm)
 //			return err
 //		}
 //	}

@@ -3,7 +3,7 @@ package cpuKit
 import (
 	"bytes"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/shirou/gopsutil/v4/cpu"
 )
@@ -18,7 +18,7 @@ func GetCpuId() (string, error) {
 		return "", err
 	}
 	if len(stats) == 0 {
-		return "", errorKit.Newf("length of stats is 0")
+		return "", errKit.Newf("length of stats is 0")
 	}
 
 	buffer := bytes.Buffer{}
@@ -32,7 +32,7 @@ func GetCpuId() (string, error) {
 		}
 	}
 	if buffer.Len() == 0 {
-		return "", errorKit.Newf("length of buffer is 0")
+		return "", errKit.Newf("length of buffer is 0")
 	}
 	return buffer.String(), nil
 }

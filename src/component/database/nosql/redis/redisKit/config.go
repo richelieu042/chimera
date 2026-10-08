@@ -1,7 +1,7 @@
 package redisKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
@@ -95,7 +95,7 @@ func (config *Config) Validate() error {
 	config.Simplify()
 
 	if err := validateKit.Struct(config); err != nil {
-		return errorKit.Wrapf(err, "fail to verify")
+		return errKit.Wrapf(err, "fail to verify")
 	}
 	return nil
 }

@@ -2,12 +2,12 @@ package consulKit
 
 import (
 	"github.com/hashicorp/consul/api"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
 )
 
 var (
-	NotSetupError = errorKit.Newf("haven’t been set up correctly")
+	NotSetupError = errKit.Newf("haven’t been set up correctly")
 )
 
 var innerClient *api.Client

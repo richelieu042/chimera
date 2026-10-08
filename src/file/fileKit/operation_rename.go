@@ -5,7 +5,7 @@ import (
 	"path/filepath"
 
 	"github.com/gogf/gf/v2/os/gfile"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -31,7 +31,7 @@ func Rename(src, dst string) error {
 
 	err := os.Rename(src, dst)
 	if err != nil {
-		err = errorKit.Wrapf(err, `fail to rename from "%s" to "%s"`, src, dst)
+		err = errKit.Wrapf(err, `fail to rename from "%s" to "%s"`, src, dst)
 	}
 	return err
 }

@@ -2,13 +2,13 @@ package i18nPackKit
 
 import (
 	"github.com/nicksnyder/go-i18n/v2/i18n"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/i18n/i18nKit"
 	"golang.org/x/text/language"
 )
 
 var (
-	NotSetupError = errorKit.Newf("haven’t been set up correctly")
+	NotSetupError = errKit.Newf("haven’t been set up correctly")
 )
 
 var (

@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/imroc/req/v3"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/log/zapKit"
 )
 
@@ -80,9 +80,9 @@ func loadOptions(options ...ClientOption) *clientOptions {
 				//resp.Err = fmt.Errorf("bad status: %s\nraw content:\n%s", resp.Status, resp.Dump())
 				bodyStr, err := resp.ToString()
 				if err != nil {
-					resp.Err = errorKit.Newf("bad status: %s, fail to get body string: %s", resp.Status, err.Error())
+					resp.Err = errKit.Newf("bad status: %s, fail to get body string: %s", resp.Status, err.Error())
 				} else {
-					resp.Err = errorKit.Newf("bad status: %s, body string: %s", resp.Status, bodyStr)
+					resp.Err = errKit.Newf("bad status: %s, body string: %s", resp.Status, bodyStr)
 				}
 			}
 			return nil

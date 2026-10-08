@@ -16,7 +16,7 @@ func ParsePublicKeyFromPem(pemData []byte) (*rsa.PublicKey, error) {
 
 	//block, _ := pem.Decode(pemData)
 	//if block == nil {
-	//	return nil, errorKit.Sign("fail to decode pem because block is nil")
+	//	return nil, errKit.Newf("fail to decode pem because block is nil")
 	//}
 	//
 	//keyInterface, err := x509.ParsePKIXPublicKey(block.Bytes)
@@ -40,7 +40,7 @@ func ParsePrivateKeyFromPem(data []byte, password string) (*rsa.PrivateKey, erro
 
 	//block, _ := pem.Decode(data)
 	//if block == nil {
-	//	return nil, errorKit.Sign("fail to decode pem because block is nil")
+	//	return nil, errKit.Newf("fail to decode pem because block is nil")
 	//}
 	//
 	//switch opts.format {
@@ -53,6 +53,6 @@ func ParsePrivateKeyFromPem(data []byte, password string) (*rsa.PrivateKey, erro
 	//	}
 	//	return keyInterface.(*rsa.PrivateKey), nil
 	//default:
-	//	return nil, errorKit.Sign("invalid key format(%d)", opts.format)
+	//	return nil, errKit.Newf("invalid key format(%d)", opts.format)
 	//}
 }

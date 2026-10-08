@@ -9,7 +9,7 @@ import (
 
 	rmq_client "github.com/apache/rocketmq-clients/golang/v5"
 	"github.com/apache/rocketmq-clients/golang/v5/protocol/v2"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
@@ -132,7 +132,7 @@ func verify(config *VerifyConfig) error {
 			ctx, _ := context.WithTimeout(context.TODO(), verifySendTimeout)
 			_, err := producer.Send(ctx, msg)
 			if err != nil {
-				err = errorKit.Wrapf(err, "Producer fails to send message(%s).", text)
+				err = errKit.Wrapf(err, "Producer fails to send message(%s).", text)
 				producerCh <- err
 				return
 			}
@@ -153,7 +153,7 @@ func verify(config *VerifyConfig) error {
 		for {
 			select {
 			case <-ctx.Done():
-				consumerCh <- errorKit.Newf("Consumer fails to receive all messages within timeout(%s).", verifyTimeLimit)
+				consumerCh <- errKit.Newf("Consumer fails to receive all messages within timeout(%s).", verifyTimeLimit)
 				return
 			case <-time.After(time.Millisecond * 100):
 				// do nothing
@@ -173,7 +173,7 @@ func verify(config *VerifyConfig) error {
 						//	break LOOP
 						//case codes.DeadlineExceeded:
 						//	/* 超时结束 */
-						//	consumerErr = errorKit.Newf("consumer fails to receive all messages(count: %d) within timeout(%s), missing(%d)", len(texts), verifyTimeLimit.String(), len(text1))
+						//	consumerErr = errKit.Newf("consumer fails to receive all messages(count: %d) within timeout(%s), missing(%d)", len(texts), verifyTimeLimit.String(), len(text1))
 						//	break LOOP
 					}
 				}
@@ -241,6 +241,6 @@ func verify(config *VerifyConfig) error {
 		// 通过验证
 		return nil
 	case <-ctx.Done():
-		return errorKit.Newf("Fail to pass verification within timeout(%s).", verifyTimeLimit)
+		return errKit.Newf("Fail to pass verification within timeout(%s).", verifyTimeLimit)
 	}
 }

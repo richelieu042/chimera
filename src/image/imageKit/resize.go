@@ -3,7 +3,7 @@ package imageKit
 import (
 	"image"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"golang.org/x/image/draw"
 )
 
@@ -25,13 +25,13 @@ func resizeImage(srcImg image.Image, width, height int) image.Image {
 // ResizeImage 缩放图片到指定尺寸（不保证纵横比）.
 func ResizeImage(srcImg image.Image, width, height int) (image.Image, error) {
 	if srcImg == nil {
-		return nil, errorKit.Newf("srcImg is nil")
+		return nil, errKit.Newf("srcImg is nil")
 	}
 	if width <= 0 {
-		return nil, errorKit.Newf("invalid width: %d", width)
+		return nil, errKit.Newf("invalid width: %d", width)
 	}
 	if height <= 0 {
-		return nil, errorKit.Newf("invalid height: %d", height)
+		return nil, errKit.Newf("invalid height: %d", height)
 	}
 
 	return resizeImage(srcImg, width, height), nil
@@ -40,10 +40,10 @@ func ResizeImage(srcImg image.Image, width, height int) (image.Image, error) {
 // ResizeImageWithScale 按指定比例缩放图片（保证纵横比）.
 func ResizeImageWithScale(srcImg image.Image, scale float64) (image.Image, error) {
 	if srcImg == nil {
-		return nil, errorKit.Newf("srcImg is nil")
+		return nil, errKit.Newf("srcImg is nil")
 	}
 	if scale <= 0 {
-		return nil, errorKit.Newf("invalid scale: %f", scale)
+		return nil, errKit.Newf("invalid scale: %f", scale)
 	}
 
 	bounds := srcImg.Bounds()
@@ -63,13 +63,13 @@ func ResizeImageWithScale(srcImg image.Image, scale float64) (image.Image, error
 */
 func ResizeImageKeepAspectRatio(srcImg image.Image, maxWidth, maxHeight int) (image.Image, error) {
 	if srcImg == nil {
-		return nil, errorKit.Newf("srcImg is nil")
+		return nil, errKit.Newf("srcImg is nil")
 	}
 	if maxWidth <= 0 {
-		return nil, errorKit.Newf("invalid maxWidth: %d", maxWidth)
+		return nil, errKit.Newf("invalid maxWidth: %d", maxWidth)
 	}
 	if maxHeight <= 0 {
-		return nil, errorKit.Newf("invalid maxHeight: %d", maxHeight)
+		return nil, errKit.Newf("invalid maxHeight: %d", maxHeight)
 	}
 
 	bounds := srcImg.Bounds()
@@ -96,10 +96,10 @@ func ResizeImageKeepAspectRatio(srcImg image.Image, maxWidth, maxHeight int) (im
 */
 func ResizeImageByWidth(srcImg image.Image, width int) (image.Image, error) {
 	if srcImg == nil {
-		return nil, errorKit.Newf("srcImg is nil")
+		return nil, errKit.Newf("srcImg is nil")
 	}
 	if width <= 0 {
-		return nil, errorKit.Newf("invalid width: %d", width)
+		return nil, errKit.Newf("invalid width: %d", width)
 	}
 
 	bounds := srcImg.Bounds()
@@ -119,10 +119,10 @@ func ResizeImageByWidth(srcImg image.Image, width int) (image.Image, error) {
 */
 func ResizeImageByHeight(srcImg image.Image, height int) (image.Image, error) {
 	if srcImg == nil {
-		return nil, errorKit.Newf("srcImg is nil")
+		return nil, errKit.Newf("srcImg is nil")
 	}
 	if height <= 0 {
-		return nil, errorKit.Newf("invalid height: %d", height)
+		return nil, errKit.Newf("invalid height: %d", height)
 	}
 
 	bounds := srcImg.Bounds()

@@ -6,7 +6,7 @@ import (
 	"net/http/httputil"
 	"net/url"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/sirupsen/logrus"
 	"github.com/vulcand/oxy/v2/buffer"
@@ -57,15 +57,15 @@ func NewLoadBalancerHandler(reverseProxy *httputil.ReverseProxy, servers []strin
 		roundrobin.Logger(logger),
 	)
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "roundrobin.New() fails")
+		return nil, errKit.Wrapf(err, "roundrobin.New() fails")
 	}
 	for _, server := range servers {
 		u, err := url.Parse(server)
 		if err != nil {
-			return nil, errorKit.Wrapf(err, "server(%s) is invalid", server)
+			return nil, errKit.Wrapf(err, "server(%s) is invalid", server)
 		}
 		if err := lb.UpsertServer(u); err != nil {
-			return nil, errorKit.Wrapf(err, "lb.UpsertServer() fails with server(%s)", server)
+			return nil, errKit.Wrapf(err, "lb.UpsertServer() fails with server(%s)", server)
 		}
 	}
 	/*
@@ -82,7 +82,7 @@ func NewLoadBalancerHandler(reverseProxy *httputil.ReverseProxy, servers []strin
 		buffer.Logger(logger),
 	)
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "buffer.New() fails")
+		return nil, errKit.Wrapf(err, "buffer.New() fails")
 	}
 	return buf.ServeHTTP, nil
 }

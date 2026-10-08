@@ -4,7 +4,7 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-version"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -48,7 +48,7 @@ func Sort(s []string) ([]*version.Version, error) {
 	for i, ele := range s {
 		v, err := version.NewVersion(ele)
 		if err != nil {
-			return nil, errorKit.Wrapf(err, "ele(index: %d, value: %s) of param s is invalid", i, ele)
+			return nil, errKit.Wrapf(err, "ele(index: %d, value: %s) of param s is invalid", i, ele)
 		}
 		versions[i] = v
 	}

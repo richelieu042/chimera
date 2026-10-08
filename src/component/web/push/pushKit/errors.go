@@ -3,15 +3,15 @@ package pushKit
 import (
 	"errors"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 var (
-	NotSetupError = errorKit.Newf("haven’t been set up correctly")
+	NotSetupError = errKit.Newf("haven’t been set up correctly")
 
-	ChannelClosedError = errorKit.Newf("channel has already been closed")
+	ChannelClosedError = errKit.Newf("channel has already been closed")
 
-	NoSuitableChannelError = errorKit.Newf("no suitable channel")
+	NoSuitableChannelError = errKit.Newf("no suitable channel")
 )
 
 // IsNoSuitableChannelError 推送返回的error，是否是因为不存在对应的channel？

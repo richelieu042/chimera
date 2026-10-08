@@ -2,7 +2,7 @@ package consulKit
 
 import (
 	"github.com/hashicorp/consul/api"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 )
 
@@ -25,7 +25,7 @@ func NewClient(config *api.Config) (*api.Client, error) {
 	// 防止 Address 是无效的
 	_, err = client.Agent().Checks()
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to get the locally registered checks")
+		return nil, errKit.Wrapf(err, "fail to get the locally registered checks")
 	}
 
 	return client, nil

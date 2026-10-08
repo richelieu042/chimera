@@ -3,7 +3,7 @@ package otelKit
 import (
 	"context"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"go.opentelemetry.io/otel/attribute"
 	"go.opentelemetry.io/otel/sdk/resource"
 	semconv "go.opentelemetry.io/otel/semconv/v1.40.0"
@@ -28,7 +28,7 @@ func newDetailedResource(serviceName string, attributeMap map[string]string) (*r
 		resource.WithAttributes(attributes...),
 	)
 	if err != nil {
-		return nil, errorKit.Newf("fail to create resource")
+		return nil, errKit.Newf("fail to create resource")
 	}
 	return res, nil
 }

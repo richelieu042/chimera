@@ -1,7 +1,7 @@
 package redisKit
 
 import (
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -16,7 +16,7 @@ func IsConsumerGroupNameAlreadyExistError(err error) bool {
 		return false
 	}
 
-	err = errorKit.Cause(err)
+	err = errKit.UnwrapAll(err)
 	return strKit.ContainsIgnoreCase(err.Error(), "BUSYGROUP Consumer Group name already exists")
 }
 
@@ -31,6 +31,6 @@ func IsNoStreamOrNoGroupError(err error) bool {
 		return false
 	}
 
-	err = errorKit.Cause(err)
+	err = errKit.UnwrapAll(err)
 	return strKit.ContainsIgnoreCase(err.Error(), "NOGROUP No such key") && strKit.ContainsIgnoreCase(err.Error(), "or consumer group")
 }

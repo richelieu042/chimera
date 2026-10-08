@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 	"go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc"
@@ -27,7 +27,7 @@ PS:
 */
 func NewGrpcTracerProvider(endpoint, serviceName string, attributeMap map[string]string, opts ...otlptracegrpc.Option) (*trace.TracerProvider, error) {
 	if err := validateKit.Var(endpoint, "omitempty,hostname_port"); err != nil {
-		return nil, errorKit.Newf("invalid endpoint(%s)", endpoint)
+		return nil, errKit.Newf("invalid endpoint(%s)", endpoint)
 	}
 	if strKit.IsNotEmpty(endpoint) {
 		// 放在最后面（优先级最高）
@@ -40,7 +40,7 @@ func NewGrpcTracerProvider(endpoint, serviceName string, attributeMap map[string
 	defer cancel()
 	exporter, err := otlptracegrpc.New(ctx, opts...)
 	if err != nil {
-		return nil, errorKit.Wrapf(err, "fail to new exporter")
+		return nil, errKit.Wrapf(err, "fail to new exporter")
 	}
 
 	res, err := newDetailedResource(serviceName, attributeMap)

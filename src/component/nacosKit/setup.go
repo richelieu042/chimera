@@ -5,7 +5,7 @@ import (
 
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/richelieu042/chimera/v3/src/copyKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/intKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
@@ -44,7 +44,7 @@ func SetUp(config *Config, options ...constant.ClientOption) (err error) {
 
 	/* (0) validate */
 	if err = validateKit.Struct(config); err != nil {
-		err = errorKit.Wrapf(err, "Fail to verify")
+		err = errKit.Wrapf(err, "Fail to verify")
 		return
 	}
 
@@ -69,17 +69,17 @@ func SetUp(config *Config, options ...constant.ClientOption) (err error) {
 		var u *url.URL
 		u, err = urlKit.Parse(addr)
 		if err != nil {
-			err = errorKit.Wrapf(err, "Fail to parse address(%s).", addr)
+			err = errKit.Wrapf(err, "Fail to parse address(%s).", addr)
 			return
 		}
 		var port uint64
 		port, err = intKit.ToUint64E(u.Port())
 		if err != nil {
-			err = errorKit.Wrapf(err, "Invalid address(%s) with port string(%s).", addr, u.Port())
+			err = errKit.Wrapf(err, "Invalid address(%s) with port string(%s).", addr, u.Port())
 			return
 		}
 		if err = netKit.AssertValidPort(int(port)); err != nil {
-			err = errorKit.Wrapf(err, "Invalid address(%s) with port(%d).", addr, port)
+			err = errKit.Wrapf(err, "Invalid address(%s) with port(%d).", addr, port)
 			return
 		}
 
@@ -91,7 +91,7 @@ func SetUp(config *Config, options ...constant.ClientOption) (err error) {
 		})
 	}
 	if sliceKit.IsEmpty(serverConfigs) {
-		err = errorKit.Newf("No valid address.")
+		err = errKit.Newf("No valid address.")
 		return
 	}
 

@@ -2,7 +2,7 @@ package jwtKit
 
 import (
 	"github.com/golang-jwt/jwt/v5"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/interfaceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/caesarKit"
@@ -29,7 +29,7 @@ func Verify(tokenString string, keyFunc jwt.Keyfunc, options ...jwt.ParserOption
 		return nil, err
 	}
 	if len(strKit.Split(tokenString, ".")) != 3 {
-		return nil, errorKit.Newf("tokenString(%s) is invalid", tokenString)
+		return nil, errKit.Newf("tokenString(%s) is invalid", tokenString)
 	}
 	if err := interfaceKit.AssertNotNil(keyFunc, "keyFunc"); err != nil {
 		return nil, err
@@ -44,12 +44,12 @@ func Verify(tokenString string, keyFunc jwt.Keyfunc, options ...jwt.ParserOption
 		return nil, err
 	}
 	if !token.Valid {
-		return nil, errorKit.Newf("token is invalid")
+		return nil, errKit.Newf("token is invalid")
 	}
 
 	claims, ok := token.Claims.(jwt.MapClaims)
 	if !ok {
-		return nil, errorKit.Newf("type(%T) of claims is invalid", token.Claims)
+		return nil, errKit.Newf("type(%T) of claims is invalid", token.Claims)
 	}
 	return claims, nil
 }

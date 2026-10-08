@@ -1,7 +1,7 @@
 package ioKit
 
 //import (
-//	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+//	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 //	"github.com/richelieu042/chimera/v3/src/core/strKit"
 //	"github.com/zeromicro/go-zero/core/logx"
 //	"io"
@@ -21,7 +21,7 @@ package ioKit
 //*/
 //func NewDailyRotateRuleWriteCloser(filePath, delimiter string, days int, compress bool) (io.WriteCloser, error) {
 //	if days <= 0 {
-//		return nil, errorKit.Sign("invalid days(%d)", days)
+//		return nil, errKit.Newf("invalid days(%d)", days)
 //	}
 //	delimiter = strKit.EmptyToDefault(delimiter, defaultDelimiter)
 //
@@ -58,13 +58,13 @@ package ioKit
 //*/
 //func NewSizeLimitRotateRuleWriteCloser(filePath, delimiter string, days, maxSize, maxBackups int, compress bool) (io.WriteCloser, error) {
 //	if days <= 0 {
-//		return nil, errorKit.Sign("invalid days(%d)", days)
+//		return nil, errKit.Newf("invalid days(%d)", days)
 //	}
 //	if maxSize <= 0 {
-//		return nil, errorKit.Sign("invalid maxSize(%d)", maxSize)
+//		return nil, errKit.Newf("invalid maxSize(%d)", maxSize)
 //	}
 //	if maxBackups <= 0 {
-//		return nil, errorKit.Sign("invalid maxBackups(%d)", maxBackups)
+//		return nil, errKit.Newf("invalid maxBackups(%d)", maxBackups)
 //	}
 //	delimiter = strKit.EmptyToDefault(delimiter, defaultDelimiter)
 //

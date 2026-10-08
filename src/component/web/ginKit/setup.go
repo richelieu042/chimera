@@ -10,7 +10,7 @@ import (
 	"github.com/gin-contrib/pprof"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/codec/json"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/signalKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/log/console"
@@ -106,7 +106,7 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 	/* 业务逻辑 */
 	if businessLogic != nil {
 		if err := businessLogic(engine); err != nil {
-			return errorKit.Wrapf(err, "Fail to execute businessLogic().")
+			return errKit.Wrapf(err, "Fail to execute businessLogic().")
 		}
 	}
 
@@ -147,7 +147,7 @@ func SetUp(config *Config, businessLogic func(engine *gin.Engine) error, options
 	}
 
 	if httpPort == 0 && httpsPort == 0 {
-		return errorKit.Newf("both httpPort and httpsPort are zero")
+		return errKit.Newf("both httpPort and httpsPort are zero")
 	}
 
 	/*

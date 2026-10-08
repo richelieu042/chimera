@@ -5,7 +5,7 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
@@ -67,7 +67,7 @@ func PolyfillHosts(hosts []string, minCount int) ([]string, error) {
 	//}
 	tag := fmt.Sprintf("required,gte=%d,unique,dive,hostname_port", minCount)
 	if err := validateKit.Var(hosts, tag); err != nil {
-		return nil, errorKit.Wrapf(err, "hosts is invalid")
+		return nil, errKit.Wrapf(err, "hosts is invalid")
 	}
 	return hosts, nil
 }

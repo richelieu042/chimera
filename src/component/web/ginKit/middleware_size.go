@@ -5,12 +5,12 @@ import (
 
 	limits "github.com/gin-contrib/size"
 	"github.com/gin-gonic/gin"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/validateKit"
 )
 
 var (
-	RequestTooLargeError = errorKit.Newf("HTTP request too large")
+	RequestTooLargeError = errKit.Newf("HTTP request too large")
 )
 
 // NewSizeLimiterMiddleware 参考了echo中的 middleware.BodyLimit()
@@ -20,7 +20,7 @@ var (
 */
 func NewSizeLimiterMiddleware(limit int64) (gin.HandlerFunc, error) {
 	if err := validateKit.Var(limit, "gt=0"); err != nil {
-		return nil, errorKit.Wrapf(err, "invalid limit(%d)", limit)
+		return nil, errKit.Wrapf(err, "invalid limit(%d)", limit)
 	}
 
 	// bodyLimit 单位: B

@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"strings"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
 
@@ -23,7 +23,7 @@ func Base64ToFile(base64Str, outputPath string) error {
 		// 查找逗号分隔符的位置
 		commaIndex := strings.Index(base64Str, ",")
 		if commaIndex == -1 {
-			return errorKit.Newf("invalid base64 format: missing comma separator")
+			return errKit.Newf("invalid base64 format: missing comma separator")
 		}
 		// 截取逗号之后的base64数据
 		base64Str = base64Str[commaIndex+1:]
@@ -32,14 +32,14 @@ func Base64ToFile(base64Str, outputPath string) error {
 	// 将base64字符串解码为原始字节数据
 	imageData, err := base64.StdEncoding.DecodeString(base64Str)
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to decode base64")
+		return errKit.Wrapf(err, "fail to decode base64")
 	}
 
 	// 将解码后的图片数据写入文件
 	// 0644权限: 所有者可读写(6)，组用户可读(4)，其他用户可读(4)
 	err = fileKit.WriteToFile(outputPath, imageData, 0644)
 	if err != nil {
-		return errorKit.Wrapf(err, "fail to write file")
+		return errKit.Wrapf(err, "fail to write file")
 	}
 	return nil
 }

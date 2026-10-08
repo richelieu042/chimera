@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/baggage"
 	"go.opentelemetry.io/otel/propagation"
@@ -36,7 +36,7 @@ func InjectIntoMap(m map[string]string, spanCtx context.Context, span trace.Span
 func injectWithCarrier(carrier propagation.TextMapCarrier, spanCtx context.Context, span trace.Span) (err error) {
 	defer func() {
 		if err != nil {
-			err = errorKit.Wrapf(err, "fail to inject baggage")
+			err = errKit.Wrapf(err, "fail to inject baggage")
 		}
 	}()
 

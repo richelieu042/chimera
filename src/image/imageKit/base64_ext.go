@@ -4,7 +4,7 @@ import (
 	"encoding/base64"
 	"strings"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -34,7 +34,7 @@ func getExtensionFromDataURI(dataURI string) (string, error) {
 	// 格式: data:image/jpeg;base64,/9j/4AAQ...
 	parts := strings.SplitN(dataURI, ",", 2)
 	if len(parts) != 2 {
-		return "", errorKit.Newf("invalid dataURI")
+		return "", errKit.Newf("invalid dataURI")
 	}
 
 	// 提取 MIME 类型
@@ -70,11 +70,11 @@ func getExtensionFromBase64Data(base64Data string) (string, error) {
 	// 解码 base64
 	decoded, err := base64.StdEncoding.DecodeString(base64Data)
 	if err != nil {
-		return "", errorKit.Wrapf(err, "fail to decode base64")
+		return "", errKit.Wrapf(err, "fail to decode base64")
 	}
 
 	if len(decoded) < 4 {
-		return "", errorKit.Newf("数据太短，无法识别格式")
+		return "", errKit.Newf("数据太短，无法识别格式")
 	}
 
 	// 检测文件魔数（文件头特征字节）
@@ -114,5 +114,5 @@ func getExtensionFromBase64Data(base64Data string) (string, error) {
 		}
 	}
 
-	return "", errorKit.Newf("无法识别的图片格式")
+	return "", errKit.Newf("无法识别的图片格式")
 }

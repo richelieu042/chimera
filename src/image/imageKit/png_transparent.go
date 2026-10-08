@@ -4,7 +4,7 @@ import (
 	"image"
 	"image/png"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
@@ -29,7 +29,7 @@ func TrimTransparentForPng(inputPath, outputPath string) error {
 	// 检查文件后缀
 	inputExt := fileKit.GetExt(inputPath)
 	if inputExt != ".png" {
-		return errorKit.Newf("ext(%s) is invalid, not png", inputExt)
+		return errKit.Newf("ext(%s) is invalid, not png", inputExt)
 	}
 
 	// 读取原始图片

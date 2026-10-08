@@ -9,7 +9,7 @@ import (
 	"github.com/nacos-group/nacos-sdk-go/v2/common/constant"
 	"github.com/nacos-group/nacos-sdk-go/v2/vo"
 	"github.com/richelieu042/chimera/v3/src/consts"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/idKit"
 )
@@ -46,7 +46,7 @@ func NewConfigClient(options ...constant.ClientOption) (config_client.IConfigCli
 		Group:  tmp,
 	})
 	if err != nil {
-		err = errorKit.Wrapf(err, "Fail to pass verification, check the configuration please!")
+		err = errKit.Wrapf(err, "Fail to pass verification, check the configuration please!")
 		return nil, err
 	}
 
@@ -88,7 +88,7 @@ func NewNamingClient(options ...constant.ClientOption) (naming_client.INamingCli
 		// TODO: 此处比较low，比较错误的文本内容，看后续库有没有更新吧.
 		tmp := "instance list is empty!"
 		if !strKit.EqualsIgnoreCase(err.Error(), tmp) {
-			err = errorKit.Wrapf(err, "Fail to pass verification, check the configuration please!")
+			err = errKit.Wrapf(err, "Fail to pass verification, check the configuration please!")
 			return nil, err
 		}
 	}

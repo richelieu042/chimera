@@ -7,7 +7,7 @@ import (
 	"image/png"
 	"io"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 )
@@ -19,10 +19,10 @@ import (
 func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	// 参数检查 && 容错
 	if file == nil {
-		return errorKit.Newf("file is nil")
+		return errKit.Newf("file is nil")
 	}
 	if img == nil {
-		return errorKit.Newf("img is nil")
+		return errKit.Newf("img is nil")
 	}
 
 	switch ext {
@@ -33,7 +33,7 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 	case ".gif":
 		err = gif.Encode(file, img, nil)
 	default:
-		err = errorKit.Newf("unsupported ext: [%s]", ext)
+		err = errKit.Newf("unsupported ext: [%s]", ext)
 	}
 	return
 }
@@ -42,7 +42,7 @@ func Encode(file io.Writer, img image.Image, ext string) (err error) {
 func EncodeToPath(path string, img image.Image) (err error) {
 	path = strKit.TrimSpace(path)
 	if img == nil {
-		return errorKit.Newf("img is nil")
+		return errKit.Newf("img is nil")
 	}
 
 	file, err := fileKit.Create(path)

@@ -7,7 +7,7 @@ import (
 
 	"github.com/apache/pulsar-client-go/pulsar"
 	"github.com/richelieu042/chimera/v3/src/core/conditionKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/pathKit"
 	"github.com/richelieu042/chimera/v3/src/core/sliceKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
@@ -195,6 +195,6 @@ func _verify(logger *logrus.Logger, topic, consumerLogPath, producerLogPath, uli
 	case err := <-consumerErrCh:
 		return err
 	case <-time.After(receiveTimeout):
-		return errorKit.Newf("Fail to get all messages within timeout(%s)", receiveTimeout)
+		return errKit.Newf("Fail to get all messages within timeout(%s)", receiveTimeout)
 	}
 }

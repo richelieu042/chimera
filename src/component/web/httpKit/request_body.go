@@ -7,13 +7,13 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/ioKit"
 	"github.com/richelieu042/chimera/v3/src/urlKit"
 )
 
 var (
-	NotSeekableError = errorKit.Newf("request body is not seekable")
+	NotSeekableError = errKit.Newf("request body is not seekable")
 )
 
 // MakeRequestBodySeekable
@@ -72,7 +72,7 @@ func ResetRequestBody(req *http.Request) error {
 // OverrideRequestBody 覆盖 POST请求 的请求体（request body）.
 func OverrideRequestBody(req *http.Request, m map[string][]string) error {
 	if req.Method != http.MethodPost {
-		return errorKit.Newf("method(%s) isn't POST", req.Method)
+		return errKit.Newf("method(%s) isn't POST", req.Method)
 	}
 
 	content := ToRequestBodyString(m)

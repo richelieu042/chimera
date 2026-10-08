@@ -3,7 +3,7 @@ package rueidisKit
 import (
 	"github.com/redis/rueidis"
 	"github.com/richelieu042/chimera/v3/src/component/database/nosql/redis/redisKit"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
 
 // NewClient TODO: 没深入使用过.
@@ -26,7 +26,7 @@ func NewClient(config *redisKit.Config) (client rueidis.Client, err error) {
 		option.InitAddress = []string{config.Single.Addr}
 		option.SelectDB = config.Single.DB
 	case redisKit.ModeMasterSlave:
-		return nil, errorKit.Newf("mode(%s) is supported", config.Mode)
+		return nil, errKit.Newf("mode(%s) is supported", config.Mode)
 	case redisKit.ModeSentinel:
 		option.InitAddress = config.Sentinel.Addrs
 		option.SelectDB = config.Sentinel.DB
@@ -46,7 +46,7 @@ func NewClient(config *redisKit.Config) (client rueidis.Client, err error) {
 			option.ShuffleInit = true
 		}
 	default:
-		return nil, errorKit.Newf("mode(%s) is invalid", config.Mode)
+		return nil, errKit.Newf("mode(%s) is invalid", config.Mode)
 	}
 	return rueidis.NewClient(option)
 }

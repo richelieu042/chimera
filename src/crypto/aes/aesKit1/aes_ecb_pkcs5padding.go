@@ -11,7 +11,7 @@ import (
 	"crypto/aes"
 	"crypto/cipher"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 )
@@ -31,14 +31,14 @@ func EncryptToString(plainText, key []byte) (string, error) {
 func Encrypt(plainText, key []byte) (cipherText []byte, err error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		err = errorKit.Wrapf(err, "key(%s) is invalid", string(key))
+		err = errKit.Wrapf(err, "key(%s) is invalid", string(key))
 		return
 	}
 
 	defer func() {
 		if obj := recover(); obj != nil {
 			cipherText = nil
-			err = errorKit.Newf(strKit.ToString(obj))
+			err = errKit.Newf(strKit.ToString(obj))
 		}
 	}()
 
@@ -65,14 +65,14 @@ func DecryptToString(base64Text, key []byte) (string, error) {
 func Decrypt(cipherText, key []byte) (plainText []byte, err error) {
 	block, err := aes.NewCipher(key)
 	if err != nil {
-		err = errorKit.Wrapf(err, "key(%s) is invalid", string(key))
+		err = errKit.Wrapf(err, "key(%s) is invalid", string(key))
 		return
 	}
 
 	defer func() {
 		if obj := recover(); obj != nil {
 			plainText = nil
-			err = errorKit.Newf(strKit.ToString(obj))
+			err = errKit.Newf(strKit.ToString(obj))
 		}
 	}()
 

@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/redis/go-redis/v9"
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
@@ -75,7 +75,7 @@ func NewClient(config *Config) (client *Client, err error) {
 	case ModeCluster:
 		opts, err = newClusterOptions(config)
 	default:
-		err = errorKit.Newf("mode(%s) is invalid", config.Mode)
+		err = errKit.Newf("mode(%s) is invalid", config.Mode)
 	}
 	if err != nil {
 		return
@@ -106,14 +106,14 @@ func NewClient(config *Config) (client *Client, err error) {
 	str, err := client.Ping(ctx)
 	if err != nil {
 		if errors.Is(err, context.DeadlineExceeded) {
-			err = errorKit.Newf("initial ping timeout(%s)", pingTimeout)
+			err = errKit.Newf("initial ping timeout(%s)", pingTimeout)
 		} else {
-			err = errorKit.Wrapf(err, "initial ping fails")
+			err = errKit.Wrapf(err, "initial ping fails")
 		}
 		return
 	}
 	if !strKit.EqualsIgnoreCase(str, "PONG") {
-		err = errorKit.Newf("result(%s) of initial ping is invalid", str)
+		err = errKit.Newf("result(%s) of initial ping is invalid", str)
 		return
 	}
 	return
@@ -138,7 +138,7 @@ func newSingleOptions(config *Config) (*redis.UniversalOptions, error) {
 
 // newMasterSlaveOptions 主从模式
 func newMasterSlaveOptions(config *Config) (*redis.UniversalOptions, error) {
-	return nil, errorKit.Newf("mode(%s) is unsupported now", config.Mode)
+	return nil, errKit.Newf("mode(%s) is unsupported now", config.Mode)
 }
 
 // newSentinelOptions 哨兵模式

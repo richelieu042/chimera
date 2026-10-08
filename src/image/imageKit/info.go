@@ -8,7 +8,7 @@ import (
 	"image/png"
 	"os"
 
-	"github.com/richelieu042/chimera/v3/src/core/error/errorKit"
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/core/strKit"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"golang.org/x/image/bmp"
@@ -27,14 +27,14 @@ func GetSize(path string) (width int, height int, err error) {
 
 	imgFile, err := os.Open(path)
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail to open")
+		err = errKit.Wrapf(err, "fail to open")
 		return
 	}
 	defer imgFile.Close()
 
 	img, _, err := Decode(imgFile)
 	if err != nil {
-		err = errorKit.Wrapf(err, "fail decode")
+		err = errKit.Wrapf(err, "fail decode")
 		return
 	}
 	bounds := img.Bounds()
@@ -78,7 +78,7 @@ func GetInfo(path string) (*Info, error) {
 	case "bmp":
 		imgConf, err = bmp.DecodeConfig(bytes.NewReader(data))
 	default:
-		return nil, errorKit.Newf("invalid extName(%s)", extName)
+		return nil, errKit.Newf("invalid extName(%s)", extName)
 	}
 	if err != nil {
 		return nil, err
