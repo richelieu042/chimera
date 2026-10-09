@@ -28,7 +28,11 @@ func GetCertificateInfo(url string) (*x509.Certificate, error) {
 				InsecureSkipVerify: true,
 			},
 		},
-		Timeout: time.Second * 10,
+		CheckRedirect: func(_ *http.Request, _ []*http.Request) error {
+			// 只查询传入 URL 对应的证书，不跟随到其他端点。
+			return http.ErrUseLastResponse
+		},
+		Timeout: 10 * time.Second,
 	}
 
 	resp, err := client.Get(url)
@@ -37,6 +41,9 @@ func GetCertificateInfo(url string) (*x509.Certificate, error) {
 	}
 	defer resp.Body.Close()
 
+	if resp.TLS == nil {
+		return nil, errKit.Newf("response from url(%s) has no TLS connection state", url)
+	}
 	certs := resp.TLS.PeerCertificates
 	if len(certs) == 0 {
 		return nil, errKit.Newf("length of certs is zero")
