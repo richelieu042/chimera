@@ -3,7 +3,6 @@ package fileKit
 import (
 	"errors"
 	"os"
-	"path/filepath"
 
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 )
@@ -56,29 +55,31 @@ func RemoveAll(path string) (err error) {
 			（2）不能是符号链接，避免清空链接指向的目录
 */
 func EmptyDir(dirPath string) error {
-	info, err := os.Lstat(dirPath)
+	dir, err := openVerifiedDir(dirPath)
 	if err != nil {
 		if errors.Is(err, os.ErrNotExist) {
 			return nil
 		}
-		return errKit.Wrapf(err, "fail to lstat dir(%s)", dirPath)
+		return errKit.Wrapf(err, "fail to open dir(%s)", dirPath)
 	}
-	if info.Mode()&os.ModeSymlink != 0 {
-		return errKit.Newf("dir(%s) is a symbolic link", dirPath)
+	defer dir.Close()
+
+	rootFile, err := dir.root.Open(".")
+	if err != nil {
+		return errKit.Wrapf(err, "fail to open dir(%s)", dirPath)
 	}
-	if !info.IsDir() {
-		return errKit.Newf("path(%s) exists but it is not a directory", dirPath)
+	dirEntries, readErr := rootFile.ReadDir(-1)
+	closeErr := rootFile.Close()
+	if readErr != nil {
+		return errKit.Wrapf(readErr, "fail to read dir(%s)", dirPath)
+	}
+	if closeErr != nil {
+		return errKit.Wrapf(closeErr, "fail to close dir(%s)", dirPath)
 	}
 
-	// 遍历目录
-	dirEntries, err := os.ReadDir(dirPath)
-	if err != nil {
-		return err
-	}
 	for _, dirEntry := range dirEntries {
-		path := filepath.Join(dirPath, dirEntry.Name())
-		if err := RemoveAll(path); err != nil {
-			return err
+		if err := dir.root.RemoveAll(dirEntry.Name()); err != nil {
+			return errKit.Wrapf(err, "fail to remove entry(%s) from dir(%s)", dirEntry.Name(), dirPath)
 		}
 	}
 	return nil

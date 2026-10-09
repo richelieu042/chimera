@@ -2,6 +2,7 @@ package fileKit
 
 import (
 	"errors"
+	"io"
 	"os"
 	"path/filepath"
 
@@ -34,57 +35,125 @@ func Clean(path string, predicates ...Predicate) error {
 	}
 
 	if info.IsDir() {
-		return cleanDirectory(path, predicates)
+		dir, err := openVerifiedDir(path)
+		if err != nil {
+			return errKit.Wrapf(err, "fail to open dir(%s)", path)
+		}
+		defer dir.Close()
+
+		deleteRoot, err := cleanDirectory(dir.root, path, predicates)
+		if err != nil {
+			return err
+		}
+		if deleteRoot {
+			if err := dir.Remove(); err != nil && !errors.Is(err, os.ErrNotExist) {
+				return errKit.Wrapf(err, "fail to remove dir(%s)", path)
+			}
+		}
+		return nil
 	}
 	return cleanFile(path, info, predicates)
 }
 
-func cleanDirectory(dirPath string, predicates []Predicate) error {
-	entries, err := os.ReadDir(dirPath)
+func cleanDirectory(root *os.Root, dirPath string, predicates []Predicate) (bool, error) {
+	dir, err := root.Open(".")
 	if err != nil {
-		return errKit.Wrapf(err, "fail to read dir(%s)", dirPath)
+		return false, errKit.Wrapf(err, "fail to open dir(%s)", dirPath)
+	}
+	entries, readErr := dir.ReadDir(-1)
+	closeErr := dir.Close()
+	if readErr != nil {
+		return false, errKit.Wrapf(readErr, "fail to read dir(%s)", dirPath)
+	}
+	if closeErr != nil {
+		return false, errKit.Wrapf(closeErr, "fail to close dir(%s)", dirPath)
 	}
 
 	for _, entry := range entries {
-		entryPath := filepath.Join(dirPath, entry.Name())
-		if entry.IsDir() {
-			if err := cleanDirectory(entryPath, predicates); err != nil {
-				return err
+		name := entry.Name()
+		entryPath := filepath.Join(dirPath, name)
+		info, err := root.Lstat(name)
+		if err != nil {
+			if errors.Is(err, os.ErrNotExist) {
+				continue
+			}
+			return false, errKit.Wrapf(err, "fail to lstat entry(%s)", entryPath)
+		}
+
+		if info.IsDir() {
+			child, err := root.OpenRoot(name)
+			if err != nil {
+				return false, errKit.Wrapf(err, "fail to open dir(%s)", entryPath)
+			}
+			openedInfo, statErr := child.Stat(".")
+			if statErr != nil {
+				child.Close()
+				return false, errKit.Wrapf(statErr, "fail to stat dir(%s)", entryPath)
+			}
+			if !os.SameFile(info, openedInfo) {
+				child.Close()
+				return false, errKit.Newf("dir(%s) changed while being opened", entryPath)
+			}
+
+			deleteChild, cleanErr := cleanDirectory(child, entryPath, predicates)
+			closeErr := child.Close()
+			if cleanErr != nil {
+				return false, cleanErr
+			}
+			if closeErr != nil {
+				return false, errKit.Wrapf(closeErr, "fail to close dir(%s)", entryPath)
+			}
+			if deleteChild {
+				if err := root.Remove(name); err != nil && !errors.Is(err, os.ErrNotExist) {
+					return false, errKit.Wrapf(err, "fail to remove dir(%s)", entryPath)
+				}
 			}
 		} else {
-			info, err := entry.Info()
-			if err != nil {
-				return errKit.Wrapf(err, "fail to get info of entry(%s)", entryPath)
-			}
-			if err := cleanFile(entryPath, info, predicates); err != nil {
-				return err
+			if err := cleanRootFile(root, name, entryPath, info, predicates); err != nil {
+				return false, err
 			}
 		}
 	}
 
-	// 子项处理完毕后，若目录为空则经过 predicates 判断后再删除
-	ok, err := IsDirEmpty(dirPath)
+	empty, err := isRootEmpty(root)
 	if err != nil {
-		return errKit.Wrapf(err, "fail to judge if dir(%s) is empty", dirPath)
+		return false, errKit.Wrapf(err, "fail to judge if dir(%s) is empty", dirPath)
 	}
-	if ok {
-		info, err := os.Stat(dirPath)
-		if err != nil {
-			return errKit.Wrapf(err, "fail to stat dir(%s)", dirPath)
-		}
-
-		if !canDelete(dirPath, info, predicates) {
-			return nil // predicates 不允许删除
-		}
-
-		if err := RemoveAll(dirPath); err != nil {
-			return errKit.Wrapf(err, "fail to remove dir(%s)", dirPath)
-		}
-
-		/* 成功删除：空目录 */
+	if !empty {
+		return false, nil
 	}
 
+	info, err := root.Stat(".")
+	if err != nil {
+		return false, errKit.Wrapf(err, "fail to stat dir(%s)", dirPath)
+	}
+	return canDelete(dirPath, info, predicates), nil
+}
+
+func cleanRootFile(root *os.Root, name, path string, info os.FileInfo, predicates []Predicate) error {
+	if !canDelete(path, info, predicates) {
+		return nil
+	}
+	if err := root.Remove(name); err != nil && !errors.Is(err, os.ErrNotExist) {
+		return errKit.Wrapf(err, "fail to remove file(%s)", path)
+	}
 	return nil
+}
+
+func isRootEmpty(root *os.Root) (bool, error) {
+	dir, err := root.Open(".")
+	if err != nil {
+		return false, err
+	}
+	entries, readErr := dir.ReadDir(1)
+	closeErr := dir.Close()
+	if readErr != nil && !errors.Is(readErr, io.EOF) {
+		return false, readErr
+	}
+	if closeErr != nil {
+		return false, closeErr
+	}
+	return len(entries) == 0, nil
 }
 
 func cleanFile(filePath string, info os.FileInfo, predicates []Predicate) error {
