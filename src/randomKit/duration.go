@@ -1,8 +1,9 @@
 package randomKit
 
 import (
-	"github.com/gogf/gf/v2/util/grand"
 	"time"
+
+	"github.com/gogf/gf/v2/util/grand"
 )
 
 var (

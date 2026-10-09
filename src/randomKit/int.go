@@ -15,5 +15,5 @@ var (
 	*/
 	Int func(min, max int) int = random.RandInt
 
-	RandIntSlice func(length, min, max int) []int = random.RandIntSlice
+	IntSlice func(length, min, max int) []int = random.RandIntSlice
 )
