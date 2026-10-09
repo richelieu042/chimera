@@ -1,5 +1,3 @@
-//go:build !go1.22
-
 package randomKit
 
 import "github.com/duke-git/lancet/v2/random"
@@ -16,4 +14,6 @@ var (
 		@return 范围: [min, max)
 	*/
 	Int func(min, max int) int = random.RandInt
+
+	RandIntSlice func(length, min, max int) []int = random.RandIntSlice
 )
