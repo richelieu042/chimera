@@ -33,8 +33,13 @@ func RandFloat(min, max float64, precision int) float64 {
 	}
 
 	n := rand.Float64()*(max-min) + min
+	n = mathutil.FloorToFloat(n, precision)
+	if n < min {
+		// min 未对齐到指定精度时，向下取整可能越过下界。
+		return min
+	}
 
-	return mathutil.RoundToFloat(n, precision)
+	return n
 }
 
 // RandFloatSlice 生成随机float64数字切片，指定长度，范围和精度.（参考: random.RandFloats）
