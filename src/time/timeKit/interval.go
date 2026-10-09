@@ -25,8 +25,6 @@ type Interval struct {
 
 	// closeCh 关闭通道.
 	closeCh chan struct{}
-	// doneCh 在调度协程退出后关闭.
-	doneCh chan struct{}
 }
 
 // Stop
@@ -34,18 +32,12 @@ type Interval struct {
 PS:
 (1) 可以多次调用，不会panic，但这样没意义（只有第一次调用才有意义）;
 (2) 如果有任务正在执行，会等它先执行完.
-(3) 不能在 task 内调用当前 Interval 的 Stop 或 ClearInterval，否则会等待自身结束而死锁.
 */
 func (i *Interval) Stop() {
 	if i == nil {
 		return
 	}
 
-	i.stop()
-	<-i.doneCh
-}
-
-func (i *Interval) stop() {
 	/* 写锁 */
 	i.LockFunc(func() {
 		if i.stopped {
@@ -82,7 +74,6 @@ func SetInterval(ctx context.Context, task func(t time.Time), duration time.Dura
 		stopped: false,
 		ticker:  time.NewTicker(duration),
 		closeCh: make(chan struct{}),
-		doneCh:  make(chan struct{}),
 	}
 
 	go func(i *Interval) {
@@ -91,7 +82,6 @@ func SetInterval(ctx context.Context, task func(t time.Time), duration time.Dura
 		//	logrus.Info("[TEST] goroutine ends...")
 		//}()
 
-		defer close(i.doneCh)
 		defer i.ticker.Stop()
 
 		for {
@@ -105,7 +95,7 @@ func SetInterval(ctx context.Context, task func(t time.Time), duration time.Dura
 			case <-i.closeCh:
 				return
 			case <-ctx.Done():
-				i.stop()
+				i.Stop()
 				return
 			}
 		}
