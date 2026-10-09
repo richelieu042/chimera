@@ -1,6 +1,7 @@
 package fileKit
 
 import (
+	"errors"
 	"os"
 	"path/filepath"
 
@@ -51,14 +52,22 @@ func RemoveAll(path string) (err error) {
 
 // EmptyDir 清空目录：删掉目录中的文件和子目录（递归），但该目录本身不会被删掉.
 /*
-@param dirPath 可以不存在（此时将返回nil）
+@param dirPath 	（1）可以不存在（此时将返回nil）
+			（2）不能是符号链接，避免清空链接指向的目录
 */
 func EmptyDir(dirPath string) error {
-	if !Exists(dirPath) {
-		return nil
+	info, err := os.Lstat(dirPath)
+	if err != nil {
+		if errors.Is(err, os.ErrNotExist) {
+			return nil
+		}
+		return errKit.Wrapf(err, "fail to lstat dir(%s)", dirPath)
 	}
-	if err := AssertExistAndIsDir(dirPath); err != nil {
-		return err
+	if info.Mode()&os.ModeSymlink != 0 {
+		return errKit.Newf("dir(%s) is a symbolic link", dirPath)
+	}
+	if !info.IsDir() {
+		return errKit.Newf("path(%s) exists but it is not a directory", dirPath)
 	}
 
 	// 遍历目录

@@ -1,6 +1,7 @@
 package fileKit
 
 import (
+	"errors"
 	"os"
 	"path/filepath"
 
@@ -23,12 +24,13 @@ func Clean(path string, predicates ...Predicate) error {
 		return RemoveAll(path)
 	}
 
-	info, err := os.Stat(path)
+	// Lstat 不会跟随根符号链接，避免递归清理链接指向的目录。
+	info, err := os.Lstat(path)
 	if err != nil {
-		if os.IsNotExist(err) {
+		if errors.Is(err, os.ErrNotExist) {
 			return nil
 		}
-		return errKit.Wrapf(err, "fail to stat path(%s)", path)
+		return errKit.Wrapf(err, "fail to lstat path(%s)", path)
 	}
 
 	if info.IsDir() {
@@ -91,7 +93,7 @@ func cleanFile(filePath string, info os.FileInfo, predicates []Predicate) error 
 	}
 
 	// 安全删除一个可能不存在的文件
-	if err := Remove(filePath); err != nil && !os.IsNotExist(err) {
+	if err := Remove(filePath); err != nil && !errors.Is(err, os.ErrNotExist) {
 		return errKit.Wrapf(err, "fail to remove file(%s)", filePath)
 	}
 
