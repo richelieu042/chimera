@@ -37,7 +37,7 @@ func (grid floatGrid) value(index int) float64 {
 
 // RandFloat 生成随机float64数字，可以指定范围和精度.（参考: random.RandFloat）
 /*
-	TODO: 看后续 duke-git/lancet(目前v2.3.1) 会不会加条件编译.
+	TODO: 看后续 duke-git/lancet(目前v2.3.9) 会不会加条件编译.
 
 	@param precision 	(1) 精度（小数点后保留几位）
 						(2) 真正返回值的小数位，可能会 小于 传参precision
@@ -69,7 +69,7 @@ func RandFloat(min, max float64, precision int) float64 {
 
 // RandFloatSlice 生成随机float64数字切片，指定长度，范围和精度.（参考: random.RandFloats）
 /*
-	TODO: 看后续 duke-git/lancet(目前v2.3.1) 会不会加条件编译.
+	TODO: 看后续 duke-git/lancet(目前v2.3.9) 会不会加条件编译.
 
 	@param n         请求的元素数量；超过指定范围和精度可生成的唯一值数量时，按可生成数量返回
 	@param precision 精度（小数点后保留几位）
