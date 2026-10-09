@@ -20,6 +20,7 @@ type Interval struct {
 
 	// closeCh 在请求停止时关闭，用于通知工作 goroutine 退出。
 	closeCh chan struct{}
+
 	// doneCh 在工作 goroutine 退出后关闭，用于让 Stop 等待任务结束。
 	doneCh chan struct{}
 }
