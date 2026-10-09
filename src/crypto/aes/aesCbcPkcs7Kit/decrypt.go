@@ -2,9 +2,9 @@ package aesCbcPkcs7Kit
 
 import (
 	"crypto/aes"
-	"crypto/cipher"
 	"encoding/base64"
 
+	"github.com/gogf/gf/v2/crypto/gaes"
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/crypto/hexKit"
@@ -12,17 +12,11 @@ import (
 
 // Decrypt AES/CBC/PKCS7 解密.
 func Decrypt(data []byte, key []byte, iv []byte) ([]byte, error) {
-	block, err := aes.NewCipher(key)
-	if err != nil {
-		return nil, err
+	if len(iv) != aes.BlockSize {
+		return nil, errKit.Newf("invalid IV length(%d), want %d", len(iv), aes.BlockSize)
 	}
 
-	//blockSize := block.BlockSize()
-	blockMode := cipher.NewCBCDecrypter(block, iv)
-	origData := make([]byte, len(data))
-	blockMode.CryptBlocks(origData, data)
-	origData = pkcs7UnPadding(origData)
-	return origData, nil
+	return gaes.DecryptCBC(data, key, iv)
 }
 
 func DecryptFromBase64(base64Str string, key []byte, iv []byte) ([]byte, error) {
