@@ -5,6 +5,7 @@ import (
 	"crypto/cipher"
 	"encoding/base64"
 
+	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
 	"github.com/richelieu042/chimera/v3/src/crypto/base64Kit"
 	"github.com/richelieu042/chimera/v3/src/crypto/hexKit"
 )
@@ -14,6 +15,10 @@ import (
 PS: 返回值转换为字符串，可以考虑使用: base64.StdEncoding.EncodeToString().
 */
 func Encrypt(data []byte, key []byte, iv []byte) ([]byte, error) {
+	if len(iv) != aes.BlockSize {
+		return nil, errKit.Newf("invalid IV length(%d), want %d", len(iv), aes.BlockSize)
+	}
+
 	block, err := aes.NewCipher(key)
 	if err != nil {
 		return nil, err
