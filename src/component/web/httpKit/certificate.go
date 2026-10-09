@@ -4,10 +4,10 @@ import (
 	"crypto/tls"
 	"crypto/x509"
 	"net/http"
+	"net/url"
 	"time"
 
 	"github.com/richelieu042/chimera/v3/src/core/error/errKit"
-	"github.com/richelieu042/chimera/v3/src/core/strKit"
 )
 
 // GetCertificateInfo
@@ -17,17 +17,24 @@ import (
 
 @return 仅返回第一个证书信息（有多个的话）
 */
-func GetCertificateInfo(url string) (*x509.Certificate, error) {
-	if !strKit.StartWith(url, "https://") {
-		return nil, errKit.Newf("invalid url(%s)", url)
+func GetCertificateInfo(rawURL string) (*x509.Certificate, error) {
+	parsedURL, err := url.Parse(rawURL)
+	if err != nil {
+		return nil, errKit.Wrapf(err, "fail to parse url(%s)", rawURL)
+	}
+	if parsedURL.Scheme != "https" || parsedURL.Hostname() == "" {
+		return nil, errKit.Newf("invalid HTTPS url(%s)", rawURL)
 	}
 
-	client := &http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{
-				InsecureSkipVerify: true,
-			},
+	transport := &http.Transport{
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true,
 		},
+	}
+	defer transport.CloseIdleConnections()
+
+	client := &http.Client{
+		Transport: transport,
 		CheckRedirect: func(_ *http.Request, _ []*http.Request) error {
 			// 只查询传入 URL 对应的证书，不跟随到其他端点。
 			return http.ErrUseLastResponse
@@ -35,14 +42,14 @@ func GetCertificateInfo(url string) (*x509.Certificate, error) {
 		Timeout: 10 * time.Second,
 	}
 
-	resp, err := client.Get(url)
+	resp, err := client.Get(parsedURL.String())
 	if err != nil {
 		return nil, err
 	}
 	defer resp.Body.Close()
 
 	if resp.TLS == nil {
-		return nil, errKit.Newf("response from url(%s) has no TLS connection state", url)
+		return nil, errKit.Newf("response from url(%s) has no TLS connection state", rawURL)
 	}
 	certs := resp.TLS.PeerCertificates
 	if len(certs) == 0 {
