@@ -1,6 +1,8 @@
 package pdfKit
 
 import (
+	"context"
+
 	"github.com/pdfcpu/pdfcpu/pkg/api"
 	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/model"
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
@@ -16,10 +18,10 @@ import (
 							[]string{"1", "2"}
 @param conf				可以为nil
 */
-func ExtractImagesFile(inFile, outDir string, selectedPages []string, conf *model.Configuration) error {
+func ExtractImagesFile(ctx context.Context, inFile, outDir string, selectedPages []string, conf *model.Configuration) error {
 	if err := fileKit.MkDirs(outDir); err != nil {
 		return err
 	}
 
-	return api.ExtractImagesFile(inFile, outDir, selectedPages, conf)
+	return api.ExtractImagesFile(ctx, inFile, outDir, selectedPages, conf)
 }

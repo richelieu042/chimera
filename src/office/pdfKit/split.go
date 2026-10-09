@@ -1,7 +1,7 @@
 package pdfKit
 
 import (
-	"io"
+	"context"
 
 	"github.com/pdfcpu/pdfcpu/pkg/api"
 	"github.com/pdfcpu/pdfcpu/pkg/pdfcpu/model"
@@ -10,11 +10,17 @@ import (
 )
 
 var (
-	// Split 推荐使用 SplitFile，是对本函数的封装.
-	Split func(rs io.ReadSeeker, outDir, fileName string, span int, conf *model.Configuration) error = api.Split
+	// Split
+	/*
+		Deprecated: 推荐使用 SplitFile，是对本函数的封装.
+	*/
+	Split = api.Split
 
-	// SplitByPageNr 推荐使用 SplitByPageNrFile，是对本函数的封装.
-	SplitByPageNr func(rs io.ReadSeeker, outDir, fileName string, pageNrs []int, conf *model.Configuration) error = api.SplitByPageNr
+	// SplitByPageNr
+	/*
+		Deprecated: 推荐使用 SplitByPageNrFile，是对本函数的封装.
+	*/
+	SplitByPageNr = api.SplitByPageNr
 )
 
 // SplitFile 拆分pdf文件（可以指定生成pdf文件的页数）.
@@ -23,7 +29,7 @@ var (
 @param span		每几页拆分为一个pdf文件？应该>=1
 @param conf		可以为nil
 */
-func SplitFile(inFile, outDir string, span int, conf *model.Configuration) error {
+func SplitFile(ctx context.Context, inFile, outDir string, span int, conf *model.Configuration) error {
 	/* inFile */
 	if err := fileKit.AssertExistAndIsFile(inFile); err != nil {
 		return err
@@ -36,7 +42,7 @@ func SplitFile(inFile, outDir string, span int, conf *model.Configuration) error
 		return err
 	}
 
-	return api.SplitFile(inFile, outDir, span, conf)
+	return api.SplitFile(ctx, inFile, outDir, span, conf)
 }
 
 // SplitByPageNrFile
@@ -51,7 +57,7 @@ e.g. 34页的pdf文件，传参pageNrs为[]int{2}，结果: 拆分为2个pdf文�
 		panic(err)
 	}
 */
-func SplitByPageNrFile(inFile, outDir string, pageNrs []int, conf *model.Configuration) error {
+func SplitByPageNrFile(ctx context.Context, inFile, outDir string, pageNrs []int, conf *model.Configuration) error {
 	/* inFile */
 	if err := fileKit.AssertExistAndIsFile(inFile); err != nil {
 		return err
@@ -69,5 +75,5 @@ func SplitByPageNrFile(inFile, outDir string, pageNrs []int, conf *model.Configu
 		return err
 	}
 
-	return api.SplitByPageNrFile(inFile, outDir, pageNrs, conf)
+	return api.SplitByPageNrFile(ctx, inFile, outDir, pageNrs, conf)
 }
