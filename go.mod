@@ -6,16 +6,16 @@ require (
 	filippo.io/edwards25519 v1.2.0
 	fyne.io/fyne/v2 v2.8.2
 	github.com/alwindoss/morse v1.0.1
-	github.com/andybalholm/brotli v1.2.6
+	github.com/andybalholm/brotli v1.2.7
 	github.com/apache/pulsar-client-go v0.21.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
-	github.com/bytedance/sonic v1.15.4
+	github.com/bytedance/sonic v1.15.5
 	github.com/cockroachdb/errors v1.14.0
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.20.0
 	github.com/deckarep/golang-set/v3 v3.0.0
 	github.com/dromara/carbon/v2 v2.7.0
-	github.com/duke-git/lancet/v2 v2.3.9
+	github.com/duke-git/lancet/v2 v2.4.0
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
 	github.com/emersion/go-message v0.18.2
@@ -33,7 +33,7 @@ require (
 	github.com/go-oauth2/oauth2/v4 v4.6.0
 	github.com/go-pay/gopay v1.5.123
 	github.com/go-playground/validator/v10 v10.30.5
-	github.com/go-redsync/redsync/v4 v4.18.0
+	github.com/go-redsync/redsync/v4 v4.18.1
 	github.com/go-resty/resty/v2 v2.17.2
 	github.com/go-viper/encoding/ini v0.1.1
 	github.com/go-viper/encoding/javaproperties v0.1.0
@@ -56,7 +56,7 @@ require (
 	github.com/hashicorp/go-version v1.9.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
 	github.com/hashicorp/raft v1.8.0
-	github.com/hashicorp/raft-boltdb v0.0.0-20260916154238-7915f80fb457
+	github.com/hashicorp/raft-boltdb v0.0.0-20261026132331-73a435c3e2c3
 	github.com/hashicorp/serf v0.11.0
 	github.com/hibiken/asynq v0.26.0
 	github.com/imroc/req/v3 v3.61.0
@@ -68,7 +68,7 @@ require (
 	github.com/klauspost/compress v1.20.3
 	github.com/klauspost/cpuid/v2 v2.4.1
 	github.com/linxGnu/grocksdb v1.11.1
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261018023631-f8b0792b0cd7
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261025050407-70d862dbc7ee
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.12
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -106,7 +106,7 @@ require (
 	github.com/spf13/viper v1.21.0
 	github.com/tidwall/buntdb v1.3.2
 	github.com/tidwall/gjson v1.20.0
-	github.com/tuotoo/qrcode v0.0.0-20220425170535-52ccc2bebf5d
+	github.com/tuotoo/qrcode v0.0.0-20261026023753-92f9dec323cc
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.3.0
 	github.com/xuri/excelize/v2 v2.11.0
@@ -206,7 +206,7 @@ require (
 	github.com/boyter/go-string v1.0.5 // indirect
 	github.com/buger/jsonparser v1.1.1 // indirect
 	github.com/bytedance/gopkg v0.1.4 // indirect
-	github.com/bytedance/sonic/loader v0.5.2 // indirect
+	github.com/bytedance/sonic/loader v0.5.3 // indirect
 	github.com/cenkalti/backoff/v5 v5.0.3 // indirect
 	github.com/census-instrumentation/opencensus-proto v0.4.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
