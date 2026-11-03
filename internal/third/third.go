@@ -22,6 +22,5 @@ import (
 	_ "golang.org/x/time/rate"
 	_ "golang.org/x/tools/blog"
 
-	_ "filippo.io/edwards25519"        // 处理v1.1.0的漏洞
 	_ "github.com/hashicorp/serf/serf" // 处理hashicorp系依赖的内部依赖问题
 )
