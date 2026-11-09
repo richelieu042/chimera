@@ -5,7 +5,7 @@ go 1.27.3
 require (
 	fyne.io/fyne/v2 v2.8.2
 	github.com/alwindoss/morse v1.0.1
-	github.com/andybalholm/brotli v1.2.7
+	github.com/andybalholm/brotli v1.2.8
 	github.com/apache/pulsar-client-go v0.21.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
 	github.com/bytedance/sonic v1.15.5
@@ -13,7 +13,7 @@ require (
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.20.0
 	github.com/deckarep/golang-set/v3 v3.0.0
-	github.com/dromara/carbon/v2 v2.7.0
+	github.com/dromara/carbon/v2 v2.7.1
 	github.com/duke-git/lancet/v2 v2.4.0
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -21,12 +21,12 @@ require (
 	github.com/fatih/structs v1.1.0
 	github.com/fsnotify/fsnotify v1.10.1
 	github.com/gabriel-vasile/mimetype v1.4.16
-	github.com/gin-contrib/cors v1.7.10
-	github.com/gin-contrib/gzip v1.2.9
-	github.com/gin-contrib/pprof v1.5.7
+	github.com/gin-contrib/cors v1.7.11
+	github.com/gin-contrib/gzip v1.2.10
+	github.com/gin-contrib/pprof v1.5.8
 	github.com/gin-contrib/size v1.0.2
-	github.com/gin-contrib/sse v1.2.0
-	github.com/gin-contrib/static v1.1.9
+	github.com/gin-contrib/sse v1.2.1
+	github.com/gin-contrib/static v1.1.10
 	github.com/gin-gonic/gin v1.12.0
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.6.0
@@ -76,8 +76,8 @@ require (
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/modern-go/reflect2 v1.0.2
 	github.com/mozillazg/go-pinyin v0.21.0
-	github.com/mxschmitt/playwright-go v0.6201.1
-	github.com/nacos-group/nacos-sdk-go/v2 v2.3.5
+	github.com/mxschmitt/playwright-go v0.6401.0
+	github.com/nacos-group/nacos-sdk-go/v2 v2.3.6
 	github.com/nicksnyder/go-i18n/v2 v2.7.0
 	github.com/oklog/ulid/v2 v2.1.2
 	github.com/olahol/melody v1.4.0
@@ -103,16 +103,16 @@ require (
 	github.com/spf13/cast v1.10.0
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
-	github.com/tidwall/buntdb v1.3.2
-	github.com/tidwall/gjson v1.20.0
+	github.com/tidwall/buntdb v1.4.0
+	github.com/tidwall/gjson v1.20.2
 	github.com/tuotoo/qrcode v0.0.0-20261026023753-92f9dec323cc
 	github.com/unidoc/unioffice v1.39.0
-	github.com/vulcand/oxy/v2 v2.3.0
+	github.com/vulcand/oxy/v2 v2.3.2
 	github.com/xuri/excelize/v2 v2.11.1
 	github.com/yeqown/go-qrcode/v2 v2.3.0
 	github.com/yeqown/go-qrcode/writer/standard v1.4.0
 	go.etcd.io/etcd/client/v3 v3.7.3
-	go.mongodb.org/mongo-driver/v2 v2.9.3
+	go.mongodb.org/mongo-driver/v2 v2.10.0
 	go.opentelemetry.io/otel v1.47.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace v1.47.0
 	go.opentelemetry.io/otel/exporters/otlp/otlptrace/otlptracegrpc v1.47.0
@@ -126,7 +126,7 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.32.0
 	golang.org/x/crypto v0.58.0
-	golang.org/x/exp v0.0.0-20261014143641-f0251eb4aa3e
+	golang.org/x/exp v0.0.0-20261106192419-47ce03d25ef0
 	golang.org/x/image v0.47.0
 	golang.org/x/mobile v0.0.0-20261011034528-197770444867
 	golang.org/x/mod v0.42.0
@@ -137,7 +137,7 @@ require (
 	golang.org/x/term v0.47.0
 	golang.org/x/text v0.43.0
 	golang.org/x/time v0.16.0
-	golang.org/x/tools v0.52.0
+	golang.org/x/tools v0.52.1-0.20261106145633-d407941a339a
 	google.golang.org/grpc v1.85.0
 	google.golang.org/protobuf v1.36.12
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
@@ -301,7 +301,6 @@ require (
 	github.com/liuzl/cedar-go v0.0.0-20170805034717-80a9c64b256d // indirect
 	github.com/liuzl/da v0.0.0-20180704015230-14771aad5b1d // indirect
 	github.com/lufia/plan9stats v0.0.0-20230326075908-cb1d2100619a // indirect
-	github.com/mailgun/multibuf v0.2.0 // indirect
 	github.com/maruel/rs v1.1.0 // indirect
 	github.com/mattn/go-colorable v0.1.15 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
@@ -346,7 +345,7 @@ require (
 	github.com/tidwall/btree v1.4.2 // indirect
 	github.com/tidwall/grect v0.1.4 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
-	github.com/tidwall/pretty v1.2.1 // indirect
+	github.com/tidwall/pretty v1.3.0 // indirect
 	github.com/tidwall/rtred v0.1.2 // indirect
 	github.com/tidwall/tinyqueue v0.1.1 // indirect
 	github.com/tiendc/go-deepcopy v1.7.2 // indirect
@@ -358,8 +357,7 @@ require (
 	github.com/valyala/fastrand v1.1.0 // indirect
 	github.com/vulcand/predicate v1.3.0 // indirect
 	github.com/x448/float16 v0.8.4 // indirect
-	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
-	github.com/xdg-go/scram v1.2.0 // indirect
+	github.com/xdg-go/scram v1.4.0 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/xuri/efp v0.0.3-0.20260924042702-217b81952dec // indirect
 	github.com/xuri/nfp v0.0.2-0.20250530014748-2ddeb826f9a9 // indirect
@@ -378,7 +376,7 @@ require (
 	go.opentelemetry.io/proto/otlp v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
 	go.yaml.in/yaml/v2 v2.4.4 // indirect
-	go.yaml.in/yaml/v3 v3.0.5 // indirect
+	go.yaml.in/yaml/v3 v3.0.6 // indirect
 	golang.org/x/telemetry v0.0.0-20261009151841-97e8ea77aa2a // indirect
 	golang.org/x/xerrors v0.0.0-20240903120638-7835f813f4da // indirect
 	google.golang.org/api v0.230.0 // indirect
