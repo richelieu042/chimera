@@ -3,6 +3,7 @@ module github.com/richelieu042/chimera/v3
 go 1.27.3
 
 require (
+	filippo.io/edwards25519 v1.2.0
 	fyne.io/fyne/v2 v2.8.2
 	github.com/alwindoss/morse v1.0.1
 	github.com/andybalholm/brotli v1.2.8
@@ -28,6 +29,7 @@ require (
 	github.com/gin-contrib/sse v1.2.1
 	github.com/gin-contrib/static v1.1.10
 	github.com/gin-gonic/gin v1.12.0
+	github.com/go-jose/go-jose/v4 v4.1.9
 	github.com/go-kratos/kratos/v2 v2.9.2
 	github.com/go-oauth2/oauth2/v4 v4.6.0
 	github.com/go-pay/gopay v1.5.123
@@ -160,7 +162,6 @@ require (
 	cloud.google.com/go/compute/metadata v0.9.0 // indirect
 	cloud.google.com/go/iam v1.4.1 // indirect
 	contrib.go.opencensus.io/exporter/ocagent v0.7.0 // indirect
-	filippo.io/edwards25519 v1.1.0 // indirect
 	fyne.io/systray v1.12.3-0.20260810170012-af4e8e793ec4 // indirect
 	github.com/AthenZ/athenz v1.12.13 // indirect
 	github.com/BurntSushi/toml v1.6.0 // indirect
@@ -237,7 +238,6 @@ require (
 	github.com/go-faster/errors v0.7.1 // indirect
 	github.com/go-gl/gl v0.0.0-20260331235117-4566fea9a276 // indirect
 	github.com/go-gl/glfw/v3.4/glfw v0.1.0-pre.2 // indirect
-	github.com/go-jose/go-jose/v4 v4.1.4 // indirect
 	github.com/go-logr/logr v1.4.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect

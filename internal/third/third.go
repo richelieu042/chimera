@@ -7,7 +7,6 @@ import (
 	_ "google.golang.org/grpc"
 	_ "google.golang.org/protobuf/encoding/protojson"
 
-
 	_ "golang.org/x/arch/x86/x86asm"
 	_ "golang.org/x/crypto/cast5"
 	_ "golang.org/x/exp/slog"
@@ -24,4 +23,8 @@ import (
 	_ "golang.org/x/tools/blog"
 
 	_ "github.com/hashicorp/serf/serf" // 处理hashicorp系依赖的内部依赖问题
+
+	/* 处理CVE漏洞 */
+	_ "filippo.io/edwards25519"
+	_ "github.com/go-jose/go-jose/v4"
 )
