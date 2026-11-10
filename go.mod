@@ -6,7 +6,7 @@ require (
 	filippo.io/edwards25519 v1.2.0
 	fyne.io/fyne/v2 v2.8.2
 	github.com/alwindoss/morse v1.0.1
-	github.com/andybalholm/brotli v1.2.8
+	github.com/andybalholm/brotli v1.3.0
 	github.com/apache/pulsar-client-go v0.21.0
 	github.com/apache/rocketmq-clients/golang/v5 v5.1.4
 	github.com/bytedance/sonic v1.15.5
@@ -66,10 +66,10 @@ require (
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
-	github.com/klauspost/compress v1.20.3
+	github.com/klauspost/compress v1.20.4
 	github.com/klauspost/cpuid/v2 v2.4.2
 	github.com/linxGnu/grocksdb v1.11.1
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261028042204-6a276cc7c4f9
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261109085535-d003e9ea1cbc
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.12
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -126,18 +126,18 @@ require (
 	go.uber.org/ratelimit v0.3.1
 	go.uber.org/zap v1.28.0
 	gocv.io/x/gocv v0.43.0
-	golang.org/x/arch v0.32.0
+	golang.org/x/arch v0.33.0
 	golang.org/x/crypto v0.58.0
-	golang.org/x/exp v0.0.0-20261106192419-47ce03d25ef0
-	golang.org/x/image v0.47.0
+	golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920
+	golang.org/x/image v0.48.0
 	golang.org/x/mobile v0.0.0-20261011034528-197770444867
-	golang.org/x/mod v0.42.0
+	golang.org/x/mod v0.43.0
 	golang.org/x/net v0.62.0
-	golang.org/x/oauth2 v0.37.0
-	golang.org/x/sync v0.24.0
-	golang.org/x/sys v0.49.0
-	golang.org/x/term v0.47.0
-	golang.org/x/text v0.43.0
+	golang.org/x/oauth2 v0.38.0
+	golang.org/x/sync v0.25.0
+	golang.org/x/sys v0.50.0
+	golang.org/x/term v0.48.0
+	golang.org/x/text v0.44.0
 	golang.org/x/time v0.16.0
 	golang.org/x/tools v0.52.1-0.20261106145633-d407941a339a
 	google.golang.org/grpc v1.85.0
