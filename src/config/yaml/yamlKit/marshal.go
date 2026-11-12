@@ -4,7 +4,7 @@ import (
 	"os"
 
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
-	"gopkg.in/yaml.v3"
+	"go.yaml.in/yaml/v4"
 )
 
 // Marshal
