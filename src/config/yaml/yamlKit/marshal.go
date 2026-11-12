@@ -1,47 +1,20 @@
 package yamlKit
 
 import (
-	"os"
-
 	"github.com/richelieu042/chimera/v3/src/file/fileKit"
 	"go.yaml.in/yaml/v4"
 )
 
 // Marshal
 /*
-Deprecated: Use goYamlKit.Marshal as replacement.
-
 PS: 需要搭配 yaml tag 一起使用，不识别 json tag.
+	e.g.字段 UserName：
+	- 仅写 json:"user_name" → YAML 键名为 username。
+	- 加上 yaml:"user_name" → YAML 键名才是 user_name。
 */
-var Marshal func(in interface{}) (out []byte, err error) = yaml.Marshal
+var Marshal func(in any) (out []byte, err error) = yaml.Marshal
 
-// MarshalToString
-/*
-Deprecated: Use goYamlKit.Marshal as replacement.
-
-PS: 需要搭配 yaml tag 一起使用，不识别 json tag.
-
-@param in 建议为结构体实例指针 || map实例 || slice实例
-*/
-func MarshalToString(in interface{}) (string, error) {
-	data, err := Marshal(in)
-	return string(data), err
-}
-
-// MarshalToFile
-/*
-Deprecated: Use goYamlKit.Marshal as replacement.
-
-PS:
-(1) 需要搭配 yaml tag 一起使用，不识别 json tag.
-(2) 对 传参filePath 的验证和断言在 fileKit.WriteToFile 里面.
-
-@param in		建议为结构体实例指针 || map实例 || slice实例
-@param filePath (1) .yaml 格式的文件
-				(2) 不存在的话，会创建一个新的文件
-				(3) 存在且是个文件的话，会 "覆盖" 掉旧的（并不会加到该文件的最后面）
-*/
-func MarshalToFile(in interface{}, filePath string, perm os.FileMode) error {
+func MarshalToFile(in any, filePath string) error {
 	data, err := Marshal(in)
 	if err != nil {
 		return err
