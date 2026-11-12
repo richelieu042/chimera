@@ -69,7 +69,7 @@ require (
 	github.com/klauspost/compress v1.20.4
 	github.com/klauspost/cpuid/v2 v2.4.2
 	github.com/linxGnu/grocksdb v1.11.1
-	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261110072001-92e6a788d17c
+	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261112022628-200f4cc7a645
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
 	github.com/magiconair/properties v1.18.12
 	github.com/matoous/go-nanoid/v2 v2.1.0
@@ -125,9 +125,10 @@ require (
 	go.uber.org/atomic v1.12.0
 	go.uber.org/ratelimit v0.3.1
 	go.uber.org/zap v1.28.0
+	go.yaml.in/yaml/v4 v4.0.0
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.33.0
-	golang.org/x/crypto v0.58.0
+	golang.org/x/crypto v0.59.0
 	golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920
 	golang.org/x/image v0.48.0
 	golang.org/x/mobile v0.0.0-20261011034528-197770444867
