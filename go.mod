@@ -62,7 +62,7 @@ require (
 	github.com/hibiken/asynq v0.26.0
 	github.com/imroc/req/v3 v3.61.0
 	github.com/itchyny/gojq v0.12.20
-	github.com/jedib0t/go-pretty/v6 v6.8.3
+	github.com/jedib0t/go-pretty/v6 v6.9.2
 	github.com/jinzhu/copier v0.4.0
 	github.com/joho/godotenv v1.5.1
 	github.com/jordan-wright/email v4.0.1-0.20210109023952-943e75fe5223+incompatible
@@ -71,7 +71,7 @@ require (
 	github.com/linxGnu/grocksdb v1.11.1
 	github.com/lionsoul2014/ip2region/binding/golang v0.0.0-20261112022628-200f4cc7a645
 	github.com/liuzl/gocc v0.0.0-20231231122217-0372e1059ca5
-	github.com/magiconair/properties v1.18.12
+	github.com/magiconair/properties v1.18.13
 	github.com/matoous/go-nanoid/v2 v2.1.0
 	github.com/medama-io/go-useragent v1.2.5
 	github.com/mitchellh/go-homedir v1.1.0
@@ -106,8 +106,8 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 	github.com/tidwall/buntdb v1.4.0
-	github.com/tidwall/gjson v1.20.2
-	github.com/tuotoo/qrcode v0.0.0-20261026023753-92f9dec323cc
+	github.com/tidwall/gjson v1.20.3
+	github.com/tuotoo/qrcode v0.0.0-20261113061734-d82fed4e49ff
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.3.2
 	github.com/xuri/excelize/v2 v2.11.1
@@ -129,7 +129,7 @@ require (
 	gocv.io/x/gocv v0.43.0
 	golang.org/x/arch v0.33.0
 	golang.org/x/crypto v0.59.0
-	golang.org/x/exp v0.0.0-20261109185158-a52e3aef5920
+	golang.org/x/exp v0.0.0-20261113113407-e3970619a1a4
 	golang.org/x/image v0.48.0
 	golang.org/x/mobile v0.0.0-20261011034528-197770444867
 	golang.org/x/mod v0.43.0
@@ -327,6 +327,7 @@ require (
 	github.com/refraction-networking/utls v1.8.2 // indirect
 	github.com/richardlehane/mscfb v1.0.9 // indirect
 	github.com/richardlehane/msoleps v1.0.6 // indirect
+	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/rymdport/portal v0.4.2 // indirect
 	github.com/sagikazarmark/locafero v0.11.0 // indirect
