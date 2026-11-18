@@ -17,10 +17,12 @@ import (
 	_ "golang.org/x/oauth2/jws"
 	_ "golang.org/x/sync/errgroup"
 	_ "golang.org/x/sys/execabs"
+	_ "golang.org/x/telemetry"
 	_ "golang.org/x/term"
 	_ "golang.org/x/text/currency"
 	_ "golang.org/x/time/rate"
 	_ "golang.org/x/tools/blog"
+	_ "golang.org/x/xerrors"
 
 	_ "github.com/hashicorp/serf/serf" // 处理hashicorp系依赖的内部依赖问题
 
