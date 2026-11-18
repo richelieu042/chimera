@@ -8,22 +8,24 @@ import (
 func TestMarshalToString(t *testing.T) {
 	{
 		s := []string{"foo", "bar"}
-		yamlStr, err := MarshalToString(s)
+		data, err := Marshal(s)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(yamlStr)
+		fmt.Println(string(data))
 	}
+
 	fmt.Println("------")
+
 	{
-		m := map[string]interface{}{
+		m := map[string]any{
 			"a": 100,
 			"b": 200,
 		}
-		yamlStr, err := MarshalToString(m)
+		data, err := Marshal(m)
 		if err != nil {
 			panic(err)
 		}
-		fmt.Println(yamlStr)
+		fmt.Println(string(data))
 	}
 }

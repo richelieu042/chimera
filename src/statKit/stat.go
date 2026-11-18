@@ -1,6 +1,7 @@
 package statKit
 
 import (
+	"context"
 	"os"
 	"runtime"
 	"sync"
@@ -182,7 +183,7 @@ func GetStats() *Stats {
 
 		// memory
 		{
-			stats, err := memoryKit.GetMachineMemoryStat()
+			stats, err := memoryKit.GetMachineMemoryStat(context.TODO())
 			if err != nil {
 				machineStats.Memory.Error = err.Error()
 			} else {

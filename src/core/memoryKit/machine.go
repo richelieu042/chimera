@@ -23,17 +23,15 @@ var (
 	   (4) UsedPercent	内存使用百分比
 	   (5) Free		空闲状态的内存
 	*/
-	GetMachineMemoryStat func() (*mem.VirtualMemoryStat, error) = mem.VirtualMemory
-
-	GetMachineMemoryStatWithContext func(ctx context.Context) (*mem.VirtualMemoryStat, error) = mem.VirtualMemoryWithContext
+	GetMachineMemoryStat func(ctx context.Context) (*mem.VirtualMemoryStat, error) = mem.VirtualMemoryWithContext
 )
 
 // GetMachineAvailableMemory 获取（当前瞬间的）服务器可用内存.
 /*
 	PS: 很具有参考性.
 */
-func GetMachineAvailableMemory() (uint64, error) {
-	stat, err := GetMachineMemoryStat()
+func GetMachineAvailableMemory(ctx context.Context) (uint64, error) {
+	stat, err := GetMachineMemoryStat(ctx)
 	if err != nil {
 		return 0, err
 	}
@@ -46,8 +44,8 @@ func GetMachineAvailableMemory() (uint64, error) {
 		ret.Used = ret.Total - ret.Available
 		ret.UsedPercent = float64(ret.Used) / float64(ret.Total) * 100.0
 */
-func GetMachineUsedPercent() (float64, error) {
-	stat, err := GetMachineMemoryStat()
+func GetMachineUsedPercent(ctx context.Context) (float64, error) {
+	stat, err := GetMachineMemoryStat(ctx)
 	if err != nil {
 		return 0, err
 	}
