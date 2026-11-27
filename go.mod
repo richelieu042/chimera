@@ -14,7 +14,7 @@ require (
 	github.com/coocood/freecache v1.2.7
 	github.com/davidbyttow/govips/v2 v2.20.0
 	github.com/deckarep/golang-set/v3 v3.0.0
-	github.com/dromara/carbon/v2 v2.7.1
+	github.com/dromara/carbon/v2 v2.7.2
 	github.com/duke-git/lancet/v2 v2.4.0
 	github.com/emersion/go-imap v1.2.1
 	github.com/emersion/go-imap-id v0.0.0-20190926060100-f94a56b9ecde
@@ -52,7 +52,7 @@ require (
 	github.com/gorilla/sessions v1.4.0
 	github.com/gorilla/websocket v1.5.3
 	github.com/h2non/bimg v1.1.9
-	github.com/hashicorp/consul/api v1.35.0
+	github.com/hashicorp/consul/api v1.35.1
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-version v1.9.0
 	github.com/hashicorp/golang-lru/v2 v2.0.7
@@ -106,7 +106,7 @@ require (
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 	github.com/tidwall/buntdb v1.4.0
-	github.com/tidwall/gjson v1.20.6
+	github.com/tidwall/gjson v1.20.7
 	github.com/tuotoo/qrcode v0.0.0-20261116095326-307ed3bbb09d
 	github.com/unidoc/unioffice v1.39.0
 	github.com/vulcand/oxy/v2 v2.3.2

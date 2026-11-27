@@ -276,8 +276,8 @@ github.com/docker/go-connections v0.6.0 h1:LlMG9azAe1TqfR7sO+NJttz1gy6KO7VJBh+pM
 github.com/docker/go-connections v0.6.0/go.mod h1:AahvXYshr6JgfUJGdDCs2b5EZG/vmaMAntpSFH5BFKE=
 github.com/docker/go-units v0.5.0 h1:69rxXcBk27SvSaaxTtLh/8llcHD8vYHT7WSdRZ/jvr4=
 github.com/docker/go-units v0.5.0/go.mod h1:fgPhTUdO+D/Jk86RDLlptpiXQzgHJF7gydDDbaIK4Dk=
-github.com/dromara/carbon/v2 v2.7.1 h1:cSwhxTOfzVyQYO2NUuEJJ8/uS7ynbJKDVnr38OGCfAU=
-github.com/dromara/carbon/v2 v2.7.1/go.mod h1:GHBwozp4XxEhCri2PaInUwMi7C2QwqulfFjxC0qx6TA=
+github.com/dromara/carbon/v2 v2.7.2 h1:Rih5G1b7QK8SKw1VrvISpqAglKtOCAWpXU8qBaaYQ+c=
+github.com/dromara/carbon/v2 v2.7.2/go.mod h1:GHBwozp4XxEhCri2PaInUwMi7C2QwqulfFjxC0qx6TA=
 github.com/duke-git/lancet/v2 v2.4.0 h1:BNfck1Bfn4K6Ss316azUUdiKBIXnRnAMYeI3bEiHjHU=
 github.com/duke-git/lancet/v2 v2.4.0/go.mod h1:zGa2R4xswg6EG9I6WnyubDbFO/+A/RROxIbXcwryTsc=
 github.com/ebitengine/purego v0.11.2 h1:WWiTx8rD8zYdOwSj8O/NiNbsOvSAgJMTlyV1XlbUSeU=
@@ -547,10 +547,10 @@ github.com/hack-pad/safejs v0.1.0 h1:qPS6vjreAqh2amUqj4WNG1zIw7qlRQJ9K10eDKMCnE8
 github.com/hack-pad/safejs v0.1.0/go.mod h1:HdS+bKF1NrE72VoXZeWzxFOVQVUSqZJAG0xNCnb+Tio=
 github.com/hamba/avro/v2 v2.29.0 h1:fkqoWEPxfygZxrkktgSHEpd0j/P7RKTBTDbcEeMdVEY=
 github.com/hamba/avro/v2 v2.29.0/go.mod h1:Pk3T+x74uJoJOFmHrdJ8PRdgSEL/kEKteJ31NytCKxI=
-github.com/hashicorp/consul/api v1.35.0 h1:4ULHUF0DDHcDqQE48KpdbV7PIIQDua3UaJ/bEcUiTE0=
-github.com/hashicorp/consul/api v1.35.0/go.mod h1:RwV43v4y1mHVnJY2V9m89rR/0mDF9QL6q7+G0Rkma/I=
-github.com/hashicorp/consul/sdk v0.19.0 h1:zucuiWFKpggzzrx9MPHCpei74gnrLoHT/TGP2NmegHc=
-github.com/hashicorp/consul/sdk v0.19.0/go.mod h1:Xak7xFgsTYKR6j523cZDqCgZy0g/JvKMNs9MhX7MUM4=
+github.com/hashicorp/consul/api v1.35.1 h1:fVlGFvYSiNUcHfMLDpMxQypK0xlo7SUB8Y8vcTV6YOc=
+github.com/hashicorp/consul/api v1.35.1/go.mod h1:49mXhX2/52F/fn4KUgCqrDrJA+E2d9X5HlWv4q3brZc=
+github.com/hashicorp/consul/sdk v0.19.1 h1:ePDMM/XkDFCNW9x+cxAthvyUQiowrfxBcw0P9XvHgfI=
+github.com/hashicorp/consul/sdk v0.19.1/go.mod h1:J+EXUIEdnAF9+BOk/fD8YTA8MFcwJjRpiu5DAhQo8JQ=
 github.com/hashicorp/errwrap v1.0.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
 github.com/hashicorp/errwrap v1.1.0 h1:OxrOeh75EUXMY8TBjag2fzXGZ40LB6IKw45YeGUDY2I=
 github.com/hashicorp/errwrap v1.1.0/go.mod h1:YH+1FKiLXxHSkmPseP+kNlulaMuP3n2brvKWEqk/Jc4=
@@ -925,8 +925,8 @@ github.com/tidwall/btree v1.4.2/go.mod h1:LGm8L/DZjPLmeWGjv5kFrY8dL4uVhMmzmmLYms
 github.com/tidwall/buntdb v1.4.0 h1:46D9voLYYWy3vnxNZ49Pi0GWO6xsQhUacMG8FrfzLfM=
 github.com/tidwall/buntdb v1.4.0/go.mod h1:lZZrZUWzlyDJKlLQ6DKAy53LnG7m5kHyrEHvvcDmBpU=
 github.com/tidwall/gjson v1.12.1/go.mod h1:/wbyibRr2FHMks5tjHJ5F8dMZh3AcwJEMf5vlfC0lxk=
-github.com/tidwall/gjson v1.20.6 h1:Wk62aj5eK6e5MC+hn9fkRb4KndcvFWAtKIMVN/naHxQ=
-github.com/tidwall/gjson v1.20.6/go.mod h1:jV1Xkr7LRLVFhesDFU/nInoQ+MjVlnuqkUreTWMveUo=
+github.com/tidwall/gjson v1.20.7 h1:gD5awu3KIaG52afpLBeHqeepkCT1ZsUrUQlQQNX9npk=
+github.com/tidwall/gjson v1.20.7/go.mod h1:jV1Xkr7LRLVFhesDFU/nInoQ+MjVlnuqkUreTWMveUo=
 github.com/tidwall/grect v0.1.4 h1:dA3oIgNgWdSspFzn1kS4S/RDpZFLrIxAZOdJKjYapOg=
 github.com/tidwall/grect v0.1.4/go.mod h1:9FBsaYRaR0Tcy4UwefBX/UDcDcDy9V5jUcxHzv2jd5Q=
 github.com/tidwall/lotsa v1.0.2 h1:dNVBH5MErdaQ/xd9s769R31/n2dXavsQ0Yf4TMEHHw8=
